@@ -1,0 +1,39 @@
+.menu {
+}
+.header__menu {
+  display: flex;
+  position: relative;
+  z-index: 1;
+
+  &--inner {
+    padding: 2rem 0;
+    background-color: white;
+    align-items: center;
+  }
+
+  &__left {
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 30px;
+  }
+  &__right {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 30px;
+  }
+
+  &__end__right {
+    position: relative;
+    &::after {
+      position: absolute;
+      top: 0;
+      right: 0;
+      content: '';
+      z-index: 1;
+      padding-left: 30px;
+      width: 100%;
+      height: 100%;
+      translate: skewX(30deg);
+    }
+  }
+}

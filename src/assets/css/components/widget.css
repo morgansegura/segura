@@ -1,0 +1,22 @@
+.widget {
+  background: #fff;
+  border: 1px solid #000;
+  border-radius: 8px;
+  padding: 16px;
+
+  &__title {
+    background: #000;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    border: 1px solid #000;
+    border-bottom: none;
+    color: #fff;
+    font-size: 1em;
+    font-weight: bold;
+    line-height: 1;
+    margin: -16px -16px 16px;
+    padding: 12px;
+    text-transform: uppercase;
+    font-famiy: $sans-secondary;
+  }
+}

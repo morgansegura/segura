@@ -42,18 +42,17 @@ export const pageQuery = graphql`
         title
       }
     }
-    prismicHomepage {
-      slugs
-      uid
-      id
-      data {
-        title {
-          text
-        }
-        content {
-          html
-        }
-      }
-    }
+    # prismicHomepage {
+    #   uid
+    #   id
+    #   data {
+    #     title {
+    #       text
+    #     }
+    #     content {
+    #       html
+    #     }
+    #   }
+    # }
   }
 `

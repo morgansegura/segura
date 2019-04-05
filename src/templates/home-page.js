@@ -1,5 +1,4 @@
 import React from 'react'
-import Calendar from '../components/Calendar'
 
 const HomePageTemplate = ({ data: { prismicHomepage } }) => {
   const { data } = prismicHomepage
@@ -13,9 +12,7 @@ const HomePageTemplate = ({ data: { prismicHomepage } }) => {
     <React.Fragment>
       <div className="container content__wrapper content__wrapper__with-sidebar">
         <div className="row">
-          <aside className="col-12 col-md-4">
-            <Calendar />
-          </aside>
+          <aside className="col-12 col-md-4" />
           <section className="col-12 col-md-8">
             <h1>{data.title.text}</h1>
             <div dangerouslySetInnerHTML={{ __html: data.content.html }} />

@@ -25,7 +25,7 @@ const Layout = ({ children }) => (
 
       return (
         <div id="layout">
-          <SEO title="Oh happy day" />
+          <SEO title={data.site.siteMetadata.title} />
           <Header />
           <main className="main">{children}</main>
           <Footer />

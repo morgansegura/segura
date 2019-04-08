@@ -9,6 +9,12 @@
     border-color: $cta;
   }
 }
+.btn {
+  &--cta {
+    background-color: $cta;
+    color: $cta-alt;
+  }
+}
 
 .bg {
   &--whitesmoke {

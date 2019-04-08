@@ -9,7 +9,7 @@ export default class IndexPage extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      showSplashPage: false,
+      showSplashPage: true,
       bodyClassList: ' is--mobile-nav mobile-nav--is-closed',
     }
   }
@@ -24,7 +24,7 @@ export default class IndexPage extends Component {
     return (
       <React.Fragment>
         {this.state.showSplashPage === true ? (
-          <SplashPageTemplate />
+          <SplashPageTemplate data={this.props.data} />
         ) : (
           <Layout>
             <HomePageTemplate data={this.props.data} />
@@ -40,19 +40,19 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
+        shortName
       }
     }
-    # prismicHomepage {
-    #   uid
-    #   id
-    #   data {
-    #     title {
-    #       text
-    #     }
-    #     content {
-    #       html
-    #     }
-    #   }
-    # }
+    prismicHomepage {
+      id
+      data {
+        title {
+          text
+        }
+        content {
+          html
+        }
+      }
+    }
   }
 `

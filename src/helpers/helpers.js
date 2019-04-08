@@ -55,3 +55,9 @@ export const smoothScroll = () => {
     console.log(oError)
   }
 }
+
+export const toggleClass = (selector, class1, class2) => {
+  const el = selector
+  el.classList.remove(class1)
+  el.classList.add(class2)
+}

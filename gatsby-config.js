@@ -4,9 +4,9 @@ require('dotenv').config({
 
 module.exports = {
   siteMetadata: {
-    title: `Liverpool Soccer Club`,
-    siteUrl: `https://liverpoolsc.netlify.com`,
-    shortName: `LiverpoolSC`,
+    title: `Segura LLC`,
+    siteUrl: `https://segura.llc`,
+    shortName: `Segura`,
     slogan: `You'l never walk alone`,
     keywords: `soccer, club, youth, liverpool, competitive, lakeside, el cajon, san diego, east county, presidio`,
     description: `Liverpool Soccer Club ... `,

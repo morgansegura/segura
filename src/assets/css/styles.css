@@ -14,26 +14,26 @@
 @import 'modules/header';
 @import 'modules/footer';
 @import 'modules/navigation';
-/* 
-
 @import 'modules/product';
 @import 'modules/hero';
 @import 'modules/about';
 @import 'modules/contact';
-@import 'modules/menu-description'; */
+@import 'modules/splash';
+@import 'modules/menu-description';
 
 /* Components */
 @import 'components/container';
-/* @import 'components/aside';
+@import 'components/overlay';
+@import 'components/aside';
 @import 'components/content';
 @import 'components/buttons';
 @import 'components/forms';
-@import 'components/overlay';
 @import 'components/search';
 @import 'components/widget';
 @import 'components/tabs';
 @import 'components/headline';
-@import 'components/calendar'; */
+@import 'components/calendar';
+@import 'components/countdown';
 
 /* Theme */
 @import 'theme/colors';

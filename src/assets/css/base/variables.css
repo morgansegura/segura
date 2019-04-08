@@ -29,6 +29,7 @@ $theme-purple: #4e394c;
 
 /* Theme Colors */
 $cta: #ff5f57;
+$cta-alt: #fafafa;
 $gold: #f7c312;
 $whitesmoke: #fafafa;
 
@@ -62,5 +63,5 @@ $base-font-weight: 400;
 $base-font-height: 1.7;
 $base-font-color: $main-gray;
 $base-font-color-light: $main-base-color-text;
-$base-bg-color: google-color(amber, 50);
+$base-bg-color: $main-white;
 $base-transition: all 0.3s ease-out;

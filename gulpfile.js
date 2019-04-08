@@ -38,10 +38,8 @@ gulp.task('styles', () => {
     .pipe(gulp.dest('./src/assets'))
 })
 
-gulp.task('watch', function() {
-  gulp.watch('./src/assets/css/**/*.css', function() {
-    gulp.start('cssInject')
-  })
+gulp.task('watch', ['cssInject'], function() {
+  gulp.watch('./src/assets/css/**/*.css', ['cssInject'])
 })
 
 gulp.task('cssInject', ['styles'], function() {

@@ -10,65 +10,27 @@
   right: 0;
   bottom: 0;
   left: 0;
+  background-color: color(white a(0));
   opacity: 0;
   visibility: hidden;
   z-index: -1;
+  transition: opacity 0.3s ease-out;
 
-  &--is-visible,
-  .mobile-nav--is-open & {
-    /* opacity: 1;
+  &--is-visible {
+    opacity: 1;
     visibility: visible;
-    z-index: 1001;
-    transition: opacity 0.4s ease-in; */
-    /* background-color: color(white a(95%)); */
+    z-index: 2;
+    transition: opacity 0.4s ease-in;
+    background-color: color(white a(95%));
+    transition: opacity 0.3s ease-in;
   }
-  &--not-visible,
-  .mobile-nav--is-closed & {
+  &--not-visible {
+    opacity: 0;
+    visibility: hidden;
+    z-index: -1;
     transition: all 0.6s ease-out;
   }
 
-  &__top {
-    padding: 30px 0;
-  }
-
-  &__dark {
-    background: color($main-black a(90%));
-    .modal {
-      background-color: google-color(grey, 50);
-      header {
-        border-bottom: 1px solid google-color(grey, 200);
-      }
-    }
-    .trigger__close {
-      color: google-color(grey, 200);
-
-      &:hover {
-        color: google-color(grey, 600);
-      }
-      &:active {
-      }
-    }
-  }
-  &__light {
-    background: linear-gradient(color(white a(98%)), color(white a(90%)));
-
-    .modal {
-      background-color: white;
-      box-shadow: 1px 1px 20px google-color(grey, 200),
-        -1px -1px 20px google-color(grey, 200);
-      border: 1px solid google-color(grey, 300);
-    }
-    .trigger__close {
-      color: google-color(grey, 400);
-
-      &:hover {
-        color: google-color(grey, 700);
-      }
-      &:active {
-        color: google-color(grey, 600);
-      }
-    }
-  }
   .trigger__close {
     z-index: 100;
     opacity: 1;
@@ -88,17 +50,38 @@
     text-align: center;
   }
 }
+
 .modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
   padding: 10px 20px 15px 20px;
   border-radius: 3px;
   margin: 0 auto;
   max-width: 300px;
+
+  opacity: 0;
+  visibility: hidden;
+  z-index: -1;
 
   @mixin atSmall {
     max-width: 450px;
   }
   @mixin atMedium {
     max-width: 750px;
+  }
+
+  .overlay--is-visible & {
+    opacity: 1;
+    visibility: visible;
+    z-index: 2;
+  }
+  .overlay--not-visible & {
+    opacity: 0;
+    visibility: hidden;
+    z-index: -1;
   }
 
   header {
@@ -116,5 +99,18 @@
       cursor: pointer;
       transition: all 0.3s ease-out;
     }
+  }
+}
+
+.contact__form__container {
+  .overlay--is-visible & {
+    opacity: 1;
+    visibility: visible;
+    z-index: 2;
+  }
+  .overlay--not-visible & {
+    opacity: 0;
+    visibility: hidden;
+    z-index: -1;
   }
 }

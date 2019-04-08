@@ -1,0 +1,12 @@
+.splash {
+  .segura__block {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .segura__logo {
+    color: #1d161d;
+    font-family: $segura;
+    font-size: 50px;
+  }
+}

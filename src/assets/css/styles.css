@@ -34,6 +34,8 @@
 @import 'components/headline';
 @import 'components/calendar';
 @import 'components/countdown';
+@import 'components/card';
 
 /* Theme */
 @import 'theme/colors';
+@import 'theme/theme';

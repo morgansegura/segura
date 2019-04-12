@@ -3,6 +3,7 @@
   z-index: 3;
 }
 .overlay {
+  cursor: pointer;
   width: 100%;
   height: 100%;
   position: fixed;
@@ -10,18 +11,18 @@
   right: 0;
   bottom: 0;
   left: 0;
-  background-color: color(white a(0));
+  background-color: color(black a(0));
   opacity: 0;
   visibility: hidden;
   z-index: -1;
+  overflow-y: scroll;
   transition: opacity 0.3s ease-out;
 
   &--is-visible {
     opacity: 1;
     visibility: visible;
     z-index: 2;
-    transition: opacity 0.4s ease-in;
-    background-color: color(white a(95%));
+    background-color: color(black a(75%));
     transition: opacity 0.3s ease-in;
   }
   &--not-visible {
@@ -30,48 +31,16 @@
     z-index: -1;
     transition: all 0.6s ease-out;
   }
-
-  .trigger__close {
-    z-index: 100;
-    opacity: 1;
-    visibility: visible;
-    cursor: pointer;
-    width: 40px;
-    height: 40px;
-    font-size: 40px;
-    transition: all 0.3s ease-out;
-
-    position: absolute;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    top: 25px;
-    right: 15px;
-    text-align: center;
-  }
 }
 
 .modal {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  position: relative;
+  cursor: default;
   z-index: 2;
-  padding: 10px 20px 15px 20px;
-  border-radius: 3px;
-  margin: 0 auto;
-  max-width: 300px;
 
   opacity: 0;
   visibility: hidden;
   z-index: -1;
-
-  @mixin atSmall {
-    max-width: 450px;
-  }
-  @mixin atMedium {
-    max-width: 750px;
-  }
 
   .overlay--is-visible & {
     opacity: 1;
@@ -85,20 +54,14 @@
   }
 
   header {
+    position: fixed;
+    right: 15px;
+    top: 0;
+    z-index: 10;
     display: flex;
     justify-content: flex-end;
-    padding-bottom: 5px;
-    margin-bottom: 15px;
     font-family: $sans-secondary;
     font-weight: 800;
-
-    .trigger__close {
-      align-self: flex-start;
-      text-align: right;
-      font-size: 1.5rem;
-      cursor: pointer;
-      transition: all 0.3s ease-out;
-    }
   }
 }
 
@@ -112,5 +75,46 @@
     opacity: 0;
     visibility: hidden;
     z-index: -1;
+  }
+}
+.trigger__close {
+  position: absolute;
+  left: 0;
+  z-index: 3;
+  display: flex;
+  justify-content: center;
+  text-align: right;
+  font-size: 50px;
+  font-weight: normal;
+  transition: all 0.3s ease-out;
+  cursor: pointer;
+  padding: 0;
+  color: $th-premier-purple;
+  opacity: 0.4;
+  width: 100px;
+  height: 100px;
+
+  &--sm {
+    width: auto;
+    height: auto;
+    font-size: 30px;
+  }
+  &--dark {
+    color: google-color(grey, 300);
+  }
+  &--light {
+    color: $cta-light;
+  }
+
+  & svg {
+    position: relative;
+    left: 0;
+    top: 0;
+    transition: opacity 0.3s ease-out;
+  }
+  &:hover {
+    opacity: 1;
+    & svg {
+    }
   }
 }

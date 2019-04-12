@@ -11,14 +11,18 @@
 }
 .btn {
   &--cta {
-    background-color: $cta;
-    color: $cta-alt;
+    background-color: $th-pink;
+    color: white;
   }
 }
 
-.bg {
+.bg,
+.hr {
   &--whitesmoke {
     background-color: $whitesmoke;
+  }
+  &--grey-200 {
+    background-color: google-color(grey, 200);
   }
   &--gold {
     background-color: $gold;
@@ -71,6 +75,7 @@
     color: google-color(grey, 500);
   }
 }
+
 .border-color {
   &--whitesmoke {
     border-color: $whitesmoke;

@@ -2,76 +2,74 @@ import React, { Component } from 'react'
 import Contact from '../components/Contact'
 import SEO from '../components/SEO'
 import Countdown from '../components/Countdown'
+import Overlay from '../components/Overlay'
+import * as moment from 'moment'
+import { toggleFlip } from '../helpers/helpers'
 import '../assets/styles.css'
 
 class SplashPageTemplate extends Component {
   constructor(props) {
     super(props)
-
-    this.state = {
-      isToggleOn: false,
-    }
-    this.toggleModal = this.toggleModal.bind(this)
+    this.state = {}
   }
-  toggleModal() {
-    this.setState(state => ({
-      isToggleOn: !state.isToggleOn,
-    }))
-    // console.log(this.props)
-  }
-
   componentDidMount() {}
 
   render() {
-    console.log(this.state)
+    // closeOverlay()
     const { siteMetadata: splashData } = this.props.data.site
-    const currentDate = new Date()
-    const year =
-      currentDate.getMonth() === 11 && currentDate.getDate() > 23
-        ? currentDate.getFullYear() + 1
-        : currentDate.getFullYear()
+    const { countdown_date, countdown } = this.props.data.prismicHomepage.data
+
     return (
-      <div id="splash" className="wrapper">
+      <div id="splash" className="wrapper splash-page bgimg masthead">
+        <div className="bgimg blob-left1" />
         <SEO title={splashData.title} />
-        <header className="header">Nothing has to go here</header>
-        <main className="main">
-          <section id="splash" className="splash pt-200">
-            <div className="container">
-              <div className="segura__block">
-                <h1 className="t-center segura__logo">
-                  {splashData.shortName}{' '}
+
+        <main className="main d-flex flex-column justify-content-center align-items-center">
+          <header className="splash-header">
+            <div className="segura__block">
+              <h1 className="t-center segura__logo">{splashData.shortName}</h1>
+            </div>
+          </header>
+          <section id="splash" className="splash card card--light flip">
+            <button
+              className="trigger__close trigger__close--dark trigger__close--sm"
+              onClick={toggleFlip}
+            >
+              <span className="iconify" data-icon="mdi-close-circle-outline" />
+            </button>
+            <div className="container container--sm">
+              <div className="side-one">
+                <div className="coming-soon">
+                  <h2 className="t-center">We're almost ready to launch. </h2>
+                  <p>
+                    {' '}
+                    <span className="darker">
+                      {moment(countdown_date).format('MMMM DD, YYYY')}
+                    </span>
+                  </p>
+                </div>
+                <hr className="hr hr-1 hr--grey-200 ml-minus-45 mr-minus-45" />
+                {countdown === 'on' ? (
+                  <Countdown date={countdown_date} />
+                ) : null}
+                <hr className="hr hr-1 hr--grey-200 ml-minus-45 mr-minus-45" />
+                <div className="d-flex justify-content-center mt-40">
                   <button
-                    className="btn btn--sm btn__round btn--cta"
-                    onClick={this.toggleModal}
+                    className="m-auto btn btn--sm btn__round btn--cta"
+                    onClick={toggleFlip}
                   >
-                    click me
+                    Get in touch!
                   </button>
-                </h1>
+                </div>
               </div>
-              <div className="spinner__loader" />
-              <div>
-                <Countdown date={`${year}-12-24T00:00:00`} />
+              <div className="side-two">
+                <Contact />
               </div>
             </div>
           </section>
         </main>
-        <footer className="footer">Nothing has to go here</footer>
-        <div id="overlay__results">
-          <div
-            className={`overlay ${
-              this.state.isToggleOn
-                ? `overlay--is-visible`
-                : `overlay--not-visible`
-            }`}
-          >
-            <div className="modal">
-              <button className="btn btn--cta" onClick={this.toggleModal}>
-                close me
-              </button>
-              <Contact toggleModal={this.toggleModal.bind(this)} />
-            </div>
-          </div>
-        </div>
+        <footer className="footer" />
+        <Overlay />
       </div>
     )
   }

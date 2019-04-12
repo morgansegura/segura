@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import SplashPageTemplate from '../templates/splash-page'
@@ -9,7 +10,10 @@ export default class IndexPage extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      showSplashPage: true,
+      showSplashPage:
+        this.props.data.prismicHomepage.data.splash_page === 'on'
+          ? true
+          : false,
       bodyClassList: ' is--mobile-nav mobile-nav--is-closed',
     }
   }
@@ -23,6 +27,9 @@ export default class IndexPage extends Component {
   render() {
     return (
       <React.Fragment>
+        <Helmet>
+          <script src="https://code.iconify.design/1/1.0.0/iconify.min.js" />
+        </Helmet>
         {this.state.showSplashPage === true ? (
           <SplashPageTemplate data={this.props.data} />
         ) : (
@@ -52,6 +59,9 @@ export const pageQuery = graphql`
         content {
           html
         }
+        countdown
+        countdown_date
+        splash_page
       }
     }
   }

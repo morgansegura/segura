@@ -20,6 +20,60 @@ export const scrollHeader = () => {
   }
 }
 
+export const finishTransaction = () => {
+  const overlay = document.getElementsByClassName('overlay')[0]
+  overlay.classList.add('overlay--not-visible')
+  overlay.classList.remove('overlay--is-visible')
+}
+export const toggleOverlay = () => {
+  const overlay = document.getElementsByClassName('overlay')[0]
+
+  if (overlay.classList.contains('overlay--not-visible')) {
+    overlay.classList.add('overlay--is-visible')
+    overlay.classList.remove('overlay--not-visible')
+  } else {
+    overlay.classList.add('overlay--not-visible')
+    overlay.classList.remove('overlay--is-visible')
+  }
+}
+export const toggleFlip = () => {
+  const card = document.getElementsByClassName('flip')[0]
+
+  if (card.classList.contains('flip--active')) {
+    card.classList.remove('flip--active')
+    card.classList.add('flip--reverse')
+  } else {
+    card.classList.add('flip--active')
+    card.classList.remove('flip--reverse')
+  }
+}
+
+export const closeOverlay = () => {
+  const overlay = document.getElementsByClassName('overlay')
+
+  overlay.onclick = () => {
+    overlay.classList.add('overlay--not-visible')
+    overlay.classList.remove('overlay--is-visible')
+  }
+
+  document.onkeydown = function(evt) {
+    const overlay = document.getElementsByClassName('overlay')[0]
+    evt = evt || window.event
+    var isEscape = false
+    if ('key' in evt) {
+      isEscape = evt.key === 'Escape' || evt.key === 'Esc'
+    } else {
+      isEscape = evt.keyCode === 27
+    }
+    if (isEscape) {
+      overlay.classList.add('overlay--not-visible')
+      overlay.classList.remove('overlay--is-visible')
+    }
+  }
+
+  // console.log('click overlay')
+}
+
 export const moneyFormat = new Intl.NumberFormat('en-US', {
   style: 'currency',
   currency: 'USD',

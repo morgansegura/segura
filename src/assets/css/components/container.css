@@ -238,12 +238,26 @@
 }
 /* prettier-ignore */
 .hr {
+  padding: 0;
+  line-height: 0;
+  background-color: transparent;
+  box-shadow: none;
+  border-width: 0;
+  width: auto;
+
+  &::before, &::after {
+    background-color: transparent;
+    height: 0;
+    border-width: 0;
+  }  
+
   @for $num from 0 to 200 {
       &-$(num) {
-        min-height: $(num)px;
-        width: 100%;
+        height: $(num)px;
+        width: auto;
       }
   }
+
 }
 .hidden {
   &-xs {
@@ -318,3 +332,6 @@
   display: inline-block;
   line-height: 2;
 } */
+.abs-center {
+  position: absolute;
+}

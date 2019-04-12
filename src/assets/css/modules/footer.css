@@ -117,7 +117,7 @@
     }
   }
 }
-
+/* 
 .segura {
   &__block {
     display: flex;
@@ -152,7 +152,7 @@
     font-size: 24px;
     font-weight: 400;
   }
-}
+} */
 .footer .address__block {
   max-width: 300px;
   padding: 20px 0;

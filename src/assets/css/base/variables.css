@@ -26,12 +26,29 @@ $yelp-red: #d32323;
 $theme-red: #ff5f57;
 $theme-blue: #5bbad5;
 $theme-purple: #4e394c;
-
-/* Theme Colors */
-$cta: #ff5f57;
-$cta-alt: #fafafa;
+$th-yellow: #f9f4b4;
+$th-green: #03ff87;
+$th-aqua: #7ee5c2;
+$th-seagreen: #29ffcf;
+$th-seamonster: #26a69a;
+$th-premier-blue: #03f5ff;
+$th-democratic: #0932e4;
+$th-pea-coat: #001776;
+$th-pink: #f54656;
+$th-pink-dark: #e80056;
+$th-berries: #c50065;
+$th-lillies: #9b47bc;
+$th-premier-purple: #3f1152;
+$th-purple1: #3c2a3b;
+$th-purple2: #1d161d;
 $gold: #f7c312;
 $whitesmoke: #fafafa;
+
+/* Theme Colors */
+$cta: $th-seamonster;
+$cta-alt: $th-pink;
+$cta-light: $th-yellow;
+$cta-dark: $th-premier-purple;
 
 $highlighter-yellow: yellow;
 $highlighter-pink: pink;

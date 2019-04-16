@@ -11,7 +11,7 @@ export default class IndexPage extends Component {
     super(props)
     this.state = {
       showSplashPage:
-        this.props.data.prismicHomepage.data.splash_page === 'on'
+        this.props.data.prismicHomepage.data.splash_page === 'off'
           ? true
           : false,
       bodyClassList: ' is--mobile-nav mobile-nav--is-closed',

@@ -1,8 +1,12 @@
 .header {
-  background-color: $main-theme;
+  background-color: transparent;
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+  display: none;
 
   &--fixed {
-    padding-top: 60px;
+    padding-top: 100px;
   }
   &__inner {
     align-items: center;
@@ -25,8 +29,8 @@
     justify-content: flex-start;
     transition: opacity 0.3s ease-out;
     background: url('images/logo.svg') no-repeat center;
-    width: 175px;
-    height: 115px;
+    /* width: 175px; */
+    height: 50px;
 
     @mixin atSmall {
       justify-content: inherit;

@@ -2,10 +2,10 @@ import PropTypes from 'prop-types'
 import { StaticQuery, graphql, Link } from 'gatsby'
 import React from 'react'
 
-const MenuHeader = ({ siteTitle }) => (
+const Menu = ({ siteTitle }) => (
   <StaticQuery
     query={graphql`
-      query MenuHeaderQuery {
+      query MenuQuery {
         site {
           siteMetadata {
             title
@@ -30,12 +30,12 @@ const MenuHeader = ({ siteTitle }) => (
   />
 )
 
-MenuHeader.propTypes = {
+Menu.propTypes = {
   siteTitle: PropTypes.string,
 }
 
-MenuHeader.defaultProps = {
+Menu.defaultProps = {
   siteTitle: ``,
 }
 
-export default MenuHeader
+export default Menu

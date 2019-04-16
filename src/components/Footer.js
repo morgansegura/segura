@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types'
 import { StaticQuery, graphql } from 'gatsby'
+import Menu from '../components/Menus/MenuOptions'
 import React from 'react'
 
 const Footer = ({ siteTitle }) => (
@@ -16,7 +17,7 @@ const Footer = ({ siteTitle }) => (
     render={data => {
       return (
         <footer id="footerMain" className="footer">
-          Footer
+          <Menu />
         </footer>
       )
     }}

@@ -7,7 +7,7 @@
   padding-right: $pad;
   padding-left: $pad;
 
-  max-width: 960px;
+  max-width: $atLarge;
 
   @mixin atSmallest {
     max-width: $atSmall;
@@ -18,12 +18,12 @@
 
   @mixin atMedium {
     /* max-width: $atLarge; */
-    max-width: 960px;
+    max-width: $atLarge;
   }
 
   @mixin atLarge {
     /* max-width: $atLargest; */
-    max-width: 960px;
+    max-width: $atLargest;
   }
 
   &--xs {
@@ -196,7 +196,7 @@
 }
 
 .vh {
-  @for $vh from 1 to 100 {
+  @for $vh from 10 to 100 by 10 {
     &-$(vh) {
       /* prettier-ignore */
       min-height: $(vh)vh;

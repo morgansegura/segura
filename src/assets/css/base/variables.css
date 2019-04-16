@@ -1,5 +1,5 @@
 /* Fonts */
-$sans-primary: 'Roboto', sans-serif;
+$sans-primary: 'Source Sans Pro', sans-serif;
 $sans-secondary: 'Lato', sans-serif;
 $serif: 'Times', serif;
 $segura: 'Norican', cursive;
@@ -60,11 +60,11 @@ $highlighter-orange: orange;
 /* Alt Colors */
 
 /* Dimensions */
-$atSmallest: 400px;
-$atSmall: 576px;
-$atMedium: 900px;
-$atLarge: 1280px;
-$atLargest: 1920px;
+$atSmallest: 0;
+$atSmall: 540px;
+$atMedium: 720px;
+$atLarge: 960px;
+$atLargest: 1140px;
 
 /* Padding, Margin defaults */
 $pad: 15px;
@@ -80,5 +80,5 @@ $base-font-weight: 400;
 $base-font-height: 1.7;
 $base-font-color: $main-gray;
 $base-font-color-light: $main-base-color-text;
-$base-bg-color: $main-white;
+$base-bg-color: white;
 $base-transition: all 0.3s ease-out;

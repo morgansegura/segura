@@ -419,3 +419,7 @@
     background-color: red;
   }
 }
+
+.bg__gradient--blue-green {
+  background: linear-gradient(to left, #60edc9, #0095c7 60%);
+}

@@ -24,8 +24,8 @@ export default class Hero extends Component {
         `}
         render={data => {
           return (
-            <section id="home" className="hero parallax__hero bg__hero-text">
-              Hero
+            <section id="home" className={`hero ${this.props.classes}`}>
+              {this.props.children}
             </section>
           )
         }}

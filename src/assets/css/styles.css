@@ -20,6 +20,7 @@
 @import 'modules/contact';
 @import 'modules/splash';
 @import 'modules/menu-description';
+@import 'modules/services';
 
 /* Components */
 @import 'components/container';

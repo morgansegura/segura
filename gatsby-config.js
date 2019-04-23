@@ -16,7 +16,7 @@ module.exports = {
     twitterID: `@liverpoolsc`,
     fbAppID: `liverpoolsc`,
     instagramID: `liverpoolsc`,
-    googleAnalyticsId: `UA-131102503-1`,
+    googleAnalyticsId: `UA-138891523-1`,
   },
 
   plugins: [
@@ -37,23 +37,26 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-google-analytics`,
+      resolve: 'gatsby-plugin-google-marketing-platform',
       options: {
-        // trackingId: prismicSiteMetadata.googleAnalyticsId,
-      },
-    },
-    {
-      resolve: `gatsby-source-ical`,
-      options: {
-        name: `2009-boys-black`,
-        url: `http://ical-cdn.teamsnap.com/team_schedule/10a6ba84-abfd-48ca-8bca-d3f11dc74777.ics`,
-      },
-    },
-    {
-      resolve: `gatsby-source-ical`,
-      options: {
-        name: `2010-boys-white`,
-        url: `http://ical-cdn.teamsnap.com/team_schedule/154adba0-116f-0137-0493-7a163e05641b.ics`,
+        dataLayer: {
+          gaPropertyId: 'analyticsID',
+        },
+        tagmanager: {
+          id: 'GTM-TF2RZWP',
+          params: {
+            gtm_auth: 'fcEqQRh_pspucUYBeQzpYw',
+            gtm_preview: 'env-2',
+            gtm_cookies_win: 'x',
+          },
+        },
+        analytics: {
+          id: 'UA-138891523-1',
+        },
+        optimize: {
+          id: 'GTM-WPZSMLL',
+        },
+        includeInDevelopment: true,
       },
     },
     `gatsby-transformer-sharp`,

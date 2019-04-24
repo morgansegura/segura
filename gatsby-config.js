@@ -56,7 +56,7 @@ module.exports = {
         optimize: {
           id: 'GTM-WPZSMLL',
         },
-        includeInDevelopment: true,
+        includeInDevelopment: false,
       },
     },
     `gatsby-transformer-sharp`,

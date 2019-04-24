@@ -3,6 +3,7 @@ import { graphql } from 'gatsby'
 
 const Post = ({ data: { prismicPost } }) => {
   const { data } = prismicPost
+  console.log(data)
   return (
     <section
       id="post"

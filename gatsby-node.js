@@ -3,18 +3,6 @@ const path = require('path')
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
-  const posts = await graphql(`
-    {
-      allPrismicPost {
-        edges {
-          node {
-            id
-            uid
-          }
-        }
-      }
-    }
-  `)
   const pages = await graphql(`
     {
       allPrismicPage {
@@ -27,24 +15,35 @@ exports.createPages = async ({ graphql, actions }) => {
       }
     }
   `)
+  const post = await graphql(`
+    {
+      allPrismicPost {
+        edges {
+          node {
+            id
+            uid
+          }
+        }
+      }
+    }
+  `)
 
-  const pageTemplate = path.resolve('src/templates/page.js')
-  const postTemplate = path.resolve('src/templates/post.js')
-
-  posts.data.allPrismicPost.edges.forEach(edge => {
-    createPage({
-      path: `/${edge.node.uid}`,
-      component: postTemplate,
-      context: {
-        uid: edge.node.uid,
-      },
-    })
-  })
+  const pageTemplate = path.resolve('./src/templates/page.js')
+  const postTemplate = path.resolve('./src/templates/post.js')
 
   pages.data.allPrismicPage.edges.forEach(edge => {
     createPage({
       path: `/${edge.node.uid}`,
       component: pageTemplate,
+      context: {
+        uid: edge.node.uid,
+      },
+    })
+  })
+  post.data.allPrismicPost.edges.forEach(edge => {
+    createPage({
+      path: `blog/${edge.node.uid}`,
+      component: postTemplate,
       context: {
         uid: edge.node.uid,
       },

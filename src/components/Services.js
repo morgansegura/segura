@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { StaticQuery, graphql } from 'gatsby'
+import { StaticQuery, graphql, Link } from 'gatsby'
 
 export default class Services extends Component {
   constructor(props) {
@@ -28,7 +28,6 @@ export default class Services extends Component {
                     - title, subtext, button
                 - modules
                     - title, subtext, link, icons, icon links
-                    // UA-138891523-1
             */
           return (
             <section id="services" className="services">

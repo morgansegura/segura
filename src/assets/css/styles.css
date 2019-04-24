@@ -21,6 +21,7 @@
 @import 'modules/splash';
 @import 'modules/menu-description';
 @import 'modules/services';
+@import 'modules/blog';
 
 /* Components */
 @import 'components/container';

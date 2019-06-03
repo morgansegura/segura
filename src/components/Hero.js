@@ -24,8 +24,9 @@ export default class Hero extends Component {
         `}
         render={data => {
           return (
-            <section id="home" className={`hero ${this.props.classes}`}>
+            <section id="home" className={`bgimg hero ${this.props.classes}`}>
               {/* this.props.children */}
+              <div className="hero-image-shapes" />
               <div className="container">
                 <div className="row">
                   <div className="col-12 col-md-6 col__left">

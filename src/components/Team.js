@@ -30,7 +30,7 @@ export default class Team extends Component {
                     - title, subtext, link, icons, icon links
             */
           return (
-            <section id="team" className="team">
+            <section id="team" className="vh-50 team bgimg grey-angle-crossed">
               <div className="container">
                 <h1>Team Section</h1>
               </div>

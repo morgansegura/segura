@@ -3,7 +3,6 @@
   position: fixed;
   z-index: 1;
   width: 100%;
-  display: none;
 
   &--fixed {
     padding-top: 100px;
@@ -28,9 +27,9 @@
     align-items: center;
     justify-content: flex-start;
     transition: opacity 0.3s ease-out;
-    background: url('images/logo.svg') no-repeat center;
-    /* width: 175px; */
-    height: 50px;
+    background-color: google-color(amber, 300);
+    mask: url('images/logo.svg') no-repeat center;
+    height: 40px;
 
     @mixin atSmall {
       justify-content: inherit;

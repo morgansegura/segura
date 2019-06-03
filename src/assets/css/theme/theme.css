@@ -157,7 +157,7 @@
       width: 100%;
       height: 85%;
       border-radius: 100px;
-      background: color(peach a(0.075));
+      background: color($gold a(0.075));
       transform: translate(80%, 10%) skewX(7deg) skewY(0) scaleY(1) scaleX(1.04)
         rotate(1deg);
 
@@ -307,6 +307,34 @@
       }
     }
   }
+
+  &.grey-angle-crossed {
+    background-color: google-color(grey, 100);
+    z-index: 3;
+
+    /* &::before {
+      z-index: -1;
+      width: 300px;
+      height: 300px;
+      transform: translate(-215px, -250px) rotate(0) skewX(60deg);
+      background-color: $gold;
+    }
+
+    &::after {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      z-index: -1;
+      width: 80%;
+      height: 80%;
+      background: linear-gradient(
+        -15deg,
+        transparent,
+        color(google-color(amber, a700) a(0.4))
+      );
+      transform: translate(-50%, -50%) rotate(0) skewX(-30deg);
+    } */
+  }
 }
 
 .bottom-right-angle1 {
@@ -417,6 +445,78 @@
     transform: translate(-2%, 200px) skewX(0) skewY(0) scaleY(1) scaleX(1.04)
       rotate(7deg);
     background-color: red;
+  }
+}
+.bgimg.hero {
+  position: relative;
+
+  &::before {
+    content: '';
+    z-index: 1;
+    position: absolute;
+    display: block;
+    overflow: hidden;
+    left: 0;
+    top: 0;
+    width: 10%;
+    height: 50%;
+    transform: translate(250%, 0) skewX(-60deg) skewY(0) scaleY(1) scaleX(1)
+      rotate(0);
+    background-color: color(black a(10%));
+  }
+  &::after {
+    content: '';
+    z-index: 1;
+    position: absolute;
+    display: block;
+    right: 0;
+    top: 0;
+    width: 10%;
+    height: 50%;
+    transform: translate(100%, 100%) skewX(60deg) skewY(0) scaleY(1) scaleX(1)
+      rotate(0);
+    background-color: color(white a(10%));
+  }
+}
+.hero-image-shapes {
+  position: absolute;
+  z-index: 1;
+  overflow: hidden;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  opacity: 1;
+  transform: skewX(0) scaleY(1) scaleX(1) rotate(0);
+  transform-origin: 0 0;
+
+  &::before {
+    content: '';
+    z-index: -1;
+    position: absolute;
+    display: block;
+    overflow: hidden;
+    left: 0;
+    top: 0;
+    width: 50%;
+    height: 50%;
+    transform: translate(58%, 0) skewX(-60deg) skewY(0) scaleY(1) scaleX(1)
+      rotate(0);
+    background-color: color(white a(10%));
+  }
+  &::after {
+    content: '';
+    z-index: -1;
+    position: absolute;
+    display: block;
+    left: 0;
+    top: 0;
+    width: 50%;
+    height: 50%;
+    transform: translate(58%, 100%) skewX(60deg) skewY(0) scaleY(1) scaleX(1)
+      rotate(0);
+    background-color: color(white a(10%));
   }
 }
 

@@ -1,0 +1,35 @@
+.nav__footer,
+.nav__header {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  color: google-color(red, 50);
+  font-size: 1rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-family: $sans-primary;
+
+  @mixin atMedium {
+    flex-direction: flex-end;
+  }
+
+  &.social {
+    font-size: 2rem;
+  }
+
+  & .nav__item {
+    padding-top: 10px;
+    display: block;
+    border-bottom: 1px solid transparent;
+    transition: all 0.3s ease-out;
+    align-self: center;
+
+    &:hover {
+      color: white;
+      border-bottom-color: white;
+    }
+    @mixin atMedium {
+      margin-left: 2rem;
+    }
+  }
+}

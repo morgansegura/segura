@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
+import * as serviceWorker from '../components/serviceWorker'
 import Layout from '../components/Layout'
 import SplashPageTemplate from '../templates/splash-page'
 import HomePageTemplate from '../templates/home-page'
@@ -11,7 +12,7 @@ export default class IndexPage extends Component {
     super(props)
     this.state = {
       showSplashPage:
-        this.props.data.prismicHomepage.data.splash_page === 'off'
+        this.props.data.prismicHomepage.data.splash_page === 'on'
           ? true
           : false,
       bodyClassList: ' is--mobile-nav mobile-nav--is-closed',
@@ -41,6 +42,7 @@ export default class IndexPage extends Component {
     )
   }
 }
+serviceWorker.register()
 
 export const pageQuery = graphql`
   query IndexQuery {

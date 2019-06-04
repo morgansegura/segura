@@ -1,0 +1,10 @@
+.blog {
+}
+.post {
+  padding: 30px;
+  border: 2px solid google-color(grey, 100);
+
+  &__list {
+    justify-content: space-between;
+  }
+}

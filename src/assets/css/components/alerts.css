@@ -1,8 +1,0 @@
-.alert {
-  &__default {
-    background-color: google-color(green, a200);
-    border-top: 10px solid google-color(green, a200);
-    color: google-color(green, 300);
-    font-size: 36px;
-  }
-}

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import IndexPage from '../../pages/index';
 
-const IndexPagePreview = ({ entry, getAsset }) => {
+const HomePagePreview = ({ entry, getAsset }) => {
   const data = entry.getIn(['data']).toJS();
 
   if (data) {
@@ -22,11 +22,11 @@ const IndexPagePreview = ({ entry, getAsset }) => {
   }
 };
 
-IndexPagePreview.propTypes = {
+HomePagePreview.propTypes = {
   entry: PropTypes.shape({
     getIn: PropTypes.func,
   }),
   getAsset: PropTypes.func,
 };
 
-export default IndexPagePreview;
+export default HomePagePreview;

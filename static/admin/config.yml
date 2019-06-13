@@ -1,30 +1,26 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: morgansegura/segura
   branch: master
 
 media_folder: static/img
 public_folder: src/content/img
+show_preview_links: true
+publish_mode: editorial_workflow
 
-display_url: https://segurallc.netlify.com/
+site_url: https://segura.llc
+display_url: https://segura.llc
 
 collections:
-  - name: 'blog'
-    label: 'Blog'
-    folder: 'src/content/blog'
+  - name: 'post'
+    label: 'Post'
+    folder: 'src/content/post'
     create: true
     slug: '{{slug}}'
-    editor:
-      preview: true
     fields:
-      - { label: 'Layout', name: 'layout', widget: 'select', options: ['mdpost'] }
-      - { label: 'Draft', name: 'draft', widget: 'boolean', default: true }
+      - { label: 'Template Key', name: 'templateKey', widget: 'hidden', default: 'post' }
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Publish Date', name: 'date', widget: 'datetime' }
-      - { label: 'Description', name: 'description', widget: 'string' }
+      - { label: 'Description', name: 'description', widget: 'text' }
       - { label: 'Body', name: 'body', widget: 'markdown' }
-      - {
-          label: 'Featured Image',
-          name: 'image',
-          widget: 'image',
-          media_library: { config: { multiple: true } },
-        }
+      - { label: 'Tags', name: 'tags', widget: 'list' }

@@ -9,7 +9,7 @@ import Wrapper from '../components/Wrapper';
 import IndexLayout from '../layouts';
 import { colors } from '../styles/colors';
 import { inner, outer, PostFeed, SiteHeader } from '../styles/shared';
-import { PageContext } from '../templates/mdpost';
+import { PageContext } from '../templates/post';
 
 const SiteNavCenter = styled.nav`
   display: flex;
@@ -106,32 +106,33 @@ export const notFoundPageQuery = graphql`
           timeToRead
           frontmatter {
             title
+            templateKey
             date
             tags
-            image {
-              childImageSharp {
-                fluid(maxWidth: 3720) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
+            # image {
+            #   childImageSharp {
+            #     fluid(maxWidth: 3720) {
+            #       ...GatsbyImageSharpFluid
+            #     }
+            #   }
+            # }
+            image
             author {
               id
               bio
-              avatar {
-                children {
-                  ... on ImageSharp {
-                    fixed(quality: 90) {
-                      src
-                    }
-                  }
-                }
-              }
+              # avatar {
+              #   children {
+              #     ... on ImageSharp {
+              #       fixed(quality: 90) {
+              #         src
+              #       }
+              #     }
+              #   }
+              # }
             }
           }
           excerpt
           fields {
-            layout
             slug
           }
         }

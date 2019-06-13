@@ -22,7 +22,7 @@ import { colors } from '../styles/colors';
 import { inner, outer, SiteHeader, SiteMain } from '../styles/shared';
 import config from '../website-config';
 
-const PostTemplate = css`
+const PostTemplateStyles = css`
   .site-main {
     background: #fff;
     padding-bottom: 4vw;
@@ -206,7 +206,7 @@ export interface PageContext {
   };
 }
 
-const MDPostTemplate: React.FunctionComponent<PageTemplateProps> = props => {
+const PostTemplate: React.FunctionComponent<PageTemplateProps> = props => {
   const post = props.data.markdownRemark;
   let width = '';
   let height = '';
@@ -271,7 +271,7 @@ const MDPostTemplate: React.FunctionComponent<PageTemplateProps> = props => {
         {width && <meta property="og:image:width" content={width} />}
         {height && <meta property="og:image:height" content={height} />}
       </Helmet>
-      <Wrapper css={PostTemplate}>
+      <Wrapper css={PostTemplateStyles}>
         <header css={[outer, SiteHeader]}>
           <div css={inner}>
             <SiteNav />
@@ -338,7 +338,7 @@ const MDPostTemplate: React.FunctionComponent<PageTemplateProps> = props => {
   );
 };
 
-export default MDPostTemplate;
+export default PostTemplate;
 
 export const mdPostQuery = graphql`
   query($slug: String, $primaryTag: String) {
@@ -359,25 +359,26 @@ export const mdPostQuery = graphql`
         userDate: date(formatString: "D MMMM YYYY")
         date
         tags
-        image {
-          childImageSharp {
-            fluid(maxWidth: 3720) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
+        # image {
+        #   childImageSharp {
+        #     fluid(maxWidth: 3720) {
+        #       ...GatsbyImageSharpFluid
+        #     }
+        #   }
+        # }
+        image
         author {
           id
           bio
-          avatar {
-            children {
-              ... on ImageSharp {
-                fixed(quality: 90) {
-                  ...GatsbyImageSharpFixed
-                }
-              }
-            }
-          }
+          # avatar {
+          #   # children {
+          #   #   ... on ImageSharp {
+          #   #     fixed(quality: 90) {
+          #   #       ...GatsbyImageSharpFixed
+          #   #     }
+          #   #   }
+          #   # }
+          # }
         }
       }
     }

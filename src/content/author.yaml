@@ -1,15 +1,15 @@
-- id: Ghost
+- id: Morgan Segura
   avatar: avatars/ghost.png
   bio: The professional publishing platform
   twitter: TryGhost
   facebook: ghost
-  website: https://ghost.org/
+  website: https://segura.llc
   location: On a plane
-- id: Another Author
+- id: Mike Mallowe
   avatar: img/segura-logo.png
   bio: This is another test author with a profile background image
   twitter: TryGhost
   facebook: ghost
-  website: https://ghost.org/
+  website: https://segura.llc
   location: On a plane
   profile_image: img/alex-knight-326705-unsplash.jpg

@@ -1,5 +1,7 @@
 const path = require('path');
 const _ = require('lodash');
+const { createFilePath } = require('gatsby-source-filesystem');
+const { fmImagesToRelative } = require('gatsby-remark-relative-images');
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions;
@@ -8,12 +10,14 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   // interpreter if not a single content uses it. Therefore, we're putting them
   // through `createNodeField` so that the fields still exist and GraphQL won't
   // trip up. An empty string is still required in replacement to `null`.
+  console.log();
   switch (node.internal.type) {
     case 'MarkdownRemark': {
-      const { permalink, layout, primaryTag } = node.frontmatter;
+      const { permalink, templateKey, primaryTag } = node.frontmatter;
       const { relativePath } = getNode(node.parent);
 
       let slug = permalink;
+      let layout = templateKey;
 
       if (!slug) {
         slug = `/${relativePath.replace('.md', '')}/`;
@@ -56,39 +60,20 @@ exports.createPages = async ({ graphql, actions }) => {
           node {
             excerpt
             timeToRead
+            fields {
+              slug
+            }
             frontmatter {
               title
               tags
+              templateKey
               date
               draft
-              image {
-                childImageSharp {
-                  fluid(maxWidth: 3720) {
-                    aspectRatio
-                    base64
-                    sizes
-                    src
-                    srcSet
-                  }
-                }
-              }
+              image
               author {
                 id
                 bio
-                avatar {
-                  children {
-                    ... on ImageSharp {
-                      fixed(quality: 90) {
-                        src
-                      }
-                    }
-                  }
-                }
               }
-            }
-            fields {
-              layout
-              slug
             }
           }
         }
@@ -102,57 +87,11 @@ exports.createPages = async ({ graphql, actions }) => {
       }
     }
   `);
-  const pages = await graphql(`
-    {
-      allPrismicPage {
-        edges {
-          node {
-            id
-            uid
-          }
-        }
-      }
-    }
-  `);
-  const post = await graphql(`
-    {
-      allPrismicPost {
-        edges {
-          node {
-            id
-            uid
-          }
-        }
-      }
-    }
-  `);
 
   if (result.errors) {
     console.error(result.errors);
     throw new Error(result.errors);
   }
-
-  const pageTemplate = path.resolve('./src/templates/page.jsx');
-  const postTemplate = path.resolve('./src/templates/post.jsx');
-
-  pages.data.allPrismicPage.edges.forEach(edge => {
-    createPage({
-      path: `/${edge.node.uid}`,
-      component: pageTemplate,
-      context: {
-        uid: edge.node.uid,
-      },
-    });
-  });
-  post.data.allPrismicPost.edges.forEach(edge => {
-    createPage({
-      path: `/${edge.node.uid}`,
-      component: postTemplate,
-      context: {
-        uid: edge.node.uid,
-      },
-    });
-  });
 
   // Create post pages
   const posts = result.data.allMarkdownRemark.edges;
@@ -173,9 +112,10 @@ exports.createPages = async ({ graphql, actions }) => {
       // template.
       //
       // Note that the template has to exist first, or else the build will fail.
-      component: path.resolve(`./src/templates/${layout || 'mdpost'}.tsx`),
+      component: path.resolve(`./src/templates/${layout || 'post'}.tsx`),
       context: {
         // Data passed to context is available in page queries as GraphQL variables.
+        // id,
         slug,
         prev,
         next,
@@ -235,3 +175,43 @@ exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
     });
   }
 };
+exports.onCreateNode = ({ node, actions, getNode }) => {
+  const { createNodeField } = actions;
+  fmImagesToRelative(node); // convert image paths for gatsby images
+
+  if (node.internal.type === `MarkdownRemark`) {
+    const value = createFilePath({ node, getNode });
+    createNodeField({
+      name: `slug`,
+      node,
+      value,
+    });
+  }
+};
+
+/*
+              image {
+                ImageSharp {
+                  fluid(maxWidth: 3720) {
+                    aspectRatio
+                    base64
+                    sizes
+                    src
+                    srcSet
+                  }
+                }
+              }
+              author {
+                id
+                bio
+                avatar {
+                  children {
+                    ImageSharp {
+                      fixed(quality: 90) {
+                        src
+                      }
+                    }
+                  }
+                }
+              }
+*/

@@ -7,7 +7,7 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
 import { colors } from '../styles/colors';
-import { PageContext } from '../templates/mdpost';
+import { PageContext } from '../templates/post';
 
 const PostCardStyles = css`
   flex: 1 1 300px;
@@ -234,10 +234,12 @@ const PostCard: React.FunctionComponent<PostCardProps> = ({ post }) => {
                 {post.frontmatter.author.id}
               </AuthorNameTooltip>
               <Link css={StaticAvatar} to={`/author/${_.kebabCase(post.frontmatter.author.id)}/`}>
+                {/* 
                 <AuthorProfileImage
                   src={post.frontmatter.author.avatar.children[0].fixed.src}
                   alt={post.frontmatter.author.id}
                 />
+                */}
               </Link>
             </AuthorListItem>
           </AuthorList>

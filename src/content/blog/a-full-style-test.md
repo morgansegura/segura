@@ -1,11 +1,16 @@
 ---
 layout: mdpost
+draft: false
+templateKey: mdpost
 title: A Full and Comprehensive Style Test
 image: img/testimg-cover.jpg
-author: Ghost
+author: Morgan Segura
+description: The Coffee Taster’s Flavor Wheel, the official resource used by coffee tasters, has been revised for the first time this year.
 date: 2018-09-30T07:03:47.149Z
 tags:
   - Tests
+  - flavor
+  - tasting
 ---
 
 Below is just about everything you’ll need to style in the theme. Check the source code to see the many embedded elements within paragraphs.
@@ -38,7 +43,7 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
 
 ### Big Image
 
-![Test Image](img/testimg1.jpg)
+![Test Image](../img/testimg1.jpg)
 
 Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
 
@@ -46,7 +51,7 @@ Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu 
 
 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.
 
-![Small Test Image](img/testimg2.jpg)
+![Small Test Image](../img/testimg2.jpg)
 
 Labore et dolore.
 

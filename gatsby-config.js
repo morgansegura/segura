@@ -111,7 +111,7 @@ module.exports = {
     'gatsby-transformer-sharp',
     'gatsby-plugin-react-helmet',
     'gatsby-transformer-yaml',
-    'gatsby-plugin-feed',
+    // 'gatsby-plugin-feed',
     // {
     //   resolve: `gatsby-plugin-feed`,
     //   options: {
@@ -281,7 +281,12 @@ module.exports = {
         linkResolver: ({ node, key, value }) => post => `/${post.uid}`,
       },
     },
-    'gatsby-plugin-netlify-cms',
+    {
+      resolve: 'gatsby-plugin-netlify-cms',
+      options: {
+        modulePath: `${__dirname}/src/cms/cms.js`,
+      },
+    },
     'gatsby-plugin-netlify',
   ],
 };

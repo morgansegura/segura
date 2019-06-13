@@ -20,7 +20,7 @@ import {
   SiteMain,
   SiteTitle,
 } from '../styles/shared';
-import { PageContext } from '../templates/mdpost';
+import { PageContext } from '../templates/post';
 
 const HomePosts = css`
   @media (min-width: 795px) {
@@ -220,33 +220,34 @@ export const blogPageQuery = graphql`
           timeToRead
           frontmatter {
             title
+            templateKey
             date
             tags
             draft
-            image {
-              childImageSharp {
-                fluid(maxWidth: 3720) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
+            # image {
+            #   childImageSharp {
+            #     fluid(maxWidth: 3720) {
+            #       ...GatsbyImageSharpFluid
+            #     }
+            #   }
+            # }
+            image
             author {
               id
               bio
-              avatar {
-                children {
-                  ... on ImageSharp {
-                    fixed(quality: 90) {
-                      src
-                    }
-                  }
-                }
-              }
+              # avatar {
+              #   children {
+              #     ... on ImageSharp {
+              #       fixed(quality: 90) {
+              #         src
+              #       }
+              #     }
+              #   }
+              # }
             }
           }
           excerpt
           fields {
-            layout
             slug
           }
         }
@@ -254,44 +255,3 @@ export const blogPageQuery = graphql`
     }
   }
 `;
-
-/*
-
-  * Header
-    - Logo
-    - Seach 
-    - Notifications
-    - Account
-
-  * Article
-    - Title
-    - Author Block
-      - Avatar
-      - Author Name
-      - Follow Link
-      - Date
-      - Read time
-    - Post
-    [Post Needs]
-      - Healines
-      - Pull quotes
-      - Screen Grabs
-      - Code Highlighting (Gist, Prism, Carbon)
-    [Social]
-      - Claps
-      - Bookmark
-      - Twitter
-      - Facebook
-    [Comments]
-      - Avatar
-      - Date
-      - Comment body
-      - Toggle show more
-      - Clapse
-      - Response #
-      - Bookmark
-      - Report
-
-    [Comments]
-
-*/

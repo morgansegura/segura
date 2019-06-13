@@ -115,13 +115,10 @@ interface AuthorTemplateProps {
 const Author: React.FunctionComponent<AuthorTemplateProps> = props => {
   const author = props.data.authorYaml;
 
-  const edges = props.data.allMarkdownRemark.edges.filter(
-    edge => {
-      const isDraft = (edge.node.frontmatter.draft !== true ||
-        process.env.NODE_ENV === 'development');
-      return isDraft && edge.node.frontmatter.author && edge.node.frontmatter.author.id === author.id;
-    }
-  );
+  const edges = props.data.allMarkdownRemark.edges.filter(edge => {
+    const isDraft = edge.node.frontmatter.draft !== true || process.env.NODE_ENV === 'development';
+    return isDraft && edge.node.frontmatter.author && edge.node.frontmatter.author.id === author.id;
+  });
   const totalCount = edges.length;
 
   return (
@@ -160,9 +157,9 @@ const Author: React.FunctionComponent<AuthorTemplateProps> = props => {
           css={[outer, SiteHeader]}
           style={{
             // eslint-disable-next-line @typescript-eslint/camelcase
-            backgroundImage: author.profile_image ?
-              `url(${author.profile_image.childImageSharp.fluid.src})` :
-              '',
+            backgroundImage: author.profile_image
+              ? `url(${author.profile_image.childImageSharp.fluid.src})`
+              : '',
           }}
         >
           <div css={inner}>
@@ -286,9 +283,9 @@ export const pageQuery = graphql`
       }
     }
     allMarkdownRemark(
-      filter: { frontmatter: { draft: { ne: true } } },
-      sort: { fields: [frontmatter___date], order: DESC },
-      limit: 2000,
+      filter: { frontmatter: { draft: { ne: true } } }
+      sort: { fields: [frontmatter___date], order: DESC }
+      limit: 2000
     ) {
       edges {
         node {
@@ -298,30 +295,31 @@ export const pageQuery = graphql`
             title
             tags
             date
+            templateKey
             draft
-            image {
-              childImageSharp {
-                fluid(maxWidth: 3720) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
+            # image {
+            #   childImageSharp {
+            #     fluid(maxWidth: 3720) {
+            #       ...GatsbyImageSharpFluid
+            #     }
+            #   }
+            # }
+            image
             author {
               id
               bio
-              avatar {
-                children {
-                  ... on ImageSharp {
-                    fixed(quality: 90) {
-                      src
-                    }
-                  }
-                }
-              }
+              # avatar {
+              #   children {
+              #     ... on ImageSharp {
+              #       fixed(quality: 90) {
+              #         src
+              #       }
+              #     }
+              #   }
+              # }
             }
           }
           fields {
-            layout
             slug
           }
         }

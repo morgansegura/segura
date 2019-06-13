@@ -20,7 +20,7 @@ import {
   SiteMain,
   SiteTitle,
 } from '../styles/shared';
-import { PageContext } from '../templates/mdpost';
+import { PageContext } from '../templates/post';
 
 const HomePosts = css`
   @media (min-width: 795px) {
@@ -86,21 +86,6 @@ export interface IndexProps {
     };
   };
 }
-
-// prismicHomepage {
-//   id
-//   data {
-//     title {
-//       text
-//     }
-//     content {
-//       html
-//     }
-//     countdown
-//     countdown_date
-//     splash_page
-//   }
-// }
 
 const IndexPage: React.FunctionComponent<IndexProps> = props => {
   const width = props.data.header.childImageSharp.fluid.sizes.split(', ')[1].split('px')[0];
@@ -170,10 +155,6 @@ const IndexPage: React.FunctionComponent<IndexProps> = props => {
         <main id="site-main" css={[SiteMain, outer]}>
           <div css={inner}>
             <div css={[PostFeed, PostFeedRaise]}>
-              <h1>{props.data.prismicHomepage.data.title.text}</h1>
-              <div
-                dangerouslySetInnerHTML={{ __html: props.data.prismicHomepage.data.content.html }}
-              />
               {props.data.allMarkdownRemark.edges.map(post => {
                 // filter out drafts in production
                 return (
@@ -216,20 +197,6 @@ export const indexPageQuery = graphql`
         }
       }
     }
-    prismicHomepage {
-      id
-      data {
-        title {
-          text
-        }
-        content {
-          html
-        }
-        countdown
-        countdown_date
-        splash_page
-      }
-    }
     allMarkdownRemark(
       sort: { fields: [frontmatter___date], order: DESC }
       filter: { frontmatter: { draft: { ne: true } } }
@@ -240,33 +207,34 @@ export const indexPageQuery = graphql`
           timeToRead
           frontmatter {
             title
+            templateKey
             date
             tags
             draft
-            image {
-              childImageSharp {
-                fluid(maxWidth: 3720) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
+            # image {
+            #   childImageSharp {
+            #     fluid(maxWidth: 3720) {
+            #       ...GatsbyImageSharpFluid
+            #     }
+            #   }
+            # }
+            image
             author {
               id
               bio
-              avatar {
-                children {
-                  ... on ImageSharp {
-                    fixed(quality: 90) {
-                      src
-                    }
-                  }
-                }
-              }
+              # avatar {
+              #   children {
+              #     ... on ImageSharp {
+              #       fixed(quality: 90) {
+              #         src
+              #       }
+              #     }
+              #   }
+              # }
             }
           }
           excerpt
           fields {
-            layout
             slug
           }
         }
@@ -274,77 +242,3 @@ export const indexPageQuery = graphql`
     }
   }
 `;
-
-/*
-import React, { Component } from 'react'
-import Helmet from 'react-helmet'
-import { graphql } from 'gatsby'
-import * as serviceWorker from '../components/serviceWorker'
-
-import SplashPageTemplate from '../templates/splash-page'
-import HomePageTemplate from '../templates/home-page'
-import { smoothScroll } from '../helpers/helpers'
-
-export default class IndexPage extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      showSplashPage:
-        this.props.data.prismicHomepage.data.splash_page === 'off'
-          ? true
-          : false,
-      bodyClassList: ' is--mobile-nav mobile-nav--is-closed',
-    }
-  }
-  componentDidMount() {
-    smoothScroll()
-    // const body = document.getElementsByTagName('body')[0]
-    // body.className += this.state.bodyClassList
-  }
-  componentWillUnmount() {}
-
-  render() {
-    const { data } = this.props.data.prismicHomepage
-
-    return (
-      <React.Fragment>
-        <Helmet>
-          <script src="https://code.iconify.design/1/1.0.0/iconify.min.js" />
-        </Helmet>
-        {this.state.showSplashPage === true ? (
-          <SplashPageTemplate data={this.props.data} />
-        ) : (
-          <HomePageTemplate data={data} />
-        )}
-      </React.Fragment>
-    )
-  }
-}
-serviceWorker.unregister()
-
-export const pageQuery = graphql`
-  query IndexQuery {
-    site {
-      siteMetadata {
-        title
-        shortName
-      }
-    }
-    prismicHomepage {
-      id
-      data {
-        title {
-          text
-        }
-        content {
-          html
-        }
-        countdown
-        countdown_date
-        splash_page
-      }
-    }
-  }
-`
-
-*/

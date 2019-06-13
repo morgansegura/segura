@@ -159,31 +159,32 @@ export const pageQuery = graphql`
           timeToRead
           frontmatter {
             title
+            templateKey
             tags
             date
-            image {
-              childImageSharp {
-                fluid(maxWidth: 1240) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
+            # image {
+            #   childImageSharp {
+            #     fluid(maxWidth: 1240) {
+            #       ...GatsbyImageSharpFluid
+            #     }
+            #   }
+            # }
+            image
             author {
               id
               bio
-              avatar {
-                children {
-                  ... on ImageSharp {
-                    fixed(quality: 90) {
-                      src
-                    }
-                  }
-                }
-              }
+              # avatar {
+              #   children {
+              #     ... on ImageSharp {
+              #       fixed(quality: 90) {
+              #         src
+              #       }
+              #     }
+              #   }
+              # }
             }
           }
           fields {
-            layout
             slug
           }
         }

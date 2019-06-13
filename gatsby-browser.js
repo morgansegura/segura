@@ -4,12 +4,8 @@
  * See: https://www.gatsbyjs.org/docs/browser-apis/
  */
 
-// require('dotenv').config({
-//   path: `.env.${process.env.NODE_ENV}`,
-// })
-
-// const teamsnap = require('./src/lib/teamsnap.min')
+require('prismjs/themes/prism-funky.css');
 
 exports.onClientEntry = () => {
-  console.log('Start Team snap API!')
-}
+  console.log('The show must go on!');
+};

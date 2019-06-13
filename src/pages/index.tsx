@@ -81,12 +81,31 @@ export interface IndexProps {
         node: PageContext;
       }>;
     };
+    prismicHomepage: {
+      data: any;
+    };
   };
 }
+
+// prismicHomepage {
+//   id
+//   data {
+//     title {
+//       text
+//     }
+//     content {
+//       html
+//     }
+//     countdown
+//     countdown_date
+//     splash_page
+//   }
+// }
 
 const IndexPage: React.FunctionComponent<IndexProps> = props => {
   const width = props.data.header.childImageSharp.fluid.sizes.split(', ')[1].split('px')[0];
   const height = String(Number(width) / props.data.header.childImageSharp.fluid.aspectRatio);
+
   return (
     <IndexLayout css={HomePosts}>
       <Helmet>
@@ -151,6 +170,10 @@ const IndexPage: React.FunctionComponent<IndexProps> = props => {
         <main id="site-main" css={[SiteMain, outer]}>
           <div css={inner}>
             <div css={[PostFeed, PostFeedRaise]}>
+              <h1>{props.data.prismicHomepage.data.title.text}</h1>
+              <div
+                dangerouslySetInnerHTML={{ __html: props.data.prismicHomepage.data.content.html }}
+              />
               {props.data.allMarkdownRemark.edges.map(post => {
                 // filter out drafts in production
                 return (

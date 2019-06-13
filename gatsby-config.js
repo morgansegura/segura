@@ -281,6 +281,7 @@ module.exports = {
         linkResolver: ({ node, key, value }) => post => `/${post.uid}`,
       },
     },
+    'gatsby-plugin-netlify-cms',
     'gatsby-plugin-netlify',
   ],
 };

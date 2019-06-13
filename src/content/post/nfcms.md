@@ -7,3 +7,9 @@ tags:
   - NetlifyCMS
 ---
 Test for NFCMS
+
+```javascript
+
+// comment for code
+const heckyeah = 'make this work';
+```

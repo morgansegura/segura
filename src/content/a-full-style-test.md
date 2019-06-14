@@ -2,10 +2,11 @@
 draft: false
 templateKey: post
 title: A Full and Comprehensive Style Test
-image: img/testimg-cover.jpg
-author: Morgan Segura
-description: The Coffee Taster’s Flavor Wheel, the official resource used by coffee tasters, has been revised for the first time this year.
 date: 2018-09-30T07:03:47.149Z
+image: img/testimg-cover.jpg
+description: >-
+  The Coffee Taster’s Flavor Wheel, the official resource used by coffee
+  tasters, has been revised for the first time this year.
 tags:
   - Tests
   - flavor
@@ -104,7 +105,7 @@ Code can be presented inline, like `<?php bloginfo('stylesheet_url'); ?>`, or us
 filter](http://jekyllrb.com/docs/templates/#code-snippet-highlighting) to
 highlight a block of code. Because we have more specific typographic needs for code, we’ll specify Consolas and Monaco ahead of the browser-defined monospace font.
 
-```css
+```javascript
 #container {
   float: left;
   margin: 0 -240px 0 0;

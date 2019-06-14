@@ -224,14 +224,14 @@ export const blogPageQuery = graphql`
             date
             tags
             draft
-            # image {
-            #   childImageSharp {
-            #     fluid(maxWidth: 3720) {
-            #       ...GatsbyImageSharpFluid
-            #     }
-            #   }
-            # }
-            image
+            image {
+              childImageSharp {
+                fluid(maxWidth: 3720) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+            # image
             author {
               id
               bio

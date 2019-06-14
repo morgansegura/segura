@@ -123,7 +123,7 @@ const GlobalStyles = css`
   }
   html {
     box-sizing: border-box;
-    font-family: 'Source Sans Pro', sans-serif;
+    font-family: ' Pro', sans-serif;
 
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;

@@ -14,13 +14,31 @@ display_url: https://segura.llc
 collections:
   - name: 'post'
     label: 'Post'
-    folder: 'src/content/post'
+    folder: 'src/content'
     create: true
-    slug: '{{slug}}'
+    slug: '/{{slug}}'
     fields:
+      - { label: 'Draft', name: 'draft', widget: 'boolean', default: true }
       - { label: 'Template Key', name: 'templateKey', widget: 'hidden', default: 'post' }
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Publish Date', name: 'date', widget: 'datetime' }
+      - { label: 'Featured Image', name: 'image', widget: 'image' }
       - { label: 'Description', name: 'description', widget: 'text' }
       - { label: 'Body', name: 'body', widget: 'markdown' }
       - { label: 'Tags', name: 'tags', widget: 'list' }
+
+  - name: 'author'
+    label: 'Author'
+    folder: 'src/content/author/author.yml'
+    create: true
+    slug: '/{{slug}}'
+    fields:
+      - { label: 'ID', name: 'id', widget: 'string' }
+      - { label: 'Avatar Image', name: 'avatar', widget: 'image', default: 'avatars/segura.png' }
+      - { label: 'Biography', name: 'bio', widget: 'markdown' }
+      - { label: 'Twitter', name: 'twitter', widget: 'string' }
+      - { label: 'Facebook', name: 'facebook', widget: 'string' }
+      - { label: 'Twitter', name: 'twitter', widget: 'string' }
+      - { label: 'Website', name: 'website', widget: 'string' }
+      - { label: 'Location', name: 'location', widget: 'map' }
+      - { label: 'Profile Image', name: 'profile_image', widget: 'image' }

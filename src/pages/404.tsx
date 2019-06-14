@@ -109,14 +109,14 @@ export const notFoundPageQuery = graphql`
             templateKey
             date
             tags
-            # image {
-            #   childImageSharp {
-            #     fluid(maxWidth: 3720) {
-            #       ...GatsbyImageSharpFluid
-            #     }
-            #   }
-            # }
-            image
+            image {
+              childImageSharp {
+                fluid(maxWidth: 3720) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+            # image
             author {
               id
               bio

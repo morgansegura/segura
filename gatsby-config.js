@@ -229,7 +229,7 @@ module.exports = {
         // Enables "Add to Homescreen" prompt and disables browser UI (including back button)
         // see https://developers.google.com/web/fundamentals/web-app-manifest/#display
         display: `standalone`,
-        icon: `src/content/avatars/ghost.png`,
+        icon: `src/content/avatars/segura.png`,
         include_favicon: true, // Include favicon
       },
     },
@@ -251,7 +251,7 @@ module.exports = {
       options: {
         fonts: [
           {
-            family: `Source Sans Pro`,
+            family: `Roboto Slab`,
             variants: [`300`, `400`, `600`],
           },
           {

@@ -359,14 +359,14 @@ export const mdPostQuery = graphql`
         userDate: date(formatString: "D MMMM YYYY")
         date
         tags
-        # image {
-        #   childImageSharp {
-        #     fluid(maxWidth: 3720) {
-        #       ...GatsbyImageSharpFluid
-        #     }
-        #   }
-        # }
-        image
+        image {
+          childImageSharp {
+            fluid(maxWidth: 3720) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+        # image
         author {
           id
           bio

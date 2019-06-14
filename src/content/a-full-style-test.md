@@ -1,7 +1,6 @@
 ---
-layout: mdpost
 draft: false
-templateKey: mdpost
+templateKey: post
 title: A Full and Comprehensive Style Test
 image: img/testimg-cover.jpg
 author: Morgan Segura

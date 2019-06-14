@@ -40,7 +40,7 @@ const AuthorMeta = styled.div`
   justify-content: center;
   align-items: center;
   margin: 0 0 10px 0;
-  font-family: Georgia, serif;
+  font-family: 'Roboto Slab', serif;
   font-style: italic;
 `;
 
@@ -297,14 +297,14 @@ export const pageQuery = graphql`
             date
             templateKey
             draft
-            # image {
-            #   childImageSharp {
-            #     fluid(maxWidth: 3720) {
-            #       ...GatsbyImageSharpFluid
-            #     }
-            #   }
-            # }
-            image
+            image {
+              childImageSharp {
+                fluid(maxWidth: 3720) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+            # image
             author {
               id
               bio

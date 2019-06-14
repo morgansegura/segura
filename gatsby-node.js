@@ -69,7 +69,17 @@ exports.createPages = async ({ graphql, actions }) => {
               templateKey
               date
               draft
-              image
+              image {
+                childImageSharp {
+                  fluid(maxWidth: 3720) {
+                    aspectRatio
+                    base64
+                    sizes
+                    src
+                    srcSet
+                  }
+                }
+              }
               author {
                 id
                 bio
@@ -98,24 +108,15 @@ exports.createPages = async ({ graphql, actions }) => {
 
   posts.forEach(({ node }, index) => {
     const { slug, layout } = node.fields;
+    const id = node.id;
     const prev = index === 0 ? null : posts[index - 1].node;
     const next = index === posts.length - 1 ? null : posts[index + 1].node;
 
     createPage({
       path: slug,
-      // This will automatically resolve the template to a corresponding
-      // `layout` frontmatter in the Markdown.
-      //
-      // Feel free to set any `layout` as you'd like in the frontmatter, as
-      // long as the corresponding template file exists in src/templates.
-      // If no template is set, it will fall back to the default `post`
-      // template.
-      //
-      // Note that the template has to exist first, or else the build will fail.
       component: path.resolve(`./src/templates/${layout || 'post'}.tsx`),
       context: {
-        // Data passed to context is available in page queries as GraphQL variables.
-        // id,
+        id,
         slug,
         prev,
         next,

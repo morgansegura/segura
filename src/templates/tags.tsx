@@ -162,14 +162,14 @@ export const pageQuery = graphql`
             templateKey
             tags
             date
-            # image {
-            #   childImageSharp {
-            #     fluid(maxWidth: 1240) {
-            #       ...GatsbyImageSharpFluid
-            #     }
-            #   }
-            # }
-            image
+            image {
+              childImageSharp {
+                fluid(maxWidth: 1240) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+            # image
             author {
               id
               bio

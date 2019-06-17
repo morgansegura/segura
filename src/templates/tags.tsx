@@ -103,11 +103,11 @@ const Tags: React.FunctionComponent<TagTemplateProps> = props => {
                 {tagData && tagData.node.description ? (
                   tagData.node.description
                 ) : (
-                  <>
+                  <React.Fragment>
                     A collection of {totalCount > 1 && `${totalCount} posts`}
                     {totalCount === 1 && '1 post'}
                     {totalCount === 0 && 'No posts'}
-                  </>
+                  </React.Fragment>
                 )}
               </SiteDescription>
             </SiteHeaderContent>

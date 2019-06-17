@@ -7,7 +7,7 @@ import { colors } from '../styles/colors';
 import InfinityIcon from './icons/infinity';
 import config from '../website-config';
 
-export interface ReadNextCardStylesProps {
+interface ReadNextCardStylesProps {
   coverImage: string;
 }
 
@@ -27,14 +27,14 @@ const ReadNextCardStyles = styled.article<ReadNextCardStylesProps>`
   background-image: url(${props => props.coverImage});
 
   :before {
-    content: "";
+    content: '';
     position: absolute;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
     display: block;
-    background: linear-gradient(135deg, rgba(0,40,60,0.8) 0%,rgba(0,20,40,0.7) 100%);
+    background: linear-gradient(135deg, rgba(0, 40, 60, 0.8) 0%, rgba(0, 20, 40, 0.7) 100%);
     border-radius: 5px;
     backdrop-filter: blur(2px);
   }
@@ -143,7 +143,7 @@ const ReadNextCardFooter = styled.footer`
   }
 `;
 
-export interface ReadNextProps {
+interface ReadNextProps {
   tags: string[];
   relatedPosts: {
     totalCount: number;

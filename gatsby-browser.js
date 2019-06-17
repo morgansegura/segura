@@ -4,8 +4,4 @@
  * See: https://www.gatsbyjs.org/docs/browser-apis/
  */
 
-require('prismjs/themes/prism-funky.css');
-
-exports.onClientEntry = () => {
-  console.log('The show must go on!');
-};
+require('prismjs/themes/prism-okaidia.css');

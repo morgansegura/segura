@@ -157,25 +157,6 @@ exports.createPages = async ({ graphql, actions }) => {
   });
 };
 
-exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
-  if (stage === 'build-html') {
-    actions.setWebpackConfig({
-      module: {
-        rules: [
-          {
-            test: /smooth-scroll/,
-            use: loaders.null(),
-          },
-        ],
-      },
-    });
-  }
-  if (stage === `develop` || stage === `develop-html`) {
-    actions.setWebpackConfig({
-      devtool: 'eval-source-map',
-    });
-  }
-};
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions;
   fmImagesToRelative(node); // convert image paths for gatsby images
@@ -189,7 +170,36 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     });
   }
 };
-
+exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
+  if (stage === 'build-html') {
+    actions.setWebpackConfig({
+      resolve: {
+        // extensions: ['.js', '.jsx', '.ts', '.tsx'],
+      },
+      // module: {
+      //   rules: [
+      //     {
+      //       test: /\.ts|\.tsx$/,
+      //       loader: ['babel-loader', 'awesome-typescript-loader'],
+      //     },
+      //   ],
+      // },
+      // module: {
+      //   rules: [
+      //     {
+      //       test: /smooth-scroll/,
+      //       use: loaders.null(),
+      //     },
+      //   ],
+      // },
+    });
+  }
+  if (stage === `develop` || stage === `develop-html`) {
+    actions.setWebpackConfig({
+      devtool: 'eval-source-map',
+    });
+  }
+};
 /*
               image {
                 ImageSharp {

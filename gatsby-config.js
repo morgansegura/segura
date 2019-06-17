@@ -62,6 +62,16 @@ module.exports = {
               height: 400,
             },
           },
+          'gatsby-remark-copy-linked-files',
+          'gatsby-remark-smartypants',
+          'gatsby-remark-abbr',
+          {
+            resolve: 'gatsby-remark-images',
+            options: {
+              maxWidth: 1170,
+              quality: 90,
+            },
+          },
           {
             resolve: 'gatsby-remark-prismjs',
             options: {
@@ -86,14 +96,10 @@ module.exports = {
               ],
             },
           },
-          'gatsby-remark-copy-linked-files',
-          'gatsby-remark-smartypants',
-          'gatsby-remark-abbr',
           {
-            resolve: 'gatsby-remark-images',
+            resolve: 'gatsby-plugin-netlify-cms',
             options: {
-              maxWidth: 1170,
-              quality: 90,
+              modulePath: `${__dirname}/src/cms/cms.js`,
             },
           },
         ],
@@ -107,7 +113,14 @@ module.exports = {
       },
     },
     'gatsby-plugin-emotion',
-    'gatsby-plugin-typescript',
+    {
+      resolve: `gatsby-plugin-typescript`,
+      options: {
+        isTSX: true, // defaults to false
+        jsxPragma: `jsx`, // defaults to "React"
+        allExtensions: true, // defaults to false
+      },
+    },
     'gatsby-transformer-sharp',
     'gatsby-plugin-react-helmet',
     'gatsby-transformer-yaml',
@@ -261,8 +274,6 @@ module.exports = {
         ],
       },
     },
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.app/offline
     {
       resolve: `gatsby-plugin-purgecss`,
       options: {
@@ -271,6 +282,8 @@ module.exports = {
         develop: true,
       },
     },
+    // this (optional) plugin enables Progressive Web App + Offline functionality
+    // To learn more, visit: https://gatsby.app/offline
     'gatsby-plugin-offline',
     // `gatsby-plugin-remove-serviceworker`,
     {
@@ -281,12 +294,7 @@ module.exports = {
         linkResolver: ({ node, key, value }) => post => `/${post.uid}`,
       },
     },
-    {
-      resolve: 'gatsby-plugin-netlify-cms',
-      options: {
-        modulePath: `${__dirname}/src/cms/cms.js`,
-      },
-    },
+
     'gatsby-plugin-netlify',
   ],
 };

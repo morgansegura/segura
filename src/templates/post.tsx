@@ -287,12 +287,12 @@ const PostTemplate: React.FunctionComponent<PageTemplateProps> = props => {
                     {post.frontmatter.userDate}
                   </PostFullMetaDate>
                   {post.frontmatter.tags && post.frontmatter.tags.length > 0 && (
-                    <>
+                    <React.Fragment>
                       <DateDivider>/</DateDivider>
                       <Link to={`/tags/${_.kebabCase(post.frontmatter.tags[0])}/`}>
                         {post.frontmatter.tags[0]}
                       </Link>
-                    </>
+                    </React.Fragment>
                   )}
                 </PostFullMeta>
                 <PostFullTitle>{post.frontmatter.title}</PostFullTitle>

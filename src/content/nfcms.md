@@ -1,11 +1,10 @@
 ---
-templateKey: post
 draft: false
-title: NFCMS
-author: Morgan Segura
-image: img/testimg-cover.jpg
-description: Test for NFCMS
+templateKey: post
+title: Getting started with Netlify and Netlify CMS
 date: 2019-06-13T19:02:30.356Z
+image: /src/content/img/netlify-post.png
+description: Test for NFCMS
 tags:
   - NetlifyCMS
 ---

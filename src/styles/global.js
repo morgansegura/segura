@@ -1,5 +1,5 @@
-import { createGlobalStyle } from 'styled-components';
-import media from 'styled-media-query';
+import { createGlobalStyle } from 'styled-components'
+import media from 'styled-media-query'
 
 const GlobalStyles = createGlobalStyle`
   /* http://meyerweb.com/eric/tools/css/reset/
@@ -58,7 +58,7 @@ const GlobalStyles = createGlobalStyle`
   body {
     background: var(--body-bg);
     font-weight: 400;
-    font-family: "Open Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-family: "Google Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 
     font-size: 1.5rem;
     line-height: 160%;
@@ -108,5 +108,5 @@ const GlobalStyles = createGlobalStyle`
     --space-lg: 3rem;
 
   }
-`;
-export default GlobalStyles;
+`
+export default GlobalStyles

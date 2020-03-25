@@ -28,7 +28,7 @@ export const NavigationLink = styled(LocalizedLink)`
         background: var(--primary-color);
         position: absolute;
         left: 0;
-        bottom: -16px;
+        bottom: -15px;
         opacity: 0;
         transition: 0.3s ease-in-out;
     }
@@ -38,7 +38,7 @@ export const NavigationLink = styled(LocalizedLink)`
         font-weight: normal;
         &:after {
             opacity: 1;
-            bottom: -16px;
+            bottom: -15px;
             width: 100%;
         }
     }
@@ -46,11 +46,13 @@ export const NavigationLink = styled(LocalizedLink)`
 
 export const NavigationButton = styled(Link)`
     background: var(--primary-color);
+    font-size: 1.5rem;
+    font-weight: 400;
     border-radius: 2px;
     color: #fff;
     display: inline-block;
     /* padding: var(--space-sm) var(--space); */
-    padding: 0.25rem 1rem 0.35rem 1rem;
+    padding: 0.25rem 1rem 0 1rem;
     line-height: inherit;
     text-decoration: none;
     text-align: center;

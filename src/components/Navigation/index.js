@@ -22,8 +22,8 @@ const Navigation = ({ isActive, handleToggleMenu }) => {
                     </S.NavigationLink>
                 ))}
 
-                <S.NavigationButton to="" aria-label="Login">
-                    {button}
+                <S.NavigationButton to="/contact" aria-label="Login">
+                    Get in touch
                 </S.NavigationButton>
             </S.Navigation>
         </>

@@ -7,7 +7,9 @@ export const HeaderWrapper = styled.div`
     z-index: 1001;
     width: 100%;
     background-color: rgba(255, 255, 255, 0.95);
-    border-bottom: 1px solid #efefef;
+    /* border-bottom: 1px solid #efefef; */
+    box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.1),
+        0 2px 6px 2px rgba(60, 64, 67, 0.05);
     ${media.greaterThan('large')`
     margin-bottom: var(--space);
   `}
@@ -31,7 +33,7 @@ export const LogoLink = styled(LocalizedLink)`
     align-items: center;
     margin-right: 0.5rem;
     padding: 0 1rem 0 1rem;
-    width: 85px;
+    width: 120px;
     margin-left: 0;
 `
 

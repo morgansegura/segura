@@ -1,5 +1,5 @@
 import React from 'react'
-import logo from '../../images/segura-icon.svg'
+import logo from '../../images/segura-logo.svg'
 
 const Logo = () => {
     return <img src={logo} alt="Segura Logo Logo" />

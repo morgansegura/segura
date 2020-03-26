@@ -17,7 +17,7 @@ const Header = () => {
 
     return (
         <S.HeaderWrapper>
-            <S.Container>
+            <S.HeaderContainer>
                 <S.LogoLink to="/" title={home} aria-label={home}>
                     <Logo />
                 </S.LogoLink>
@@ -32,7 +32,7 @@ const Header = () => {
                         handleToggleMenu={handleToggleMenu}
                     />
                 </S.NavMenu>
-            </S.Container>
+            </S.HeaderContainer>
         </S.HeaderWrapper>
     )
 }

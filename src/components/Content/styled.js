@@ -51,6 +51,7 @@ export const Content = styled.section`
     h4,
     h5,
     h6 {
+        font-family: var(--google-font);
         margin: var(--space-lg) 0 var(--space-lg);
         padding: 0;
         font-weight: bold;

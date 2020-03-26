@@ -1,62 +1,62 @@
-import React from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
-import { LocaleContext } from './Layout';
+import React from 'react'
+import { useStaticQuery, graphql } from 'gatsby'
+import { LocaleContext } from './Layout'
 
 function useTranslations() {
-  // Grab the locale (passed through context) from the Context Provider
-  const { locale } = React.useContext(LocaleContext);
-  // Query the JSON files in <rootDir>/i18n/translations
-  const { rawData } = useStaticQuery(query);
+    // Grab the locale (passed through context) from the Context Provider
+    const { locale } = React.useContext(LocaleContext)
+    // Query the JSON files in <rootDir>/i18n/translations
+    const { rawData } = useStaticQuery(query)
 
-  // Simplify the response from GraphQL
-  const simplified = rawData.edges.map(item => {
-    return {
-      name: item.node.name,
-      translations: item.node.translations,
-    };
-  });
+    // Simplify the response from GraphQL
+    const simplified = rawData.edges.map(item => {
+        return {
+            name: item.node.name,
+            translations: item.node.translations,
+        }
+    })
 
-  // Only return translations for the current locale
-  const { translations } = simplified.filter(
-    lang => lang.name === locale,
-  )[0];
+    // Only return translations for the current locale
+    const { translations } = simplified.filter(lang => lang.name === locale)[0]
 
-  return translations;
+    return translations
 }
 
-export default useTranslations;
+export default useTranslations
 
 const query = graphql`
-  query useTranslations {
-    rawData: allFile(
-      filter: { sourceInstanceName: { eq: "translations" } }
-    ) {
-      edges {
-        node {
-          name
-          translations: childTranslationsJson {
-            home
+    query useTranslations {
+        rawData: allFile(
+            filter: { sourceInstanceName: { eq: "translations" } }
+        ) {
+            edges {
+                node {
+                    name
+                    translations: childTranslationsJson {
+                        home
 
-            hello
-            subline
-            latestPosts
-            category
-            allPosts
-            toRead
+                        sectionTitle
+                        headline
+                        subline
+                        latestPosts
+                        category
+                        allPosts
+                        toRead
 
-            next
-            prev
-            of
+                        next
+                        prev
+                        of
 
-            button
+                        button1
+                        button2
 
-            aboutProject
-            seeMorePWA
-            maintainedBy
-            contributeMessage
-          }
+                        aboutProject
+                        seeMorePWA
+                        maintainedBy
+                        contributeMessage
+                    }
+                }
+            }
         }
-      }
     }
-  }
-`;
+`

@@ -82,6 +82,10 @@ module.exports = {
                 fonts: [
                     {
                         family: `Google Sans`,
+                        variants: [`500`],
+                    },
+                    {
+                        family: `Roboto`,
                         variants: [`400`, `600`],
                     },
                 ],

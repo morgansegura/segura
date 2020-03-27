@@ -1,7 +1,7 @@
 {
     "menuItems": [
-        { "name": "Home", "link": "/" },
-        { "name": "About", "link": "/about" },
-        { "name": "Blog", "link": "/blog" }
+        { "id": "0", "name": "Home", "link": "/" },
+        { "id": "1", "name": "About", "link": "/about" },
+        { "id": "2", "name": "Blog", "link": "/blog" }
     ]
 }

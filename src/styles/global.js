@@ -79,11 +79,15 @@ const GlobalStyles = createGlobalStyle`
     .h3,
     h4,
     .h4,
-    h5,.h5,
-    h6,.h6,
+    h5,
+    .h5,
+    h6,
+    .h6,
     .headline,
-    .subline .section-title {
+    .subline,
+     .section-title {
         font-family: var(--google-font);
+        font-weight: 500;
         margin-top: 0;
         letter-spacing: 0px;
     }

@@ -10,13 +10,13 @@ export const Hero = styled.div`
 
     .hero__header-wrapper {
         display: flex;
-        padding-bottom: 3rem;
-        padding-top: 60px;
-        ${media.greaterThan('small')`
-        padding-left: 112px;
-        padding-top: 120px;
-        padding-right: 0;
-    `}
+        padding: 60px 48px;
+
+        ${media.greaterThan('large')`
+            padding-left: 112px;
+            padding-top: 120px;
+            padding-right: 0;
+        `}
     }
     .hero-left {
         max-width: 500px;

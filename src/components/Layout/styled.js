@@ -23,7 +23,7 @@ export const SiteContent = styled.section`
         font-size: 28px;
         line-height: 32px;
 
-        ${media.greaterThan('medium')`
+        ${media.greaterThan('large')`
             /* 52px/60px */
             font-size: 52px;
             line-height: 60px;
@@ -35,7 +35,7 @@ export const SiteContent = styled.section`
         font-size: 28px;
         line-height: 32px;
 
-        ${media.greaterThan('medium')`
+        ${media.greaterThan('large')`
             /* 44px/54px */
             font-size: 44px;
             line-height: 32px;
@@ -46,7 +46,7 @@ export const SiteContent = styled.section`
         /* 24px/28px */
         font-size: 24px;
         line-height: 28px;
-        ${media.greaterThan('medium')`
+        ${media.greaterThan('large')`
             /* 44px/54px */
             font-size: 44px;
             line-height: 54px;
@@ -57,7 +57,7 @@ export const SiteContent = styled.section`
         /* 16px/24px */
         font-size: 16px;
         line-height: 24px;
-        ${media.greaterThan('medium')`
+        ${media.greaterThan('large')`
             /* 36px/46px */
             font-size: 36px;
             line-height: 46px;
@@ -69,7 +69,7 @@ export const SiteContent = styled.section`
         font-size: 16px;
         line-height: 24px;
 
-        ${media.greaterThan('medium')`
+        ${media.greaterThan('large')`
             /* 20px/26px */
             font-size: 20px;
             line-height: 26px;
@@ -101,7 +101,7 @@ export const SiteContent = styled.section`
         line-height: 24px;
         font-weight: 400;
 
-        ${media.greaterThan('medium')`
+        ${media.greaterThan('large')`
             /* 20px/26px */
             font-size: 20px;
             line-height: 26px;

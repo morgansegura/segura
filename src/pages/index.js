@@ -12,7 +12,7 @@ import HeroImg1 from '../images/home-office.svg'
 import { MdPlayCircleFilled } from 'react-icons/md'
 
 import * as S from '../components/ListWrapper/styled'
-import * as C from '../components/Content/styled'
+import * as Crd from '../components/Card/styled'
 
 const Index = ({ data: { allMarkdownRemark } }) => {
     // useTranslations is aware of the global context (and therefore also "locale")
@@ -33,31 +33,34 @@ const Index = ({ data: { allMarkdownRemark } }) => {
     return (
         <div className="homepage" style={{ paddingTop: '56px' }}>
             <SEO title="Home" />
-            <Hero classes="bg-secondary text__on-dark">
+            <Hero style={{ backgroundColor: '#ffca28' }}>
                 <S.Container>
                     <S.ContentWrapper>
-                        <div className="hero__header-wrapper">
+                        <div className="hero__header-wrapper text__on-dark">
                             <div className="hero-left">
                                 <h5 className="section-title">
                                     {sectionTitle}
                                 </h5>
                                 <h1 className="headline">{headline}</h1>
-                                <p className="subline">{subline}</p>
+                                {/*<p className="subline">{subline}</p>*/}
                                 <S.ButtonBlock>
-                                    <LocalizedLink to={`/blog/`}>
-                                        <Button classes="cta-button button--white">
-                                            Get Started
-                                        </Button>
-                                    </LocalizedLink>
-                                    <LocalizedLink to={`/blog/`}>
-                                        <Button classes="cta-link link--white on__right">
-                                            <MdPlayCircleFilled
-                                                className="material-icons icon-left"
-                                                translate="no"
-                                            />
-                                            Get Started
-                                        </Button>
-                                    </LocalizedLink>
+                                    <Button
+                                        link="/"
+                                        classes="button primary round--4"
+                                    >
+                                        Get Started
+                                    </Button>
+
+                                    <Button
+                                        link="/"
+                                        classes="button transparent__on-dark with-icon round--30"
+                                    >
+                                        <MdPlayCircleFilled
+                                            className="material-icons icon-left"
+                                            translate="no"
+                                        />
+                                        Get Started
+                                    </Button>
                                 </S.ButtonBlock>
                             </div>
                             <div className="hero-right">
@@ -75,76 +78,138 @@ const Index = ({ data: { allMarkdownRemark } }) => {
                             </div>
                         </div>
                         <Card>
-                            <S.ThreeColumnWrapper>
-                                <S.ThreeColumnColumn>
-                                    <h5>
-                                        Build apps fast, without managing
-                                        infrastructure
-                                    </h5>
-                                    <p>
-                                        Firebase gives you functionality like
-                                        analytics, databases, messaging and
-                                        crash reporting so you can move quickly
-                                        and focus on your users.
-                                    </p>
-                                </S.ThreeColumnColumn>
-                            </S.ThreeColumnWrapper>
+                            <Crd.CardContent>
+                                <S.ThreeColumnWrapper>
+                                    <S.ThreeColumnColumn>
+                                        <h5>
+                                            Build apps fast, without managing
+                                            infrastructure
+                                        </h5>
+                                        <p>
+                                            Firebase gives you functionality
+                                            like analytics, databases, messaging
+                                            and crash reporting so you can move
+                                            quickly and focus on your users.
+                                        </p>
+                                    </S.ThreeColumnColumn>
+                                    <S.ThreeColumnColumn>
+                                        <h5>
+                                            Build apps fast, without managing
+                                            infrastructure
+                                        </h5>
+                                        <p>
+                                            Firebase gives you functionality
+                                            like analytics, databases, messaging
+                                            and crash reporting so you can move
+                                            quickly and focus on your users.
+                                        </p>
+                                    </S.ThreeColumnColumn>
+                                    <S.ThreeColumnColumn>
+                                        <h5>
+                                            Build apps fast, without managing
+                                            infrastructure
+                                        </h5>
+                                        <p>
+                                            Firebase gives you functionality
+                                            like analytics, databases, messaging
+                                            and crash reporting so you can move
+                                            quickly and focus on your users.
+                                        </p>
+                                    </S.ThreeColumnColumn>
+                                </S.ThreeColumnWrapper>
+                            </Crd.CardContent>
+                            <Crd.CardFooter>Footer Stuff</Crd.CardFooter>
                         </Card>
                     </S.ContentWrapper>
                 </S.Container>
             </Hero>
+            <section className="buffer-y text__on-light">
+                <S.Container>
+                    <S.ContentWrapper>
+                        <S.ContentHeader>
+                            <h2 className="section-title">{latestPosts}</h2>
+                        </S.ContentHeader>
+                        <Card>
+                            <Crd.CardContent>
+                                <S.ThreeColumnWrapper>
+                                    <S.ThreeColumnColumn>
+                                        <h5>
+                                            Build apps fast, without managing
+                                            infrastructure
+                                        </h5>
+                                        <p>
+                                            Firebase gives you functionality
+                                            like analytics, databases, messaging
+                                            and crash reporting so you can move
+                                            quickly and focus on your users.
+                                        </p>
+                                    </S.ThreeColumnColumn>
+                                    <S.ThreeColumnColumn>
+                                        <h5>
+                                            Build apps fast, without managing
+                                            infrastructure
+                                        </h5>
+                                        <p>
+                                            Firebase gives you functionality
+                                            like analytics, databases, messaging
+                                            and crash reporting so you can move
+                                            quickly and focus on your users.
+                                        </p>
+                                    </S.ThreeColumnColumn>
+                                    <S.ThreeColumnColumn>
+                                        <h5>
+                                            Build apps fast, without managing
+                                            infrastructure
+                                        </h5>
+                                        <p>
+                                            Firebase gives you functionality
+                                            like analytics, databases, messaging
+                                            and crash reporting so you can move
+                                            quickly and focus on your users.
+                                        </p>
+                                    </S.ThreeColumnColumn>
+                                </S.ThreeColumnWrapper>
+                            </Crd.CardContent>
+                            <Crd.CardFooter>Footer Stuff</Crd.CardFooter>
+                        </Card>
+                        <S.ListWrapper>
+                            {postList.map(
+                                ({
+                                    node: {
+                                        frontmatter: {
+                                            background,
+                                            category,
+                                            date,
+                                            description,
+                                            title,
+                                            image,
+                                        },
+                                        id,
+                                        timeToRead,
+                                        fields: { slug },
+                                    },
+                                }) => (
+                                    <PostItem
+                                        key={id}
+                                        slug={`/blog/${slug}`}
+                                        background={background}
+                                        category={category}
+                                        date={date}
+                                        timeToRead={timeToRead}
+                                        title={title}
+                                        description={description}
+                                        image={image}
+                                    />
+                                )
+                            )}
+                        </S.ListWrapper>
 
-            <S.Container>
-                <h2>
-                    <strong>{latestPosts}</strong>
-                </h2>
-                <br />
-                <Card>
-                    <S.ThreeColumnWrapper>
-                        <S.ThreeColumnColumn>
-                            <h5>
-                                Build apps fast, without managing infrastructure
-                            </h5>
-                            <p>
-                                Firebase gives you functionality like analytics,
-                                databases, messaging and crash reporting so you
-                                can move quickly and focus on your users.
-                            </p>
-                        </S.ThreeColumnColumn>
-                    </S.ThreeColumnWrapper>
-                </Card>
-                <S.ListWrapper>
-                    {postList.map(
-                        ({
-                            node: {
-                                frontmatter: {
-                                    background,
-                                    category,
-                                    date,
-                                    description,
-                                    title,
-                                    image,
-                                },
-                                timeToRead,
-                                fields: { slug },
-                            },
-                        }) => (
-                            <PostItem
-                                slug={`/blog/${slug}`}
-                                background={background}
-                                category={category}
-                                date={date}
-                                timeToRead={timeToRead}
-                                title={title}
-                                description={description}
-                                image={image}
-                            />
-                        )
-                    )}
-                </S.ListWrapper>
-            </S.Container>
-            <br />
-            <LocalizedLink to={`/blog/`}>{allPosts}</LocalizedLink>
+                        <S.ButtonBlock>
+                            <LocalizedLink to="/blog">{allPosts}</LocalizedLink>
+                        </S.ButtonBlock>
+                    </S.ContentWrapper>
+                </S.Container>
+            </section>
         </div>
     )
 }
@@ -170,8 +235,8 @@ export const query = graphql`
             background
             image
             date(formatString: $dateFormat)
-
           }
+          id
           timeToRead
           fields {
             locale

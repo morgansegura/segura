@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-// import media from 'styled-media-query'
+import media from 'styled-media-query'
 import LocalizedLink from '../LocalizedLink'
 import { Link } from 'gatsby'
 
@@ -18,6 +18,10 @@ export const NavigationLink = styled(LocalizedLink)`
     text-align: center;
     margin-bottom: 0;
     line-height: 1.75;
+
+    ${media.greaterThan('small')`
+        
+    `}
 
     &:after {
         /* content: '';
@@ -52,12 +56,17 @@ export const NavigationButton = styled(Link)`
     color: #fff;
     display: inline-block;
     font-family: var(--google-font);
-    padding: 0.25rem 1rem;
+    padding: 0.25rem 0.5rem;
     line-height: 1.75;
     text-decoration: none;
     text-align: center;
-    margin-left: var(--space-sm);
+    margin-left: 0.5rem;
     transition: background-color 0.3s ease-out;
+
+    ${media.greaterThan('small')`
+        padding: 0.25rem 1rem;
+        margin-left: var(--space-sm);        
+    `}
 
     &:hover {
         background: var(--primary-dark-color);

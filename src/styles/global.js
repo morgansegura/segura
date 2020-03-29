@@ -168,7 +168,7 @@ const GlobalStyles = createGlobalStyle`
     --text-light:var(--gray-light);
     --text-dark: var(--gray-dark);
 
-    --width-container: 1040px;
+    --width-container: 1352px;
     --google-font: "Google Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     --base-font: Roboto,Noto Sans,Noto Sans JP,Noto Sans KR,Noto Naskh Arabic,Noto Sans Thai,Noto Sans Hebrew,Noto Sans Bengali,sans-serif;
 

@@ -7,7 +7,7 @@ import * as S from '../components/ListWrapper/styled'
 import { AiFillEnvironment } from 'react-icons/ai'
 
 const NotFound = () => (
-    <div>
+    <>
         <SEO title="404: Not found" />
         <Hero classes="buffer-top">
             <S.Container>
@@ -37,7 +37,7 @@ const NotFound = () => (
                         </div>
                         <div className="hero-right">
                             <img
-                                className="hero-bg-image hero-bg-image--full"
+                                className="hero-bg-image abs-bottom-center"
                                 src={HeroImg}
                                 alt="Main Hero Section"
                             />
@@ -46,7 +46,7 @@ const NotFound = () => (
                 </S.ContentWrapper>
             </S.Container>
         </Hero>
-    </div>
+    </>
 )
 
 export default NotFound

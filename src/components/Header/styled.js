@@ -11,30 +11,46 @@ export const HeaderWrapper = styled.div`
         0 2px 6px 2px rgba(60, 64, 67, 0.05);
     ${media.greaterThan('large')`
 
-  `}
+    `}
 `
 
 export const HeaderContainer = styled.div`
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    height: 56px;
     position: relative;
     flex-direction: row;
+    height: 56px;
     padding: 0 20px;
     margin-left: auto;
     margin-right: auto;
     max-width: 1352px;
+
+    ${media.greaterThan('small')`
+        height: 56px;    
+        padding: 0 20px;
+    `}
 `
 
 export const LogoLink = styled(LocalizedLink)`
     position: absolute;
     display: flex;
+    overflow: hidden;
     align-items: center;
-    margin-right: 0.5rem;
-    padding: 0 1rem 0 0;
-    width: 130px;
-    margin-left: 0;
+    width: 30px;
+
+    ${media.greaterThan('small')`
+        width: 100px;
+    `}
+
+    .logo {
+        height: 30px;
+        width: 100px;
+        background-image: url('./segura-logo.svg');
+        background-size: 100px 30px;
+        background-position: left center;
+        background-repeat: no-repeat;
+    }
 `
 
 export const NavMenu = styled.div`

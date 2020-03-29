@@ -2,7 +2,9 @@ import styled from 'styled-components'
 import media from 'styled-media-query'
 
 export const Hero = styled.div`
-    background-color: yellow;
+    width: 100%;
+    position: relative;
+
     .hero--inner {
         display: flex;
         flex-direction: column;
@@ -36,7 +38,6 @@ export const Hero = styled.div`
     .hero-left {
         position: relative;
         z-index: 2;
-        /* background-color: yellow; */
         max-width: 450px;
         margin-left: auto;
         margin-right: auto;
@@ -52,7 +53,7 @@ export const Hero = styled.div`
         `}
         ${media.greaterThan('large')`
             flex-shrink: 1;
-            max-width: 400px;
+            max-width: 600px;
             text-align: left;
 
             &.push-left {
@@ -62,30 +63,38 @@ export const Hero = styled.div`
     }
 
     .hero-right {
-        /* background: red; */
-        /* position: absolute; */
-        z-index: 1;
-        width: 100%;
-        bottom: 100px;
-        left: 0;
-        /* transform: translate(-50%, -50px); */
-
-        ${media.greaterThan('medium')`
-            max-width: 800px;
-            left: unset;
-            right: 0;        
-        `}
-        ${media.greaterThan('large')`
-            max-width: 1000px;            
+        ${media.lessThan('medium')`
+            overflow: hidden;
         `}
     }
 
     /* Hero Full Screen Image */
     .hero-bg-image {
+        display: none;
         pointer-events: none;
         z-index: -1;
+        z-index: 1;
         width: 100%;
-        /* transform: translate(-50%, -50px); */
+
+        &.abs-bottom-center {
+            width: 100%;
+            position: absolute;
+            left: 50%;
+            bottom: -50px;
+            transform: translate(-50%, 0);
+
+            ${media.lessThan('medium')`
+                max-width: unset;
+                width: 600px
+            `}
+            ${media.greaterThan('medium')`
+                
+            `}
+        }
+
+        ${media.greaterThan('large')`
+            max-width: 1500px;            
+        `}
     }
     /* Colors & Backgrounds */
     &.bg-linear-trans-blue,

@@ -14,24 +14,26 @@ export const ListWrapper = styled.section`
 `
 export const Container = styled.div`
     width: 100%;
-    /* max-width: var(--width-container); */
+    max-width: var(--width-container);
     margin: 0 auto;
     padding: 0 20px;
+    border: 1px solid;
+    background-color: teal;
 
     ${media.greaterThan('large')`
-    padding: 0 80px;
-  `}
+        padding: 0 80px;
+    `}
 `
 export const ContentWrapper = styled.div`
     margin-left: auto;
     margin-right: auto;
+    border: 1px solid red;
     max-width: 1352px;
     width: 100%;
 `
 export const ContentHeader = styled.div`
     padding-top: 20px;
     padding-bottom: 20px;
-
     ${media.greaterThan('large')`
         padding-top: 48px;
         padding-bottom: 48px;
@@ -47,7 +49,7 @@ export const ButtonBlock = styled.div`
     justify-content: center;
     flex-direction: column;
 
-    ${media.greaterThan('medium')`
+    ${media.greaterThan('large')`
         flex-direction: row;
         justify-content: flex-start;
     `}

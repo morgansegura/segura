@@ -8,7 +8,7 @@ import Card from '../components/Card'
 // import TitlePage from '../components/TitlePage'
 import LocalizedLink from '../components/LocalizedLink'
 import useTranslations from '../components/useTranslations'
-import HeroImg1 from '../images/home-office.svg'
+import HeroImg1 from '../images/man-on-bench.svg'
 import { MdPlayCircleFilled } from 'react-icons/md'
 
 import * as S from '../components/ListWrapper/styled'
@@ -33,14 +33,11 @@ const Index = ({ data: { allMarkdownRemark } }) => {
     return (
         <div className="homepage" style={{ paddingTop: '56px' }}>
             <SEO title="Home" />
-            <Hero style={{ backgroundColor: '#ffca28' }}>
+            <Hero classes="bg-secondary">
                 <S.Container>
                     <S.ContentWrapper>
-                        <div className="hero__header-wrapper text__on-dark">
+                        <div className="hero__header-wrapper text__on-light">
                             <div className="hero-left">
-                                <h5 className="section-title">
-                                    {sectionTitle}
-                                </h5>
                                 <h1 className="headline">{headline}</h1>
                                 {/*<p className="subline">{subline}</p>*/}
                                 <S.ButtonBlock>
@@ -53,7 +50,7 @@ const Index = ({ data: { allMarkdownRemark } }) => {
 
                                     <Button
                                         link="/"
-                                        classes="button transparent__on-dark with-icon round--30"
+                                        classes="button transparent__on-light with-icon round--30"
                                     >
                                         <MdPlayCircleFilled
                                             className="material-icons icon-left"
@@ -65,19 +62,13 @@ const Index = ({ data: { allMarkdownRemark } }) => {
                             </div>
                             <div className="hero-right">
                                 <img
-                                    style={{
-                                        width: '75%',
-                                        opacity: '.8',
-                                        top: '10%',
-                                        right: '-5%',
-                                    }}
                                     className="hero-bg-image"
                                     src={HeroImg1}
                                     alt="Main Hero Section"
                                 />
                             </div>
                         </div>
-                        <Card>
+                        <Card classes="text__on-light">
                             <Crd.CardContent>
                                 <S.ThreeColumnWrapper>
                                     <S.ThreeColumnColumn>

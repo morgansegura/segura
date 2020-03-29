@@ -9,6 +9,8 @@ export const Card = styled.section`
         0 1px 3px 1px rgba(60, 64, 67, 0.15);
     overflow: hidden;
     margin-bottom: 48px;
+    position: relative;
+    z-index: 2;
 `
 export const CardContent = styled.div`
     padding: 32px 20px 50px;

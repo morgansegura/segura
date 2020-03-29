@@ -13,11 +13,11 @@ export const Button = styled(Link)`
         text-align: center;
         white-space: nowrap;
         width: 100%;
-        transition: all 0.3s ease-out;
+        transition: opacity 0.3s ease-out, background-color 0.3s ease-out;
         margin-bottom: 1rem;
 
         &.with-icon {
-            padding: 0.35rem 0.95rem 0.35rem 0.75rem;
+            padding: 10px 0.95rem 10px 0.75rem;
         }
 
         ${media.greaterThan('small')`
@@ -36,7 +36,7 @@ export const Button = styled(Link)`
         padding: 20px 52px;
 
             &.with-icon {
-                padding: 0.75rem 1.45rem 0.7rem 1.25rem;            
+                padding: 20px 1.45rem 20px 1.25rem;            
             }  
         `}   
         &.round {

@@ -153,7 +153,7 @@ const GlobalStyles = createGlobalStyle`
     --secondary-dark-color: #c6a700;
     --thirdy-color: #179be5;
 
-    --body-bg: #fafafa; 
+    --body-bg: #eaf9ff; 
 
     --bg-light: var(--gray-extra-light);
     --bg-dark: var(--gray-dark);

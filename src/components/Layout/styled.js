@@ -84,8 +84,13 @@ export const SiteContent = styled.section`
 
     .headline {
         position: relative;
-        text-align: left;
-        margin: 24px 0;
+        text-align: center;
+        margin: 2rem 0 2rem;
+
+        ${media.greaterThan('small')`
+            text-align: left;
+            margin: 2rem 0 2.25rem;
+        `};
     }
     .section-title {
         /* 24px/28px */

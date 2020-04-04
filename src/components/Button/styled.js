@@ -6,7 +6,7 @@ export const Button = styled(Link)`
     &.button {
         display: inline-block;
         text-decoration: none;
-        font: 500 14px/16px 'Roboto', sans-serif;
+        font: 500 16px/22px 'Montserrat', sans-serif;
         letter-spacing: 0.15px;
         max-width: 255px;
         padding: 10px 50px;
@@ -29,7 +29,7 @@ export const Button = styled(Link)`
         max-width: unset;
         margin-bottom: 1rem;
         margin-right: 1rem;
-        font-family: "Google Sans",sans-serif;
+        font-family: var(--headline-font);
         font-size: 20px;
         letter-spacing: .21px;
         line-height: 16px;      
@@ -85,10 +85,13 @@ export const Button = styled(Link)`
         }
         &.secondary {
             background-color: var(--secondary-color);
-            color: rgba(0, 0, 0, 0.7);
+            color: white;
 
             &:hover {
-                opacity: 0.85;
+                background-color: var(--secondary-light-color);                
+            }
+            &:active {
+                background-color: var(--secondary-dark-color);
             }
         }
         &.thirdy {

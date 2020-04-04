@@ -2,9 +2,9 @@ import React from 'react'
 
 import * as S from './styled'
 
-const Button = ({ link, classes, children }) => {
+const Button = ({ children, ...otherProps }) => {
     return (
-        <S.Button to={link} className={classes}>
+        <S.Button {...otherProps}>
             {children}
         </S.Button>
     )

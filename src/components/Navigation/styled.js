@@ -55,7 +55,7 @@ export const NavigationButton = styled(Link)`
     border-radius: 4px;
     color: #fff;
     display: inline-block;
-    font-family: var(--google-font);
+    font-family: var(--headline-font);
     padding: 0.25rem 0.5rem;
     line-height: 1.75;
     text-decoration: none;

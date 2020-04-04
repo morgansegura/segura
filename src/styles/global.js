@@ -56,14 +56,14 @@ const GlobalStyles = createGlobalStyle`
   body {
     background: var(--body-bg);
     font-weight: 400;
-    color: #757575;
+    color: var(--gray);
     -webkit-font-smoothing: antialiased;
         -webkit-text-size-adjust: 100%;
             text-size-adjust: 100%;
     font-size: 12px;
     line-height: 18px;
     font-weight: 400;
-    font-family: Roboto,Noto Sans,Noto Sans JP,Noto Sans KR,Noto Naskh Arabic,Noto Sans Thai,Noto Sans Hebrew,Noto Sans Bengali,sans-serif;
+    font-family: Roboto, Noto Sans,Noto Sans JP,Noto Sans KR,Noto Naskh Arabic,Noto Sans Thai,Noto Sans Hebrew,Noto Sans Bengali,sans-serif;
     line-height: 160%;
 
     ${media.greaterThan('medium')`
@@ -86,8 +86,8 @@ const GlobalStyles = createGlobalStyle`
     .headline,
     .subline,
      .section-title {
-        font-family: var(--google-font);
-        font-weight: 500;
+        font-family: var(--headline-font);
+        font-weight: 600;
         margin-top: 0;
         letter-spacing: 0px;
     }
@@ -119,13 +119,13 @@ const GlobalStyles = createGlobalStyle`
         .h3,
         h4,
         .h4,
-        h5,
-        .h5,
-        h6,
-        .h6,
+        h5,.h5,
+        h6,.h6,
         .headline,
+        .section-title,
         .subline,
-        .section-title {
+        p,
+        .paragraph {
             color: #424242;
         }
     }  
@@ -140,20 +140,21 @@ const GlobalStyles = createGlobalStyle`
   }
 
   :root { 
-    --gray-extra-light: #eaeaea; 
-    --gray-light: #747d8d;  
-    --gray: #475060;
-    --gray-dark: #2e333e;
+    --gray-extra-light: #f8f8f8; 
+    --gray-light: #eceff1;
+    --gray-medium: #cccccc;
+    --gray: #757575;
+    --gray-dark: #424242;
 
-    --primary-color: #673ab7;
-    --primary-light-color: #9a67ea;
-    --primary-dark-color: #320b86;
-    --secondary-color: #fdd835;
-    --secondary-light-color: #ffff6b;
-    --secondary-dark-color: #c6a700;
-    --thirdy-color: #179be5;
+    --primary-color: #42a5f5;
+    --primary-light-color: #80d6ff;
+    --primary-dark-color: #0077c2;
+    --secondary-color: #d4e157;
+    --secondary-light-color: #ffff89;
+    --secondary-dark-color: #a0af22;
+    --thirdy-color: #ec407a;
 
-    --body-bg: #eaf9ff; 
+    --body-bg: white; 
 
     --bg-light: var(--gray-extra-light);
     --bg-dark: var(--gray-dark);
@@ -169,7 +170,8 @@ const GlobalStyles = createGlobalStyle`
     --text-dark: var(--gray-dark);
 
     --width-container: 1352px;
-    --google-font: "Google Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    --base-font: Roboto, Noto Sans,Noto Sans JP,Noto Sans KR,Noto Naskh Arabic,Noto Sans Thai,Noto Sans Hebrew,Noto Sans Bengali,sans-serif;
+    --headline-font: "Montserrat", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     --base-font: Roboto,Noto Sans,Noto Sans JP,Noto Sans KR,Noto Naskh Arabic,Noto Sans Thai,Noto Sans Hebrew,Noto Sans Bengali,sans-serif;
 
     --space: 2rem;

@@ -4,6 +4,7 @@ import media from 'styled-media-query'
 export const Card = styled.section`
     background: #fff;
     border-radius: 8px;
+    width: 100%;
     /* border: 1px solid #eceff1; */
     box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3),
         0 1px 3px 1px rgba(60, 64, 67, 0.15);
@@ -11,6 +12,11 @@ export const Card = styled.section`
     margin-bottom: 48px;
     position: relative;
     z-index: 2;
+
+    &.form-card-width {
+        background: rgba(255,255,255,.95);
+        max-width: 400px;
+    }
 `
 export const CardContent = styled.div`
     padding: 32px 20px 50px;

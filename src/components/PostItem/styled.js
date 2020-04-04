@@ -68,7 +68,7 @@ export const PostItemTag = styled.span`
     border-radius: 4px;
     line-height: 1.35;
     font-weight: 500;
-    font-family: var(--google-font);
+    font-family: var(--headline-font);
     text-transform: uppercase;
     padding: 0.25rem 0.75rem;
     position: absolute;

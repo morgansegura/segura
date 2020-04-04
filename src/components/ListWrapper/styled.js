@@ -46,7 +46,7 @@ export const ButtonBlock = styled.div`
     justify-content: center;
     flex-direction: column;
 
-    ${media.greaterThan('large')`
+    ${media.greaterThan('medium')`
         flex-direction: row;
         justify-content: flex-start;
     `}

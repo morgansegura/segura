@@ -20,8 +20,8 @@ export const SiteContent = styled.section`
     .h1,
     .headline {
         /* 28px/32px */
-        font-size: 28px;
-        line-height: 32px;
+        font-size: 36px;
+        line-height: 46px;
 
         ${media.greaterThan('large')`
             /* 52px/60px */
@@ -66,8 +66,8 @@ export const SiteContent = styled.section`
     h5,
     .h5 {
         /* 16px/24px */
-        font-size: 16px;
-        line-height: 24px;
+        font-size: 24px;
+        line-height: 28px;
 
         ${media.greaterThan('large')`
             /* 20px/26px */
@@ -102,14 +102,14 @@ export const SiteContent = styled.section`
         /* 20px/28px */
         margin: 0 0 42px;
         letter-spacing: 0.21px;
-        font-size: 16px;
-        line-height: 24px;
+        font-size: 20px;
+        line-height: 26px;
         font-weight: 400;
 
         ${media.greaterThan('large')`
             /* 20px/26px */
-            font-size: 20px;
-            line-height: 26px;
+            font-size: 24px;
+            line-height: 28px;            
         `}
     }
     .link,

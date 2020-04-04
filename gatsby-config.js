@@ -81,7 +81,7 @@ module.exports = {
             options: {
                 fonts: [
                     {
-                        family: `Google Sans`,
+                        family: `Montserrat`,
                         variants: [`500`],
                     },
                     {
@@ -97,8 +97,8 @@ module.exports = {
         {
             resolve: `gatsby-plugin-manifest`,
             options: {
-                name: `Gatsby multiple language`,
-                short_name: `Gatsby multiple language`,
+                name: `Morgan Segura full-stack UI/UX developer`,
+                short_name: `Morgan Segura full-stack UI/UX developer`,
                 start_url: `/`,
                 background_color: `#16202c`,
                 theme_color: `#16202c`,

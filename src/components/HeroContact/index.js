@@ -31,37 +31,6 @@ class HeroHome extends React.Component {
 
 		return (
 			<Hero classes="bg-secondary">
-				{/* 
-				<Particles
-					style={{ position: 'absolute', zIndex: 1 }}
-					params={{
-						"particles": {
-							"number": {
-								"value": 100
-							},
-							"size": {
-								"value": 3,
-								"random": true,
-								"anim": {
-									"speed": 4,
-									"size_min": 0.3
-								}
-							},
-							"opacity": {
-								"value": .2
-							},
-						},
-						"interactivity": {
-							"events": {
-								"onhover": {
-									"enable": true,
-									"mode": "repulse"
-								}
-							}
-						}
-					}}
-				/>
-			*/}
 				<S.Container>
 					<S.ContentWrapper>
 						<div className="hero--inner text__on-dark">

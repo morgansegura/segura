@@ -4,17 +4,33 @@ import { Link } from 'gatsby'
 
 export const Button = styled(Link)`
     &.button {
-        display: inline-block;
         text-decoration: none;
-        font: 500 16px/22px 'Montserrat', sans-serif;
-        letter-spacing: 0.15px;
-        max-width: 255px;
-        padding: 10px 50px;
-        text-align: center;
         white-space: nowrap;
         width: 100%;
         transition: opacity 0.3s ease-out, background-color 0.3s ease-out;
-        margin-bottom: 1rem;
+        font-family: var(--headline-font);
+        font-weight: 600;
+        letter-spacing: 0.15px;
+        padding: 0.25rem 1rem;        
+        font-size: 1rem;        
+        display: flex;
+        align-items: center;
+        margin-top: 1.75rem;
+        max-width: 155px;
+
+        ${media.greaterThan('large')`
+            margin-top: 2rem;
+            max-width: 255px;
+        `}        
+
+        /* Sizes */
+        &.medium {
+            padding: 1rem 2rem;
+        }        
+
+        &.large {
+            padding: 20px 50px;            
+        }
 
         &.with-icon {
             padding: 10px 0.95rem 10px 0.75rem;
@@ -26,14 +42,14 @@ export const Button = styled(Link)`
         `}
 
         ${media.greaterThan('large')`        
-        max-width: unset;
-        margin-bottom: 1rem;
-        margin-right: 1rem;
-        font-family: var(--headline-font);
-        font-size: 20px;
-        letter-spacing: .21px;
-        line-height: 16px;      
-        padding: 20px 52px;
+            max-width: unset;
+            margin-bottom: 1rem;
+            margin-right: 1rem;
+            font-family: var(--headline-font);
+            font-size: 20px;
+            letter-spacing: .21px;
+            line-height: 16px;      
+            padding: 20px 52px;
 
             &.with-icon {
                 padding: 20px 1.45rem 20px 1.25rem;            
@@ -51,27 +67,17 @@ export const Button = styled(Link)`
             }
         }
         &.outline {
-            &--dark {
-                background-color: #fff;
-                color: var(--primary-color);
-                &:hover {
-                    background-color: rgba(255, 255, 255, 0.85);
-                }
-            }
-            &--light {
-                background-color: transparent;
-                border-color: white;
-                color: white;
-                &:hover {
-                    background-color: rgba(255, 255, 255, 0.85);
-                    border-color: white;
-                    color: rgba(0, 0, 0, 0.89);
-                }
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+
+            &:hover {
+                color: var(--primary-light-color);
+                border-color: var(--primary-color);
             }
         }
         &.white {
             background-color: #fff;
-            color: var(--thirdy-color);
+            color: var(--tertiary-color);
             &:hover {
                 opacity: 0.85;
             }
@@ -95,7 +101,7 @@ export const Button = styled(Link)`
             }
         }
         &.thirdy {
-            background-color: var(--thirdy-color);
+            background-color: var(--tertiary-color);
             color: white;
             &:hover {
                 opacity: 0.85;
@@ -106,12 +112,12 @@ export const Button = styled(Link)`
                 color: white;
                 background-color: transparent;
                 &:hover {
-                    color: var(--thirdy-color);
+                    color: var(--tertiary-color);
                     background-color: white;
                 }
             }
             &__on-light {
-                color: var(--thirdy-color);
+                color: var(--tertiary-color);
                 background-color: transparent;
 
                 &:hover {
@@ -119,21 +125,14 @@ export const Button = styled(Link)`
                 }
             }
         }
-        &.with-icon {
-            & i,
-            & svg {
-                font-size: 24px;
-                height: 24px;
-                margin-right: 0;
-                vertical-align: middle;
-                width: 24px;
-
-                &.icon-left {
-                    margin-right: 0.5rem;
-                }
-                &.icon-right {
-                    margin-left: 0.5rem;
-                }
+        
+        i,
+        svg {
+            &.icon-left {
+                margin-right: 0.25rem;
+            }
+            &.icon-right {
+                margin-left: 0.25rem;
             }
         }
     }

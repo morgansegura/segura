@@ -17,7 +17,7 @@ export const Container = styled.div`
     margin: 0 auto;
     padding: 0 20px;
 
-    ${media.greaterThan('large')`
+    ${media.greaterThan('small')`
         padding: 0 80px;
     `}
 `
@@ -31,7 +31,7 @@ export const ContentHeader = styled.div`
     padding-top: 20px;
     padding-bottom: 20px;
 
-    ${media.greaterThan('large')`
+    ${media.greaterThan('medium')`
         padding-top: 48px;
         padding-bottom: 48px;
     `}
@@ -70,7 +70,7 @@ export const ThreeColumnColumn = styled.div`
             padding: 0 32px 0 0;    
         `}
 
-        ${media.greaterThan('large')`
+        ${media.greaterThan('medium')`
             padding: 0 84px 0 0;
         `}
     }

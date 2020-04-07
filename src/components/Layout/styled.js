@@ -1,5 +1,14 @@
 import styled from 'styled-components'
-import media from 'styled-media-query'
+import { generateMedia } from "styled-media-query";
+
+const customMedia = generateMedia({
+    xsmall: "250px",
+    small: "450px",
+    medium: "768px",
+    large: "1024px",
+    xlarge: "1200px",
+    huge: "1400px"
+});
 
 export const Wrapper = styled.div`
     display: flex;
@@ -23,7 +32,7 @@ export const SiteContent = styled.section`
         font-size: 36px;
         line-height: 46px;
 
-        ${media.greaterThan('large')`
+        ${customMedia.greaterThan('medium')`
             /* 52px/60px */
             font-size: 52px;
             line-height: 60px;
@@ -35,7 +44,7 @@ export const SiteContent = styled.section`
         font-size: 28px;
         line-height: 32px;
 
-        ${media.greaterThan('large')`
+        ${customMedia.greaterThan('medium')`
             /* 44px/54px */
             font-size: 44px;
             line-height: 32px;
@@ -46,7 +55,7 @@ export const SiteContent = styled.section`
         /* 24px/28px */
         font-size: 24px;
         line-height: 28px;
-        ${media.greaterThan('large')`
+        ${customMedia.greaterThan('medium')`
             /* 44px/54px */
             font-size: 44px;
             line-height: 54px;
@@ -57,7 +66,7 @@ export const SiteContent = styled.section`
         /* 16px/24px */
         font-size: 16px;
         line-height: 24px;
-        ${media.greaterThan('large')`
+        ${customMedia.greaterThan('medium')`
             /* 36px/46px */
             font-size: 36px;
             line-height: 46px;
@@ -69,7 +78,7 @@ export const SiteContent = styled.section`
         font-size: 24px;
         line-height: 28px;
 
-        ${media.greaterThan('large')`
+        ${customMedia.greaterThan('medium')`
             /* 20px/26px */
             font-size: 20px;
             line-height: 26px;
@@ -82,36 +91,6 @@ export const SiteContent = styled.section`
         line-height: 24px;
     }
 
-    .headline {
-        position: relative;
-        text-align: center;
-        margin: 2rem 0 2rem;
-
-        ${media.greaterThan('small')`
-            text-align: left;
-            margin: 2rem 0 2.25rem;
-        `};
-    }
-    .section-title {
-        /* 24px/28px */
-        margin-bottom: 0;
-        font-size: 1.5rem;
-        line-height: 1.175;
-    }
-    .subline {
-        /* 20px/28px */
-        margin: 0 0 42px;
-        letter-spacing: 0.21px;
-        font-size: 20px;
-        line-height: 26px;
-        font-weight: 400;
-
-        ${media.greaterThan('large')`
-            /* 20px/26px */
-            font-size: 24px;
-            line-height: 28px;            
-        `}
-    }
     .link,
     .list-heading {
         font-weight: 400;
@@ -131,13 +110,66 @@ export const SiteContent = styled.section`
             line-height: 1;
         }
     }
+    .line-break {
+        display: block;
+    }
+
+    .flex-100 {
+        width: 100%;
+    }
+    .flex-50 {
+        width: 100%;
+        ${customMedia.greaterThan('large')`
+            width: 50%;
+        `}   
+    }
+    .flex-75 {
+        width: 100%;
+        ${customMedia.greaterThan('large')`
+            width: 75%;
+        `}   
+    }
+    .flex-66 {
+        width: 100%;
+        ${customMedia.greaterThan('large')`
+            width: 66.6666%;
+        `}          
+    }
+    .flex-60 {
+        width: 100%;
+        ${customMedia.greaterThan('large')`
+            width: 60%;
+        `}          
+    }
+    .flex-40 {
+        width: 100%;
+        ${customMedia.greaterThan('large')`
+            width: 40%;
+        `}          
+    }
+    .flex-33 {
+        width: 100%;
+        ${customMedia.greaterThan('large')`
+            width: 33.3333%;
+        `}         
+    }
+    .flex-25 {
+        width: 100%;
+        ${customMedia.greaterThan('large')`
+            width: 25%;
+        `}        
+    }    
+    .flex-50, .flex-75, .flex-66, .flex-33, .flex-25 {
+
+    }        
 `
 
 export const Container = styled.div`
     width: 100%;
     margin: 0 auto;
-    padding: 0 20px;
-    ${media.greaterThan('medium')`
-    padding: 0 40px;    
-  `}
+    padding: 0 40px;
+
+    ${customMedia.greaterThan('medium')`
+        padding: 0 80px;    
+    `}
 `

@@ -91,7 +91,14 @@ module.exports = {
                 ],
             },
         },
-
+        {
+            resolve: "gatsby-plugin-react-svg",
+            options: {
+                rule: {
+                    include: /images\/.*\.svg/,
+                }
+            },
+        },
         `gatsby-plugin-react-helmet`,
         `gatsby-plugin-sitemap`,
         {

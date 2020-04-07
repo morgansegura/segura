@@ -5,13 +5,20 @@ import { Link } from 'gatsby'
 
 export const Navigation = styled.nav`
     display: flex;
-    flex-direction: row;
     align-items: center;
+    justify-content: space-evenly; 
+    width: 100%;
+
+    ${media.greaterThan('small')`
+        /* right: 0; */
+    `}
 `
 
 export const NavigationLink = styled(LocalizedLink)`
     font-size: 14px;
-    color: var(--text-dark);
+    font-weight: 600;
+    color: var(--gray-medium);
+    font-family: var(--headline-font);
     text-decoration: none;
     position: relative;
     padding: 0 0.75rem;
@@ -20,26 +27,14 @@ export const NavigationLink = styled(LocalizedLink)`
     line-height: 1.75;
 
     ${media.greaterThan('small')`
-        
+        font-size: 1rem;
     `}
-
-    &:after {
-        /* content: '';
-        display: inline-block;
-        width: 0;
-        height: 3px;
-        border-radius: 20px;
-        background: var(--secondary-color);
-        position: absolute;
-        left: 0;
-        bottom: -15px;
-        opacity: 0;
-        transition: 0.3s ease-in-out; */
+    &.active {
+        color: var(--gray-extra-light);
     }
-
     &:hover,
     &.active {
-        font-weight: normal;
+
         &:after {
             /* opacity: 1;
             bottom: -15px;
@@ -53,16 +48,15 @@ export const NavigationButton = styled(Link)`
     font-size: 14px;
     font-weight: 400;
     border-radius: 4px;
+    display: inline;
     color: #fff;
-    display: inline-block;
     font-family: var(--headline-font);
     padding: 0.25rem 0.5rem;
     line-height: 1.75;
     text-decoration: none;
     text-align: center;
-    margin-left: 0.5rem;
     transition: background-color 0.3s ease-out;
-
+    margin-left: 0.75rem;
     ${media.greaterThan('small')`
         padding: 0.25rem 1rem;
         margin-left: var(--space-sm);        

@@ -3,7 +3,7 @@ import useTranslations from '../useTranslations'
 import Navigation from '../Navigation'
 // import Languages from '../Languages'
 import ButtonMenu from '../ButtonMenu'
-import Logo from '../Logo'
+import Logo from '../../images/segura-icon.svg'
 
 import * as S from './styled'
 
@@ -19,13 +19,8 @@ const Header = () => {
         <S.HeaderWrapper>
             <S.HeaderContainer>
                 <S.LogoLink to="/" title={home} aria-label={home}>
-                    <Logo />
+                    <Logo className="logo" />
                 </S.LogoLink>
-
-                <ButtonMenu
-                    handleClick={handleToggleMenu}
-                    isActive={toggleMenu}
-                />
                 <S.NavMenu>
                     <Navigation
                         isActive={toggleMenu}

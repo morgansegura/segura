@@ -3,33 +3,33 @@ import media from 'styled-media-query'
 import LocalizedLink from '../LocalizedLink'
 
 export const HeaderWrapper = styled.div`
-    position: fixed;
-    z-index: 1001;
+    position: relative;
     width: 100%;
-    padding: 0 20px;
-    background-color: rgba(255, 255, 255, 0.95);
-    box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.1),
-        0 2px 6px 2px rgba(60, 64, 67, 0.05);
+    padding: 50px 20px 0;
 
+    ${media.greaterThan('medium')`
+        padding: 100px 80px 0;
+    `}    
 `
 
 export const HeaderContainer = styled.div`
     width: 100%;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
     position: relative;
-    flex-direction: row;
-    height: 56px;
-    /* padding: 0 20px; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
     margin-left: auto;
     margin-right: auto;
     max-width: var(--width-container);
 
     ${media.greaterThan('small')`
-        height: 56px;    
-        /* padding: 0 20px; */
-    `}
+        justify-content: flex-start;
+        align-items: center;
+        flex-direction: row;
+    `}      
+
 `
 
 export const LogoLink = styled(LocalizedLink)`
@@ -37,29 +37,29 @@ export const LogoLink = styled(LocalizedLink)`
     display: flex;
     overflow: hidden;
     align-items: center;
-    width: 30px;
+    display: none;
 
     ${media.greaterThan('small')`
-        width: 130px;
+        display: block;
     `}
 
     .logo {
-        height: 30px;
-        width: 130px;
-        /* background-color: yellow; */
-        background-image: url('./segura-logo.svg');
-        background-size: 102px 30px;
-        background-position: left center;
-        background-repeat: no-repeat;
-        /* opacity: 95%; */
+        height: 50px;
+        width: 50px;
+    }
+    .cls-2 {
+        fill: var(--primary-color);
     }
 `
 
 export const NavMenu = styled.div`
-    margin-left: auto;
-    width: auto;
+    position: relative;
+    /* top: 60px; */
+
+    ${media.greaterThan('small')`
+        margin-left: auto;
+        width: auto;
+        top: 0;
+    `}     
 `
 
-export const NavLanguages = styled.div`
-    margin-left: var(--space);
-`

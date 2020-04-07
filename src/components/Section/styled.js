@@ -133,14 +133,18 @@ export const Section = styled.div`
                 color: var(--primary-light-color);
             }
             &:nth-child(2) {
-                margin-left: 0.5rem;
-                margin-right: 0.5rem;
+                margin-left: 1rem;
+                margin-right: 1rem;
             }
         }
         svg {
-            width: 30px;
-            height: 30px;
+            width: 25px;
+            height: 25px;
         }
+
+        ${customMedia.greaterThan('medium')`
+            margin-top: 50px;
+        `}           
     }
         
 `

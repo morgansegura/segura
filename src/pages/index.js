@@ -9,7 +9,7 @@ import useTranslations from '../components/useTranslations'
 import Button from '../components/Button'
 
 /* Icons */
-import { TiSocialLinkedinCircular, TiSocialGithubCircular, TiSocialTwitterCircular } from "react-icons/ti";
+
 import { MdArrowForward } from "react-icons/md";
 import { FaLongArrowAltRight, FaGithubAlt, FaTwitter, FaLinkedinIn } from "react-icons/fa";
 /* CSS in JS */
@@ -34,13 +34,13 @@ const Index = ({ data: { allMarkdownRemark } }) => {
                         <h1 className="section-headline">Morgan <span className="line-break">Segura.</span></h1>
                         <div className="social-block">
                             <a href="#" title="Follow me on Github">
-                                <TiSocialGithubCircular />
+                                <FaGithubAlt />
                             </a>
                             <a href="#" title="Connect with me on Linkedin">
-                                <TiSocialLinkedinCircular />
+                                <FaLinkedinIn />
                             </a>
                             <a href="#" title="Follow me on Twitter">
-                                <TiSocialTwitterCircular />
+                                <FaTwitter />
                             </a>
                         </div>
                     </div>

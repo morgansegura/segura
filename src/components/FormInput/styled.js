@@ -1,70 +1,50 @@
 import styled from 'styled-components'
-import media from 'styled-media-query'
 
-// $sub - color: grey;
-// $main - color: black;
-
-// @mixin shrinkLabel {
-// 	top: -14px;
-// 	font - size: 12px;
-// 	color: $main - color;
-// }
 export const InputBlock = styled.div`
 
-/* @mixin shrinkLabel {
-    top: -14px;
-    font-size: 12px;
-    color: $main-color;
-} */
 .group {
     position: relative;
-    margin: 30px 0;
+    /* margin: 0 0 30px; */
 
     .form-input {
         background: none;
-        color: gray;
-        font-size: 1rem;
-        padding: 1rem 1rem 0.5rem;
+        color: ${({ theme }) => theme.headline};
+        font-size: 14px;
+        padding: 1rem 1rem 0.5rem 0;
         display: block;
         width: 100%;
         border: none;
-        border-radius: 0;
-        border-bottom: 1px solid #ccc;
-        background-color: #f8f8f8;
-        border-radius: 8px 8px 0 0;
+        border-bottom: 1px solid ${({ theme }) => theme.superText};        
 
         margin: 1rem 0;
 
         &:focus {
             outline: none;
-            border-bottom: 1px solid gray;
+            border-bottom: 1px solid ${({ theme }) => theme.headline};
         }
 
         &:focus ~ .form-input-label {
 			top: -20px;
+            left: 0.5rem;
 			font-size: 12px;
-			color: black;
+			color: ${({ theme }) => theme.headline};
         }
     }
 
-    input[type='password'] {
-        letter-spacing: 0.3em;
-    }
-
     .form-input-label {
-        color: gray;
-        font-size: 16px;
+        color: ${({ theme }) => theme.headline};
+        font-size: 14px;
         font-weight: normal;
         position: absolute;
         pointer-events: none;
-        left: 1rem;
+        left: 0.5rem;
         top: 10px;
         transition: 300ms ease all;
 
         &.shrink {
-			top: -14px;
+			top: -0.5rem;
 			font-size: 12px;
-			color: black;
+			color: yellow !important;
         }
     }
 }

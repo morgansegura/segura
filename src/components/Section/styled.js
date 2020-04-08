@@ -33,66 +33,47 @@ export const Section = styled.div`
         display: block;
         letter-spacing: 2px;
         font-family: var(--headline-font);
-
-        /* &:before {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            height: 6px;
-            border-radius: 6px;
-            background-color: var(--primary-color);
-        } */
+        color: ${({ theme }) => theme.headline};
 
         ${customMedia.lessThan('medium')`
             font-size: 60px;
             line-height: 70px;
-            /* margin-bottom: 2rem; */
             padding-bottom: 2rem;
             text-align: center;
-
-            /* &:before {
-                width: 100px;
-                left: 50%;
-                transform: translate(-50%, 0);
-            }             */
         `}
         ${customMedia.greaterThan('small')`
             font-size: 80px;
             line-height: 75px;
             padding-bottom: 3rem;
-            /* margin-bottom: 3rem; */
-
-            /* &:before {
-                left: 0;
-                width: 60px;
-                transform: translate(0, 0);
-            }                  */
         `}
     }
 
     .section-subline {
         font-size: 2rem;
-        line-height: 1.3;
-        padding-bottom: 30px;
+        line-height: 1.4;
+        padding-bottom: 1.5rem;
+        font-weight: 600;
+        color: ${({ theme }) => theme.subline};
 
+        &--small {
+            font-size: 1.5rem;
+        }
     }
     .super-text {
         display: block;
-        color: var(--gray-light);
+        color: ${({ theme }) => theme.superText};
         font-size: 1.025rem;
         line-height: 2.5;        
-        font-weight: 600;
+        font-weight: 500;
         letter-spacing: 1px;
         padding-bottom: 1rem;
 
-        ${customMedia.greaterThan('medium')`
-            padding-bottom: 2rem;
-        `}
     }
     p {
         font-size: 1.025rem;
-        line-height: 2.5;
-        color: var(--gray-medium);
+        line-height: 2;
+        letter-spacing: 1px;
+        color: ${({ theme }) => theme.text};
     }
 
     .clean-wrap {
@@ -127,10 +108,13 @@ export const Section = styled.div`
 
 
         a {
-            color: var(--primary-color);
+            color: ${({ theme }) => theme.primaryColor};
 
             &:hover {
-                color: var(--primary-light-color);
+                color: ${({ theme }) => theme.primaryLightColor};
+            }
+            &:active {
+                color: ${({ theme }) => theme.primaryDarkColor};
             }
             &:nth-child(2) {
                 margin-left: 1rem;

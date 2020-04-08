@@ -1,9 +1,13 @@
 import styled from 'styled-components'
 import media from 'styled-media-query'
 
-export const FormCard = styled.div`
-	width: 100%;
-	padding: 2rem 1.5rem 1rem;
+export const FormWrapper = styled.div`
+
+	form {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+	}
 
 	.field-wrapper {
 		position: relative;
@@ -13,70 +17,46 @@ export const FormCard = styled.div`
 	}
 
 	textarea {		
+		margin-top: 30px;
 		padding: 1rem;
 		width: 100%;
-		border-radius: 4px;
-		border-color: var(--gray-medium);
-		background-color: var(--gray-extra-light);
+		border-color: ${({ theme }) => theme.superText};
+		background-color: transparent;
 		font-size: 14px;
-		color: gray;
-		min-height: 100px;
+		font-family: var(--headline-font);
+		color: ${({ theme }) => theme.headline};
+		height: 60px;
+		/* transition: height .3s ease-out; */
 		
 		~ .form-input-label {
 			color: gray;
-			font-size: 16px;
+			font-size: 14px;
 			font-weight: normal;
 			position: absolute;
 			pointer-events: none;
+			color: ${({ theme }) => theme.headline};
 			left: 1rem;
-			top: 10px;
+			top: 40px;
 			transition: 300ms ease all;
 			z-index: 1;
 		}
 
         &:focus ~ .form-input-label {
-			top: -20px;
+			top: 0;
+			left: 0.5rem;
 			font-size: 12px;
-			color: black;
+			background-color: transparent;
+			color: ${({ theme }) => theme.headline};
         }
         &:focus {
             outline: none;
-			background-color: var(--gray-lighter);
+			background-color: transparent;
+			height: 100%;
+			min-height: 130px;
+			border-color: ${({ theme }) => theme.headline};
         }
 	}
-	textarea {
 
-	}
-	select {
-		height: 45px;
-		padding-top: 0;
-		/* margin-top: -30px; */
-	}
-`
-export const FormCardHeader = styled.div`
-	padding: 0 0.5rem;
-	h5 {
-		font-size: 1.5rem;
-	}
-	p {
-		color: gray;
-	}
-`
-export const FormCardFooter = styled.div`
-	padding-top: 0.5rem;
-	background-color: var(--gray-light);
-	.social-block {
-
-	}
-	.social-icon {
-		width: 40px;
-		height: 40px;
-		transition: all .3s ease-out;
-
-		&:hover {
-			fill: var(--primary-color);
-		}		
-	}
 `
 export const FormButton = styled.button`
 	cursor: pointer;
@@ -87,9 +67,9 @@ export const FormButton = styled.button`
 	margin-right: auto;
 	font-size: 1.25rem;
 	padding: 1rem 1rem;
-	font-family: var(--headline-font);
+	font-family: ${({ theme }) => theme.headline};
 	color: white;
-	background-color: var(--primary-color);
+	background-color: ${({ theme }) => theme.headline};
 	border: none;
 	border-radius: 8px;
 

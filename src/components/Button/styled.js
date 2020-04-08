@@ -6,55 +6,27 @@ export const Button = styled(Link)`
     &.button {
         text-decoration: none;
         white-space: nowrap;
-        width: 100%;
         transition: opacity 0.3s ease-out, background-color 0.3s ease-out;
         font-family: var(--headline-font);
         font-weight: 600;
         letter-spacing: 0.15px;
-        padding: 0.25rem 1rem;        
+        padding: 20px 52px;        
         font-size: 1rem;        
         display: flex;
+        justify-content: center;
         align-items: center;
-        margin-top: 1.75rem;
-        max-width: 155px;
+        margin-top: 1.75rem;        
 
         ${media.greaterThan('large')`
             margin-top: 2rem;
-            max-width: 255px;
         `}        
 
         /* Sizes */
         &.medium {
-            padding: 1rem 2rem;
-        }        
-
-        &.large {
-            padding: 20px 50px;            
+            max-width: 175px;
+            padding: 10px 0;
         }
-
-        &.with-icon {
-            padding: 10px 0.95rem 10px 0.75rem;
-        }
-
-        ${media.greaterThan('small')`
-            width: auto;
-            margin-right: 0.5rem;        
-        `}
-
-        ${media.greaterThan('large')`        
-            max-width: unset;
-            margin-bottom: 1rem;
-            margin-right: 1rem;
-            font-family: var(--headline-font);
-            font-size: 20px;
-            letter-spacing: .21px;
-            line-height: 16px;      
-            padding: 20px 52px;
-
-            &.with-icon {
-                padding: 20px 1.45rem 20px 1.25rem;            
-            }  
-        `}   
+ 
         &.round {
             &--4 {
                 border-radius: 4px;

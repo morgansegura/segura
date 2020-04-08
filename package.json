@@ -41,7 +41,9 @@
         "react-icons": "^3.9.0",
         "styled-components": "^4.4.0",
         "styled-icons": "^8.4.2",
-        "styled-media-query": "^2.1.2"
+        "styled-media-query": "^2.1.2",
+        "typeface-roboto-condensed": "^0.0.75",
+        "typeface-source-sans-pro": "^1.1.5"
     },
     "devDependencies": {
         "babel-eslint": "^10.0.3",

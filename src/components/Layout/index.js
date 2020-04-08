@@ -1,7 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { ThemeProvider } from 'styled-components';
 import Header from '../Header'
 import Footer from '../Footer'
-import GlobalStyles from '../../styles/global'
+import GlobalStyles from '../../styles/global';
+import { useDarkMode } from '../Theme/useDarkMode';
+import { lightTheme, darkTheme } from '../Theme/themeStyles';
+import ToggleTheme from '../Theme/toggleTheme';
 
 import * as S from './styled'
 
@@ -11,15 +15,30 @@ const LocaleContext = React.createContext()
 // This e.g. enables the LocalizedLink to function correctly
 // As this component wraps every page (due to the wrapPageElement API) we can be sure to have
 // the locale available everywhere!
-const Layout = ({ children, pageContext: { locale } }) => (
-    <LocaleContext.Provider value={{ locale }}>
-        <GlobalStyles />
-        <S.Wrapper>
-            <Header />
-            <S.SiteContent role="main">{children}</S.SiteContent>
-            <Footer />
-        </S.Wrapper>
-    </LocaleContext.Provider>
-)
+function Layout({ children, pageContext: { locale } }) {
+
+    const [theme, toggleTheme, componentMounted] = useDarkMode();
+
+    const themeMode = theme === 'light' ? lightTheme : darkTheme;
+
+    if (!componentMounted) {
+        return <div />
+    }
+
+    return (
+        <LocaleContext.Provider value={{ locale }}>
+            <ThemeProvider theme={themeMode}>
+                <GlobalStyles />
+                <S.Wrapper>
+                    <ToggleTheme theme={theme} toggleTheme={toggleTheme} />
+                    <h1>It's a {theme === 'light' ? 'light theme' : 'dark theme'}!</h1>
+                    <Header />
+                    <S.SiteContent role="main">{children}</S.SiteContent>
+                    <Footer />
+                </S.Wrapper>
+            </ThemeProvider>
+        </LocaleContext.Provider>
+    )
+}
 
 export { Layout, LocaleContext }

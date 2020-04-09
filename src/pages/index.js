@@ -103,25 +103,25 @@ const Index = ({ data: { allMarkdownRemark } }) => {
             </Section>
 
             {/* Skills */}
+            {/* Portfolio */}
             <Section className="section">
                 <ColumnWrapper>
                     <Column className="three-columns">
-                        <Link
-                            className="square-card no-underline bg-highlight"
-                            to="/"
-                        >
-                            <h4 className="section-subline section-subline--small">
-                                UI / UX
-                                <span className="line-break">
-                                    Design{' '}
-                                    <FaLongArrowAltRight className="icon-right push-down" />
-                                </span>
-                            </h4>
+                        <Link className="no-underline" to="/">
+                            <ThreeDimensionalHover className="square-card">
+                                <h4 className="section-subline section-subline--small">
+                                    UI / UX
+                                    <span className="line-break">
+                                        Design{' '}
+                                        <FaLongArrowAltRight className="icon-right push-down" />
+                                    </span>
+                                </h4>
+                            </ThreeDimensionalHover>
                         </Link>
                     </Column>
                     <Column className="three-columns">
-                        <Link className="square-card no-underline" to="/">
-                            <ThreeDimensionalHover>
+                        <Link className="no-underline" to="/">
+                            <ThreeDimensionalHover className="square-card">
                                 <h4 className="section-subline section-subline--small">
                                     Web & Mobile
                                     <span className="line-break">
@@ -133,21 +133,19 @@ const Index = ({ data: { allMarkdownRemark } }) => {
                         </Link>
                     </Column>
                     <Column className="three-columns">
-                        <Link className="square-card no-underline" to="/">
-                            <h4 className="section-subline section-subline--small">
-                                Data Analysis
-                                <span className="line-break">
-                                    & Integration{' '}
-                                    <FaLongArrowAltRight className="icon-right push-down" />
-                                </span>
-                            </h4>
+                        <Link className="no-underline" to="/">
+                            <ThreeDimensionalHover className="square-card">
+                                <h4 className="section-subline section-subline--small">
+                                    Data Analysis
+                                    <span className="line-break">
+                                        & Integration{' '}
+                                        <FaLongArrowAltRight className="icon-right push-down" />
+                                    </span>
+                                </h4>
+                            </ThreeDimensionalHover>
                         </Link>
                     </Column>
                 </ColumnWrapper>
-            </Section>
-
-            {/* Portfolio */}
-            <Section className="section">
                 {/* Portfolio left */}
                 <ColumnWrapper>
                     <Column className="two-columns">

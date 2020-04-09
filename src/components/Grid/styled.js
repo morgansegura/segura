@@ -15,7 +15,7 @@ export const ColumnWrapper = styled.div`
     width: 100%;
     display: flex;
     flex-direction: column;
-    overflow: hidden;
+    /* overflow: hidden; */
     flex-wrap: wrap;
     /* background: yellow; */
     margin-bottom: -40px;

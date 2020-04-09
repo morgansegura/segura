@@ -1,14 +1,14 @@
 import { createGlobalStyle } from 'styled-components'
-import { generateMedia } from "styled-media-query";
+import { generateMedia } from 'styled-media-query'
 
 const customMedia = generateMedia({
-  xsmall: "250px",
-  small: "450px",
-  medium: "768px",
-  large: "1024px",
-  xlarge: "1200px",
-  huge: "1400px"
-});
+    xsmall: '250px',
+    small: '450px',
+    medium: '768px',
+    large: '1024px',
+    xlarge: '1200px',
+    huge: '1400px',
+})
 
 const GlobalStyles = createGlobalStyle`
   /* http://meyerweb.com/eric/tools/css/reset/
@@ -168,13 +168,20 @@ const GlobalStyles = createGlobalStyle`
     }
 
   }
-  
+  .section {
+    padding: 50px 40px;
+    ${customMedia.greaterThan('medium')`
+      padding: 100px 80px;
+    `}      
+  }
   .bg-dark {
     background-color: ${({ theme }) => theme.sectionDarker};
   }
   .buffer-y {
+
     padding-top: 50px;
     padding-bottom: 50px;
+
     ${customMedia.greaterThan('medium')`
       padding-top: 100px;
       padding-bottom: 100px;

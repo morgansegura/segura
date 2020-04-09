@@ -49,7 +49,7 @@ class ContactForm extends React.Component {
                     name="contact"
                     method="POST"
                     data-netlify="true"
-                    autocomplete="off"
+                    autoComplete="off"
                 >
                     <FormInput
                         name="name"
@@ -57,7 +57,7 @@ class ContactForm extends React.Component {
                         value={this.state.name}
                         handleChange={this.handleChange}
                         label={`What's your name?`}
-                        autocomplete="off"
+                        autoComplete="off"
                     />
                     <FormInput
                         name="email"
@@ -65,7 +65,7 @@ class ContactForm extends React.Component {
                         value={this.state.email}
                         handleChange={this.handleChange}
                         label="Your contact email."
-                        autocomplete="off"
+                        autoComplete="off"
                         // required
                     />
 
@@ -77,6 +77,7 @@ class ContactForm extends React.Component {
                     </p>
                     <p>
                         <Button
+                            to="/"
                             className="button medium primary round--4"
                             type=" submit"
                         >

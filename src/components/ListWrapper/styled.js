@@ -1,14 +1,14 @@
 import styled from 'styled-components'
-import { generateMedia } from "styled-media-query";
+import { generateMedia } from 'styled-media-query'
 
 const customMedia = generateMedia({
-    xsmall: "250px",
-    small: "450px",
-    medium: "768px",
-    large: "1024px",
-    xlarge: "1200px",
-    huge: "1400px"
-});
+    xsmall: '250px',
+    small: '450px',
+    medium: '768px',
+    large: '1024px',
+    xlarge: '1200px',
+    huge: '1400px',
+})
 
 export const ListWrapper = styled.section`
     margin-bottom: 48px;
@@ -24,18 +24,18 @@ export const ListWrapper = styled.section`
 export const Container = styled.div`
     width: 100%;
     margin: 0 auto;
-    padding: 0 40px;
 
-    ${customMedia.greaterThan('small')`
-        padding: 0 80px;
-    `}
-`
-export const ContentWrapper = styled.div`
     margin-left: auto;
     margin-right: auto;
     max-width: var(--width-container);
-    width: 100%;
+    overflow: hidden;
+    /* background: teal; */
+
+    ${customMedia.greaterThan('small')`
+
+    `}
 `
+
 export const ContentHeader = styled.div`
     padding-top: 20px;
     padding-bottom: 20px;
@@ -61,6 +61,7 @@ export const ButtonBlock = styled.div`
     `}
 `
 export const ThreeColumnWrapper = styled.div`
+    width: 100%;
     display: flex;
     flex-direction: column;
     overflow: hidden;
@@ -72,7 +73,7 @@ export const ThreeColumnWrapper = styled.div`
         margin-right: -20px;        
     `}
 `
-export const ThreeColumnColumn = styled.div`    
+export const ThreeColumnColumn = styled.div`
     margin: 0 0 40px;
     padding: 0;
 

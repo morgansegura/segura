@@ -1,13 +1,11 @@
 import React, { useState } from 'react'
 import useTranslations from '../useTranslations'
-import Navigation from '../Navigation'
-// import Languages from '../Languages'
-// import ButtonMenu from '../ButtonMenu'
+import { SiteNavigation, BlogNavigation } from '../Navigation'
 import Logo from '../../images/segura-icon.svg'
 
 import * as S from './styled'
 
-const Header = () => {
+export const SiteHeader = () => {
     const { home } = useTranslations()
     const [toggleMenu, setToggleMenu] = useState(false)
 
@@ -16,13 +14,13 @@ const Header = () => {
     }
 
     return (
-        <S.HeaderWrapper>
+        <S.HeaderWrapper className="site">
             <S.HeaderContainer>
                 <S.LogoLink to="/" title={home} aria-label={home}>
                     <Logo className="logo" />
                 </S.LogoLink>
                 <S.NavMenu>
-                    <Navigation
+                    <SiteNavigation
                         isActive={toggleMenu}
                         handleToggleMenu={handleToggleMenu}
                     />
@@ -32,4 +30,27 @@ const Header = () => {
     )
 }
 
-export default Header
+export const BlogHeader = () => {
+    const { home } = useTranslations()
+    const [toggleMenu, setToggleMenu] = useState(false)
+
+    function handleToggleMenu() {
+        setToggleMenu(!toggleMenu)
+    }
+
+    return (
+        <S.HeaderWrapper className="blog">
+            <S.HeaderContainer>
+                <S.LogoLink to="/" title={home} aria-label={home}>
+                    <Logo className="logo" />
+                </S.LogoLink>
+                <S.NavMenu>
+                    <BlogNavigation
+                        isActive={toggleMenu}
+                        handleToggleMenu={handleToggleMenu}
+                    />
+                </S.NavMenu>
+            </S.HeaderContainer>
+        </S.HeaderWrapper>
+    )
+}

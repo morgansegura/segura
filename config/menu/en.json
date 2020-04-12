@@ -1,5 +1,15 @@
 {
+    "blogMenuItems": [
+        { "id": "0", "name": "Categories", "link": "/" },
+        { "id": "1", "name": "Tags", "link": "/about" },
+        { "id": "2", "name": "Popular", "link": "/blog" }
+    ],
     "menuItems": [
+        { "id": "0", "name": "Home", "link": "/" },
+        { "id": "1", "name": "About", "link": "/about" },
+        { "id": "2", "name": "Blog", "link": "/blog" }
+    ],
+    "siteMenuItems": [
         { "id": "0", "name": "Home", "link": "/" },
         { "id": "1", "name": "About", "link": "/about" },
         { "id": "2", "name": "Blog", "link": "/blog" }

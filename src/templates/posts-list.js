@@ -23,7 +23,6 @@ const Blog = props => {
         <>
             <SEO title="Blog" />
             <TitlePage text="Blog" />
-
             <S.ListWrapper>
                 {postList.map(
                     ({
@@ -55,7 +54,6 @@ const Blog = props => {
                     )
                 )}
             </S.ListWrapper>
-
             <Pagination
                 isFirst={isFirst}
                 isLast={isLast}

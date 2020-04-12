@@ -13,20 +13,18 @@ export const PostItemLink = styled(LocalizedLink)`
 `
 
 export const PostItemWrapper = styled.section`
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    height: 100%;
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3),
-        0 1px 3px 1px rgba(60, 64, 67, 0.15);
-    overflow: hidden;
-    justify-content: space-between;
-    /* .homepage & {
-    flex-direction: row;
-  } */
+    display: inline-block;
+    position: relative;
+    width: 355px;
+    background-color: ${({ theme }) => theme.sectionMediumDark};
+    vertical-align: top;
+    text-align: left;
+    height: 490px;
+    margin: 20px;
+    box-shadow: 0 20px 20px rgba(0, 0, 0, 0.08);
+    white-space: normal;
+    transition: all 250ms cubic-bezier(0.02, 0.01, 0.47, 1);
+    background-color: ${({ theme }) => theme.subline};
 `
 
 // export const PostItemImg = styled.img`
@@ -34,10 +32,15 @@ export const PostItemWrapper = styled.section`
 // `
 
 export const PostItemImgWrapper = styled.div`
-    width: 100%;
-    max-height: 140px;
-    overflow: hidden;
+    background-size: contain;
+    background-position: top;
+    background-repeat: no-repeat;
     position: relative;
+    clear: both;
+    float: left;
+    overflow: auto;
+    width: 100%;
+    padding: 20px;
 `
 export const PostItemImg = styled(Img)`
     width: 100%;
@@ -50,13 +53,41 @@ export const PostItemInfo = styled.div`
     padding: var(--space-sm) var(--space-sm) var(--space-sm);
     position: relative;
 `
-export const PostItemFooter = styled.div`
+export const PostItemFooterWrapper = styled.div`
+    height: 46px;
+    line-height: 46px;
+    border-top: 1px solid ${({ theme }) => theme.subline};
     display: flex;
-    border-top: 1px solid #eceff1;
     width: 100%;
-    padding: 0.5rem var(--space-sm);
-    position: relative;
-    justify-content: space-between;
+    max-width: 100%;
+    justify-content: flex-start;
+    align-items: flex-end;
+`
+export const PostItemFooter = styled.div`
+    font-family: var(--base-font);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.68px;
+    text-transform: uppercase;
+    position: absolute;
+    padding-left: 20px;
+    padding-right: 20px;
+    bottom: 0px;
+    margin: 0 auto;
+    width: 100%;
+`
+export const PostItemCircle = styled.div`
+    height: 48px;
+    width: 48px;
+    border-radius: 100px;
+    background-color: white;
+    margin-bottom: 12px;
+    background-size: 48px 48px;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    display: inline-block;
+    line-height: 66px;
+    text-align: center;
 `
 
 export const PostItemTag = styled.span`
@@ -82,12 +113,23 @@ export const PostItemDate = styled.time`
 `
 
 export const PostItemTitle = styled.h5`
-    /* font-size: 2rem;
-    font-weight: 700;
-    line-height: 140%; */
-    color: #454545;
+    font-family: var(--base-font);
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 30px;
+    margin-top: 12px;
+    margin-bottom: 12px;
+    color: ${({ theme }) => theme.headline};
 `
 
 export const PostItemDescription = styled.p`
-    /* margin-top: var(--space-sm); */
+    display: block;
+    font-size: 15px;
+    font-family: var(--base-font);
+    font-weight: 400;
+    text-align: left;
+    line-height: 22px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: ${({ theme }) => theme.text};
 `

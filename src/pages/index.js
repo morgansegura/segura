@@ -6,12 +6,11 @@ import { HeroHome } from '../components/Hero'
 import { ColumnWrapper, Column } from '../components/Grid'
 import Section from '../components/Section'
 import ContactForm from '../components/ContactForm'
-// import Card from '../components/Card'
-// import PostItem from '../components/PostItem'
+import { Tabs, TabList, Tab, TabPanels, TabPanel } from '@reach/tabs'
 import useTranslations from '../components/useTranslations'
 import Button from '../components/Button'
 
-/* Third party Libs */
+/* Animations & Transitions */
 import { AnimateNumber, ThreeDimensionalHover } from '../components/Animations'
 
 /* Icons */
@@ -24,24 +23,27 @@ import * as S from '../components/ListWrapper/styled'
 
 const Index = ({ data: { allMarkdownRemark } }) => {
     const { latestPosts, allPosts } = useTranslations()
-
     const postList = allMarkdownRemark.edges
 
     return (
-        <div className="homepage">
+        <div>
             <SEO title="Home" />
-            <HeroHome />
+
+            <Section className="section">
+                <HeroHome />
+            </Section>
 
             <Section className="section bg-dark">
                 {/* Intorduction Left */}
                 <ColumnWrapper>
                     <Column className="two-columns">
                         <div className="clean-wrap--left">
-                            <span className="super-text">Introduction</span>
+                            <span className="super-text buffer-top">
+                                Introduction
+                            </span>
                             <h3 className="section-subline">
                                 User Experience Designer{' '}
                                 <span className="line-break">
-                                    {' '}
                                     and Full Stack
                                 </span>
                             </h3>
@@ -56,9 +58,10 @@ const Index = ({ data: { allMarkdownRemark } }) => {
                             </Link>
                         </div>
                     </Column>
+
                     {/* Intorduction Right */}
                     <Column className="two-columns">
-                        <h4 className="section-subline">
+                        <h4 className="section-subline buffer-top">
                             User Experience Designer and Full Stack Web
                             Developer for the love of everything and waste
                             water.
@@ -77,7 +80,7 @@ const Index = ({ data: { allMarkdownRemark } }) => {
                                         <AnimateNumber start="1" end="12" />
                                     </p>
                                     <p className="description-small">
-                                        Years of
+                                        Years of{' '}
                                         <span className="line-break">
                                             Experience{' '}
                                         </span>
@@ -90,7 +93,7 @@ const Index = ({ data: { allMarkdownRemark } }) => {
                                         <AnimateNumber start="1" end="133" />
                                     </p>
                                     <p className="description-small">
-                                        Learning
+                                        Learning{' '}
                                         <span className="line-break">
                                             Moments{' '}
                                         </span>
@@ -104,98 +107,213 @@ const Index = ({ data: { allMarkdownRemark } }) => {
 
             {/* Skills */}
             {/* Portfolio */}
+
             <Section className="section">
-                <ColumnWrapper>
-                    <Column className="three-columns">
-                        <Link className="no-underline" to="/">
-                            <ThreeDimensionalHover className="square-card">
-                                <h4 className="section-subline section-subline--small">
-                                    UI / UX
-                                    <span className="line-break">
-                                        Design{' '}
-                                        <FaLongArrowAltRight className="icon-right push-down" />
-                                    </span>
-                                </h4>
-                            </ThreeDimensionalHover>
-                        </Link>
-                    </Column>
-                    <Column className="three-columns">
-                        <Link className="no-underline" to="/">
-                            <ThreeDimensionalHover className="square-card">
-                                <h4 className="section-subline section-subline--small">
-                                    Web & Mobile
-                                    <span className="line-break">
-                                        Development{' '}
-                                        <FaLongArrowAltRight className="icon-right push-down" />
-                                    </span>
-                                </h4>
-                            </ThreeDimensionalHover>
-                        </Link>
-                    </Column>
-                    <Column className="three-columns">
-                        <Link className="no-underline" to="/">
-                            <ThreeDimensionalHover className="square-card">
-                                <h4 className="section-subline section-subline--small">
-                                    Data Analysis
-                                    <span className="line-break">
-                                        & Integration{' '}
-                                        <FaLongArrowAltRight className="icon-right push-down" />
-                                    </span>
-                                </h4>
-                            </ThreeDimensionalHover>
-                        </Link>
-                    </Column>
-                </ColumnWrapper>
-                {/* Portfolio left */}
-                <ColumnWrapper>
-                    <Column className="two-columns">
-                        <div className="clean-wrap--left">
-                            <span className="super-text">Portfolio</span>
-                            <h2 className="section-subline">
-                                All Creative Works,
-                                <span className="line-break">
-                                    Selected Projects
-                                </span>
-                            </h2>
-                            <p>
-                                Deploy revolutionary tagclouds user-centred
-                                virtual; standards-compliant 24/365 feeds
-                                innovate monetize, synergies expedite ubiquitous
-                                reintermediate.
-                            </p>
-                            <Button
-                                className="button medium primary round--4"
-                                to="/"
-                            >
-                                Load More{' '}
-                                <MdArrowForward className="icon-right" />
-                            </Button>
-                        </div>
-                    </Column>
-                    <Column className="two-columns">
-                        <h4 className="section-subline">
-                            User Experience Designer and Full Stack Web
-                            Developer for the love of everything and waste
-                            water.
-                        </h4>
-                        <p>
-                            Deploy revolutionary tagclouds user-centred virtual;
-                            standards-compliant 24/365 feeds innovate monetize,
-                            synergies expedite ubiquitous reintermediate,
-                            world-class maximize compelling, transition granular
-                            out-of-the-box, bleeding-edge remix;
-                        </p>
-                    </Column>
-                </ColumnWrapper>
+                <Tabs>
+                    <TabList>
+                        <ColumnWrapper>
+                            <Column className="three-columns">
+                                <Tab className="tab-button">
+                                    <ThreeDimensionalHover className="square-card">
+                                        <div className="square-card--inner">
+                                            <h4 className="section-subline section-subline--small">
+                                                UI / UX{' '}
+                                                <span className="line-break">
+                                                    Design{' '}
+                                                    <FaLongArrowAltRight className="icon-right push-down" />
+                                                </span>
+                                            </h4>
+                                        </div>
+                                    </ThreeDimensionalHover>
+                                </Tab>
+                            </Column>
+                            <Column className="three-columns">
+                                <Tab className="tab-button">
+                                    <ThreeDimensionalHover className="square-card">
+                                        <div className="square-card--inner">
+                                            <h4 className="section-subline section-subline--small">
+                                                Web & Mobile{' '}
+                                                <span className="line-break">
+                                                    Development{' '}
+                                                    <FaLongArrowAltRight className="icon-right push-down" />
+                                                </span>
+                                            </h4>
+                                        </div>
+                                    </ThreeDimensionalHover>
+                                </Tab>
+                            </Column>
+                            <Column className="three-columns">
+                                <Tab className="tab-button">
+                                    <ThreeDimensionalHover className="square-card">
+                                        <div className="square-card--inner">
+                                            <h4 className="section-subline section-subline--small">
+                                                Data Analysis{' '}
+                                                <span className="line-break">
+                                                    & Integration{' '}
+                                                    <FaLongArrowAltRight className="icon-right push-down" />
+                                                </span>
+                                            </h4>{' '}
+                                        </div>
+                                    </ThreeDimensionalHover>
+                                </Tab>
+                            </Column>
+                        </ColumnWrapper>
+                    </TabList>
+                    <TabPanels>
+                        <TabPanel>
+                            <ColumnWrapper>
+                                <Column className="two-columns">
+                                    <div className="clean-wrap--left">
+                                        <span className="super-text buffer-top">
+                                            UI/UX Design
+                                        </span>
+                                        <h2 className="section-subline ">
+                                            All Creative Works,{' '}
+                                            <span className="line-break">
+                                                Selected Projects
+                                            </span>
+                                        </h2>
+                                        <p>
+                                            Deploy revolutionary tagclouds
+                                            user-centred virtual;
+                                            standards-compliant 24/365 feeds
+                                            innovate monetize, synergies
+                                            expedite ubiquitous reintermediate.
+                                        </p>
+                                        <Button
+                                            className="button medium primary round--4"
+                                            to="/"
+                                        >
+                                            Load More{' '}
+                                            <MdArrowForward className="icon-right" />
+                                        </Button>
+                                    </div>
+                                </Column>
+
+                                <Column className="two-columns">
+                                    <h4 className="section-subline buffer-top">
+                                        User Experience Designer and Full Stack
+                                        Web Developer for the love of everything
+                                        and waste water.
+                                    </h4>
+                                    <p>
+                                        Deploy revolutionary tagclouds
+                                        user-centred virtual;
+                                        standards-compliant 24/365 feeds
+                                        innovate monetize, synergies expedite
+                                        ubiquitous reintermediate, world-class
+                                        maximize compelling, transition granular
+                                        out-of-the-box, bleeding-edge remix;
+                                    </p>
+                                </Column>
+                            </ColumnWrapper>
+                        </TabPanel>
+                        <TabPanel>
+                            <ColumnWrapper>
+                                <Column className="two-columns">
+                                    <div className="clean-wrap--left">
+                                        <span className="super-text buffer-top">
+                                            Web & Mobile Development
+                                        </span>
+                                        <h2 className="section-subline">
+                                            All Creative Works,{' '}
+                                            <span className="line-break">
+                                                Selected Projects
+                                            </span>
+                                        </h2>
+                                        <p>
+                                            Deploy revolutionary tagclouds
+                                            user-centred virtual;
+                                            standards-compliant 24/365 feeds
+                                            innovate monetize, synergies
+                                            expedite ubiquitous reintermediate.
+                                        </p>
+                                        <Button
+                                            className="button medium primary round--4"
+                                            to="/"
+                                        >
+                                            Load More{' '}
+                                            <MdArrowForward className="icon-right" />
+                                        </Button>
+                                    </div>
+                                </Column>
+                                <Column className="two-columns">
+                                    <h4 className="section-subline buffer-top">
+                                        User Experience Designer and Full Stack
+                                        Web Developer for the love of everything
+                                        and waste water.
+                                    </h4>
+                                    <p>
+                                        Deploy revolutionary tagclouds
+                                        user-centred virtual;
+                                        standards-compliant 24/365 feeds
+                                        innovate monetize, synergies expedite
+                                        ubiquitous reintermediate, world-class
+                                        maximize compelling, transition granular
+                                        out-of-the-box, bleeding-edge remix;
+                                    </p>
+                                </Column>
+                            </ColumnWrapper>
+                        </TabPanel>
+                        <TabPanel>
+                            <ColumnWrapper>
+                                <Column className="two-columns">
+                                    <div className="clean-wrap--left">
+                                        <span className="super-text buffer-top">
+                                            Data Analysis & Integration
+                                        </span>
+                                        <h2 className="section-subline">
+                                            All Creative Works,{' '}
+                                            <span className="line-break">
+                                                Selected Projects
+                                            </span>
+                                        </h2>
+                                        <p>
+                                            Deploy revolutionary tagclouds
+                                            user-centred virtual;
+                                            standards-compliant 24/365 feeds
+                                            innovate monetize, synergies
+                                            expedite ubiquitous reintermediate.
+                                        </p>
+                                        <Button
+                                            className="button medium primary round--4"
+                                            to="/"
+                                        >
+                                            Load More{' '}
+                                            <MdArrowForward className="icon-right" />
+                                        </Button>
+                                    </div>
+                                </Column>
+                                <Column className="two-columns">
+                                    <h4 className="section-subline buffer-top">
+                                        User Experience Designer and Full Stack
+                                        Web Developer for the love of everything
+                                        and waste water.
+                                    </h4>
+                                    <p>
+                                        Deploy revolutionary tagclouds
+                                        user-centred virtual;
+                                        standards-compliant 24/365 feeds
+                                        innovate monetize, synergies expedite
+                                        ubiquitous reintermediate, world-class
+                                        maximize compelling, transition granular
+                                        out-of-the-box, bleeding-edge remix;
+                                    </p>
+                                </Column>
+                            </ColumnWrapper>
+                        </TabPanel>
+                    </TabPanels>
+                </Tabs>
             </Section>
 
             {/* Posts */}
-            <Section className="section bg-dark">
+
+            <Section className="section">
                 <ColumnWrapper>
                     <Column className="two-columns">
                         <span className="super-text">Blog</span>
                         <h2 className="section-subline">
-                            All Creative Works,
+                            All Creative Works,{' '}
                             <span className="line-break">
                                 Selected Projects
                             </span>
@@ -253,6 +371,7 @@ const Index = ({ data: { allMarkdownRemark } }) => {
             </Section>
 
             {/* Testimonials */}
+
             <Section className="section bg-dark">
                 <ColumnWrapper>
                     <Column className="two-columns">
@@ -278,13 +397,14 @@ const Index = ({ data: { allMarkdownRemark } }) => {
             </Section>
 
             {/* Contact */}
+
             <Section className="section">
                 <ColumnWrapper>
                     <Column className="two-columns">
                         <div className="clean-wrap--left">
                             <span className="super-text">Contact</span>
                             <h2 className="section-subline">
-                                All Creative Works,
+                                All Creative Works,{' '}
                                 <span className="line-break">
                                     Selected Projects
                                 </span>
@@ -298,7 +418,7 @@ const Index = ({ data: { allMarkdownRemark } }) => {
                     </Column>
                     <Column className="two-columns">
                         <h4 className="section-subline">
-                            Have any thoughts?
+                            Have any thoughts?{' '}
                             <span className="line-break">
                                 Let's Work Together!
                             </span>
@@ -307,97 +427,6 @@ const Index = ({ data: { allMarkdownRemark } }) => {
                     </Column>
                 </ColumnWrapper>
             </Section>
-            {/* 
-            <section className="text__on-light">
-                <S.Container>
-                    <S.ContentWrapper>
-
-                        <S.ContentHeader>
-                            <h2 className="section-title">{latestPosts}</h2>
-                        </S.ContentHeader>
-
-                        <Card>
-                            <Crd.CardContent>
-                                <S.ThreeColumnWrapper>
-                                    <ThreeColumnColumn>
-                                        <h5>
-                                            Build apps fast, without managing
-                                            infrastructure
-                                        </h5>
-                                        <p>
-                                            Firebase gives you functionality
-                                            like analytics, databases, messaging
-                                            and crash reporting so you can move
-                                            quickly and focus on your users.
-                                        </p>
-                                    </ThreeColumnColumn>
-                                    <ThreeColumnColumn>
-                                        <h5>
-                                            Build apps fast, without managing
-                                            infrastructure
-                                        </h5>
-                                        <p>
-                                            Firebase gives you functionality
-                                            like analytics, databases, messaging
-                                            and crash reporting so you can move
-                                            quickly and focus on your users.
-                                        </p>
-                                    </ThreeColumnColumn>
-                                    <ThreeColumnColumn>
-                                        <h5>
-                                            Build apps fast, without managing
-                                            infrastructure
-                                        </h5>
-                                        <p>
-                                            Firebase gives you functionality
-                                            like analytics, databases, messaging
-                                            and crash reporting so you can move
-                                            quickly and focus on your users.
-                                        </p>
-                                    </ThreeColumnColumn>
-                                </S.ThreeColumnWrapper>
-                            </Crd.CardContent>
-                            <Crd.CardFooter>Footer Stuff</Crd.CardFooter>
-                        </Card>
-                        <S.ListWrapper>
-                            {postList.map(
-                                ({
-                                    node: {
-                                        frontmatter: {
-                                            background,
-                                            category,
-                                            date,
-                                            description,
-                                            title,
-                                            image,
-                                        },
-                                        id,
-                                        timeToRead,
-                                        fields: { slug },
-                                    },
-                                }) => (
-                                        <PostItem
-                                            key={id}
-                                            slug={`/blog/${slug}`}
-                                            background={background}
-                                            category={category}
-                                            date={date}
-                                            timeToRead={timeToRead}
-                                            title={title}
-                                            description={description}
-                                            image={image}
-                                        />
-                                    )
-                            )}
-                        </S.ListWrapper>
-
-                        <S.ButtonBlock>
-                            <LocalizedLink to="/blog">{allPosts}</LocalizedLink>
-                        </S.ButtonBlock>
-                    </S.ContentWrapper>
-                </S.Container>
-            </section>
-            */}
         </div>
     )
 }

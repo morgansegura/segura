@@ -4,14 +4,13 @@ import useTranslations from '../useTranslations'
 
 import * as S from './styled'
 
-const Navigation = ({ isActive, handleToggleMenu }) => {
-    const menuItems = useMenu()
+export const SiteNavigation = ({ isActive, handleToggleMenu }) => {
+    const { siteMenuItems } = useMenu()
     const { button } = useTranslations()
-
     return (
-        <>
+        <div>
             <S.Navigation className={isActive ? 'active' : ''}>
-                {menuItems.map((menu, i) => (
+                {siteMenuItems.map((menu, i) => (
                     <S.NavigationLink
                         key={i}
                         to={menu.link}
@@ -23,11 +22,34 @@ const Navigation = ({ isActive, handleToggleMenu }) => {
                     </S.NavigationLink>
                 ))}
                 <S.NavigationButton to="/contact" aria-label="Login">
-                    Contact Me
+                    {button}
                 </S.NavigationButton>
             </S.Navigation>
-        </>
+        </div>
     )
 }
+export const BlogNavigation = ({ isActive, handleToggleMenu }) => {
+    const { blogMenuItems } = useMenu()
+    const { button } = useTranslations()
 
-export default Navigation
+    return (
+        <div className="blog">
+            <S.Navigation className={isActive ? 'active' : ''}>
+                {blogMenuItems.map((menu, i) => (
+                    <S.NavigationLink
+                        key={i}
+                        to={menu.link}
+                        aria-label={menu.name}
+                        activeClassName="active"
+                        onClick={() => handleToggleMenu()}
+                    >
+                        {menu.name}
+                    </S.NavigationLink>
+                ))}
+                <S.NavigationButton to="/contact" aria-label="Login">
+                    {button}
+                </S.NavigationButton>
+            </S.Navigation>
+        </div>
+    )
+}

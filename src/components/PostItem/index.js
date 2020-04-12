@@ -51,6 +51,17 @@ const PostItem = ({
     return (
         <S.PostItemLink to={slug}>
             <S.PostItemWrapper>
+                {/*
+                <S.PostItemCircle
+                    style={{
+                        backgroundImage: `url(${authorImage})`,
+                    }}
+                ></S.PostItemCircle>
+                */}
+                <S.PostItemInfo>
+                    <S.PostItemTitle>{title}</S.PostItemTitle>
+                    <S.PostItemDescription>{description}</S.PostItemDescription>
+                </S.PostItemInfo>
                 {postImg && (
                     <S.PostItemImgWrapper>
                         <S.PostItemTag background={background}>
@@ -74,15 +85,12 @@ const PostItem = ({
                         />
                     </S.PostItemImgWrapper>
                 )}
-
-                <S.PostItemInfo>
-                    <S.PostItemTitle>{title}</S.PostItemTitle>
-                    <S.PostItemDescription>{description}</S.PostItemDescription>
-                </S.PostItemInfo>
                 <S.PostItemFooter>
-                    <S.PostItemDate>
-                        {date} • {timeToRead} min {toRead}
-                    </S.PostItemDate>
+                    <S.PostItemFooterWrapper>
+                        <S.PostItemDate>
+                            {date} • {timeToRead} min {toRead}
+                        </S.PostItemDate>
+                    </S.PostItemFooterWrapper>
                 </S.PostItemFooter>
             </S.PostItemWrapper>
         </S.PostItemLink>

@@ -13,6 +13,8 @@
         "lint": "eslint src/**/*.{js,jsx}"
     },
     "dependencies": {
+        "@reach/tabs": "^0.10.0",
+        "animate.css": "^3.7.2",
         "gatsby": "^2.3.3",
         "gatsby-image": "^2.2.24",
         "gatsby-plugin-manifest": "^2.2.20",
@@ -36,6 +38,7 @@
         "netlify-cms-app": "^2.9.7",
         "prismjs": "^1.17.1",
         "react": "^16.8.6",
+        "react-animate-on-scroll": "^2.1.5",
         "react-d3-library": "^1.1.8",
         "react-dom": "^16.8.6",
         "react-helmet": "^5.2.1",

@@ -169,7 +169,11 @@ const GlobalStyles = createGlobalStyle`
 
   }
   .section {
-    padding: 50px 40px;
+    padding: 40px 20px;
+
+    ${customMedia.greaterThan('small')`
+      padding: 50px 40px;
+    `}      
     ${customMedia.greaterThan('medium')`
       padding: 100px 80px;
     `}      
@@ -187,30 +191,73 @@ const GlobalStyles = createGlobalStyle`
       padding-bottom: 100px;
     `}    
   }
-  .buffer-top {
-    padding-top: 100px;
-  }
-  .buffer-bottom {
-    padding-bottom: 100px;
+  .buffer {
+
+    &-x {
+      padding-left: 30px;
+      padding-right: 30px;
+      
+      ${customMedia.greaterThan('small')`
+          padding-left: 50px;
+          padding-right: 50px;
+      `}        
+    }
+    &-y {
+      padding-top: 30px;
+      padding-bottom: 30px;
+
+      ${customMedia.between('medium', 'large')`
+          padding-top: 50px;
+          padding-bottom: 50px;
+      `}        
+    }
+    &-top {
+      padding-top: 30px;
+      ${customMedia.between('medium', 'large')`
+          padding-top: 50px;
+      `}        
+    }
+    &-right {
+      padding-right: 30px;
+      ${customMedia.between('medium', 'large')`
+          padding-right: 50px;
+      `}        
+    }
+    &-bottom {
+      padding-bottom: 30px;
+      ${customMedia.between('medium', 'large')`
+          padding-bottom: 50px;
+      `}  
+    }
+    &-left {
+      padding-left: 30px;
+      ${customMedia.between('medium', 'large')`
+          padding-left: 50px;
+      `}  
+    }
   }
 
   /* Services */
   .square-card {
     display: flex;
     flex-direction: column;
-    flex: 1;
     background-color: #424659;
-    padding: 40px 40px 10px;
+    padding: 10px 0 10px 15px;
     transition: background-color 0.3s ease-out;
     
     ${customMedia.greaterThan('large')`
-        
+        padding: 40px;
     `}    
 
     &:hover {
       background-color: ${({ theme }) => theme.primaryColor};  
     }
-
+    &:active {
+      background-color: ${({ theme }) => theme.primaryDarkColor};  
+    }
+    &--inner {
+      flex: 1;
+    }
   }
   .bg-highlight {
     background-color: ${({ theme }) => theme.primaryColor};

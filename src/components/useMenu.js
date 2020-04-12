@@ -13,14 +13,18 @@ function useMenu() {
         return {
             itemId: item.node.translations.id,
             name: item.node.name,
-            menuItems: item.node.translations.menuItems,
+            menus: {
+                blogMenuItems: item.node.translations.blogMenuItems,
+                siteMenuItems: item.node.translations.siteMenuItems,
+                menuItems: item.node.translations.menuItems,
+            },
         }
     })
 
     // Only return menu for the current locale
-    const { menuItems } = simplified.filter(lang => lang.name === locale)[0]
+    const { menus } = simplified.filter(lang => lang.name === locale)[0]
 
-    return menuItems
+    return menus
 }
 
 export default useMenu
@@ -33,6 +37,14 @@ const query = graphql`
                     name
                     translations: childMenuJson {
                         id
+                        blogMenuItems {
+                            link
+                            name
+                        }
+                        siteMenuItems {
+                            link
+                            name
+                        }
                         menuItems {
                             link
                             name

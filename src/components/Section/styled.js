@@ -51,12 +51,20 @@ export const Section = styled.div`
     .section-subline {
         font-size: 2rem;
         line-height: 1.4;
-        padding-bottom: 1.5rem;
+        padding-bottom: 1.2rem;
         font-weight: 600;
         color: ${({ theme }) => theme.subline};
 
         &--small {
-            font-size: 1.5rem;
+            font-size: 1rem;
+            padding-bottom: 0;
+
+            ${customMedia.greaterThan('small')`
+                font-size: 1.2rem;
+            `}
+            ${customMedia.greaterThan('xlarge')`
+                font-size: 1.5rem;
+            `}
         }
     }
     .super-text {
@@ -70,18 +78,24 @@ export const Section = styled.div`
     p {
         font-size: 1.025rem;
         line-height: 2;
-        letter-spacing: 1px;
+        letter-spacing: 0.5px;
         color: ${({ theme }) => theme.text};
     }
 
     .clean-wrap {
         &--left {
-            ${customMedia.greaterThan('medium')`
+            ${customMedia.greaterThan('large')`
+                padding-right: 50px;     
+            `}
+            ${customMedia.greaterThan('xlarge')`
                 padding-right: 200px;     
             `}
         }
         &--right {
-            ${customMedia.greaterThan('medium')`
+            ${customMedia.greaterThan('large')`
+                padding-left: 50px;     
+            `}
+            ${customMedia.greaterThan('xlarge')`
                 padding-left: 200px;     
             `}
         }
@@ -215,6 +229,19 @@ export const Section = styled.div`
             color: ${({ theme }) => theme.text};
             font-size: 13px;
             line-height: 21px;
+        }
+    }
+    .tab-button {
+        cursor: pointer;
+        text-align: inherit;
+        border: none;
+        padding: 0;
+        margin: 0;
+        background-color: transparent;
+        width: inherit;
+
+        &:focus {
+            outline: none;
         }
     }
 `

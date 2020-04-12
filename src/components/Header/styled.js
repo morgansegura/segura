@@ -3,13 +3,19 @@ import media from 'styled-media-query'
 import LocalizedLink from '../LocalizedLink'
 
 export const HeaderWrapper = styled.div`
-    position: relative;
-    width: 100%;
-    padding: 50px 20px 0;
+    &.site {
+        position: relative;
+        width: 100%;
+        padding: 50px 20px 0;
 
-    ${media.greaterThan('medium')`
-        padding: 100px 80px 0;
-    `}    
+        ${media.greaterThan('medium')`
+            padding: 100px 80px 0;
+        `}
+    }
+    &.blog {
+        padding: 0 20px;
+        margin-bottom: 40px;
+    }
 `
 
 export const HeaderContainer = styled.div`
@@ -28,8 +34,7 @@ export const HeaderContainer = styled.div`
         justify-content: flex-start;
         align-items: center;
         flex-direction: row;
-    `}      
-
+    `}
 `
 
 export const LogoLink = styled(LocalizedLink)`
@@ -60,6 +65,5 @@ export const NavMenu = styled.div`
         margin-left: auto;
         width: auto;
         top: 0;
-    `}     
+    `}
 `
-

@@ -20,9 +20,10 @@ function useMenu() {
             },
         }
     })
-
+    // console.log(simplified)
+    // console.log(simplified.filter(lang => lang.name === 'en')[0])
     // Only return menu for the current locale
-    const { menus } = simplified.filter(lang => lang.name === locale)[0]
+    const { menus } = simplified.filter(lang => lang.name === 'en')[0]
 
     return menus
 }

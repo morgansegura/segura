@@ -1,12 +1,12 @@
 import styled from 'styled-components'
 import media from 'styled-media-query'
-import LocalizedLink from '../LocalizedLink'
+
 import { Link } from 'gatsby'
 
 export const Navigation = styled.nav`
     display: flex;
     align-items: center;
-    justify-content: space-evenly; 
+    justify-content: space-evenly;
     width: 100%;
 
     ${media.greaterThan('small')`
@@ -14,7 +14,7 @@ export const Navigation = styled.nav`
     `}
 `
 
-export const NavigationLink = styled(LocalizedLink)`
+export const NavigationLink = styled(Link)`
     font-size: 14px;
     font-weight: 600;
     color: var(--gray-medium);
@@ -34,7 +34,6 @@ export const NavigationLink = styled(LocalizedLink)`
     }
     &:hover,
     &.active {
-
         &:after {
             /* opacity: 1;
             bottom: -15px;

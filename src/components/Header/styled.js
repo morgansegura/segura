@@ -1,11 +1,11 @@
 import styled from 'styled-components'
 import media from 'styled-media-query'
-import LocalizedLink from '../LocalizedLink'
+import { Link } from 'gatsby'
 
 export const HeaderWrapper = styled.div`
+    position: relative;
+    width: 100%;
     &.site {
-        position: relative;
-        width: 100%;
         padding: 50px 20px 0;
 
         ${media.greaterThan('medium')`
@@ -13,8 +13,12 @@ export const HeaderWrapper = styled.div`
         `}
     }
     &.blog {
-        padding: 0 20px;
-        margin-bottom: 40px;
+        padding: 20px 20px 0;
+        margin-bottom: 20px;
+
+        ${media.greaterThan('medium')`
+            padding: 40px 80px 0;
+        `}
     }
 `
 
@@ -37,7 +41,7 @@ export const HeaderContainer = styled.div`
     `}
 `
 
-export const LogoLink = styled(LocalizedLink)`
+export const LogoLink = styled(Link)`
     position: absolute;
     display: flex;
     overflow: hidden;
@@ -60,6 +64,16 @@ export const LogoLink = styled(LocalizedLink)`
 export const NavMenu = styled.div`
     position: relative;
     /* top: 60px; */
+
+    ${media.greaterThan('small')`
+        margin-left: auto;
+        width: auto;
+        top: 0;
+    `}
+`
+export const SecondaryNavMenu = styled.div`
+    position: relative;
+    padding: 0.125rem 20px;
 
     ${media.greaterThan('small')`
         margin-left: auto;

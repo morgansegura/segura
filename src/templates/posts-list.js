@@ -1,12 +1,11 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import PostItem from '../components/PostItem'
-import TitlePage from '../components/TitlePage'
+import Section from '../components/Section'
+import { ColumnWrapper } from '../components/Grid'
 import SEO from '../components/seo'
 
 import Pagination from '../components/Pagination'
-
-import * as S from '../components/ListWrapper/styled'
 
 const Blog = props => {
     const postList = props.data.allMarkdownRemark.edges
@@ -20,40 +19,43 @@ const Blog = props => {
     const nextPage = `/blog/page/${currentPage + 1}`
 
     return (
-        <>
+        <div>
             <SEO title="Blog" />
-            <TitlePage text="Blog" />
-            <S.ListWrapper>
-                {postList.map(
-                    ({
-                        node: {
-                            frontmatter: {
-                                background,
-                                category,
-                                date,
-                                description,
-                                title,
-                                image,
-                                id,
+
+            <Section className="section">
+                <ColumnWrapper className="center-fit">
+                    {postList.map(
+                        ({
+                            node: {
+                                frontmatter: {
+                                    background,
+                                    category,
+                                    date,
+                                    description,
+                                    title,
+                                    image,
+                                    id,
+                                },
+                                timeToRead,
+                                fields: { slug },
                             },
-                            timeToRead,
-                            fields: { slug },
-                        },
-                    }) => (
-                        <PostItem
-                            key={slug}
-                            slug={`/blog/${slug}`}
-                            background={background}
-                            category={category}
-                            date={date}
-                            timeToRead={timeToRead}
-                            title={title}
-                            description={description}
-                            image={image}
-                        />
-                    )
-                )}
-            </S.ListWrapper>
+                        }) => (
+                            <PostItem
+                                key={slug}
+                                slug={`/blog/${slug}`}
+                                background={background}
+                                category={category}
+                                date={date}
+                                timeToRead={timeToRead}
+                                title={title}
+                                description={description}
+                                image={image}
+                            />
+                        )
+                    )}
+                </ColumnWrapper>
+            </Section>
+            {/*  
             <Pagination
                 isFirst={isFirst}
                 isLast={isLast}
@@ -62,7 +64,8 @@ const Blog = props => {
                 prevPage={prevPage}
                 nextPage={nextPage}
             />
-        </>
+            */}
+        </div>
     )
 }
 

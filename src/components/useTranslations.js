@@ -17,7 +17,7 @@ function useTranslations() {
     })
 
     // Only return translations for the current locale
-    const { translations } = simplified.filter(lang => lang.name === locale)[0]
+    const { translations } = simplified.filter(lang => lang.name === 'en')[0]
 
     return translations
 }

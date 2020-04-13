@@ -31,7 +31,6 @@ export const SiteHeader = () => {
 }
 
 export const BlogHeader = () => {
-    const { home } = useTranslations()
     const [toggleMenu, setToggleMenu] = useState(false)
 
     function handleToggleMenu() {
@@ -40,8 +39,9 @@ export const BlogHeader = () => {
 
     return (
         <S.HeaderWrapper className="blog">
+            <S.SecondaryNavMenu>icons here</S.SecondaryNavMenu>
             <S.HeaderContainer>
-                <S.LogoLink to="/" title={home} aria-label={home}>
+                <S.LogoLink to="/" title="Home" aria-label="Home">
                     <Logo className="logo" />
                 </S.LogoLink>
                 <S.NavMenu>

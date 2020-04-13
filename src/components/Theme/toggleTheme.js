@@ -1,22 +1,22 @@
 import React from 'react'
-import { func, string } from 'prop-types';
-import styled from 'styled-components';
 
-import { WiMoonAltFirstQuarter } from "react-icons/wi";
-import './styled'
+import { func, string } from 'prop-types'
+
+import { WiMoonAltFirstQuarter } from 'react-icons/wi'
+import * as S from './styled'
 
 const ToggleTheme = ({ theme, toggleTheme }) => {
-	const isLight = theme === 'light';
-	return (
-		<button onClick={toggleTheme} >
-			<WiMoonAltFirstQuarter />
-		</button>
-	);
-};
-
-ToggleTheme.propTypes = {
-	theme: string.isRequired,
-	toggleTheme: func.isRequired,
+    const isLight = theme === 'light'
+    return (
+        <S.ToggleContainer className="toggle-theme" onClick={toggleTheme}>
+            <WiMoonAltFirstQuarter />
+        </S.ToggleContainer>
+    )
 }
 
-export default ToggleTheme;
+ToggleTheme.propTypes = {
+    theme: string.isRequired,
+    toggleTheme: func.isRequired,
+}
+
+export default ToggleTheme

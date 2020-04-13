@@ -1,9 +1,8 @@
 import styled from 'styled-components'
 import media from 'styled-media-query'
 import Img from 'gatsby-image'
-import LocalizedLink from '../LocalizedLink'
 
-export const PostItemLink = styled(LocalizedLink)`
+export const PostItemLink = styled.a`
     text-decoration: none;
     display: block;
     margin-bottom: var(--space);
@@ -24,7 +23,7 @@ export const PostItemWrapper = styled.section`
     box-shadow: 0 20px 20px rgba(0, 0, 0, 0.08);
     white-space: normal;
     transition: all 250ms cubic-bezier(0.02, 0.01, 0.47, 1);
-    background-color: ${({ theme }) => theme.subline};
+    /* color: ${({ theme }) => theme.subline}; */
 `
 
 // export const PostItemImg = styled.img`

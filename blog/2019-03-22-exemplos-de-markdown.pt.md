@@ -5,6 +5,7 @@ description: O Markdown deve ser o mais fácil de ler e escrever o mais possíve
 category: Markdown
 background: '#353b48'
 image: '/assets/img/03.jpg'
+tags: ["animals", "Chicago", "zoos"]
 ---
 
 O Markdown deve ser o mais fácil de ler e escrever o mais possível.
@@ -136,11 +137,11 @@ Some text to show that the reference links can follow later.
 ## Tables
 
 ```Markdown
-| Tables        | Are           | Cool  |
-| ------------- |:-------------:| -----:|
+| Tables        |      Are      |  Cool |
+| ------------- | :-----------: | ----: |
 | col 3 is      | right-aligned | $1600 |
-| col 2 is      | centered      |   $12 |
-| zebra stripes | are neat      |    $1 |
+| col 2 is      |   centered    |   $12 |
+| zebra stripes |   are neat    |    $1 |
 ```
 
 | Tables        |      Are      |   Cool |

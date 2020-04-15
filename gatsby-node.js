@@ -86,7 +86,7 @@ exports.createPages = async ({ graphql, actions }) => {
     const postTemplate = path.resolve(`./src/templates/post.js`)
     const postsListTemplate = path.resolve(`./src/templates/posts-list.js`)
     const pageTemplate = path.resolve(`./src/templates/page.js`)
-    const tagTemplate = path.resolve(`src/templates/tags.js`)
+    const topicTemplate = path.resolve(`src/templates/topics.js`)
 
     const result = await graphql(`
         {
@@ -107,8 +107,8 @@ exports.createPages = async ({ graphql, actions }) => {
                     }
                 }
             }
-            tagsGroup: allMarkdownRemark(limit: 2000) {
-                group(field: frontmatter___tags) {
+            topicsGroup: allMarkdownRemark(limit: 2000) {
+                group(field: frontmatter___topics) {
                     fieldValue
                 }
             }
@@ -140,14 +140,14 @@ exports.createPages = async ({ graphql, actions }) => {
         // Check if it's page (to differentiate post and page)
         const isPage = file.frontmatter.page
         const isPost = file.frontmatter.post
-        const isTag = file.frontmatter.tag
+        const isTopic = file.frontmatter.topic
 
         // Setting a template for page or post depending on the content
         const template = isPage
             ? pageTemplate
             : isPost
             ? postTemplate
-            : tagTemplate
+            : topicTemplate
 
         // Count posts
         postsTotal = isPage ? postsTotal + 0 : postsTotal + 1
@@ -194,13 +194,13 @@ exports.createPages = async ({ graphql, actions }) => {
             })
         })
     })
-    const tags = result.data.tagsGroup.group
-    tags.forEach(tag => {
+    const topics = result.data.topicsGroup.group
+    topics.forEach(topic => {
         createPage({
-            path: `/tags/${_.kebabCase(tag.fieldValue)}/`,
-            component: tagTemplate,
+            path: `/topics/${_.kebabCase(topic.fieldValue)}/`,
+            component: topicTemplate,
             context: {
-                tag: tag.fieldValue,
+                topic: topic.fieldValue,
             },
         })
     })

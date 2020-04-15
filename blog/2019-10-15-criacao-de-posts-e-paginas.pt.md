@@ -5,7 +5,7 @@ description: Veja como é super fácil adicionar novos posts e páginas neste pr
 category: Gatsby
 background: '#7d4cdb'
 image: '/assets/img/06.jpg'
-tags: ["animals", "Chicago", "zoos"]
+topics: ['animals', 'Chicago', 'zoos']
 ---
 
 ## Adicionando um novo conteúdo

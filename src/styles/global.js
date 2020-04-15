@@ -63,13 +63,14 @@ const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
   }
   body {
-    background: ${({ theme }) => theme.body};
-    font-weight: 400;
-    color: var(--gray);
+    background: ${({ theme }) => theme.bgBody};
+    font-weight: 500;
+    color: ${({ theme }) => theme.text};
+
     -webkit-font-smoothing: antialiased;
         -webkit-text-size-adjust: 100%;
             text-size-adjust: 100%;
-    font-size: 14px;
+    font-size: 100%;
     line-height: 1.25rem;
     font-family: var(--base-font);
 
@@ -89,13 +90,10 @@ const GlobalStyles = createGlobalStyle`
     .h4,
     h5,.h5,
     h6,.h6,
-    .headline,
-    .section-title,
-    .subline {
+    .headline {
       font-family: var(--headline-font);
-      font-weight: 600;
-      letter-spacing: 0px;
-      color: ${({ theme }) => theme.text};
+      font-weight: 500;
+      color: ${({ theme }) => theme.headline};
   }
  
   img {
@@ -169,7 +167,7 @@ const GlobalStyles = createGlobalStyle`
 
   }
   .section {
-    padding: 40px 20px;
+    padding: 40px 20px;        
 
     ${customMedia.greaterThan('small')`
       padding: 50px 40px;
@@ -178,8 +176,12 @@ const GlobalStyles = createGlobalStyle`
       padding: 100px 80px;
     `}      
   }
+  .bg-gradient {
+
+    border-bottom: 1px solid ${({ theme }) => theme.bgBodyLight};
+  }
   .bg-dark {
-    background-color: ${({ theme }) => theme.sectionDarker};
+    background-color: ${({ theme }) => theme.bgBodyDark};
   }
   .buffer-y {
 
@@ -238,10 +240,13 @@ const GlobalStyles = createGlobalStyle`
   }
 
   /* Services */
+
   .square-card {
     display: flex;
+    height: 100%;
+    flex: 1;
     flex-direction: column;
-    background-color: #424659;
+    background-color: ${({ theme }) => theme.bgBodyLight};
     padding: 10px 0 10px 15px;
     transition: background-color 0.3s ease-out;
     
@@ -250,15 +255,21 @@ const GlobalStyles = createGlobalStyle`
     `}    
 
     &:hover {
+      color: white;
       background-color: ${({ theme }) => theme.primaryColor};  
     }
     &:active {
+      color: white;
       background-color: ${({ theme }) => theme.primaryDarkColor};  
     }
     &--inner {
       flex: 1;
-    }
+    } 
   }
+    [data-reach-tab][data-selected] {
+      color: white;
+      background-color: ${({ theme }) => theme.primaryColor};
+    }     
   .bg-highlight {
     background-color: ${({ theme }) => theme.primaryColor};
   }
@@ -271,39 +282,25 @@ const GlobalStyles = createGlobalStyle`
   }
 
   :root { 
-    --gray-extra-light: #ebebec; 
-    --gray-light: #b1b1b6;
-    --gray-medium: #94959c;
-    --gray-medium-dark: #424659;
-    --gray: #333647;
-    --gray-dark: #252735;
+    --base-extra-light: #fafafa;
+    --base-light: #eeeeee;
+    --base-medium-light: #bbbbbf;
+    --base-medium: #919299;    
+    --base: #333647;
+    --base-medium-dark: #424659;
+    --base-dark: #252735;
+    --base-extra-dark: #1c1d28;
 
     --primary-color: #ff1744;
     --primary-light-color: #ff616f;
     --primary-dark-color: #c4001d;
-    --secondary-color: #42a5f5;
+    --secondary-color: #9b59b6;
     --secondary-light-color: #80d6ff;
     --secondary-dark-color: #0077c2;
-    --tertiary-color: #ffc400;
-
-    --body-bg: var(--gray); 
-
-    --bg-light: var(--gray-extra-light);
-    --bg-dark: var(--gray-dark);
-
-    --border-light: var(--gray-light);
-    --border-dark: var(--gray-dark);
-    
-    --link-color: ${({ theme }) => theme.primaryColor};
-    --link-color-hover: var(--tertiary-color);
-
-    --text-color: var(--gray);
-    --text-light:var(--gray-light);
-    --text-dark: var(--gray-dark);
 
     --width-container: 1352px;
-    --headline-font: "Montserrat", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    --base-font: "Roboto", Noto Sans,Noto Sans JP,Noto Sans KR,Noto Naskh Arabic,Noto Sans Thai,Noto Sans Hebrew,Noto Sans Bengali,sans-serif;
+    --headline-font: "Hind", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    --base-font: "rasmus andersson", "Noto Sans", Noto Sans JP,Noto Sans KR,Noto Naskh Arabic,Noto Sans Thai,Noto Sans Hebrew,Noto Sans Bengali,sans-serif;
 
     --space: 2rem;
     --space-sm: 1rem;

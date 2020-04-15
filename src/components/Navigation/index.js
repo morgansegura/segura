@@ -4,19 +4,17 @@ import useTranslations from '../useTranslations'
 
 import * as S from './styled'
 
-export const SiteNavigation = ({ isActive, handleToggleMenu }) => {
+export const SiteNavigation = () => {
     const { siteMenuItems } = useMenu()
     const { button } = useTranslations()
     return (
         <div>
-            <S.Navigation className={isActive ? 'active' : ''}>
+            <S.Navigation>
                 {siteMenuItems.map((menu, i) => (
                     <S.NavigationLink
                         key={i}
                         to={menu.link}
                         aria-label={menu.name}
-                        activeClassName="active"
-                        onClick={() => handleToggleMenu()}
                     >
                         {menu.name}
                     </S.NavigationLink>

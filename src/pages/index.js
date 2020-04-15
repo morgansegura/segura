@@ -26,7 +26,7 @@ const Index = ({ data: { allMarkdownRemark } }) => {
     const postList = allMarkdownRemark.edges
 
     return (
-        <div>
+        <div style={{ width: '100%' }}>
             <SEO title="Home" />
 
             <Section className="section">
@@ -35,8 +35,8 @@ const Index = ({ data: { allMarkdownRemark } }) => {
 
             <Section className="section bg-dark">
                 {/* Intorduction Left */}
-                <ColumnWrapper>
-                    <Column className="two-columns">
+                <ColumnWrapper className="gap">
+                    <Column className="col-12 col-lg-6">
                         <div className="clean-wrap--left">
                             <span className="super-text buffer-top">
                                 Introduction
@@ -60,7 +60,7 @@ const Index = ({ data: { allMarkdownRemark } }) => {
                     </Column>
 
                     {/* Intorduction Right */}
-                    <Column className="two-columns">
+                    <Column className="col-12 col-lg-6">
                         <h4 className="section-subline buffer-top">
                             User Experience Designer and Full Stack Web
                             Developer for the love of everything and waste
@@ -105,14 +105,11 @@ const Index = ({ data: { allMarkdownRemark } }) => {
                 </ColumnWrapper>
             </Section>
 
-            {/* Skills */}
-            {/* Portfolio */}
-
             <Section className="section">
                 <Tabs>
                     <TabList>
-                        <ColumnWrapper>
-                            <Column className="three-columns">
+                        <ColumnWrapper className="gap">
+                            <Column className="col-12 col-lg-4">
                                 <Tab className="tab-button">
                                     <ThreeDimensionalHover className="square-card">
                                         <div className="square-card--inner">
@@ -127,7 +124,7 @@ const Index = ({ data: { allMarkdownRemark } }) => {
                                     </ThreeDimensionalHover>
                                 </Tab>
                             </Column>
-                            <Column className="three-columns">
+                            <Column className="col-12 col-lg-4">
                                 <Tab className="tab-button">
                                     <ThreeDimensionalHover className="square-card">
                                         <div className="square-card--inner">
@@ -142,7 +139,7 @@ const Index = ({ data: { allMarkdownRemark } }) => {
                                     </ThreeDimensionalHover>
                                 </Tab>
                             </Column>
-                            <Column className="three-columns">
+                            <Column className="col-12 col-lg-4">
                                 <Tab className="tab-button">
                                     <ThreeDimensionalHover className="square-card">
                                         <div className="square-card--inner">
@@ -161,8 +158,8 @@ const Index = ({ data: { allMarkdownRemark } }) => {
                     </TabList>
                     <TabPanels>
                         <TabPanel>
-                            <ColumnWrapper>
-                                <Column className="two-columns">
+                            <ColumnWrapper className="gap">
+                                <Column className="col-12 col-lg-6">
                                     <div className="clean-wrap--left">
                                         <span className="super-text buffer-top">
                                             UI/UX Design
@@ -190,7 +187,7 @@ const Index = ({ data: { allMarkdownRemark } }) => {
                                     </div>
                                 </Column>
 
-                                <Column className="two-columns">
+                                <Column className="col-12 col-lg-6">
                                     <h4 className="section-subline buffer-top">
                                         User Experience Designer and Full Stack
                                         Web Developer for the love of everything
@@ -209,8 +206,8 @@ const Index = ({ data: { allMarkdownRemark } }) => {
                             </ColumnWrapper>
                         </TabPanel>
                         <TabPanel>
-                            <ColumnWrapper>
-                                <Column className="two-columns">
+                            <ColumnWrapper className="gap">
+                                <Column className="col-12 col-lg-6">
                                     <div className="clean-wrap--left">
                                         <span className="super-text buffer-top">
                                             Web & Mobile Development
@@ -237,7 +234,7 @@ const Index = ({ data: { allMarkdownRemark } }) => {
                                         </Button>
                                     </div>
                                 </Column>
-                                <Column className="two-columns">
+                                <Column className="col-12 col-lg-6">
                                     <h4 className="section-subline buffer-top">
                                         User Experience Designer and Full Stack
                                         Web Developer for the love of everything
@@ -256,8 +253,8 @@ const Index = ({ data: { allMarkdownRemark } }) => {
                             </ColumnWrapper>
                         </TabPanel>
                         <TabPanel>
-                            <ColumnWrapper>
-                                <Column className="two-columns">
+                            <ColumnWrapper className="gap">
+                                <Column className="col-12 col-lg-6">
                                     <div className="clean-wrap--left">
                                         <span className="super-text buffer-top">
                                             Data Analysis & Integration
@@ -284,7 +281,7 @@ const Index = ({ data: { allMarkdownRemark } }) => {
                                         </Button>
                                     </div>
                                 </Column>
-                                <Column className="two-columns">
+                                <Column className="col-12 col-lg-6">
                                     <h4 className="section-subline buffer-top">
                                         User Experience Designer and Full Stack
                                         Web Developer for the love of everything
@@ -309,8 +306,8 @@ const Index = ({ data: { allMarkdownRemark } }) => {
             {/* Posts */}
 
             <Section className="section">
-                <ColumnWrapper>
-                    <Column className="two-columns">
+                <ColumnWrapper className="gap">
+                    <Column className="col-12 col-lg-6">
                         <span className="super-text">Blog</span>
                         <h2 className="section-subline">
                             All Creative Works,{' '}
@@ -336,7 +333,7 @@ const Index = ({ data: { allMarkdownRemark } }) => {
                             </Link>
                         </div>
                     </Column>
-                    <Column className="two-columns">
+                    <Column className="col-12 col-lg-6">
                         {postList.map(
                             ({
                                 node: {
@@ -373,11 +370,11 @@ const Index = ({ data: { allMarkdownRemark } }) => {
             {/* Testimonials */}
 
             <Section className="section bg-dark">
-                <ColumnWrapper>
-                    <Column className="two-columns">
+                <ColumnWrapper className="gap">
+                    <Column className="col-12 col-lg-6">
                         <div className="clean-wrap--left">Images Go Here</div>
                     </Column>
-                    <Column className="two-columns">
+                    <Column className="col-12 col-lg-6">
                         <FaQuoteLeft className="quote-icon" />
                         <h4 className="quote-text">
                             User Experience Designer and Full Stack Web
@@ -399,8 +396,8 @@ const Index = ({ data: { allMarkdownRemark } }) => {
             {/* Contact */}
 
             <Section className="section">
-                <ColumnWrapper>
-                    <Column className="two-columns">
+                <ColumnWrapper className="gap">
+                    <Column className="col-12 col-lg-6">
                         <div className="clean-wrap--left">
                             <span className="super-text">Contact</span>
                             <h2 className="section-subline">
@@ -416,7 +413,7 @@ const Index = ({ data: { allMarkdownRemark } }) => {
                             </p>
                         </div>
                     </Column>
-                    <Column className="two-columns">
+                    <Column className="col-12 col-lg-6">
                         <h4 className="section-subline">
                             Have any thoughts?{' '}
                             <span className="line-break">

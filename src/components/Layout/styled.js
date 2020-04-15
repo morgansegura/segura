@@ -115,58 +115,6 @@ export const SiteContent = styled.section`
             display: block;
         `}
     }
-
-    .flex-100 {
-        width: 100%;
-    }
-    .flex-50 {
-        width: 100%;
-        ${customMedia.greaterThan('large')`
-            width: 50%;
-        `}
-    }
-    .flex-75 {
-        width: 100%;
-        ${customMedia.greaterThan('large')`
-            width: 75%;
-        `}
-    }
-    .flex-66 {
-        width: 100%;
-        ${customMedia.greaterThan('large')`
-            width: 66.6666%;
-        `}
-    }
-    .flex-60 {
-        width: 100%;
-        ${customMedia.greaterThan('large')`
-            width: 60%;
-        `}
-    }
-    .flex-40 {
-        width: 100%;
-        ${customMedia.greaterThan('large')`
-            width: 40%;
-        `}
-    }
-    .flex-33 {
-        width: 100%;
-        ${customMedia.greaterThan('large')`
-            width: 33.3333%;
-        `}
-    }
-    .flex-25 {
-        width: 100%;
-        ${customMedia.greaterThan('large')`
-            width: 25%;
-        `}
-    }
-    .flex-50,
-    .flex-75,
-    .flex-66,
-    .flex-33,
-    .flex-25 {
-    }
 `
 
 export const Container = styled.div`

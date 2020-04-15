@@ -5,7 +5,7 @@ description: Adicione itens no GraphQL para criar um menu dinâmico
 category: Gatsby
 background: '#7d4cdb'
 image: '/assets/img/07.jpg'
-tags: ["animals", "Chicago", "zoos"]
+topics: ['animals', 'Chicago', 'zoos']
 ---
 
 As traduções dos itens do menu estão localizadas em `config/menu` e o hook personalizado `useMenu` pega essas traduções (via consulta GraphQL) e as insere nas páginas.

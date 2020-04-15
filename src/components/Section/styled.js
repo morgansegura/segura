@@ -31,6 +31,7 @@ export const Section = styled.div`
     .section-headline {
         position: relative;
         letter-spacing: 1px;
+        font-weight: 600;
         font-family: var(--headline-font);
         color: ${({ theme }) => theme.headline};
 
@@ -50,10 +51,9 @@ export const Section = styled.div`
 
     .section-subline {
         font-size: 2rem;
-        line-height: 1.4;
-        padding-bottom: 1.2rem;
         font-weight: 600;
-        color: ${({ theme }) => theme.subline};
+        line-height: 1.4;
+        padding-bottom: 20px;
 
         &--small {
             font-size: 1rem;
@@ -69,22 +69,23 @@ export const Section = styled.div`
     }
     .super-text {
         display: block;
-        color: ${({ theme }) => theme.superText};
-        font-size: 1.025rem;
-        line-height: 1.025rem;
+        color: ${({ theme }) => theme.textOffset};
+        font-size: 0.9375rem;
         font-weight: 500;
+        line-height: 2;
+        line-height: 1rem;
         padding-bottom: 20px;
     }
     p {
-        font-size: 1.025rem;
+        font-size: 0.9375rem;
+        font-weight: 500;
         line-height: 2;
-        letter-spacing: 0.5px;
         color: ${({ theme }) => theme.text};
     }
 
     .clean-wrap {
         &--left {
-            ${customMedia.greaterThan('large')`
+            ${customMedia.greaterThan('medium')`
                 padding-right: 50px;     
             `}
             ${customMedia.greaterThan('xlarge')`
@@ -92,7 +93,7 @@ export const Section = styled.div`
             `}
         }
         &--right {
-            ${customMedia.greaterThan('large')`
+            ${customMedia.greaterThan('medium')`
                 padding-left: 50px;     
             `}
             ${customMedia.greaterThan('xlarge')`
@@ -150,7 +151,7 @@ export const Section = styled.div`
         &-anchor {
             text-decoration: none;
             color: ${({ theme }) => theme.headline};
-            background-color: ${({ theme }) => theme.sectionMediumDark};
+            background-color: ${({ theme }) => theme.bgBodyLight};
             padding: 2px 8px;
             margin-right: 5px;
             margin-bottom: 5px;
@@ -169,7 +170,7 @@ export const Section = styled.div`
         display: flex;
         flex-direction: column;
         padding: 1rem 0;
-        border-bottom: 1px solid ${({ theme }) => theme.sectionMediumDark};
+        border-bottom: 1px solid ${({ theme }) => theme.outlines};
 
         .title {
             display: flex;
@@ -193,7 +194,7 @@ export const Section = styled.div`
             }
             .category,
             .time-to-read {
-                color: ${({ theme }) => theme.superText};
+                color: ${({ theme }) => theme.textLight};
             }
             .time-to-read {
                 content: 'min';

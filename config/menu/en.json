@@ -1,8 +1,7 @@
 {
     "blogMenuItems": [
-        { "id": "0", "name": "Categories", "link": "/" },
-        { "id": "1", "name": "Tags", "link": "/about" },
-        { "id": "2", "name": "Popular", "link": "/blog" }
+        { "id": "0", "name": "Home", "link": "/" },
+        { "id": "1", "name": "Topics", "link": "/topics" }
     ],
     "menuItems": [
         { "id": "0", "name": "Home", "link": "/" },

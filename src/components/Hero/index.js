@@ -9,9 +9,9 @@ import { FaGithubAlt, FaTwitter, FaLinkedinIn } from 'react-icons/fa'
 import { MdArrowForward } from 'react-icons/md'
 
 export const HeroHome = () => (
-    <Section className="section">
-        <ColumnWrapper>
-            <Column className="two-columns">
+    <>
+        <ColumnWrapper className="gap">
+            <Column className="col-12 col-lg-6">
                 <h1 className="section-headline">
                     Morgan <span className="line-break">Segura.</span>
                 </h1>
@@ -28,7 +28,7 @@ export const HeroHome = () => (
                 </div>
             </Column>
             {/* Main Header right */}
-            <Column className="two-columns">
+            <Column className="col-12 col-lg-6">
                 <div className="clean-wrap--right">
                     <span className="super-text">Introduction</span>
                     <h2 className="section-subline">
@@ -47,5 +47,5 @@ export const HeroHome = () => (
                 </div>
             </Column>
         </ColumnWrapper>
-    </Section>
+    </>
 )

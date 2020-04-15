@@ -6,6 +6,11 @@ export const ToggleContainer = styled.button`
     top: 0.5rem;
     background: transparent;
     border: none;
+    z-index: 1000;
+    font-size: 30px;
+    outline: none;
+    cursor: pointer;
+    color: ${({ theme }) => theme.outlines};
     /*
     border: 2px solid ${({ theme }) => theme.primaryLightColor};
     border-radius: 30px;

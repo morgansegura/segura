@@ -92,7 +92,7 @@ export const Content = styled.section`
     h1,
     h2 {
         padding-bottom: var(--space);
-        border-bottom: 1px solid var(--border-light);
+        border-bottom: 1px solid ${({ theme }) => theme.outlines};
     }
 
     h3 {

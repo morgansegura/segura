@@ -30,6 +30,7 @@ function Layout({ path, children, pageContext: { locale } }) {
 
                     {path === '/' ? <SiteHeader /> : <BlogHeader />}
                     <S.SiteContent role="main">{children}</S.SiteContent>
+
                     {path === '/' ? <Footer /> : <Footer />}
                 </S.Wrapper>
             </ThemeProvider>

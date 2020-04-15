@@ -2,6 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { useStaticQuery, graphql } from 'gatsby'
 import useTranslations from '../useTranslations'
+import { ColumnWrapper, Column } from '../Grid'
+
+import { truncateString } from '../../utils/util-functions'
 
 import * as S from './styled'
 
@@ -60,38 +63,41 @@ const PostItem = ({
                 */}
                 <S.PostItemInfo>
                     <S.PostItemTitle>{title}</S.PostItemTitle>
-                    <S.PostItemDescription>{description}</S.PostItemDescription>
+                    <S.PostItemDescription>
+                        {truncateString(description, 60, '...')}
+                    </S.PostItemDescription>
+                    {postImg && (
+                        <S.PostItemImgWrapper>
+                            <S.PostItemTag background={background}>
+                                {category}
+                            </S.PostItemTag>
+                            <S.PostItemImg
+                                fluid={postImg.node.childImageSharp.fluid}
+                                alt={title}
+                            />
+                        </S.PostItemImgWrapper>
+                    )}
+                    {!postImg && (
+                        <S.PostItemImgWrapper>
+                            <S.PostItemTag background={background}>
+                                {console.log(category)}
+                                {category}
+                            </S.PostItemTag>
+                            <S.PostItemImg
+                                fluid={postImgCover.node.childImageSharp.fluid}
+                                alt={title}
+                            />
+                        </S.PostItemImgWrapper>
+                    )}
+
+                    <S.PostItemFooter>
+                        <S.PostItemFooterWrapper>
+                            <S.PostItemDate>
+                                {date} • {timeToRead} min {toRead}
+                            </S.PostItemDate>
+                        </S.PostItemFooterWrapper>
+                    </S.PostItemFooter>
                 </S.PostItemInfo>
-                {postImg && (
-                    <S.PostItemImgWrapper>
-                        <S.PostItemTag background={background}>
-                            {category}
-                        </S.PostItemTag>
-                        <S.PostItemImg
-                            fluid={postImg.node.childImageSharp.fluid}
-                            alt={title}
-                        />
-                    </S.PostItemImgWrapper>
-                )}
-                {!postImg && (
-                    <S.PostItemImgWrapper>
-                        <S.PostItemTag background={background}>
-                            {console.log(category)}
-                            {category}
-                        </S.PostItemTag>
-                        <S.PostItemImg
-                            fluid={postImgCover.node.childImageSharp.fluid}
-                            alt={title}
-                        />
-                    </S.PostItemImgWrapper>
-                )}
-                <S.PostItemFooter>
-                    <S.PostItemFooterWrapper>
-                        <S.PostItemDate>
-                            {date} • {timeToRead} min {toRead}
-                        </S.PostItemDate>
-                    </S.PostItemFooterWrapper>
-                </S.PostItemFooter>
             </S.PostItemWrapper>
         </S.PostItemLink>
     )

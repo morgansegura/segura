@@ -77,26 +77,17 @@ module.exports = {
             },
         },
         {
-            resolve: `gatsby-plugin-prefetch-google-fonts`,
+            resolve: `gatsby-plugin-google-fonts`,
             options: {
-                fonts: [
-                    {
-                        family: `Montserrat`,
-                        variants: [`500`],
-                    },
-                    {
-                        family: `Roboto`,
-                        variants: [`400`, `500`],
-                    },
-                ],
+                fonts: [`hind\:500`, `rasmus andersson\:400,500`],
             },
         },
         {
-            resolve: "gatsby-plugin-react-svg",
+            resolve: 'gatsby-plugin-react-svg',
             options: {
                 rule: {
                     include: /images\/.*\.svg/,
-                }
+                },
             },
         },
         `gatsby-plugin-react-helmet`,

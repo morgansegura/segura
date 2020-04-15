@@ -1,39 +1,45 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+
 // Components
 import { Link, graphql } from 'gatsby'
-const Tags = ({ pageContext, data }) => {
-    const { tag } = pageContext
+import { ColumnWrapper, Column } from '../components/Grid'
+
+const Topics = ({ pageContext, data }) => {
+    const { topic } = pageContext
     const { edges, totalCount } = data.allMarkdownRemark
-    const tagHeader = `${totalCount} post${
+    const topicHeader = `${totalCount} post${
         totalCount === 1 ? '' : 's'
-    } tagged with "${tag}"`
+    } topics in "${topic}"`
 
     return (
-        <div>
-            <h1>{tagHeader}</h1>
-            <ul>
-                {edges.map(({ node }) => {
-                    const { slug } = node.fields
-                    const { title } = node.frontmatter
-                    return (
-                        <li key={slug}>
-                            <Link to={`/blog/${slug}`}>{title}</Link>
-                        </li>
-                    )
-                })}
-            </ul>
-            {/*
-              This links to a page that does not yet exist.
-              You'll come back to it!
-            */}
-            <Link to="/tags">All tags</Link>
-        </div>
+        <ColumnWrapper>
+            <Column className="column-3">Sidebar</Column>
+            <Column className="column-6">
+                <h1>{topicHeader} Topics Template</h1>
+                <ul>
+                    {edges.map(({ node }) => {
+                        const { slug } = node.fields
+                        const { title } = node.frontmatter
+                        return (
+                            <li key={slug}>
+                                <Link to={`/topic/${slug}`}>{title}</Link>
+                            </li>
+                        )
+                    })}
+                </ul>
+                {/*
+                This links to a page that does not yet exist.
+                You'll come back to it!
+                */}
+                <Link to="/topics">All topics</Link>
+            </Column>
+        </ColumnWrapper>
     )
 }
-Tags.propTypes = {
+Topics.propTypes = {
     pageContext: PropTypes.shape({
-        tag: PropTypes.string.isRequired,
+        topic: PropTypes.string.isRequired,
     }),
     data: PropTypes.shape({
         allMarkdownRemark: PropTypes.shape({
@@ -53,13 +59,13 @@ Tags.propTypes = {
         }),
     }),
 }
-export default Tags
-export const tagPageQuery = graphql`
-    query($tag: String) {
+export default Topics
+export const topicPageQuery = graphql`
+    query($topic: String) {
         allMarkdownRemark(
             limit: 2000
             sort: { fields: [frontmatter___date], order: DESC }
-            filter: { frontmatter: { tags: { in: [$tag] } } }
+            filter: { frontmatter: { topics: { in: [$topic] } } }
         ) {
             totalCount
             edges {

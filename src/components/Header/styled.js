@@ -1,23 +1,34 @@
 import styled from 'styled-components'
-import media from 'styled-media-query'
+import { generateMedia } from 'styled-media-query'
+
+const customMedia = generateMedia({
+    xsmall: '250px',
+    small: '450px',
+    medium: '768px',
+    large: '1024px',
+    xlarge: '1200px',
+    huge: '1400px',
+})
 import { Link } from 'gatsby'
 
 export const HeaderWrapper = styled.div`
     position: relative;
+    z-index: 1;
     width: 100%;
     &.site {
-        padding: 50px 20px 0;
+        padding: 0.75rem 60px 0.75rem 20px;
+        border-bottom: 1px solid ${({ theme }) => theme.outlines};
 
-        ${media.greaterThan('medium')`
-            padding: 100px 80px 0;
+        ${customMedia.greaterThan('medium')`
+            padding: 30px 120px 30px 80px;
         `}
     }
     &.blog {
-        padding: 20px 20px 0;
-        margin-bottom: 20px;
+        padding: 0.75rem 60px 0.75rem 20px;
+        border-bottom: 1px solid ${({ theme }) => theme.outlines};
 
-        ${media.greaterThan('medium')`
-            padding: 40px 80px 0;
+        ${customMedia.greaterThan('medium')`
+            padding: 30px 120px 30px 80px;
         `}
     }
 `
@@ -26,19 +37,13 @@ export const HeaderContainer = styled.div`
     width: 100%;
     position: relative;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
 
     margin-left: auto;
     margin-right: auto;
     max-width: var(--width-container);
-
-    ${media.greaterThan('small')`
-        justify-content: flex-start;
-        align-items: center;
-        flex-direction: row;
-    `}
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: row;
 `
 
 export const LogoLink = styled(Link)`
@@ -46,36 +51,32 @@ export const LogoLink = styled(Link)`
     display: flex;
     overflow: hidden;
     align-items: center;
-    display: none;
-
-    ${media.greaterThan('small')`
-        display: block;
-    `}
 
     .logo {
-        height: 50px;
-        width: 50px;
+        height: 30px;
+        width: 30px;
+
+        ${customMedia.greaterThan('medium')`
+            height: 50px;
+            width: 50px;
+        `}
     }
     .cls-2 {
-        fill: var(--primary-color);
+        fill: ${({ theme }) => theme.headline};
     }
 `
 
 export const NavMenu = styled.div`
     position: relative;
-    /* top: 60px; */
-
-    ${media.greaterThan('small')`
-        margin-left: auto;
-        width: auto;
-        top: 0;
-    `}
+    margin-left: auto;
+    width: auto;
+    top: 0;
 `
 export const SecondaryNavMenu = styled.div`
     position: relative;
     padding: 0.125rem 20px;
 
-    ${media.greaterThan('small')`
+    ${customMedia.greaterThan('small')`
         margin-left: auto;
         width: auto;
         top: 0;

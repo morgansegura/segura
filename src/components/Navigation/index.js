@@ -13,15 +13,18 @@ export const SiteNavigation = () => {
                 {siteMenuItems.map((menu, i) => (
                     <S.NavigationLink
                         key={i}
+                        activeClassName="active"
                         to={menu.link}
                         aria-label={menu.name}
                     >
                         {menu.name}
                     </S.NavigationLink>
                 ))}
+                {/*
                 <S.NavigationButton to="/contact" aria-label="Login">
                     {button}
                 </S.NavigationButton>
+                */}
             </S.Navigation>
         </div>
     )
@@ -31,11 +34,12 @@ export const BlogNavigation = ({ isActive, handleToggleMenu }) => {
     const { button } = useTranslations()
 
     return (
-        <div className="blog">
+        <div className="blog-nav">
             <S.Navigation className={isActive ? 'active' : ''}>
                 {blogMenuItems.map((menu, i) => (
                     <S.NavigationLink
                         key={i}
+                        activeClassName="active"
                         to={menu.link}
                         aria-label={menu.name}
                         activeClassName="active"
@@ -44,9 +48,11 @@ export const BlogNavigation = ({ isActive, handleToggleMenu }) => {
                         {menu.name}
                     </S.NavigationLink>
                 ))}
+                {/*
                 <S.NavigationButton to="/contact" aria-label="Login">
                     {button}
                 </S.NavigationButton>
+                */}
             </S.Navigation>
         </div>
     )

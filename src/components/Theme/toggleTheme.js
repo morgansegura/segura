@@ -8,7 +8,11 @@ import * as S from './styled'
 const ToggleTheme = ({ theme, toggleTheme }) => {
     const isLight = theme === 'light'
     return (
-        <S.ToggleContainer className="toggle-theme" onClick={toggleTheme}>
+        <S.ToggleContainer
+            className="toggle-theme"
+            themeStyle={theme}
+            onClick={toggleTheme}
+        >
             <WiMoonAltFirstQuarter />
         </S.ToggleContainer>
     )

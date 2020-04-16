@@ -1,43 +1,35 @@
 import styled from 'styled-components'
+import { generateMedia } from 'styled-media-query'
+
+const customMedia = generateMedia({
+    xsmall: '250px',
+    small: '450px',
+    medium: '768px',
+    large: '1024px',
+    xlarge: '1200px',
+    huge: '1400px',
+})
 
 export const ToggleContainer = styled.button`
     position: absolute;
-    right: 20px;
-    top: 0.5rem;
     background: transparent;
     border: none;
-    z-index: 1000;
-    font-size: 30px;
+    z-index: 4;
+    font-size: 22px;
     outline: none;
     cursor: pointer;
-    color: ${({ theme }) => theme.outlines};
-    /*
-    border: 2px solid ${({ theme }) => theme.primaryLightColor};
-    border-radius: 30px;
-    cursor: pointer;
-    display: flex;
-    font-size: 0.5rem;
-    justify-content: space-between;
-    margin: 0 auto;
-    overflow: hidden;
-    padding: 0.5rem;
-    position: relative;
-    width: 8rem;
-    height: 4rem; */
+    color: ${({ theme }) => theme.headline};
+    top: 14px;
+    right: 20px;
 
-    /* svg {
-        height: auto;
-        width: 2.5rem;
-        transition: all 0.3s linear;
+    svg {
+        transform: ${({ themeStyle }) =>
+            themeStyle === 'light' ? 'rotate(-180deg)' : 'rotate(0)'};
+        transition: transform 0.3s ease-out;
+    }
 
-        &:first-child {
-            transform: ${({ lightTheme }) =>
-                lightTheme ? 'translateY(0)' : 'translateY(100px)'};
-        }
-
-        &:nth-child(2) {
-            transform: ${({ lightTheme }) =>
-                lightTheme ? 'translateY(-100px)' : 'translateY(0)'};
-        }
-    } */
+    ${customMedia.greaterThan('medium')`
+        top: 32px;
+        right: 80px;
+    `}
 `

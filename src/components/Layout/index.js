@@ -26,11 +26,9 @@ function Layout({ path, children, pageContext: { locale } }) {
             <ThemeProvider theme={themeMode}>
                 <GlobalStyles />
                 <S.Wrapper>
-                    <ToggleTheme theme={theme} toggleTheme={toggleTheme} />
-
                     {path === '/' ? <SiteHeader /> : <BlogHeader />}
+                    <ToggleTheme theme={theme} toggleTheme={toggleTheme} />
                     <S.SiteContent role="main">{children}</S.SiteContent>
-
                     {path === '/' ? <Footer /> : <Footer />}
                 </S.Wrapper>
             </ThemeProvider>

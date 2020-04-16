@@ -1,5 +1,14 @@
 import styled from 'styled-components'
-import media from 'styled-media-query'
+import { generateMedia } from 'styled-media-query'
+
+const customMedia = generateMedia({
+    xsmall: '250px',
+    small: '450px',
+    medium: '768px',
+    large: '1024px',
+    xlarge: '1200px',
+    huge: '1400px',
+})
 
 import { Link } from 'gatsby'
 
@@ -9,36 +18,46 @@ export const Navigation = styled.nav`
     justify-content: space-evenly;
     width: 100%;
 
-    ${media.greaterThan('small')`
+    ${customMedia.greaterThan('small')`
         /* right: 0; */
     `}
 `
 
 export const NavigationLink = styled(Link)`
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--gray-medium);
-    font-family: var(--headline-font);
+    font-weight: 500;
+    color: ${({ theme }) => theme.links};
     text-decoration: none;
     position: relative;
     padding: 0 0.75rem;
     text-align: center;
     margin-bottom: 0;
     line-height: 1.75;
+    font-size: 0.875rem;
 
-    ${media.greaterThan('small')`
+    ${customMedia.greaterThan('small')`
         font-size: 1rem;
     `}
+
     &.active {
-        color: var(--gray-extra-light);
-    }
-    &:hover,
-    &.active {
+        color: ${({ theme }) => theme.primaryColor};
         &:after {
-            /* opacity: 1;
-            bottom: -15px;
-            width: 100%; */
+            content: '';
+            display: inline;
+            height: 2px;
+            background-color: ${({ theme }) => theme.primaryColor};
+            position: absolute;
+            opacity: 1;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: -13px;
+            width: calc(100% - 1rem);
+            transition: width 0.3s ease-out;
+            ${customMedia.greaterThan('medium')`
+                background-color: transparent;
+            `}
         }
+    }
+    &:hover {
     }
 `
 
@@ -56,7 +75,7 @@ export const NavigationButton = styled(Link)`
     text-align: center;
     transition: background-color 0.3s ease-out;
     margin-left: 0.75rem;
-    ${media.greaterThan('small')`
+    ${customMedia.greaterThan('small')`
         padding: 0.25rem 1rem;
         margin-left: var(--space-sm);        
     `}

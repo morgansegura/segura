@@ -28,54 +28,57 @@ const Blog = props => {
         <div style={{ width: '100%' }}>
             <SEO title="Blog" />
             <Section className="section">
-                <ColumnWrapper>
-                    <Column className="col-12 col-xl-4 col-xxl-3">
-                        <Sidebar>
-                            <h1>Blog</h1>
-                            <nav className="list-nav">
-                                <Link to="/">Tutorials</Link>
-                                <Link to="/">Tutorials</Link>
-                                <Link to="/">Tutorials</Link>
-                            </nav>
-                        </Sidebar>
+                <ColumnWrapper className="gap">
+                    <Column className="col-3">
+                        <h1>Blog</h1>
                     </Column>
-                    <Column className="col-12 col-xl-8 col-xxl-9">
-                        <ColumnWrapper className="gap">
-                            {postList.map(
-                                ({
-                                    node: {
-                                        frontmatter: {
-                                            background,
-                                            category,
-                                            date,
-                                            description,
-                                            title,
-                                            image,
-                                            id,
-                                        },
-                                        timeToRead,
-                                        fields: { slug },
-                                    },
-                                }) => (
-                                    <Column
-                                        className="col-12 col-md-6 col-xxl-4"
-                                        key={slug}
-                                    >
-                                        <PostItem
-                                            slug={`/blog/${slug}`}
-                                            background={background}
-                                            category={category}
-                                            date={date}
-                                            timeToRead={timeToRead}
-                                            title={title}
-                                            description={description}
-                                            image={image}
-                                        />
-                                    </Column>
-                                )
-                            )}
-                        </ColumnWrapper>
+                    <Column className="col-9">
+                        <nav className="list-nav">
+                            <Link className="list-anchor" to="/">
+                                Tutorials
+                            </Link>
+                            <Link className="list-anchor" to="/">
+                                Tutorials
+                            </Link>
+                            <Link className="list-anchor" to="/">
+                                Tutorials
+                            </Link>
+                        </nav>
                     </Column>
+                </ColumnWrapper>
+
+                <ColumnWrapper className="gap">
+                    {postList.map(
+                        ({
+                            node: {
+                                frontmatter: {
+                                    background,
+                                    category,
+                                    date,
+                                    description,
+                                    title,
+                                    image,
+                                    id,
+                                },
+                                timeToRead,
+                                fields: { slug },
+                            },
+                        }) => (
+                            <Column className="col-12 col-lg-6 col-xl-4 col-xxl-3">
+                                <PostItem
+                                    key={slug}
+                                    slug={`/blog/${slug}`}
+                                    background={background}
+                                    category={category}
+                                    date={date}
+                                    timeToRead={timeToRead}
+                                    title={title}
+                                    description={description}
+                                    image={image}
+                                />
+                            </Column>
+                        )
+                    )}
                 </ColumnWrapper>
             </Section>
             {/*  

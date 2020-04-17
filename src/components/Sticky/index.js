@@ -1,10 +1,16 @@
-import React, { Component, useState } from 'react'
+import React, { Component } from 'react'
 import * as S from './styled'
-import { Waypoint } from 'react-waypoint'
+import Headroom from 'react-headroom'
 
 class Sticky extends Component {
-    state = {
-        sticky: true,
+    constructor(props) {
+        super(props)
+
+        this.state = {
+            sticky: false,
+        }
+
+        this.isSticky.bind(this.isSticky)
     }
     isSticky = () => {
         this.setState({ sticky: !this.state.sticky })
@@ -12,19 +18,22 @@ class Sticky extends Component {
 
     render() {
         return (
-            <>
-                <Waypoint>
-                    <S.StickyContainer sticky={this.state.sticky}>
-                        {this.props.children}
-                    </S.StickyContainer>
-                </Waypoint>
-                <Waypoint
-                    scrollableAncestor={window}
-                    topOffset="-100px"
-                    onEnter={this.isSticky}
-                    onLeave={this.isSticky}
-                ></Waypoint>
-            </>
+            <Headroom
+                onPin={() => {
+                    this.isSticky()
+                    console.log('pinned')
+                    console.log(this.state.sticky)
+                }}
+                onUnpin={() => {
+                    this.isSticky()
+                    console.log('unpinned')
+                    console.log(this.state.sticky)
+                }}
+            >
+                <S.StickyContainer sticky={this.state.sticky}>
+                    {this.props.children}
+                </S.StickyContainer>
+            </Headroom>
         )
     }
 }

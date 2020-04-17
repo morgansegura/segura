@@ -24,8 +24,8 @@ export const ToggleContainer = styled.button`
 
     svg {
         transform: ${({ themeStyle }) =>
-            themeStyle === 'light' ? 'rotate(-180deg)' : 'rotate(0)'};
-        transition: transform 0.3s ease-out;
+            themeStyle === 'light' ? 'rotate(180deg)' : 'rotate()'};
+        transition: transform 0.2s ease-out;
     }
 
     ${customMedia.greaterThan('medium')`

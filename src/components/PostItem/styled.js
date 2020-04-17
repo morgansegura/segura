@@ -15,7 +15,7 @@ export const PostItemLink = styled(Link)`
 
         &:hover {
             section {
-                box-shadow: 0 40px 40px rgba(0, 0, 0, 0.16);
+                box-shadow: 0 25px 25px rgba(0, 0, 0, 0.16);
                 transform: translate(0, -20px);
                 transition-delay: 0s !important;
             }
@@ -29,7 +29,7 @@ export const PostItemWrapper = styled.section`
     flex-direction: column;
     align-items: flex-start;
     position: relative;
-    background-color: ${({ theme }) => theme.bgBodydarker};
+    background-color: ${({ theme }) => theme.cards};
     vertical-align: top;
     width: 100%;
     text-align: left;
@@ -43,7 +43,7 @@ export const PostItemWrapper = styled.section`
 
     `}
     ${media.greaterThan('medium')`
-        max-width: 455px;
+        /* max-width: 455px; */
     `}
 `
 
@@ -96,6 +96,7 @@ export const PostItemInfo = styled.div`
     flex: 1;
     flex-direction: column;
     position: relative;
+    width: 100%;
 `
 export const PostItemFooterWrapper = styled.div`
     display: flex;

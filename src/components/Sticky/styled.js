@@ -11,45 +11,20 @@ const customMedia = generateMedia({
 })
 
 export const StickyContainer = styled('div')`
-    top: ${({ sticky }) => (sticky ? '0' : '')};	
-	position: ${({ sticky }) => (sticky ? 'fixed' : '')};
-	width: 100%;
-	z-index: 3;
-	background: ${({ sticky }) => (sticky ? 'rgba(250, 250, 250, 0.95)' : '')};
+    width: 100%;
+    z-index: 3;
+    background: ${({ theme }) => theme.bgOpaque};
+    transition: top 0.3s ease-out;
 
-	${customMedia.greaterThan('large')`
-		top: ${({ sticky }) => (sticky ? '0' : '')};	
-	`}
+    & ~ .toggle-theme {
+        top: ${({ sticky }) => (sticky ? '14px !important' : '')};
+        position: ${({ sticky }) => (sticky ? 'fixed !important' : '')};
 
-    transition: ${({ sticky }) => (sticky ? 'top .3s ease-out' : '')};
-
-	a {
-		color: ${({ sticky }) => (sticky ? 'var(--base)' : '')};
-	}
-
-	& ~ .toggle-theme {
-		top: ${({ sticky }) => (sticky ? '14px !important' : '')};	
-		position: ${({ sticky }) => (sticky ? 'fixed' : '')};
-
-		${customMedia.greaterThan('medium')`
+        ${customMedia.greaterThan('medium')`
 			top: ${({ sticky }) => (sticky ? '22px !important' : '')};
 		`}
-		svg {
-			fill: ${({ sticky }) => (sticky ? 'var(--base) !important' : '')};
-		}	
-	}
-
-    .cls-2 {
-        fill: ${({ sticky }) =>
-            sticky ? 'var(--base-medium-dark) !important' : ''};
+        svg {
+            fill: ${({ sticky }) => (sticky ? 'var(--base) !important' : '')};
+        }
     }
-	.site,.blog {		
-		padding: ${({ sticky }) =>
-            sticky ? '0.75rem 60px 0.75rem 20px !important' : ''};
-
-		${customMedia.greaterThan('medium')`
-			padding: ${({ sticky }) => (sticky ? '20px 120px 20px 80px !important' : '')};
-		`}			
-	}
- 	
 `

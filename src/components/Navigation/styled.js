@@ -43,7 +43,7 @@ export const NavigationLink = styled(Link)`
         &:after {
             content: '';
             display: inline;
-            height: 2px;
+            height: 1px;
             background-color: ${({ theme }) => theme.primaryColor};
             position: absolute;
             opacity: 1;

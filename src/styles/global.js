@@ -116,7 +116,7 @@ const GlobalStyles = createGlobalStyle`
     position: relative;
     color: ${({ theme }) => theme.primaryColor};
     text-decoration: none;
-    font-weight: 500;
+    font-weight: 600;
     display: flex;
     align-items: center;
     margin-top: 1rem;

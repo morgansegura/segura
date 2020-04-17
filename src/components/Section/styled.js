@@ -143,6 +143,13 @@ export const Section = styled.div`
         `}
     }
     .list {
+        &-nav {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+        }
         &-sorter {
             display: flex;
             flex-wrap: wrap;

@@ -6,6 +6,7 @@ import GlobalStyles from '../../styles/global'
 import { useDarkMode } from '../Theme/useDarkMode'
 import { lightTheme, darkTheme } from '../Theme/themeStyles'
 import ToggleTheme from '../Theme/toggleTheme'
+import Sticky from '../Sticky'
 
 /* CSS in JS */
 import * as S from './styled'
@@ -26,8 +27,10 @@ function Layout({ path, children, pageContext: { locale } }) {
             <ThemeProvider theme={themeMode}>
                 <GlobalStyles />
                 <S.Wrapper>
-                    {path === '/' ? <SiteHeader /> : <BlogHeader />}
-                    <ToggleTheme theme={theme} toggleTheme={toggleTheme} />
+                    <Sticky>
+                        {path === '/' ? <SiteHeader /> : <BlogHeader />}
+                        <ToggleTheme theme={theme} toggleTheme={toggleTheme} />
+                    </Sticky>
                     <S.SiteContent role="main">{children}</S.SiteContent>
                     {path === '/' ? <Footer /> : <Footer />}
                 </S.Wrapper>

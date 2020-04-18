@@ -21,13 +21,9 @@ class Sticky extends Component {
             <Headroom
                 onPin={() => {
                     this.isSticky()
-                    console.log('pinned')
-                    console.log(this.state.sticky)
                 }}
                 onUnpin={() => {
                     this.isSticky()
-                    console.log('unpinned')
-                    console.log(this.state.sticky)
                 }}
             >
                 <S.StickyContainer sticky={this.state.sticky}>

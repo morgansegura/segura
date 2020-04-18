@@ -103,6 +103,7 @@ exports.createPages = async ({ graphql, actions }) => {
                         frontmatter {
                             title
                             page
+                            topics
                         }
                     }
                 }
@@ -147,7 +148,9 @@ exports.createPages = async ({ graphql, actions }) => {
             ? pageTemplate
             : isPost
             ? postTemplate
-            : topicTemplate
+            : isTopic
+            ? topicTemplate
+            : postTemplate
 
         // Count posts
         postsTotal = isPage ? postsTotal + 0 : postsTotal + 1

@@ -3,7 +3,10 @@ import { graphql, Link } from 'gatsby'
 import PostItem from '../components/PostItem'
 import Section from '../components/Section'
 import Sidebar from '../components/Sidebar'
-import { ColumnWrapper, Column } from '../components/Grid'
+import Grid from '@material-ui/core/Grid'
+import { ColorButton } from '../components/Button'
+
+import ShuffleGrid from '../components/ShuffleGrid'
 import SEO from '../components/seo'
 
 import Pagination from '../components/Pagination'
@@ -28,26 +31,44 @@ const Blog = props => {
         <div style={{ width: '100%' }}>
             <SEO title="Blog" />
             <Section className="section">
-                <ColumnWrapper className="gap">
-                    <Column className="col-3">
+                <Grid container spacing={3}>
+                    <Grid item xs={12} sm={6}>
                         <h1>Blog</h1>
-                    </Column>
-                    <Column className="col-9">
+                    </Grid>
+                    <ShuffleGrid />
+                    <Grid item xs={12} sm={6}>
                         <nav className="list-nav">
-                            <Link className="list-anchor" to="/">
-                                Tutorials
-                            </Link>
-                            <Link className="list-anchor" to="/">
-                                Tutorials
-                            </Link>
-                            <Link className="list-anchor" to="/">
-                                Tutorials
-                            </Link>
-                        </nav>
-                    </Column>
-                </ColumnWrapper>
+                            {postList.map(
+                                (
+                                    {
+                                        node: {
+                                            frontmatter: { category, topics },
+                                            fields: { slug },
+                                        },
+                                    },
+                                    i
+                                ) => {
+                                    let topic =
+                                        topics[i] !== undefined &&
+                                        topics[i].toLowerCase()
 
-                <ColumnWrapper className="gap">
+                                    return (
+                                        <ColorButton
+                                            key={slug}
+                                            className="list-anchor"
+                                            to={`topics/${topic}`}
+                                        >
+                                            {topic}
+                                        </ColorButton>
+                                    )
+                                }
+                            )}
+                        </nav>
+                    </Grid>
+                </Grid>
+
+                {/*<ShuffleGrid postList={postList}/>*/}
+                <Grid container spacing={3}>
                     {postList.map(
                         ({
                             node: {
@@ -59,27 +80,29 @@ const Blog = props => {
                                     title,
                                     image,
                                     id,
+                                    topics,
                                 },
                                 timeToRead,
                                 fields: { slug },
                             },
                         }) => (
-                            <Column className="col-12 col-lg-6 col-xl-4 col-xxl-3">
-                                <PostItem
-                                    key={slug}
-                                    slug={`/blog/${slug}`}
-                                    background={background}
-                                    category={category}
-                                    date={date}
-                                    timeToRead={timeToRead}
-                                    title={title}
-                                    description={description}
-                                    image={image}
-                                />
-                            </Column>
+                            <Grid key={slug} item xs={12} md={6} lg={4}>
+                                <div className="photo-item">
+                                    <PostItem
+                                        slug={`/blog/${slug}`}
+                                        background={background}
+                                        category={category}
+                                        date={date}
+                                        timeToRead={timeToRead}
+                                        title={title}
+                                        description={description}
+                                        image={image}
+                                    />
+                                </div>
+                            </Grid>
                         )
                     )}
-                </ColumnWrapper>
+                </Grid>
             </Section>
             {/*  
             <Pagination
@@ -115,7 +138,7 @@ export const query = graphql`
             background
             image
             date(formatString: $dateFormat)
-
+            topics
           }
           timeToRead
           fields {

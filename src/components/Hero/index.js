@@ -2,7 +2,7 @@ import React from 'react'
 
 import Section from '../Section'
 import { ColumnWrapper, Column } from '../Grid'
-import Button from '../Button'
+import { ColorButton } from '../Button'
 
 /* SVG Icons */
 import { FaGithubAlt, FaTwitter, FaLinkedinIn } from 'react-icons/fa'
@@ -41,9 +41,9 @@ export const HeroHome = () => (
                         world-class maximize compelling, transition granular
                         out-of-the-box, bleeding-edge remix;
                     </p>
-                    <Button className="button medium primary round--4" to="/">
+                    <ColorButton className="buffer-y" to="/">
                         My Story <MdArrowForward className="icon-right" />
-                    </Button>
+                    </ColorButton>
                 </div>
             </Column>
         </ColumnWrapper>

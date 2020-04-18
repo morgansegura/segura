@@ -1,7 +1,7 @@
 import React from 'react'
 import SEO from '../components/seo'
 import Section from '../components/Section'
-import Button from '../components/Button'
+import { ColorButton } from '../components/Button'
 import HeroImg from '../images/img-404.svg'
 import * as S from '../components/ListWrapper/styled'
 import { AiFillEnvironment } from 'react-icons/ai'
@@ -10,19 +10,18 @@ const NotFound = () => (
     <>
         <SEO title="404: Not found" />
         <Section classes="buffer-top">
-
             <div className="hero--inner text__on-light">
                 <div className="hero-left">
                     <h1 className="headline">
                         Um, this doesn't usually happen.
-                            </h1>
+                    </h1>
                     <h4 className="subline">
-                        We are working diligently to figure out the
-                        problem. In the meanwhile, you should check out
-                        some more of our selections.
-                            </h4>
+                        We are working diligently to figure out the problem. In
+                        the meanwhile, you should check out some more of our
+                        selections.
+                    </h4>
                     <S.ButtonBlock>
-                        <Button
+                        <ColorButton
                             link="/"
                             classes="button primary with-icon round--4"
                         >
@@ -30,8 +29,8 @@ const NotFound = () => (
                                 className="material-icons icon-left"
                                 translate="no"
                             />
-                                    Take me back!
-                                </Button>
+                            Take me back!
+                        </ColorButton>
                     </S.ButtonBlock>
                 </div>
                 <div className="hero-right">

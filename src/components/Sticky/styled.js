@@ -12,7 +12,7 @@ const customMedia = generateMedia({
 
 export const StickyContainer = styled('div')`
     width: 100%;
-    z-index: 3;
+    z-index: 1000;
     background: ${({ theme }) => theme.bgOpaque};
     transition: top 0.3s ease-out;
 

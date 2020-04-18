@@ -1,5 +1,6 @@
 import { createGlobalStyle } from 'styled-components'
 import { generateMedia } from 'styled-media-query'
+import { lighten, darken, saturate } from 'polished'
 
 const customMedia = generateMedia({
     xsmall: '250px',
@@ -79,7 +80,9 @@ const GlobalStyles = createGlobalStyle`
         line-height: 24px;
     `}
   }
-
+  * {
+    outline: none !important;
+  }
     h1,
     .h1,
     h2,
@@ -119,11 +122,7 @@ const GlobalStyles = createGlobalStyle`
     font-weight: 600;
     display: flex;
     align-items: center;
-    margin-top: 1rem;
-
-    ${customMedia.greaterThan('medium')`
-      margin-top: 1rem;
-    `}
+    margin-top: 20px;
 
     .icon-left {
       padding-right: 0.25rem;
@@ -145,7 +144,6 @@ const GlobalStyles = createGlobalStyle`
 
     &--large {
       font-size: 24px;
-      letter-spacing: 1px;
       line-height: 1.7;      
     }
 
@@ -167,14 +165,15 @@ const GlobalStyles = createGlobalStyle`
 
   }
   .section {
-    padding: 40px 20px;        
+    padding: 50px 20px;
 
     ${customMedia.greaterThan('small')`
-      padding: 50px 40px;
-    `}      
-    ${customMedia.greaterThan('medium')`
       padding: 100px 80px;
-    `}      
+    `}
+
+    &.border-bottom {
+        border-bottom: 1px solid ${({ theme }) => theme.outlines};
+    }    
   }
   .bg-gradient {
 
@@ -183,61 +182,63 @@ const GlobalStyles = createGlobalStyle`
   .bg-dark {
     background-color: ${({ theme }) => theme.bgBodyDark};
   }
-  .buffer-y {
 
-    padding-top: 50px;
-    padding-bottom: 50px;
-
-    ${customMedia.greaterThan('medium')`
-      padding-top: 100px;
-      padding-bottom: 100px;
-    `}    
-  }
   .buffer {
 
     &-x {
-      padding-left: 30px;
-      padding-right: 30px;
+      margin-left: 30px;
+      margin-right: 30px;
       
-      ${customMedia.greaterThan('small')`
-          padding-left: 50px;
-          padding-right: 50px;
+      ${customMedia.greaterThan('medium')`
+          margin-left: 40px;
+          margin-right: 40px;
       `}        
     }
     &-y {
-      padding-top: 30px;
-      padding-bottom: 30px;
+      margin-top: 30px !important;
+      margin-bottom: 30px !important;
 
-      ${customMedia.between('medium', 'large')`
-          padding-top: 50px;
-          padding-bottom: 50px;
+      ${customMedia.greaterThan('medium')`
+        margin-top: 40px !important;
+        margin-bottom: 40px !important;
       `}        
     }
     &-top {
-      padding-top: 30px;
-      ${customMedia.between('medium', 'large')`
-          padding-top: 50px;
+      margin-top: 30px !important;
+      ${customMedia.greaterThan('medium')`
+          margin-bottom: 30px !important
       `}        
     }
     &-right {
-      padding-right: 30px;
-      ${customMedia.between('medium', 'large')`
-          padding-right: 50px;
+      margin-right: 30px;
+      ${customMedia.greaterThan('medium')`
+          margin-right: 40px;
       `}        
     }
     &-bottom {
-      padding-bottom: 30px;
-      ${customMedia.between('medium', 'large')`
-          padding-bottom: 50px;
+      margin-bottom: 30px;
+      ${customMedia.greaterThan('medium')`
+          margin-bottom: 40px;
       `}  
     }
     &-left {
-      padding-left: 30px;
-      ${customMedia.between('medium', 'large')`
-          padding-left: 50px;
+      margin-left: 30px;
+      ${customMedia.greaterThan('medium')`
+          margin-left: 40px;
       `}  
     }
   }
+
+    .tab-bottom {
+      padding-bottom: 0.5rem;
+      border-bottom: 5px solid ${({ theme }) => theme.outlines};
+      margin-bottom: 50px;
+
+      ${customMedia.greaterThan('medium')`      
+          margin-bottom: 80px;
+      `}  
+    }
+
 
   /* Services */
 
@@ -251,15 +252,17 @@ const GlobalStyles = createGlobalStyle`
     transition: background-color 0.3s ease-out;
     
     ${customMedia.greaterThan('large')`
-        padding: 40px;
+        padding: 1.25rem 0 1.25rem 1.5rem;
     `}    
 
     &:hover {
-      color: white;
+      h4 {
+        color: white !important;
+      }
       background-color: ${({ theme }) => theme.primaryColor};  
     }
     &:active {
-      color: white;
+      color: white !important;
       background-color: ${({ theme }) => theme.primaryDarkColor};  
     }
     &--inner {
@@ -284,19 +287,19 @@ const GlobalStyles = createGlobalStyle`
   :root { 
     --base-extra-light: #fafafa;
     --base-light: #eeeeee;
-    --base-medium-light: #bbbbbf;
+    --base-medium-light: #e0e0e0;
     --base-medium: #919299;    
     --base: #333647;
-    --base-medium-dark: #424659;
-    --base-dark: #252735;
-    --base-extra-dark: #1c1d28;
+    --base-medium-dark: #3D4054;
+    --base-dark: #252733;
 
-    --primary-color: #ff1744;
-    --primary-light-color: #ff616f;
-    --primary-dark-color: #c4001d;
+    --primary-color: #42a5f5;
+    --primary-light-color: #64b5f6;
+    --primary-dark-color: #1e88e5;
     --secondary-color: #9b59b6;
     --secondary-light-color: #80d6ff;
     --secondary-dark-color: #0077c2;
+    -cta-color: #ff1744;
 
     --width-container: 1352px;
     --headline-font: "Hind", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";

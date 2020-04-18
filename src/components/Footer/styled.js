@@ -6,7 +6,9 @@ export const FooterWrapper = styled.div``
 export const FooterContainer = styled.div`
     width: 100%;
     margin: 0 auto;
+    font-size: 14px;
     padding: 2rem 20px;
+
     background-color: ${({ theme }) => theme.bgBodyDark};
 
     ${media.greaterThan('medium')`

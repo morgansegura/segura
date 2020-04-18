@@ -68,7 +68,7 @@ export const PostItemDate = styled.time`
 export const PostItemTitle = styled.h5`
     font-family: var(--base-font);
     font-size: 24px;
-    font-weight: 400;
+    font-weight: 600;
     line-height: 30px;
     padding-top: 10px;
     color: ${({ theme }) => theme.headline};

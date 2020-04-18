@@ -28,7 +28,7 @@ export const Container = styled.div`
     margin-left: auto;
     margin-right: auto;
     max-width: var(--width-container);
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
     /* background: teal; */
 
     ${customMedia.greaterThan('small')`

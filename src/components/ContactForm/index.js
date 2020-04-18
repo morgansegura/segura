@@ -1,6 +1,6 @@
 import React from 'react'
 import FormInput from '../FormInput'
-import Button from '../Button'
+import { ColorButton } from '../Button'
 
 import {
     TiSocialLinkedinCircular,
@@ -76,13 +76,9 @@ class ContactForm extends React.Component {
                         </label>
                     </p>
                     <p>
-                        <Button
-                            to="/"
-                            className="button medium primary round--4"
-                            type=" submit"
-                        >
+                        <ColorButton className="buffer-y" to="/">
                             Send Message
-                        </Button>
+                        </ColorButton>
                     </p>
                 </form>
             </S.FormWrapper>

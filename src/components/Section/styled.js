@@ -34,17 +34,16 @@ export const Section = styled.div`
         font-weight: 600;
         font-family: var(--headline-font);
         color: ${({ theme }) => theme.headline};
+        margin-bottom: 30px;
 
         ${customMedia.lessThan('medium')`
             font-size: 60px;
             line-height: 70px;
-            padding-bottom: 2rem;
             text-align: center;
         `}
         ${customMedia.greaterThan('small')`
             font-size: 80px;
             line-height: 75px;
-            padding-bottom: 3rem;
             text-align: left;
         `}
     }
@@ -67,14 +66,27 @@ export const Section = styled.div`
             `}
         }
     }
+
     .super-text {
+        position: relative;
         display: block;
-        color: ${({ theme }) => theme.textOffset};
+        color: ${({ theme }) => theme.superText};
         font-size: 0.9375rem;
         font-weight: 500;
         line-height: 2;
         line-height: 1rem;
+        padding-left: 0.75rem;
         padding-bottom: 20px;
+
+        &:after {
+            position: absolute;
+            content: '';
+            height: 50%;
+            top: 0;
+            left: 0;
+            width: 3px;
+            background-color: ${({ theme }) => theme.primaryColor};
+        }
     }
     p {
         font-size: 0.9375rem;
@@ -118,6 +130,7 @@ export const Section = styled.div`
     .social-block {
         display: flex;
         justify-content: center;
+        margin-bottom: 50px;
 
         a {
             color: ${({ theme }) => theme.primaryColor};
@@ -158,26 +171,28 @@ export const Section = styled.div`
         &-anchor {
             text-decoration: none;
             color: ${({ theme }) => theme.headline};
+            border: 1px solid ${({ theme }) => theme.outlines};
             background-color: ${({ theme }) => theme.bgBodyLight};
             padding: 2px 8px;
-            margin-right: 5px;
-            margin-bottom: 5px;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
             border-radius: 4px;
-
-            &:hover {
-                opacity: 0.8;
-            }
-            &:active {
-                opacity: 0.6;
-            }
         }
     }
     /* Post tem */
+    .post-item-wrapper {
+        border-left: 5px solid ${({ theme }) => theme.outlines};
+        padding-left: 0.5rem;
+    }
     .post-item {
         display: flex;
         flex-direction: column;
-        padding: 1rem 0;
-        border-bottom: 1px solid ${({ theme }) => theme.outlines};
+        padding: 1rem;
+        margin-bottom: 1rem;
+        /* border-radius: 4px; */
+        border: 1px solid ${({ theme }) => theme.outlines};
+        background-color: ${({ theme }) => theme.bgBodyLight};
+        /* box-shadow: 0 0 2px rgba(0, 0, 0, 0.3); */
 
         .title {
             display: flex;
@@ -192,8 +207,19 @@ export const Section = styled.div`
         .meta {
             display: flex;
             align-items: center;
-            padding-bottom: 0.25rem;
+            padding-bottom: 0.5rem;
+            font-size: 14px;
 
+            svg {
+                position: relative;
+                top: 2px;
+                margin-right: 0.125rem;
+                color: ${({ theme }) => theme.text};
+
+                &:not(:first-child) {
+                    margin-left: 0.5rem;
+                }
+            }
             .date,
             .category,
             .time-to-read {
@@ -247,6 +273,7 @@ export const Section = styled.div`
         margin: 0;
         background-color: transparent;
         width: inherit;
+        width: 100%;
 
         &:focus {
             outline: none;

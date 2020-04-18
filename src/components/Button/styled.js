@@ -10,23 +10,19 @@ export const Button = styled(Link)`
         font-family: var(--headline-font);
         font-weight: 600;
         letter-spacing: 0.15px;
-        padding: 20px 52px;        
-        font-size: 1rem;        
+        padding: 20px 52px;
+        font-size: 1rem;
         display: flex;
         justify-content: center;
         align-items: center;
-        margin-top: 1.75rem;        
-
-        ${media.greaterThan('large')`
-            margin-top: 2rem;
-        `}        
+        margin-top: 30px;
 
         /* Sizes */
         &.medium {
             max-width: 175px;
             padding: 10px 0;
         }
- 
+
         &.round {
             &--4 {
                 border-radius: 4px;
@@ -66,7 +62,7 @@ export const Button = styled(Link)`
             color: white;
 
             &:hover {
-                background-color: var(--secondary-light-color);                
+                background-color: var(--secondary-light-color);
             }
             &:active {
                 background-color: var(--secondary-dark-color);
@@ -97,7 +93,7 @@ export const Button = styled(Link)`
                 }
             }
         }
-        
+
         i,
         svg {
             &.icon-left {

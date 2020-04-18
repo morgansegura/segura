@@ -13,7 +13,7 @@ import * as S from './styled'
 
 const LocaleContext = React.createContext()
 
-function Layout({ path, children, pageContext: { locale } }) {
+function Layout({ children, pageContext: { locale } }) {
     const [theme, toggleTheme, componentMounted] = useDarkMode()
 
     const themeMode = theme === 'light' ? lightTheme : darkTheme
@@ -28,11 +28,11 @@ function Layout({ path, children, pageContext: { locale } }) {
                 <GlobalStyles />
                 <S.Wrapper>
                     <Sticky>
-                        {path === '/' ? <SiteHeader /> : <BlogHeader />}
+                        <SiteHeader />
                         <ToggleTheme theme={theme} toggleTheme={toggleTheme} />
                     </Sticky>
                     <S.SiteContent role="main">{children}</S.SiteContent>
-                    {path === '/' ? <Footer /> : <Footer />}
+                    <Footer />
                 </S.Wrapper>
             </ThemeProvider>
         </LocaleContext.Provider>

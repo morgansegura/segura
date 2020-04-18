@@ -13,13 +13,13 @@ export const InputBlock = styled.div`
             display: block;
             width: 100%;
             border: none;
-            border-bottom: 1px solid ${({ theme }) => theme.textOffset};
+            border-bottom: 1px solid ${({ theme }) => theme.outlines};
 
             margin: 1rem 0;
 
             &:focus {
                 outline: none;
-                border-bottom: 1px solid ${({ theme }) => theme.headline};
+                border-bottom: 1px solid ${({ theme }) => theme.outlines};
             }
 
             &:focus ~ .form-input-label {

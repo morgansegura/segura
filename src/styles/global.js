@@ -1,6 +1,5 @@
 import { createGlobalStyle } from 'styled-components'
 import { generateMedia } from 'styled-media-query'
-import { lighten, darken, saturate } from 'polished'
 
 const customMedia = generateMedia({
     xsmall: '250px',

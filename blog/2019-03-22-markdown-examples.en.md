@@ -5,7 +5,7 @@ description: Markdown is intended to be as easy-to-read and easy-to-write as is 
 category: Markdown
 background: '#353b48'
 image: '/assets/img/03.jpg'
-topics: ['animals', 'Chicago', 'zoos']
+topics: ['animals', 'monkeys']
 ---
 
 Markdown is intended to be as easy-to-read and easy-to-write as is feasible.

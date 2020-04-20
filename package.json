@@ -37,7 +37,6 @@
         "gatsby-transformer-sharp": "^2.2.20",
         "lazysizes": "^5.1.2",
         "netlify-cms-app": "^2.9.7",
-        "polished": "^3.5.1",
         "prismjs": "^1.17.1",
         "react": "^16.8.6",
         "react-animate-on-scroll": "^2.1.5",
@@ -47,7 +46,6 @@
         "react-icons": "^3.9.0",
         "react-spring": "^8.0.27",
         "react-waypoint": "^9.0.2",
-        "shufflejs": "^5.2.3",
         "styled-components": "^4.4.0",
         "styled-icons": "^8.4.2",
         "styled-media-query": "^2.1.2"

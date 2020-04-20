@@ -5,7 +5,7 @@ description: See how is super easy to add new posts and pages in this project
 category: Gatsby
 background: '#7d4cdb'
 image: '/assets/img/06.jpg'
-topics: ['animals', 'Chicago', 'zoos']
+topics: ['animals']
 ---
 
 ## Adding new content

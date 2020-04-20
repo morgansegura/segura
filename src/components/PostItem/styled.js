@@ -5,11 +5,6 @@ import { Link } from 'gatsby'
 
 export const PostItemLink = styled(Link)`
     text-decoration: none;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    height: 100%;
-
     ${media.greaterThan('small')`
         margin-bottom: 0;        
 
@@ -24,20 +19,12 @@ export const PostItemLink = styled(Link)`
 `
 
 export const PostItemWrapper = styled.section`
-    flex: 1;
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    position: relative;
-    background-color: ${({ theme }) => theme.cards};
-    vertical-align: top;
-    width: 100%;
-    text-align: left;
-    box-shadow: 0 20px 20px rgba(0, 0, 0, 0.08);
-    white-space: normal;
-    transition: all 250ms cubic-bezier(0.02, 0.01, 0.47, 1);
-    height: 100%;
     padding: 15px;
+    width: 100%;
+    background-color: ${({ theme }) => theme.cards};
+    box-shadow: 0 20px 20px rgba(0, 0, 0, 0.08);
+    transition: all 250ms cubic-bezier(0.02, 0.01, 0.47, 1);
 
     ${media.lessThan('large')`
 
@@ -45,6 +32,12 @@ export const PostItemWrapper = styled.section`
     ${media.greaterThan('medium')`
         /* max-width: 455px; */
     `}
+`
+export const PostItemInfo = styled.div`
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
 `
 
 // export const PostItemImg = styled.img`
@@ -75,27 +68,18 @@ export const PostItemTitle = styled.h5`
 `
 
 export const PostItemDescription = styled.p`
-    display: block;
     font-size: 14px;
     padding-top: 10px;
+    padding-bottom: 10px;
     font-family: var(--base-font);
     font-weight: 400;
-    text-align: left;
     line-height: 1;
-    overflow: hidden;
-    text-overflow: ellipsis;
+
     color: ${({ theme }) => theme.text};
+    flex: 1 0 auto;
 `
 
 export const PostItemImg = styled(Img)`
-    width: 100%;
-`
-
-export const PostItemInfo = styled.div`
-    display: flex;
-    flex: 1;
-    flex-direction: column;
-    position: relative;
     width: 100%;
 `
 export const PostItemFooterWrapper = styled.div`

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { graphql, Link } from 'gatsby'
 import PostItem from '../components/PostItem'
 import Section from '../components/Section'
@@ -6,14 +6,73 @@ import Sidebar from '../components/Sidebar'
 import Grid from '@material-ui/core/Grid'
 import { ColorButton } from '../components/Button'
 
-import ShuffleGrid from '../components/ShuffleGrid'
 import SEO from '../components/seo'
+import TopicList from '../components/topicList'
+
+import { removeDuplicates } from '../utils/util-functions'
 
 import Pagination from '../components/Pagination'
 import { SiteHeader } from '../components/Header'
 
 const Blog = props => {
-    const postList = props.data.allMarkdownRemark.edges
+    const { data } = props
+    const postList = data.allMarkdownRemark.edges
+
+    const emptyQuery = ''
+    const [state, setState] = useState({
+        filteredData: [],
+        query: emptyQuery,
+    })
+
+    const handleInputChange = event => {
+        const query = event.target.value
+        const { data } = props
+        const posts = data.allMarkdownRemark.edges || []
+        const filteredData = posts.filter(post => {
+            const {
+                description,
+                title,
+                topics,
+                category,
+            } = post.node.frontmatter
+            return (
+                category.toLowerCase().includes(query.toLowerCase()) ||
+                description.toLowerCase().includes(query.toLowerCase()) ||
+                title.toLowerCase().includes(query.toLowerCase()) ||
+                (topics &&
+                    topics
+                        .join('')
+                        .toLowerCase()
+                        .includes(query.toLowerCase()))
+            )
+        })
+        setState({
+            query,
+            filteredData,
+        })
+    }
+    const handleTopicFilter = event => {
+        const query = event.currentTarget.value
+        const { data } = props
+
+        const posts = data.allMarkdownRemark.edges || []
+
+        const filteredData = posts.filter(post => {
+            const { category } = post.node.frontmatter
+            return (
+                category.toLowerCase().includes(query.toLowerCase()) ||
+                query.toLowerCase().includes('all')
+            )
+        })
+
+        setState({
+            query,
+            filteredData,
+        })
+    }
+    const { filteredData, query } = state
+    const hasSearchResults = filteredData && query !== emptyQuery
+    const posts = hasSearchResults ? filteredData : postList
 
     // const topicHeader = `${totalCount} post${
     //     totalCount === 1 ? '' : 's'
@@ -34,42 +93,24 @@ const Blog = props => {
                 <Grid container spacing={3}>
                     <Grid item xs={12} sm={6}>
                         <h1>Blog</h1>
+                        <input
+                            type="text"
+                            aria-label="Search"
+                            placeholder="Type to filter posts..."
+                            onChange={handleInputChange}
+                        />
                     </Grid>
-                    <ShuffleGrid />
-                    <Grid item xs={12} sm={6}>
-                        <nav className="list-nav">
-                            {postList.map(
-                                (
-                                    {
-                                        node: {
-                                            frontmatter: { category, topics },
-                                            fields: { slug },
-                                        },
-                                    },
-                                    i
-                                ) => {
-                                    let topic =
-                                        topics[i] !== undefined &&
-                                        topics[i].toLowerCase()
 
-                                    return (
-                                        <ColorButton
-                                            key={slug}
-                                            className="list-anchor"
-                                            to={`topics/${topic}`}
-                                        >
-                                            {topic}
-                                        </ColorButton>
-                                    )
-                                }
-                            )}
-                        </nav>
+                    <Grid item xs={12} sm={6}>
+                        <TopicList
+                            className="list-anchor"
+                            onClick={handleTopicFilter}
+                        />
                     </Grid>
                 </Grid>
 
-                {/*<ShuffleGrid postList={postList}/>*/}
                 <Grid container spacing={3}>
-                    {postList.map(
+                    {posts.map(
                         ({
                             node: {
                                 frontmatter: {

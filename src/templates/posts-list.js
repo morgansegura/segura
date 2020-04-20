@@ -91,9 +91,10 @@ const Blog = props => {
             <SEO title="Blog" />
             <Section className="section">
                 <Grid container spacing={3}>
-                    <Grid item xs={12} sm={6}>
+                    <Grid item xs={12} sm={4}>
                         <h1>Blog</h1>
                         <input
+                            className="search-blog"
                             type="text"
                             aria-label="Search"
                             placeholder="Type to filter posts..."
@@ -101,11 +102,20 @@ const Blog = props => {
                         />
                     </Grid>
 
-                    <Grid item xs={12} sm={6}>
-                        <TopicList
-                            className="list-anchor"
-                            onClick={handleTopicFilter}
-                        />
+                    <Grid item xs={12} sm={8}>
+                        <div
+                            style={{
+                                display: 'flex',
+                                justifyContent: 'flex-end',
+                                height: '100%',
+                                flexDirection: 'column',
+                            }}
+                        >
+                            <TopicList
+                                className="list-anchor"
+                                onClick={handleTopicFilter}
+                            />
+                        </div>
                     </Grid>
                 </Grid>
 

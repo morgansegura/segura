@@ -155,13 +155,25 @@ export const Section = styled.div`
             justify-content: flex-start;
         `}
     }
+    .search-blog {
+        padding: 0.5rem;
+        font-size: 14px;
+        background-color: white;
+        border: 1px solid var(--base-medium-light);
+        border-radius: 4px;
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+        width: 100%;
+
+        &:focus {
+        }
+    }
     .list {
         &-nav {
             display: flex;
-            align-items: center;
+            align-items: flex-end;
             justify-content: flex-end;
-            padding-top: 0.5rem;
-            padding-bottom: 0.5rem;
+            flex-wrap: wrap;
         }
         &-sorter {
             display: flex;
@@ -177,6 +189,7 @@ export const Section = styled.div`
             margin-right: 0.5rem;
             margin-bottom: 0.5rem;
             border-radius: 4px;
+            font-size: 14px;
         }
     }
     /* Post tem */

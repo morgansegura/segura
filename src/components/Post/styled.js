@@ -3,9 +3,39 @@ import media from 'styled-media-query'
 
 export const Post = styled.article``
 
+export const AuthorCard = styled.div`
+    display: flex;
+    .author-card__icon {
+        width: 45px;
+        height: 45px;
+        background-color: white;
+        border-radius: 100%;
+    }
+    .author-card__meta {
+        p {
+            font-size: 13px;
+            letter-spacing: 0;
+            line-height: 1.4;
+            margin: 0 0 0.25rem;
+        }
+
+        .name {
+            color: ${({ theme }) => theme.text};
+        }
+        .date,
+        .time-to-read {
+            color: ${({ theme }) => theme.textOffset};
+        }
+        .date {
+        }
+        .time-to-read {
+        }
+    }
+`
+export const SocialBlock = styled.div``
+
 export const PostTitle = styled.h1`
     font-size: 4rem;
-    font-weight: normal;
 
     ${media.lessThan('large')`
     font-size: 2.8rem;
@@ -13,14 +43,14 @@ export const PostTitle = styled.h1`
   `}
 `
 
-export const MainContent = styled.section`
+export const Content = styled.section`
     margin: auto;
-    max-width: 70rem;
-    padding: 2rem 0;
+    max-width: 680px;
+    /* padding: 2rem 0; */
     ${media.lessThan('large')`
-    padding: 2rem 0;
-    max-width: 100%;
-  `}
+        /* padding: 2rem 0; */
+        max-width: 100%;
+    `}
     p,
   h1,
   h2,
@@ -31,18 +61,17 @@ export const MainContent = styled.section`
   .tags,
   iframe,
   .button-post {
-        color: var(--postColor);
         font-size: 1.25rem;
         font-weight: 300;
         line-height: 1.7;
         letter-spacing: 0.069rem;
         ${media.lessThan('large')`
-      padding: 0 1rem;
-      word-break: break-word;
-    `}
+            word-break: break-word;
+        `}
     }
     p {
         margin: 1rem 0;
+        color: ${({ theme }) => theme.text};
     }
     h1,
     h2,

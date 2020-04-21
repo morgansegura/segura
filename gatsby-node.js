@@ -39,11 +39,7 @@ exports.onCreatePage = ({ page, actions }) => {
     })
 }
 
-// Correcting language and slug to the frontmatter of each file
-// A new node is created automatically with the filename
-// It's necessary to do that to filter by language
-// And the slug make sure the urls will be the same for all posts
-exports.onCreateNode = ({ node, actions }) => {
+exports.onCreateNode = ({ node, actions, getNode }) => {
     const { createNodeField } = actions
 
     // Check for "MarkdownRemark" type so that other files (e.g. images) are exluded
@@ -75,6 +71,13 @@ exports.onCreateNode = ({ node, actions }) => {
         createNodeField({ node, name: `slug`, value: slug })
         createNodeField({ node, name: `locale`, value: lang })
         createNodeField({ node, name: `isDefault`, value: isDefault })
+        if (Object.prototype.hasOwnProperty.call(node.frontmatter, 'author')) {
+            createNodeField({
+                node,
+                name: 'authorId',
+                value: node.frontmatter.author,
+            })
+        }
     }
 }
 
@@ -86,7 +89,9 @@ exports.createPages = async ({ graphql, actions }) => {
     const postTemplate = path.resolve(`./src/templates/post.js`)
     const postsListTemplate = path.resolve(`./src/templates/posts-list.js`)
     const pageTemplate = path.resolve(`./src/templates/page.js`)
-    const topicTemplate = path.resolve(`src/templates/topics.js`)
+    const topicTemplate = path.resolve(`./src/templates/topics.js`)
+    const authorsTemplate = path.resolve('./src/templates/Authors/index.js')
+    const categoryTemplate = path.resolve('./src/templates/Authors/index.js')
 
     const result = await graphql(`
         {
@@ -98,12 +103,12 @@ exports.createPages = async ({ graphql, actions }) => {
                         fields {
                             locale
                             isDefault
+                            authorId
                             slug
                         }
                         frontmatter {
                             title
                             page
-                            topics
                         }
                     }
                 }
@@ -142,15 +147,19 @@ exports.createPages = async ({ graphql, actions }) => {
         const isPage = file.frontmatter.page
         const isPost = file.frontmatter.post
         const isTopic = file.frontmatter.topic
+        const isCategory = file.frontmatter.category
+        const isAuthor = file.frontmatter.author
 
         // Setting a template for page or post depending on the content
         const template = isPage
             ? pageTemplate
             : isPost
             ? postTemplate
-            : isTopic
-            ? topicTemplate
-            : postTemplate
+            : isCategory
+            ? categoryTemplate
+            : isAuthor
+            ? authorTemplate
+            : pageTemplate
 
         // Count posts
         postsTotal = isPage ? postsTotal + 0 : postsTotal + 1
@@ -159,9 +168,6 @@ exports.createPages = async ({ graphql, actions }) => {
             path: localizedSlug({ isDefault, locale, slug, isPage }),
             component: template,
             context: {
-                // Pass both the "title" and "locale" to find a unique file
-                // Only the title would not have been sufficient as articles could have the same title
-                // in different languages, e.g. because an english phrase is also common in german
                 locale,
                 title,
             },
@@ -207,4 +213,23 @@ exports.createPages = async ({ graphql, actions }) => {
             },
         })
     })
+
+    // const authorSet = new Set()
+    // result.data.allMarkdownRemark.edges.forEach(edge => {
+    //     if (edge.node.fields.authorId) {
+    //         authorSet.add(edge.node.fields.authorId)
+    //     }
+    // })
+
+    // // create author's pages inside export.createPages:
+    // const authorList = Array.from(authorSet)
+    // authorList.forEach(author => {
+    //     createPage({
+    //         path: `/author/${_.kebabCase(author)}/`,
+    //         component: authorTemplate,
+    //         context: {
+    //             authorId: author,
+    //         },
+    //     })
+    // })
 }

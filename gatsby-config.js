@@ -54,6 +54,14 @@ module.exports = {
                 name: `pages`,
             },
         },
+        `gatsby-transformer-yaml`,
+        {
+            resolve: 'gatsby-source-filesystem',
+            options: {
+                name: 'mappings',
+                path: `${__dirname}/mappings/`,
+            },
+        },
         {
             resolve: `gatsby-transformer-remark`,
             options: {
@@ -108,4 +116,7 @@ module.exports = {
         // To learn more, visit: https://gatsby.dev/offline
         `gatsby-plugin-offline`,
     ],
+    mapping: {
+        'MarkdownRemark.frontmatter.author': `AuthorYaml`,
+    },
 }

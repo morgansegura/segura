@@ -4,13 +4,13 @@ topics:
   - monkeys
 title: Markdown Examples
 description: Markdown is intended to be as easy-to-read and easy-to-write as is feasible.
-date: 2019-03-22 01:21:23
+date: 2019-03-22T01:21:23.000Z
 image: /assets/img/03.jpg
 author: Morgan Segura
 category: Markdown
 background: "#353b48"
 ---
-Markdown is intended to be as easy-to-read and easy-to-write as is feasible.
+Markdown is intended to be as easy-to-read and easy-to-write as is feasible. 
 
 Readability, however, is emphasized above all else. A Markdown-formatted document should be publishable as-is, as plain text, without looking like it’s been marked up with tags or formatting instructions. While Markdown’s syntax has been influenced by several existing text-to-HTML filters — including Setext, atx, Textile, reStructuredText, Grutatext, and EtText — the single biggest source of inspiration for Markdown’s syntax is the format of plain text email.
 
@@ -75,8 +75,7 @@ Alt-H2
 
 ⋅⋅⋅You can have properly indented paragraphs within list items. Notice the blank line above, and the leading spaces (at least one, but we'll use three here to also align the raw Markdown).
 
-⋅⋅⋅To have a line break without a paragraph, you will need to use two trailing spaces.⋅⋅ ⋅⋅⋅Note that this line is separate, but within the same paragraph.⋅⋅
-⋅⋅⋅(This is contrary to the typical GFM line break behaviour, where trailing spaces are not required.)
+⋅⋅⋅To have a line break without a paragraph, you will need to use two trailing spaces.⋅⋅ ⋅⋅⋅Note that this line is separate, but within the same paragraph.⋅⋅ ⋅⋅⋅(This is contrary to the typical GFM line break behaviour, where trailing spaces are not required.)
 
 * Unordered list can use asterisks
 * Or minuses

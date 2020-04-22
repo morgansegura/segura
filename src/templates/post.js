@@ -24,13 +24,16 @@ const Post = props => {
                 description={post.frontmatter.description}
                 image={post.frontmatter.image}
             />
-            <Section className="section post">
+            <Section className="section">
                 <S.Content>
                     <TitlePage text={post.frontmatter.title} />
                     <S.AuthorCard className="author-card">
                         <div className="author-card__icon" />
                         <div className="author-card__meta">
-                            <p className="author">Author Name</p>
+                            <p className="author">
+                                authorId
+                                {console.log(post.frontmatter.author)}
+                            </p>
                             <p>
                                 <span className="date">{date} &sdot; </span>
                                 {'  '}
@@ -54,7 +57,6 @@ const Post = props => {
                             <FaRegBookmark />
                         </a>
                     </S.SocialBlock>
-
                     <div dangerouslySetInnerHTML={{ __html: post.html }}></div>
                 </S.Content>
             </Section>
@@ -83,7 +85,7 @@ export const query = graphql`
                 topics
             }
             fields {
-                # authorId
+                authorId
                 slug
             }
             html

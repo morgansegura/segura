@@ -6,6 +6,7 @@ category: Gatsby
 background: '#7d4cdb'
 image: '/assets/img/07.jpg'
 topics: ['Chicago', 'zoos']
+author: 'Morgan Segura'
 ---
 
 The menu items translations are located in `config/menu` and the `useMenu` custom hook pulls these translations (via GraphQL query) and inserts them into the pages.

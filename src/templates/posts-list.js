@@ -2,17 +2,17 @@ import React, { useState } from 'react'
 import { graphql, Link } from 'gatsby'
 import PostItem from '../components/PostItem'
 import Section from '../components/Section'
-import Sidebar from '../components/Sidebar'
+// import Sidebar from '../components/Sidebar'
 import Grid from '@material-ui/core/Grid'
-import { ColorButton } from '../components/Button'
+// import { ColorButton } from '../components/Button'
 
 import SEO from '../components/seo'
 import TopicList from '../components/topicList'
 
-import { removeDuplicates } from '../utils/util-functions'
+// import { removeDuplicates } from '../utils/util-functions'
 
-import Pagination from '../components/Pagination'
-import { SiteHeader } from '../components/Header'
+// import Pagination from '../components/Pagination'
+// import { SiteHeader } from '../components/Header'
 
 const Blog = props => {
     const { data } = props

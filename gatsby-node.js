@@ -151,15 +151,7 @@ exports.createPages = async ({ graphql, actions }) => {
         const isAuthor = file.frontmatter.author
 
         // Setting a template for page or post depending on the content
-        const template = isPage
-            ? pageTemplate
-            : isPost
-            ? postTemplate
-            : isCategory
-            ? categoryTemplate
-            : isAuthor
-            ? authorTemplate
-            : pageTemplate
+        const template = isPage ? pageTemplate : postTemplate
 
         // Count posts
         postsTotal = isPage ? postsTotal + 0 : postsTotal + 1

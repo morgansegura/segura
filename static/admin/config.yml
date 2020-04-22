@@ -65,15 +65,29 @@ collections:
         }
       - { label: "Body", name: "body", widget: "markdown" }
 
-  - name: "author" # Used in routes, e.g., /admin/collections/blog
-    label: "Author" # Used in the UI
-    folder: "blog/authors" # The path to the folder where the documents are stored
-    create: true # Allow users to create new documents in this collection
-    slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
-    extension: "md"
+  - name: "author"
+    label: "Author"
+    folder: "blog/authors.yaml"
+    create: true
+    slug: "{{slug}}"
+    extension: "yaml"
     format: frontmatter
-    fields: # The fields for each document, usually in front matter
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Intro", name: "intro", widget: "string" }
-      - { label: "image", name: "image", widget: "image" }
-      - { label: "Bio", name: "bio", widget: "markdown" }
+    fields:
+      - { label: "Name", name: "title", widget: "string", required: true }
+      - { label: "Avatar", name: "avatar", widget: "image", required: false }
+      - { label: "Intro", name: "intro", widget: "text", required: false }
+      - { label: "Bio", name: "bio", widget: "markdown", required: false }
+      - { label: "Twitter", name: "twitter", widget: "string", required: false }
+      - {
+          label: "Facebook",
+          name: "facebook",
+          widget: "string",
+          required: false,
+        }
+      - {
+          label: "LinkedIn",
+          name: "linkedin",
+          widget: "string",
+          required: false,
+        }
+      - { label: "Github", name: "github", widget: "string", required: false }

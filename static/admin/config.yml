@@ -13,9 +13,9 @@ collections:
   #Posts (English)
   - name: "posts-en" # Used in routes, e.g., /admin/collections/blog
     label: "Posts (English)" # Used in the UI
-    folder: "blog" # The path to the folder where the documents are stored
+    folder: "content/blog" # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
     extension: "en.md"
     format: frontmatter
     fields: # The fields for each document, usually in front matter
@@ -29,10 +29,13 @@ collections:
         }
       - { label: "image", name: "image", widget: "image" }
       - {
-          label: "Author",
+          label: "Post Author",
           name: "author",
-          widget: "select",
-          options: ["Morgan Segura", "Mike Mallowe"],
+          widget: "relation",
+          collection: "authors",
+          searchFields: ["author_id", "twitter"],
+          valueField: "author_id",
+          displayFields: ["twitter"],
         }
       - {
           label: "Category",
@@ -67,13 +70,14 @@ collections:
 
   - name: "author"
     label: "Author"
-    folder: "blog/authors.yaml"
+    folder: "content/blog"
     create: true
     slug: "{{slug}}"
-    extension: "yaml"
+    file: "author.yaml"
+    # extension: "yaml"
     format: frontmatter
     fields:
-      - { label: "Name", name: "title", widget: "string", required: true }
+      - { label: "Name", name: "author_id", widget: "string", required: true }
       - { label: "Avatar", name: "avatar", widget: "image", required: false }
       - { label: "Intro", name: "intro", widget: "text", required: false }
       - { label: "Bio", name: "bio", widget: "markdown", required: false }

@@ -1,8 +1,3 @@
-- id: morgan-segura
-  name: Morgan Segura
-  avatar: "image.jpg"
-  bio: Very curious about this world and blogging whenever learning something new
-  twitter: "@nonexistencecuriouscat"
-  facebook: "@nonexistencecuriouscat"
-  linkdin: "@nonexistencecuriouscat"
-  github: "@nonexistencecuriouscat"
+- id: Kyle Mathews
+  bio: Founder @ GatsbyJS. Likes tech, reading/writing, founding things. Blogs at bricolage.io.
+  twitter: "@codestandard"

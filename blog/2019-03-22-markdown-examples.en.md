@@ -7,11 +7,7 @@ description: Markdown is intended to be as easy-to-read and easy-to-write as is 
 date: 2019-03-22 01:21:23
 image: /assets/img/03.jpg
 category: Markdown
-author: 
-  - id: 'morgan-segura'
-  - name: 'Morgan Segura'
-  - bio: 'A bunch od stuff about me'
-  - twitter: '@codestandard'
+author: Morgan Segura
 background: '#353b48'
 image: '/assets/img/03.jpg'
 topics: ['animals', 'monkeys']

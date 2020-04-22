@@ -109,6 +109,10 @@ exports.createPages = async ({ graphql, actions }) => {
                         frontmatter {
                             title
                             page
+                            author {
+                                id
+                                bio
+                            }
                         }
                     }
                 }
@@ -145,10 +149,10 @@ exports.createPages = async ({ graphql, actions }) => {
 
         // Check if it's page (to differentiate post and page)
         const isPage = file.frontmatter.page
-        const isPost = file.frontmatter.post
-        const isTopic = file.frontmatter.topic
-        const isCategory = file.frontmatter.category
-        const isAuthor = file.frontmatter.author
+        // const isPost = file.frontmatter.post
+        // const isTopic = file.frontmatter.topic
+        // const isCategory = file.frontmatter.category
+        // const isAuthor = file.frontmatter.author
 
         // Setting a template for page or post depending on the content
         const template = isPage ? pageTemplate : postTemplate
@@ -195,19 +199,9 @@ exports.createPages = async ({ graphql, actions }) => {
             })
         })
     })
-    const topics = result.data.topicsGroup.group
-    topics.forEach(topic => {
-        createPage({
-            path: `/topics/${_.kebabCase(topic.fieldValue)}/`,
-            component: topicTemplate,
-            context: {
-                topic: topic.fieldValue,
-            },
-        })
-    })
 
     // const authorSet = new Set()
-    // result.data.allMarkdownRemark.edges.forEach(edge => {
+    // result.data.allMarkdownRemark.forEach(edge => {
     //     if (edge.node.fields.authorId) {
     //         authorSet.add(edge.node.fields.authorId)
     //     }

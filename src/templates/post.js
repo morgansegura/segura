@@ -1,4 +1,5 @@
 import React from 'react'
+import Img from 'gatsby-image'
 import { graphql } from 'gatsby'
 import TitlePage from '../components/TitlePage'
 import SEO from '../components/seo'
@@ -9,50 +10,63 @@ import { MdArrowForward, MdDateRange, MdTimelapse } from 'react-icons/md'
 import {
     FaGithubAlt,
     FaTwitter,
+    FaFacebookSquare,
     FaLinkedinIn,
     FaRegBookmark,
 } from 'react-icons/fa'
 
 const Post = props => {
     const post = props.data.markdownRemark
-    const { title, description, date } = post.frontmatter
+    const { title, description, date, author } = post.frontmatter
 
     return (
         <div style={{ width: '100%' }}>
             <SEO
-                title={post.frontmatter.title}
-                description={post.frontmatter.description}
+                title={title}
+                description={description}
                 image={post.frontmatter.image}
             />
             <Section className="section">
                 <S.Content>
-                    <TitlePage text={post.frontmatter.title} />
+                    <TitlePage text={title} />
                     <S.AuthorCard className="author-card">
-                        <div className="author-card__icon" />
+                        <img
+                            className="author-card__icon"
+                            src={author.avatar}
+                            alt="Author Morgan Segura"
+                        />
                         <div className="author-card__meta">
-                            <p className="author">
-                                authorId
-                                {console.log(post.frontmatter.author)}
-                            </p>
+                            <p className="author">{author.id}</p>
                             <p>
                                 <span className="date">{date} &sdot; </span>
                                 {'  '}
                                 <span className="time-to-read">
-                                    Time to read
+                                    {props.data.timeToRead}min read
                                 </span>
                             </p>
                         </div>
                     </S.AuthorCard>
                     <S.SocialBlock>
-                        <a href="#" title="Follow me on Github">
-                            <FaGithubAlt />
-                        </a>
-                        <a href="#" title="Follow me on Twitter">
-                            <FaTwitter />
-                        </a>
-                        <a href="#" title="Connect with me on Linkedin">
-                            <FaLinkedinIn />
-                        </a>
+                        {author.github && (
+                            <a href="#" title="Follow me on Github">
+                                <FaGithubAlt />
+                            </a>
+                        )}
+                        {author.twitter && (
+                            <a href="#" title="Follow me on Twitter">
+                                <FaTwitter />
+                            </a>
+                        )}
+                        {author.linkedin && (
+                            <a href="#" title="Connect with me on Linkedin">
+                                <FaLinkedinIn />
+                            </a>
+                        )}
+                        {author.facebook && (
+                            <a href="#" title="Connect with me on Linkedin">
+                                <FaFacebookSquare />
+                            </a>
+                        )}
                         <a href="#" title="Connect with me on Linkedin">
                             <FaRegBookmark />
                         </a>
@@ -76,14 +90,17 @@ export const query = graphql`
                     id
                     bio
                     twitter
+                    avatar
                 }
+
                 description
                 category
                 background
                 image
-                date(formatString: "M D, Y")
+                date(formatString: "MM D, Y")
                 topics
             }
+            timeToRead
             fields {
                 authorId
                 slug

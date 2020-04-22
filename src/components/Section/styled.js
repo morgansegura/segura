@@ -254,6 +254,11 @@ export const Section = styled.div`
             opacity: 0.7;
         }
     }
+    .border-and-buffer {
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        padding: 1.5rem;
+    }
     /* Counters */
     .counters {
         display: flex;

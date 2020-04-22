@@ -181,6 +181,9 @@ const GlobalStyles = createGlobalStyle`
   .bg-dark {
     background-color: ${({ theme }) => theme.bgBodyDark};
   }
+  .bg-color {
+    background-color: ${({ theme }) => theme.primaryColor};
+  }
 
   .buffer {
 

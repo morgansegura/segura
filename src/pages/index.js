@@ -61,39 +61,42 @@ const Index = ({ data: { allMarkdownRemark } }) => {
 
                     {/* Intorduction Right */}
                     <Grid item xs={12} md={6}>
-                        <h4 className="section-subline">
-                            User Experience Designer and Full Stack Web
-                            Developer for the love of everything and waste
-                            water.
-                        </h4>
-                        <p>
-                            Deploy revolutionary tagclouds user-centred virtual;
-                            standards-compliant 24/365 feeds innovate monetize,
-                            synergies expedite ubiquitous reintermediate,
-                            world-class maximize compelling, transition granular
-                            out-of-the-box, bleeding-edge remix;
-                        </p>
-                        <div className="counters">
-                            <div className="counter-item">
-                                <div className="numbers">
-                                    <p className="number">12</p>
-                                    <p className="description-small">
-                                        Years of{' '}
-                                        <span className="line-break">
-                                            Experience{' '}
-                                        </span>
-                                    </p>
+                        <div className="border-and-buffer">
+                            <h4 className="section-subline">
+                                User Experience Designer and Full Stack Web
+                                Developer for the love of everything and waste
+                                water.
+                            </h4>
+                            <p>
+                                Deploy revolutionary tagclouds user-centred
+                                virtual; standards-compliant 24/365 feeds
+                                innovate monetize, synergies expedite ubiquitous
+                                reintermediate, world-class maximize compelling,
+                                transition granular out-of-the-box,
+                                bleeding-edge remix;
+                            </p>
+                            <div className="counters">
+                                <div className="counter-item">
+                                    <div className="numbers">
+                                        <p className="number">12</p>
+                                        <p className="description-small">
+                                            Years of{' '}
+                                            <span className="line-break">
+                                                Experience{' '}
+                                            </span>
+                                        </p>
+                                    </div>
                                 </div>
-                            </div>
-                            <div className="counter-item">
-                                <div className="numbers">
-                                    <p className="number">52k</p>
-                                    <p className="description-small">
-                                        Coding hours
-                                        <span className="line-break">
-                                            & Counting{' '}
-                                        </span>
-                                    </p>
+                                <div className="counter-item">
+                                    <div className="numbers">
+                                        <p className="number">52k</p>
+                                        <p className="description-small">
+                                            Coding hours
+                                            <span className="line-break">
+                                                & Counting{' '}
+                                            </span>
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -181,20 +184,23 @@ const Index = ({ data: { allMarkdownRemark } }) => {
                                 </Grid>
 
                                 <Grid item xs={12} md={6}>
-                                    <h4 className="section-subline">
-                                        User Experience Designer and Full Stack
-                                        Web Developer for the love of everything
-                                        and waste water.
-                                    </h4>
-                                    <p>
-                                        Deploy revolutionary tagclouds
-                                        user-centred virtual;
-                                        standards-compliant 24/365 feeds
-                                        innovate monetize, synergies expedite
-                                        ubiquitous reintermediate, world-class
-                                        maximize compelling, transition granular
-                                        out-of-the-box, bleeding-edge remix;
-                                    </p>
+                                    <div className="border-and-buffer">
+                                        <h4 className="section-subline">
+                                            User Experience Designer and Full
+                                            Stack Web Developer for the love of
+                                            everything and waste water.
+                                        </h4>
+                                        <p>
+                                            Deploy revolutionary tagclouds
+                                            user-centred virtual;
+                                            standards-compliant 24/365 feeds
+                                            innovate monetize, synergies
+                                            expedite ubiquitous reintermediate,
+                                            world-class maximize compelling,
+                                            transition granular out-of-the-box,
+                                            bleeding-edge remix;
+                                        </p>
+                                    </div>
                                 </Grid>
                             </Grid>
                         </TabPanel>
@@ -225,20 +231,23 @@ const Index = ({ data: { allMarkdownRemark } }) => {
                                     </div>
                                 </Grid>
                                 <Grid item xs={12} md={6}>
-                                    <h4 className="section-subline">
-                                        User Experience Designer and Full Stack
-                                        Web Developer for the love of everything
-                                        and waste water.
-                                    </h4>
-                                    <p>
-                                        Deploy revolutionary tagclouds
-                                        user-centred virtual;
-                                        standards-compliant 24/365 feeds
-                                        innovate monetize, synergies expedite
-                                        ubiquitous reintermediate, world-class
-                                        maximize compelling, transition granular
-                                        out-of-the-box, bleeding-edge remix;
-                                    </p>
+                                    <div className="border-and-buffer">
+                                        <h4 className="section-subline">
+                                            User Experience Designer and Full
+                                            Stack Web Developer for the love of
+                                            everything and waste water.
+                                        </h4>
+                                        <p>
+                                            Deploy revolutionary tagclouds
+                                            user-centred virtual;
+                                            standards-compliant 24/365 feeds
+                                            innovate monetize, synergies
+                                            expedite ubiquitous reintermediate,
+                                            world-class maximize compelling,
+                                            transition granular out-of-the-box,
+                                            bleeding-edge remix;
+                                        </p>
+                                    </div>
                                 </Grid>
                             </Grid>
                         </TabPanel>
@@ -269,20 +278,23 @@ const Index = ({ data: { allMarkdownRemark } }) => {
                                     </div>
                                 </Grid>
                                 <Grid item xs={12} md={6}>
-                                    <h4 className="section-subline">
-                                        User Experience Designer and Full Stack
-                                        Web Developer for the love of everything
-                                        and waste water.
-                                    </h4>
-                                    <p>
-                                        Deploy revolutionary tagclouds
-                                        user-centred virtual;
-                                        standards-compliant 24/365 feeds
-                                        innovate monetize, synergies expedite
-                                        ubiquitous reintermediate, world-class
-                                        maximize compelling, transition granular
-                                        out-of-the-box, bleeding-edge remix;
-                                    </p>
+                                    <div className="border-and-buffer">
+                                        <h4 className="section-subline">
+                                            User Experience Designer and Full
+                                            Stack Web Developer for the love of
+                                            everything and waste water.
+                                        </h4>
+                                        <p>
+                                            Deploy revolutionary tagclouds
+                                            user-centred virtual;
+                                            standards-compliant 24/365 feeds
+                                            innovate monetize, synergies
+                                            expedite ubiquitous reintermediate,
+                                            world-class maximize compelling,
+                                            transition granular out-of-the-box,
+                                            bleeding-edge remix;
+                                        </p>
+                                    </div>
                                 </Grid>
                             </Grid>
                         </TabPanel>
@@ -365,25 +377,27 @@ const Index = ({ data: { allMarkdownRemark } }) => {
 
             {/* Testimonials */}
 
-            <Section className="section bg-dark">
+            <Section className="section bg-color">
                 <Grid container spacing={3}>
                     <Grid item xs={12} md={6}>
                         <div className="clean-wrap--left">Images Go Here</div>
                     </Grid>
                     <Grid item xs={12} md={6}>
-                        <FaQuoteLeft className="quote-icon" />
-                        <h4 className="quote-text">
-                            User Experience Designer and Full Stack Web
-                            Developer for the love of everything and waste
-                            water.
-                        </h4>
-                        <p className="name">Jared Warner</p>
-                        <p className="job-title">Job Title / Resource</p>
-                        <div className="slide-links">
-                            <div className="slide-link active"></div>
-                            <div className="slide-link"></div>
-                            <div className="slide-link"></div>
-                            <div className="slide-link"></div>
+                        <div className="border-and-buffer">
+                            <FaQuoteLeft className="quote-icon" />
+                            <h4 className="quote-text">
+                                User Experience Designer and Full Stack Web
+                                Developer for the love of everything and waste
+                                water.
+                            </h4>
+                            <p className="name">Jared Warner</p>
+                            <p className="job-title">Job Title / Resource</p>
+                            <div className="slide-links">
+                                <div className="slide-link active"></div>
+                                <div className="slide-link"></div>
+                                <div className="slide-link"></div>
+                                <div className="slide-link"></div>
+                            </div>
                         </div>
                     </Grid>
                 </Grid>

@@ -13,9 +13,10 @@ collections:
   #Posts (English)
   - name: "posts-en" # Used in routes, e.g., /admin/collections/blog
     label: "Posts (English)" # Used in the UI
-    folder: "content/blog" # The path to the folder where the documents are stored
+    folder: "blog" # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
-    slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    summary: "{{title}} -- {{year}}/{{month}}/{{day}}"
     extension: "en.md"
     format: frontmatter
     fields: # The fields for each document, usually in front matter
@@ -67,14 +68,16 @@ collections:
             ],
         }
       - { label: "Body", name: "body", widget: "markdown" }
+    meta:
+      - { label: "SEO Description", name: "description", widget: "text" }
 
   - name: "author"
     label: "Author"
-    folder: "content/blog"
+    folder: "blog"
     create: true
     slug: "{{author_id}}"
-    file: "blog/author.yaml"
-    # extension: "yaml"
+    # file: "blog/author.yaml"
+    extension: "md"
     format: frontmatter
     fields:
       - { label: "Name", name: "author_id", widget: "string", required: true }

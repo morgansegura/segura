@@ -72,8 +72,8 @@ collections:
     label: "Author"
     folder: "content/blog"
     create: true
-    slug: "{{slug}}"
-    file: "author.yaml"
+    slug: "{{author_id}}"
+    file: "blog/author.yaml"
     # extension: "yaml"
     format: frontmatter
     fields:

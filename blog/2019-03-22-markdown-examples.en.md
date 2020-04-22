@@ -4,10 +4,10 @@ topics:
   - monkeys
 title: Markdown Examples
 description: Markdown is intended to be as easy-to-read and easy-to-write as is feasible.
-date: 2019-03-22 01:21:23
+date: 2019-03-22T01:21:23.000Z
 image: /assets/img/03.jpg
 category: Markdown
-author: Morgan Segura
+id: Morgan Segura
 background: '#353b48'
 image: '/assets/img/03.jpg'
 topics: ['animals', 'monkeys']
@@ -78,8 +78,7 @@ Alt-H2
 
 ⋅⋅⋅You can have properly indented paragraphs within list items. Notice the blank line above, and the leading spaces (at least one, but we'll use three here to also align the raw Markdown).
 
-⋅⋅⋅To have a line break without a paragraph, you will need to use two trailing spaces.⋅⋅ ⋅⋅⋅Note that this line is separate, but within the same paragraph.⋅⋅
-⋅⋅⋅(This is contrary to the typical GFM line break behaviour, where trailing spaces are not required.)
+⋅⋅⋅To have a line break without a paragraph, you will need to use two trailing spaces.⋅⋅ ⋅⋅⋅Note that this line is separate, but within the same paragraph.⋅⋅ ⋅⋅⋅(This is contrary to the typical GFM line break behaviour, where trailing spaces are not required.)
 
 -   Unordered list can use asterisks
 -   Or minuses

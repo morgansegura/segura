@@ -109,10 +109,6 @@ exports.createPages = async ({ graphql, actions }) => {
                         frontmatter {
                             title
                             page
-                            author {
-                                id
-                                bio
-                            }
                         }
                     }
                 }

@@ -31,7 +31,9 @@ function Layout({ children, pageContext: { locale } }) {
                         <SiteHeader />
                         <ToggleTheme theme={theme} toggleTheme={toggleTheme} />
                     </Sticky>
-                    <S.SiteContent role="main">{children}</S.SiteContent>
+                    <S.SiteContent theme={theme} role="main">
+                        {children}
+                    </S.SiteContent>
                     <Footer />
                 </S.Wrapper>
             </ThemeProvider>

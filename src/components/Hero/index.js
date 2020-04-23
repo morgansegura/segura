@@ -1,8 +1,9 @@
 import React from 'react'
 
-import Section from '../Section'
 import { ColumnWrapper, Column } from '../Grid'
 import { ColorButton } from '../Button'
+
+import * as S from './styled'
 
 /* SVG Icons */
 import { FaGithubAlt, FaTwitter, FaLinkedinIn } from 'react-icons/fa'
@@ -10,7 +11,8 @@ import { MdArrowForward } from 'react-icons/md'
 
 export const HeroHome = () => (
     <>
-        <ColumnWrapper className="gap">
+        <WrapGameElement />
+        {/*<ColumnWrapper className="gap">
             <Column className="col-12 col-lg-6">
                 <h1 className="section-headline">
                     Morgan <span className="line-break">Segura.</span>
@@ -27,7 +29,7 @@ export const HeroHome = () => (
                     </a>
                 </div>
             </Column>
-            {/* Main Header right */}
+
             <Column className="col-12 col-lg-6">
                 <div className="clean-wrap--right">
                     <span className="super-text">Introduction</span>
@@ -47,5 +49,6 @@ export const HeroHome = () => (
                 </div>
             </Column>
         </ColumnWrapper>
+        */}
     </>
 )

@@ -1,12 +1,14 @@
 ---
-title: Markdown Examples
+topics:
+  - animals
+  - monkeys
+title: "Markdown Examples "
 description: Markdown is intended to be as easy-to-read and easy-to-write as is feasible.
 date: 2019-03-22T01:21:23.000Z
-category: Markdown
+image: assets/img/03.jpg
 author: Morgan Segura
-background: '#353b48'
-image: '/assets/img/03.jpg'
-topics: ['animals', 'monkeys']
+category: Markdown
+background: "#353b48"
 ---
 
 Markdown is intended to be as easy-to-read and easy-to-write as is feasible.

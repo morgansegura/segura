@@ -80,29 +80,8 @@ module.exports = {
                             linkImagesToOriginal: false,
                         },
                     },
-                    // {
-                    //     resolve: `gatsby-remark-images-anywhere`,
-                    //     options: {
-                    //         staticDir: 'static',
-
-                    //         createMarkup: ({ src, srcSet }) =>
-                    //             `<img src="${src}" srcSet="${srcSet}" class="hey" />`,
-
-                    //         loading: 'lazy',
-
-                    //         backgroundColor: '#fff',
-
-                    //         linkImagesToOriginal: true,
-                    //         wrapperStyle: ``,
-
-                    //         sharpMethod: 'fluid',
-
-                    //         maxWidth: 650,
-                    //         quality: 50,
-                    //     },
-                    // },
                     `gatsby-remark-lazy-load`,
-                    `gatsby-remark-prismjs`,
+                    `gatsby-remark-prismjs`, // It needs to be the last one
                 ],
             },
         },

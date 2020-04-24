@@ -28,7 +28,6 @@
         "gatsby-plugin-sitemap": "^2.2.16",
         "gatsby-plugin-styled-components": "^3.1.8",
         "gatsby-remark-images": "^3.1.25",
-        "gatsby-remark-images-anywhere": "^1.2.1",
         "gatsby-remark-lazy-load": "^1.0.2",
         "gatsby-remark-prismjs": "^3.3.17",
         "gatsby-remark-relative-images": "^0.2.3",
@@ -47,7 +46,6 @@
         "react-helmet": "^5.2.1",
         "react-icons": "^3.9.0",
         "react-spring": "^8.0.27",
-        "react-waypoint": "^9.0.2",
         "styled-components": "^4.4.0",
         "styled-icons": "^8.4.2",
         "styled-media-query": "^2.1.2"

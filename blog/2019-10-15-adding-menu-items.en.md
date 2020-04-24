@@ -14,13 +14,16 @@ The menu items translations are located in `config/menu` and the `useMenu` custo
 
 <a href="http://www.google.com">Link to Google</a> <br/> <a href="/about">Internal link</a>
 
-```JS
-
+```css
 <style>
   .classesLink {
     color: red;
   }
 </style>
+```
+
+```javascript
+
 
 function NewFunction {
   return 1 + 2 * 3

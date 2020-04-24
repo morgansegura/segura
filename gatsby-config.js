@@ -73,34 +73,34 @@ module.exports = {
                             name: `uploads`,
                         },
                     },
-                    // {
-                    //     resolve: `gatsby-remark-images`,
-                    //     options: {
-                    //         maxWidth: 1040,
-                    //         linkImagesToOriginal: false,
-                    //     },
-                    // },
                     {
-                        resolve: `gatsby-remark-images-anywhere`,
+                        resolve: `gatsby-remark-images`,
                         options: {
-                            staticDir: 'static',
-
-                            createMarkup: ({ src, srcSet }) =>
-                                `<img src="${src}" srcSet="${srcSet}" class="hey" />`,
-
-                            loading: 'lazy',
-
-                            backgroundColor: '#fff',
-
-                            linkImagesToOriginal: true,
-                            wrapperStyle: ``,
-
-                            sharpMethod: 'fluid',
-
-                            maxWidth: 650,
-                            quality: 50,
+                            maxWidth: 1040,
+                            linkImagesToOriginal: false,
                         },
                     },
+                    // {
+                    //     resolve: `gatsby-remark-images-anywhere`,
+                    //     options: {
+                    //         staticDir: 'static',
+
+                    //         createMarkup: ({ src, srcSet }) =>
+                    //             `<img src="${src}" srcSet="${srcSet}" class="hey" />`,
+
+                    //         loading: 'lazy',
+
+                    //         backgroundColor: '#fff',
+
+                    //         linkImagesToOriginal: true,
+                    //         wrapperStyle: ``,
+
+                    //         sharpMethod: 'fluid',
+
+                    //         maxWidth: 650,
+                    //         quality: 50,
+                    //     },
+                    // },
                     `gatsby-remark-lazy-load`,
                     `gatsby-remark-prismjs`,
                 ],

@@ -5,7 +5,7 @@ topics:
 title: "Markdown Examples "
 description: Markdown is intended to be as easy-to-read and easy-to-write as is feasible.
 date: 2019-03-22T01:21:23.000Z
-image: /assets/img/03.jpg
+image: assets/img/03.jpg
 author: Morgan Segura
 category: Markdown
 background: "#353b48"

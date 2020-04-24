@@ -1,48 +1,26 @@
 import React from 'react'
 import useTranslations from '../useTranslations'
-import SocialLinks from '../SocialLinks'
+import { FaGithubAlt, FaTwitter, FaLinkedinIn } from 'react-icons/fa'
+import Logo from '../../images/segura-icon.svg'
 
 import * as S from './styled'
 
 const Footer = () => {
-    const {
-        aboutProject,
-        seeMorePWA,
-        maintainedBy,
-        contributeMessage,
-    } = useTranslations()
-
     return (
         <S.FooterWrapper>
             <S.FooterContainer>
-                {/*<SocialLinks />*/}
-                <p>
-                    {aboutProject}{' '}
-                    <a
-                        href="https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps"
-                        target="_blank"
-                    >
-                        {seeMorePWA}
+                <div className="social-block">
+                    <a href="#" title="Connect with me on Linkedin">
+                        <FaLinkedinIn />
                     </a>
-                    .
-                </p>
-                <p>
-                    {maintainedBy}{' '}
-                    <a
-                        href="https://twitter.com/_diogorodrigues"
-                        target="_blank"
-                    >
-                        @_diogorodrigues
+                    <a href="#" title="Follow me on Github">
+                        <FaGithubAlt />
                     </a>
-                    . {contributeMessage}{' '}
-                    <a
-                        href="https://github.com/diogorodrigues/iceberg-gatsby-multilang"
-                        target="_blank"
-                    >
-                        Github
+                    <a href="#" title="Follow me on Twitter">
+                        <FaTwitter />
                     </a>
-                    .
-                </p>
+                </div>
+                <p>Segura L.L.C. &copy; {new Date().getFullYear()}</p>
             </S.FooterContainer>
         </S.FooterWrapper>
     )

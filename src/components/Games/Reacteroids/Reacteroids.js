@@ -3,6 +3,7 @@ import Ship from './Ship'
 import Asteroid from './Asteroid'
 import { randomNumBetweenExcluding } from './helpers'
 
+import { FaGithubAlt, FaTwitter, FaLinkedinIn } from 'react-icons/fa'
 import * as S from './styled'
 
 const KEY = {
@@ -24,7 +25,7 @@ export class Reacteroids extends Component {
                 height: window.innerHeight,
                 ratio: window.devicePixelRatio || 1,
             },
-            fillColor: '#252733',
+
             context: null,
             keys: {
                 left: 0,
@@ -33,13 +34,14 @@ export class Reacteroids extends Component {
                 down: 0,
                 space: 0,
             },
-            asteroidCount: 3,
+            asteroidCount: 5,
             currentScore: 0,
             topScore: localStorage['topscore'] || 0,
             inGame: false,
         }
         this.ship = []
         this.asteroids = []
+        this.textArea = []
         this.bullets = []
         this.particles = []
     }
@@ -101,7 +103,7 @@ export class Reacteroids extends Component {
             this.state.screen.width,
             this.state.screen.height
         )
-        context.globalAlpha = 1
+        context.globalAlpha = 0.9
 
         // Next set of asteroids
         if (!this.asteroids.length) {
@@ -257,11 +259,32 @@ export class Reacteroids extends Component {
         if (!this.state.inGame) {
             endgame = (
                 <div className="endgame">
-                    <p>Game over, man!</p>
-                    <p>{message}</p>
-                    <button onClick={this.startGame.bind(this)}>
-                        try again?
-                    </button>
+                    <div className="title-section">
+                        <h1 className="section-headline">
+                            Morgan <span className="line-break">Segura.</span>
+                        </h1>
+                        <p className="section-subline">
+                            Full Stack UI/UX Engineer
+                        </p>
+                        <div className="score-wrapper">
+                            <p>Game over, man!</p>
+                            <p>{message}</p>
+                            <button onClick={this.startGame.bind(this)}>
+                                try again?
+                            </button>
+                        </div>
+                        <div className="social-block">
+                            <a href="#" title="Follow me on Github">
+                                <FaGithubAlt />
+                            </a>
+                            <a href="#" title="Follow me on Twitter">
+                                <FaTwitter />
+                            </a>
+                            <a href="#" title="Connect with me on Linkedin">
+                                <FaLinkedinIn />
+                            </a>
+                        </div>
+                    </div>
                 </div>
             )
         }
@@ -281,6 +304,7 @@ export class Reacteroids extends Component {
                     Use <b>[SPACE]</b> to SHOOT
                 </span>
 
+                <div className="stars" />
                 <canvas
                     ref="canvas"
                     width={this.state.screen.width * this.state.screen.ratio}

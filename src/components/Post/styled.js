@@ -1,15 +1,31 @@
 import styled from 'styled-components'
-import media from 'styled-media-query'
+import { generateMedia } from 'styled-media-query'
+
+const customMedia = generateMedia({
+    xsmall: '250px',
+    small: '450px',
+    medium: '768px',
+    large: '1024px',
+    xlarge: '1200px',
+    huge: '1400px',
+})
 
 export const Post = styled.article``
+export const MetaBlock = styled.div`
+    display: block;
+    width: 100%;
+`
 
 export const AuthorCard = styled.div`
+    margin-top: 1.56em;
     display: flex;
+
     .author-card__icon {
         width: 45px;
         height: 45px;
         background-color: white;
         border-radius: 100%;
+        margin-right: 1rem;
     }
     .author-card__meta {
         p {
@@ -32,23 +48,38 @@ export const AuthorCard = styled.div`
         }
     }
 `
-export const SocialBlock = styled.div``
+export const SocialBlock = styled.div`
+    display: flex;
+    justify-content: flex-end;
+    margin-left: 65px;
+    margin-top: 0.25rem;
+    margin-bottom: -10px;
 
-export const PostTitle = styled.h1`
-    font-size: 4rem;
-
-    ${media.lessThan('large')`
-    font-size: 2.8rem;
-    line-height: 1.1;
-  `}
+    svg {
+        margin-right: 0.5rem;
+        width: 20px;
+        height: 20px;
+    }
 `
 
-export const Content = styled.section`
+export const PostTitle = styled.h1`
+    margin-top: 32px;
+    font-size: 30px;
+    line-height: 40px;
+    font-size: 400;
+    color: ${({ theme }) => theme.headline};
+
+    ${customMedia.lessThan('large')`
+
+    `}
+`
+
+export const Content = styled.article`
     margin: auto;
     max-width: 680px;
+    padding: 40px 20px;
     /* padding: 2rem 0; */
-    ${media.lessThan('large')`
-        /* padding: 2rem 0; */
+    ${customMedia.lessThan('large')`
         max-width: 100%;
     `}
     p,
@@ -61,25 +92,26 @@ export const Content = styled.section`
   .tags,
   iframe,
   .button-post {
-        font-size: 1.25rem;
-        font-weight: 300;
-        line-height: 1.7;
-        letter-spacing: 0.069rem;
-        ${media.lessThan('large')`
+        ${customMedia.lessThan('large')`
             word-break: break-word;
         `}
     }
     p {
-        margin: 1rem 0;
+        font-size: 21px;
+        line-height: 32px;
+        letter-spacing: -0.004em;
+        line-height: 1.4;
+        margin: 0 0 0.25rem;
+        margin-top: 1.56em;
+        margin-bottom: -0.46em;
         color: ${({ theme }) => theme.text};
+
+        ${customMedia.lessThan('large')`
+               font-size: 18px;
+               line-height: 28px;
+        `}
     }
-    h1,
-    h2,
-    h3,
-    h4,
-    h5 {
-        margin: 2.4rem auto 1rem;
-    }
+
     ul,
     ol {
         list-style: disc;
@@ -105,7 +137,7 @@ export const Content = styled.section`
     iframe {
         padding: 0 1.6rem 1.6rem;
         width: 100%;
-        ${media.lessThan('large')`
+        ${customMedia.lessThan('large')`
       padding: 0 1rem;
     `}
     }
@@ -120,7 +152,7 @@ export const Content = styled.section`
         margin: 3rem auto;
     }
     #twitter-widget-0,
-    .instagram-media,
+    .instagram-customMedia,
     .twitter-tweet {
         margin: 20px auto !important;
     }
@@ -129,25 +161,19 @@ export const Content = styled.section`
     h3,
     h4,
     h5 {
-        font-weight: 800;
-        letter-spacing: 0.069rem;
-        line-height: 1.4;
+        font-weight: 500;
     }
     h1 {
-        font-size: 2.8rem;
-        ${media.lessThan('large')`
-      font-size: 1.875rem;
-    `}
     }
     h2 {
         font-size: 2.1rem;
-        ${media.lessThan('large')`
+        ${customMedia.lessThan('large')`
       font-size: 1.375rem;
     `}
     }
     h3 {
         font-size: 1.6rem;
-        ${media.lessThan('large')`
+        ${customMedia.lessThan('large')`
       font-size: 1.125rem;
     `}
     }
@@ -177,11 +203,11 @@ export const Content = styled.section`
     }
     .gatsby-highlight {
         padding: 0 1.6rem 1.6rem;
-        ${media.lessThan('large')`
+        ${customMedia.lessThan('large')`
       padding: 0;
     `}
     }
-    .instagram-media {
+    .instagram-customMedia {
         margin: 1rem auto !important;
     }
     a {

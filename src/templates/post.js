@@ -6,7 +6,7 @@ import SEO from '../components/seo'
 import Section from '../components/Section'
 
 import * as S from '../components/Post/styled'
-import { MdArrowForward, MdDateRange, MdTimelapse } from 'react-icons/md'
+// import { MdArrowForward, MdDateRange, MdTimelapse } from 'react-icons/md'
 import {
     FaGithubAlt,
     FaTwitter,
@@ -26,51 +26,53 @@ const Post = props => {
                 description={description}
                 image={post.frontmatter.image}
             />
-            <Section className="section">
+            <Section className="post">
                 <S.Content>
-                    <TitlePage text={title} />
-                    <S.AuthorCard className="author-card">
-                        <img
-                            className="author-card__icon"
-                            src={author.avatar}
-                            alt="Author Morgan Segura"
-                        />
-                        <div className="author-card__meta">
-                            <p className="author">{author.id}</p>
-                            <p>
-                                <span className="date">{date} &sdot; </span>
-                                {'  '}
-                                <span className="time-to-read">
-                                    {props.data.timeToRead}min read
-                                </span>
-                            </p>
-                        </div>
-                    </S.AuthorCard>
-                    <S.SocialBlock>
-                        {author.github && (
-                            <a href="#" title="Follow me on Github">
-                                <FaGithubAlt />
-                            </a>
-                        )}
-                        {author.twitter && (
-                            <a href="#" title="Follow me on Twitter">
-                                <FaTwitter />
-                            </a>
-                        )}
-                        {author.linkedin && (
+                    <S.MetaBlock>
+                        <S.PostTitle>{title}</S.PostTitle>
+                        <S.AuthorCard className="author-card">
+                            <img
+                                className="author-card__icon"
+                                src={`/${author.avatar}`}
+                                alt="Author Morgan Segura"
+                            />
+                            <div className="author-card__meta">
+                                <p className="author">{author.id}</p>
+                                <p>
+                                    <span className="date">{date} &sdot; </span>
+                                    {'  '}
+                                    <span className="time-to-read">
+                                        {post.timeToRead} min read
+                                    </span>
+                                </p>
+                            </div>
+                        </S.AuthorCard>
+                        <S.SocialBlock>
+                            {author.github && (
+                                <a href="#" title="Follow me on Github">
+                                    <FaGithubAlt />
+                                </a>
+                            )}
+                            {author.twitter && (
+                                <a href="#" title="Follow me on Twitter">
+                                    <FaTwitter />
+                                </a>
+                            )}
+                            {author.linkedin && (
+                                <a href="#" title="Connect with me on Linkedin">
+                                    <FaLinkedinIn />
+                                </a>
+                            )}
+                            {author.facebook && (
+                                <a href="#" title="Connect with me on Linkedin">
+                                    <FaFacebookSquare />
+                                </a>
+                            )}
                             <a href="#" title="Connect with me on Linkedin">
-                                <FaLinkedinIn />
+                                <FaRegBookmark />
                             </a>
-                        )}
-                        {author.facebook && (
-                            <a href="#" title="Connect with me on Linkedin">
-                                <FaFacebookSquare />
-                            </a>
-                        )}
-                        <a href="#" title="Connect with me on Linkedin">
-                            <FaRegBookmark />
-                        </a>
-                    </S.SocialBlock>
+                        </S.SocialBlock>
+                    </S.MetaBlock>
                     <div dangerouslySetInnerHTML={{ __html: post.html }}></div>
                 </S.Content>
             </Section>
@@ -92,12 +94,11 @@ export const query = graphql`
                     twitter
                     avatar
                 }
-
                 description
                 category
                 background
                 image
-                date(formatString: "MM D, Y")
+                date(formatString: "MMM DD, YYYY")
                 topics
             }
             timeToRead

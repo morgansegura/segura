@@ -54,13 +54,6 @@ const PostItem = ({
     return (
         <S.PostItemLink to={slug}>
             <S.PostItemWrapper>
-                {/*
-                <S.PostItemCircle
-                    style={{
-                        backgroundImage: `url(${authorImage})`,
-                    }}
-                ></S.PostItemCircle>
-                */}
                 <S.PostItemInfo>
                     <S.PostItemTitle>{title}</S.PostItemTitle>
                     <S.PostItemDescription>

@@ -44,7 +44,7 @@ const PostItem = ({
     })
 
     const imgName = image ? image.split('/')[3] : false
-    console.log(imgName)
+
     const postImg = imgName
         ? listImages.edges.find(
               img =>

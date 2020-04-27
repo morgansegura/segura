@@ -1,17 +1,19 @@
 import React from 'react';
+/* Components */
 
-import Logo from '../../../static/segura-icon.svg';
-
+/* Images */
+import Logo from '../../../static/assets/icons/segura-icon.svg';
+/* Styled Components */
 import * as S from './styled';
 
 const Header = ({ children }) => {
     return (
-        <S.HeaderWrapper className='site'>
+        <S.HeaderWrapper>
             <S.HeaderContainer>
                 <S.LogoLink to='/' title='Home' aria-label='Home'>
                     <Logo className='logo' />
                 </S.LogoLink>
-                {children}
+                <S.HeaderRight>{children}</S.HeaderRight>
             </S.HeaderContainer>
         </S.HeaderWrapper>
     );

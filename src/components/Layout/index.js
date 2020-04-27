@@ -1,17 +1,17 @@
 import React from 'react';
-import { ThemeProvider } from 'styled-components';
 import { Link } from 'gatsby';
-
-import GlobalStyles from '../../styles/global';
+/* Components */
 import { useDarkMode } from '../Theme/useDarkMode';
 import { lightTheme, darkTheme } from '../Theme/themeStyles';
 import ToggleTheme from '../Theme/toggleTheme';
 import Sticky from '../Sticky';
 import Header from '../Header';
-
-import { GiHamburgerMenu } from 'react-icons/gi';
-
+/* Styled Components */
+import { ThemeProvider } from 'styled-components';
+import GlobalStyles from '../../styles/global';
 import * as S from './styled';
+/* Icons */
+import { GiHamburgerMenu } from 'react-icons/gi';
 
 const Layout = (props) => {
     const { title, children } = props;
@@ -36,7 +36,6 @@ const Layout = (props) => {
                         />
                         <S.DrawerToggle
                             className={`${toggleNav ? `drawer-open` : ``}`}
-                            href={`#menu`}
                             onClick={() => setToggleNav(!toggleNav)}
                         >
                             <GiHamburgerMenu />
@@ -45,14 +44,14 @@ const Layout = (props) => {
                 </Sticky>
                 <S.NavDrawerWrapper>
                     <S.NavDrawer>
-                        <ul role='menu'>
-                            <li role='menuitem'>
+                        <ul>
+                            <li>
                                 <Link to={`/about`}>About</Link>
                             </li>
-                            <li role='menuitem'>
+                            <li>
                                 <Link to={`/elements`}>Elements</Link>
                             </li>
-                            <li role='menuitem'>
+                            <li>
                                 <Link to={`/tags`}>Tags</Link>
                             </li>
                         </ul>

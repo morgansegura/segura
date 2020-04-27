@@ -5,7 +5,7 @@ import Img from 'gatsby-image';
 import Layout from '../components/Layout';
 import SEO from '../components/seo';
 
-import * as S from '../styles/about.styled.js';
+// import * as S from '../styles/about.styled.js';
 
 const AboutPage = ({ data }, location) => {
     const siteTitle = data.site.siteMetadata.title;

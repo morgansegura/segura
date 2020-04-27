@@ -21,7 +21,7 @@ const BlogIndex = ({ data }, location) => {
                 title='Blog'
                 keywords={[`devlog`, `blog`, `gatsby`, `javascript`, `react`]}
             />
-            <WrapGameElement />
+            {/*<WrapGameElement />*}
             {/* <Bio /> 
             {data.site.siteMetadata.description && (
                 <header className='page-head'>

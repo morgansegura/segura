@@ -20,19 +20,27 @@ export const HeaderContainer = styled.div`
     width: 100%;
     position: relative;
     display: flex;
+    justify-content: space-between;
     align-items: center;
     margin-left: auto;
     margin-right: auto;
-    max-width: var(--width-container);
-
-    padding: 0.75rem 3vw;
+    padding: 0.5rem 20px;
 
     ${customMedia.greaterThan('medium')`
-		padding: 1.125rem 6vw;
+        padding: 0.75rem 40px;
 	`}
 `;
 
+export const HeaderRight = styled.div`
+    justify-self: flex-end;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+`;
+
 export const LogoLink = styled(Link)`
+    position: relative;
+    left: -3px;
     display: flex;
     overflow: hidden;
     align-items: center;
@@ -42,28 +50,12 @@ export const LogoLink = styled(Link)`
         width: 30px;
 
         ${customMedia.greaterThan('medium')`
-            height: 50px;
-            width: 50px;
+            height: 40px;
+            width: 40px;
         `}
     }
+    /* SVG class */
     .cls-2 {
         fill: ${({ theme }) => theme.headline};
     }
-`;
-
-export const NavMenu = styled.div`
-    position: relative;
-    margin-left: auto;
-    width: auto;
-    top: 0;
-`;
-export const SecondaryNavMenu = styled.div`
-    position: relative;
-    padding: 0.125rem 20px;
-
-    ${customMedia.greaterThan('small')`
-        margin-left: auto;
-        width: auto;
-        top: 0;
-    `}
 `;

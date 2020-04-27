@@ -1,14 +1,4 @@
-import { createGlobalStyle } from 'styled-components'
-import { generateMedia } from 'styled-media-query'
-
-const customMedia = generateMedia({
-    xsmall: '250px',
-    small: '450px',
-    medium: '768px',
-    large: '1024px',
-    xlarge: '1200px',
-    huge: '1400px',
-})
+import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyles = createGlobalStyle`
   /* http://meyerweb.com/eric/tools/css/reset/
@@ -66,19 +56,11 @@ const GlobalStyles = createGlobalStyle`
     background: ${({ theme }) => theme.bgBody};
     font-weight: 500;
     color: ${({ theme }) => theme.text};
-
-    -webkit-font-smoothing: antialiased;
-        -webkit-text-size-adjust: 100%;
-            text-size-adjust: 100%;
+    text-size-adjust: 100%;
     font-size: 100%;
-    line-height: 1.25rem;
     font-family: var(--base-font);
-
-    ${customMedia.greaterThan('medium')`
-        font-size: 14px;
-        line-height: 24px;
-    `}
   }
+
   * {
     outline: none !important;
   }
@@ -95,7 +77,6 @@ const GlobalStyles = createGlobalStyle`
     .headline {
       font-family: var(--headline-font);
       font-weight: 500;
-      color: ${({ theme }) => theme.headline};
   }
  
   img {
@@ -105,185 +86,14 @@ const GlobalStyles = createGlobalStyle`
   }
 
   a {
-    color: ${({ theme }) => theme.primaryColor};
+    color: ${({ theme }) => theme.ctaColor};
     transition: color .2s ease-out;
     &:hover {
-      color: ${({ theme }) => theme.primaryLightColor};
+      color: ${({ theme }) => theme.ctaLightColor};
     }
     &:active {
-      color: ${({ theme }) => theme.primaryDarkColor};
+      color: ${({ theme }) => theme.ctaDarkColor};
     }
-  }
-  .href {    
-    position: relative;
-    color: ${({ theme }) => theme.primaryColor};
-    text-decoration: none;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    margin-top: 20px;
-
-    .icon-left {
-      padding-right: 0.25rem;
-    }
-    .icon-right {
-      padding-left: 0.25rem;
-    }
-
-    &:hover {
-      color: ${({ theme }) => theme.primaryLightColor};
-      text-decoration: none;
-
-    &.underline {
-      &:before {
-          background-color: ${({ theme }) => theme.primaryLightColor};
-        } 
-      }     
-    }
-
-    &--large {
-      font-size: 24px;
-      line-height: 1.7;      
-    }
-
-    &.underline {
-      position: relative;
-
-      &:before {
-        content: "";
-        width: 90%;
-        height: 3px;
-        position: absolute;
-        border-radius: 6px;
-        bottom: -3px;
-        left: -3px;
-        height: 3px;
-        background-color: ${({ theme }) => theme.primaryColor};
-      }      
-    }
-
-  }
-  .section {
-    padding: 50px 20px;
-
-    ${customMedia.greaterThan('small')`
-      padding: 100px 80px;
-    `}
-
-    &.border-bottom {
-        border-bottom: 1px solid ${({ theme }) => theme.outlines};
-    }    
-  }
-  .bg-gradient {
-
-    border-bottom: 1px solid ${({ theme }) => theme.bgBodyLight};
-  }
-  .bg-dark {
-    background-color: ${({ theme }) => theme.bgBodyDark};
-  }
-  .bg-color {
-    background-color: ${({ theme }) => theme.primaryColor};
-  }
-
-  .buffer {
-
-    &-x {
-      margin-left: 30px;
-      margin-right: 30px;
-      
-      ${customMedia.greaterThan('medium')`
-          margin-left: 40px;
-          margin-right: 40px;
-      `}        
-    }
-    &-y {
-      margin-top: 30px !important;
-      margin-bottom: 30px !important;
-
-      ${customMedia.greaterThan('medium')`
-        margin-top: 40px !important;
-        margin-bottom: 40px !important;
-      `}        
-    }
-    &-top {
-      margin-top: 30px !important;
-      ${customMedia.greaterThan('medium')`
-          margin-bottom: 30px !important
-      `}        
-    }
-    &-right {
-      margin-right: 30px;
-      ${customMedia.greaterThan('medium')`
-          margin-right: 40px;
-      `}        
-    }
-    &-bottom {
-      margin-bottom: 30px;
-      ${customMedia.greaterThan('medium')`
-          margin-bottom: 40px;
-      `}  
-    }
-    &-left {
-      margin-left: 30px;
-      ${customMedia.greaterThan('medium')`
-          margin-left: 40px;
-      `}  
-    }
-  }
-
-    .tab-bottom {
-      padding-bottom: 0.5rem;
-      border-bottom: 5px solid ${({ theme }) => theme.outlines};
-      margin-bottom: 50px;
-
-      ${customMedia.greaterThan('medium')`      
-          margin-bottom: 80px;
-      `}  
-    }
-
-
-  /* Services */
-
-  .square-card {
-    display: flex;
-    height: 100%;
-    flex: 1;
-    flex-direction: column;
-    background-color: ${({ theme }) => theme.bgBodyLight};
-    padding: 10px 0 10px 15px;
-    transition: background-color 0.3s ease-out;
-    
-    ${customMedia.greaterThan('large')`
-        padding: 1.25rem 0 1.25rem 1.5rem;
-    `}    
-
-    &:hover {
-      h4 {
-        color: white !important;
-      }
-      background-color: ${({ theme }) => theme.primaryColor};  
-    }
-    &:active {
-      color: white !important;
-      background-color: ${({ theme }) => theme.primaryDarkColor};  
-    }
-    &--inner {
-      flex: 1;
-    } 
-  }
-    [data-reach-tab][data-selected] {
-      color: white;
-      background-color: ${({ theme }) => theme.primaryColor};
-    }     
-  .bg-highlight {
-    background-color: ${({ theme }) => theme.primaryColor};
-  }
-  .push-down {
-    position: relative;
-    top: 4px;
-  }
-  .no-underline {
-    text-decoration: none;
   }
 
   :root { 
@@ -295,22 +105,17 @@ const GlobalStyles = createGlobalStyle`
     --base-medium-dark: #3D4054;
     --base-dark: #252733;
 
-    --primary-color: #42a5f5;
-    --primary-light-color: #64b5f6;
-    --primary-dark-color: #1e88e5;
-    --secondary-color: #9b59b6;
-    --secondary-light-color: #80d6ff;
-    --secondary-dark-color: #0077c2;
-    -cta-color: #ff1744;
+    --accent-color: #42a5f5;
+    --accent-light-color: #64b5f6;
+    --accent-dark-color: #1e88e5;
+    --cta-color: #9b59b6;
+    --cta-light-color: #80d6ff;
+    --cta-dark-color: #0077c2;
+  
 
-    --width-container: 1352px;
+    --width-container: 1400px;
     --headline-font: "Hind", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     --base-font: "rasmus andersson", "Noto Sans", Noto Sans JP,Noto Sans KR,Noto Naskh Arabic,Noto Sans Thai,Noto Sans Hebrew,Noto Sans Bengali,sans-serif;
-
-    --space: 2rem;
-    --space-sm: 1rem;
-    --space-lg: 3rem;
-
   }
-`
-export default GlobalStyles
+`;
+export default GlobalStyles;

@@ -12,6 +12,7 @@ module.exports = {
         },
     },
     plugins: [
+        `gatsby-plugin-netlify-cms`,
         {
             resolve: `gatsby-source-filesystem`,
             options: {
@@ -23,6 +24,13 @@ module.exports = {
             resolve: `gatsby-source-filesystem`,
             options: {
                 path: `${__dirname}/content/assets`,
+                name: `assets`,
+            },
+        },
+        {
+            resolve: `gatsby-source-filesystem`,
+            options: {
+                path: `${__dirname}/static/assets`,
                 name: `assets`,
             },
         },
@@ -54,22 +62,6 @@ module.exports = {
         },
         `gatsby-transformer-sharp`,
         `gatsby-plugin-sharp`,
-        {
-            resolve: `gatsby-plugin-purgecss`,
-            options: {
-                printRejected: true, // Print removed selectors and processed file names
-                develop: true, // Enable while using `gatsby develop`
-                // tailwind: true, // Enable tailwindcss support
-                // whitelist: ['whitelist'], // Don't remove this selector
-                ignore: [
-                    '/ignored.css',
-                    'prismjs/',
-                    '/prism.css',
-                    'docsearch.js/',
-                ], // Ignore files/folders
-                purgeOnly: ['components/', '/main.css', 'bootstrap/'], // Purge only these files/folders
-            },
-        },
         {
             resolve: 'gatsby-plugin-react-svg',
             options: {
@@ -106,6 +98,5 @@ module.exports = {
         // `gatsby-plugin-netlify`,
         `gatsby-plugin-offline`,
         `gatsby-plugin-react-helmet`,
-        'gatsby-plugin-sass',
     ],
 };

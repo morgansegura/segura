@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'gatsby';
-import Tags from './Tags';
+import Tags from '../Tags';
 
 export default (props) => (
     <article

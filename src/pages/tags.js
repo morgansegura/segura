@@ -6,8 +6,7 @@ import { graphql, StaticQuery } from 'gatsby';
 import Layout from '../components/Layout';
 import SEO from '../components/seo';
 
-import '../style/normalize.css';
-import '../style/all.scss';
+import * as S from '../styles/tags.styled.js';
 
 const TagIndex = ({ data }) => {
     const siteTitle = data.site.siteMetadata.title;

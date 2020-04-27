@@ -11,6 +11,8 @@ import Header from '../Header';
 
 import { GiHamburgerMenu } from 'react-icons/gi';
 
+import * as S from './styled';
+
 const Layout = (props) => {
     const { title, children } = props;
     const [toggleNav, setToggleNav] = React.useState(false);
@@ -24,39 +26,39 @@ const Layout = (props) => {
     return (
         <ThemeProvider theme={themeMode}>
             <GlobalStyles />
-            <div className={`site-wrapper ${toggleNav ? `drawer-open` : ``}`}>
+            <S.Wrapper className={`${toggleNav ? `drawer-open` : ``}`}>
                 <Sticky>
                     <Header>
-                        <ToggleTheme theme={theme} toggleTheme={toggleTheme} />
-                        <a
-                            className='nav-burger'
+                        <ToggleTheme
+                            theme={theme}
+                            toggleTheme={toggleTheme}
+                            className={`${toggleNav ? `drawer-open` : ``}`}
+                        />
+                        <S.DrawerToggle
+                            className={`${toggleNav ? `drawer-open` : ``}`}
                             href={`#menu`}
                             onClick={() => setToggleNav(!toggleNav)}
                         >
                             <GiHamburgerMenu />
-                        </a>
+                        </S.DrawerToggle>
                     </Header>
                 </Sticky>
-                <div className='site-head-drawer'>
-                    <nav id='swup' className='site-drawer-nav'>
-                        <ul className='nav' role='menu'>
-                            <li className='nav-about' role='menuitem'>
+                <S.NavDrawerWrapper>
+                    <S.NavDrawer>
+                        <ul role='menu'>
+                            <li role='menuitem'>
                                 <Link to={`/about`}>About</Link>
                             </li>
-                            <li className='nav-elements' role='menuitem'>
+                            <li role='menuitem'>
                                 <Link to={`/elements`}>Elements</Link>
                             </li>
-                            <li className='nav-tags' role='menuitem'>
+                            <li role='menuitem'>
                                 <Link to={`/tags`}>Tags</Link>
                             </li>
                         </ul>
-                    </nav>
-                </div>
-                <main id='site-main' className='site-main'>
-                    <div id='swup' className='transition-fade'>
-                        {children}
-                    </div>
-                </main>
+                    </S.NavDrawer>
+                </S.NavDrawerWrapper>
+                <S.Main>{children}</S.Main>
                 <footer className='site-foot'>
                     &copy; {new Date().getFullYear()}{' '}
                     <Link to={`/`}>{title}</Link> &mdash; Built with{' '}
@@ -68,7 +70,7 @@ const Layout = (props) => {
                         Gatsby
                     </a>
                 </footer>
-            </div>
+            </S.Wrapper>
         </ThemeProvider>
     );
 };

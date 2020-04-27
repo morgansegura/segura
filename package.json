@@ -29,6 +29,7 @@
         "gatsby-source-filesystem": "^2.0.33",
         "gatsby-transformer-remark": "^2.3.12",
         "gatsby-transformer-sharp": "^2.1.19",
+        "gatsby-plugin-google-fonts": "^1.0.1",
         "styled-components": "^4.4.0",
         "styled-media-query": "^2.1.2",
         "react-headroom": "^3.0.0",

@@ -33,7 +33,7 @@ module.exports = {
                     {
                         resolve: `gatsby-remark-images`,
                         options: {
-                            maxWidth: 1360,
+                            maxWidth: 680,
                             withWebp: true,
                             showCaptions: true,
                             quality: 75,
@@ -54,19 +54,6 @@ module.exports = {
         },
         `gatsby-transformer-sharp`,
         `gatsby-plugin-sharp`,
-        {
-            resolve: `gatsby-plugin-postcss`,
-            options: {
-                postCssPlugins: [
-                    require('postcss-easy-import')(),
-                    require('postcss-custom-properties')({ preserve: false }),
-                    require('postcss-color-function')(),
-                    require('autoprefixer')({
-                        browserlist: ['last 2 versions'],
-                    }),
-                ],
-            },
-        },
         {
             resolve: `gatsby-plugin-purgecss`,
             options: {
@@ -95,6 +82,12 @@ module.exports = {
             resolve: `gatsby-plugin-google-analytics`,
             options: {
                 trackingId: ``,
+            },
+        },
+        {
+            resolve: `gatsby-plugin-google-fonts`,
+            options: {
+                fonts: [`hind\:500`, `rasmus andersson\:400,500`],
             },
         },
         `gatsby-plugin-feed`,

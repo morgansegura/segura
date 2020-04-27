@@ -53,7 +53,7 @@ body {
 /* ---------------------------------------------------------- */
 
 .site-wrapper {
-    // padding: 3vw;
+    //   padding: 3vw;
     min-height: 100vh;
 }
 @media (max-width: 850px) {
@@ -142,31 +142,8 @@ body {
 /* Site Navigation
 /* ---------------------------------------------------------- */
 
-.site-head {
-    position: relative;
-    z-index: 300;
-    margin-top: -10px;
-    font-size: 1.35rem;
-}
-
-.site-head-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.site-head-left {
-    position: relative;
-    z-index: 100;
-    display: flex;
-    align-items: center;
-    margin-right: 10px;
-    white-space: nowrap;
-}
-
 .nav {
     display: flex;
-    margin: 0 0 0 -12px;
     padding: 0;
     list-style: none;
 }
@@ -279,122 +256,60 @@ body {
 /* ---------------------------------------------------------- */
 
 .nav-burger {
-    display: none;
+    // display: none;
     position: absolute;
-    left: 0;
+    right: 6vw;
     z-index: 9999;
     padding: 12px 12px 12px 0;
+}
+.site-head {
+    position: relative;
+    top: 0;
+    background: red;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.site-head-drawer {
+    position: fixed;
+    z-index: -1;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 230px;
+    height: 100vh;
+    padding-left: 2vw;
+}
+.site-head-logo {
+    position: absolute;
+    left: 6vw;
+}
+.site-drawer-nav ul {
+    display: flex;
+    flex-direction: column;
+}
+.site-main {
+    position: relative;
+    z-index: 1;
+    left: 0;
+}
+.drawer-open .site-main {
+    left: -230px;
+}
+.drawer-open .nav-burger {
+    right: calc(230px + 6vw);
 }
 
 @media (max-width: 850px) {
     .site-head {
-        padding: 0;
     }
     .nav-burger {
-        display: block;
+        right: 3vw;
     }
-    .site-head-container {
-        flex-direction: column;
-        justify-content: flex-start;
-        height: 40px;
-        background: rgba(255, 255, 255, 0);
-        z-index: -1;
-        transition: all 0.4s ease-out;
-        overflow: hidden;
+    .drawer-open .nav-burger {
+        right: calc(230px + 3vw);
     }
-    .site-head-left,
-    .site-head-right {
-        position: relative;
-        z-index: -1;
-        height: auto;
-        transition: height 0.2s cubic-bezier(0.4, 0.01, 0.165, 0.99);
-        transition-delay: 1s;
-    }
-    .site-head-left a,
-    .site-head-right a {
-        margin: 8px 0;
-        padding: 1px 0;
-        font-size: 2.6rem;
-        line-height: 1.15em;
-        font-weight: 300;
-        opacity: 0;
-    }
-    .site-head-right a {
-        padding: 5px 0;
-        margin: 1px 0;
-        font-size: 2rem;
-    }
-    .nav {
-        width: 100%;
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: flex-start;
-        margin: 3vw 0 0 0;
-    }
-    .site-head-left {
-        order: 2;
-        margin: 0;
-        width: 100%;
-    }
-    .site-head-center {
-        order: 1;
-        position: static;
-        z-index: auto;
-        display: flex;
-        justify-content: left;
-        width: 186px;
-    }
-    .site-head-right {
-        order: 3;
-        width: 100%;
-        margin-top: 3vw;
-    }
-    .social-links {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .site-head-open {
-        background: $color-bg;
-        transition: background 0.5s ease-out;
-        transition-delay: 0.25;
-        overflow: hidden;
-        height: 100vh;
-        @include light-mode {
-            background: $color-bg-light;
-        }
-    }
-
-    .site-head-open .site-head-container {
-        height: 100vh;
-        transition: height 0.2s ease-in;
-    }
-
-    .site-head-open .site-head-left,
-    .site-head-open .site-head-right {
-        z-index: 9999;
-        height: auto;
-        transition: height 0.2s cubic-bezier(0.4, 0.01, 0.165, 0.99);
-    }
-
-    .site-head-open .site-head-left a,
-    .site-head-open .site-head-right a {
-        opacity: 1;
-        transition: transform 0.6s cubic-bezier(0.4, 0.01, 0.165, 0.99),
-            opacity 0.9s cubic-bezier(0.4, 0.01, 0.165, 0.99);
-        transform: scale(1) translateY(0px);
-    }
-    .site-head-open .nav-current a {
-        border-bottom: $color-base 2px solid;
-        @include light-mode {
-            border-bottom: $color-base-light 2px solid;
-        }
-    }
-    .site-head-open .site-head-right a {
-        opacity: 0.8;
-    }
-    .site-head-open .site-foot {
-        display: none;
+    .site-head-logo {
+        left: 3vw;
     }
 }
 

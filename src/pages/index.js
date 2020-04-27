@@ -1,14 +1,14 @@
 import React from 'react';
 import { graphql, StaticQuery } from 'gatsby';
 
-import Layout from '../components/layout';
+import Layout from '../components/Layout';
 import SEO from '../components/seo';
-// import Bio from "../components/bio"
-// import PostCard from '../components/postCard';
+// import Bio from "../components/Bio"
+// import PostCard from '../components/PostCard';
 import WrapGameElement from '../components/Games/Reacteroids';
 
-import '../style/normalize.css';
-import '../style/all.scss';
+// import '../style/normalize.css';
+// import '../style/all.scss';
 //TODO: switch to staticQuery, get rid of comments, remove unnecessary components, export as draft template
 const BlogIndex = ({ data }, location) => {
     const siteTitle = data.site.siteMetadata.title;

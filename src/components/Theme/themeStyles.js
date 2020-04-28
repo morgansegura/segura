@@ -11,13 +11,13 @@ export const lightTheme = {
     textOffset: 'var(--base)',
     outlines: 'var(--base-light)',
     cards: 'white',
-    primaryColor: 'var(--primary-color)',
-    primaryLightColor: 'var(--primary-light-color)',
-    primaryDarkColor: 'var(--primary-dark-color)',
-    secondaryColor: 'var(--secondary-color)',
-    secondaryLightColor: 'var(--secondary-light-color)',
-    secondaryDarkColor: 'var(--secondary-dark-color)',
-}
+    accentColor: 'var(--accent-color)',
+    accentLightColor: 'var(--accent-light-color)',
+    accentDarkColor: 'var(--accent-dark-color)',
+    ctaColor: 'var(--cta-color)',
+    ctaLightColor: 'var(--cta-light-color)',
+    ctaDarkColor: 'var(--cta-dark-color)',
+};
 
 export const darkTheme = {
     bgBody: 'var(--base)',
@@ -32,10 +32,10 @@ export const darkTheme = {
     textOffset: 'var(--base-medium)',
     outlines: 'var(--base-medium-dark)',
     cards: 'var(--base-medium-dark)',
-    primaryColor: 'var(--primary-color)',
-    primaryLightColor: 'var(--primary-light-color)',
-    primaryDarkColor: 'var(--primary-dark-color)',
-    secondaryColor: 'var(--secondary-color)',
-    secondaryLightColor: 'var(--secondary-light-color)',
-    secondaryDarkColor: 'var(--secondary-dark-color)',
-}
+    accentColor: 'var(--accent-color)',
+    accentLightColor: 'var(--accent-light-color)',
+    accentDarkColor: 'var(--accent-dark-color)',
+    ctaColor: 'var(--cta-color)',
+    ctaLightColor: 'var(--cta-light-color)',
+    ctaDarkColor: 'var(--cta-dark-color)',
+};

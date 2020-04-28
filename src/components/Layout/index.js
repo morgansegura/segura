@@ -12,6 +12,13 @@ import GlobalStyles from '../../styles/global';
 import * as S from './styled';
 /* Icons */
 import { GiHamburgerMenu } from 'react-icons/gi';
+import { DiGithubAlt, DiCodepen } from 'react-icons/di';
+import {
+    TiSocialDribbble,
+    TiSocialTwitter,
+    TiSocialLinkedin,
+} from 'react-icons/ti';
+import { GrTag, GrTest, GrSign, GrSatellite, GrArticle } from 'react-icons/gr';
 
 const Layout = (props) => {
     const { title, children } = props;
@@ -29,46 +36,80 @@ const Layout = (props) => {
             <S.Wrapper className={`${toggleNav ? `drawer-open` : ``}`}>
                 <Sticky>
                     <Header>
-                        <ToggleTheme
-                            theme={theme}
-                            toggleTheme={toggleTheme}
-                            className={`${toggleNav ? `drawer-open` : ``}`}
-                        />
+                        <ToggleTheme theme={theme} toggleTheme={toggleTheme} />
                         <S.DrawerToggle
-                            className={`${toggleNav ? `drawer-open` : ``}`}
                             onClick={() => setToggleNav(!toggleNav)}
                         >
                             <GiHamburgerMenu />
                         </S.DrawerToggle>
                     </Header>
                 </Sticky>
-                <S.NavDrawerWrapper>
+                <S.NavDrawerWrapper
+                    className={`${toggleNav ? `drawer-open` : ``}`}
+                >
                     <S.NavDrawer>
                         <ul>
-                            <li>
-                                <Link to={`/about`}>About</Link>
+                            <li className='drawer-nav-item'>
+                                <Link to={`/portfolio`}>
+                                    <GrTest className='gr' /> Projects
+                                </Link>
                             </li>
-                            <li>
-                                <Link to={`/elements`}>Elements</Link>
+                            <li className='drawer-nav-item'>
+                                <Link to={`/blog`}>
+                                    <GrArticle className='gr' /> Blog
+                                </Link>
                             </li>
-                            <li>
-                                <Link to={`/tags`}>Tags</Link>
+                            <li className='drawer-nav-item'>
+                                <Link to={`/tags`}>
+                                    <GrTag className='gr' /> Tags
+                                </Link>
+                            </li>
+
+                            <li className='drawer-nav-item'>
+                                <Link to={`/portfolio`}>
+                                    <GrSign className='gr' /> About
+                                </Link>
+                            </li>
+                            <li className='drawer-nav-item'>
+                                <Link to={`/portfolio`}>
+                                    <GrSatellite className='gr' /> Contact
+                                </Link>
+                            </li>
+                            <li className='drawer-nav-item'>
+                                <div className='social-block'>
+                                    <a
+                                        href='#'
+                                        title='Connect with me on Linkedin'
+                                    >
+                                        <TiSocialLinkedin />
+                                    </a>
+                                    <a href='#' title='Follow me on Github'>
+                                        <DiGithubAlt />
+                                    </a>
+                                    <a href='#' title='Follow me on Twitter'>
+                                        <TiSocialTwitter />
+                                    </a>
+                                    <a
+                                        href='#'
+                                        title='Check me out on Dribbble'
+                                    >
+                                        <DiCodepen />
+                                    </a>
+
+                                    <a href='#' title='Checkout my Codepens'>
+                                        <TiSocialDribbble />
+                                    </a>
+                                </div>
                             </li>
                         </ul>
                     </S.NavDrawer>
                 </S.NavDrawerWrapper>
                 <S.Main>{children}</S.Main>
-                <footer className='site-foot'>
-                    &copy; {new Date().getFullYear()}{' '}
-                    <Link to={`/`}>{title}</Link> &mdash; Built with{' '}
-                    <a
-                        href='https://gatsbyjs.org'
-                        target='_blank'
-                        rel='noopener noreferrer'
-                    >
-                        Gatsby
-                    </a>
-                </footer>
+                <S.FooterWrapper>
+                    <S.FooterContainer>
+                        <p>&copy;{new Date().getFullYear()} . Morgan Segura</p>
+                    </S.FooterContainer>
+                </S.FooterWrapper>
             </S.Wrapper>
         </ThemeProvider>
     );

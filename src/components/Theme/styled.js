@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
 export const ToggleContainer = styled.div`
+    position: relative;
+    top: -1px;
     display: flex;
     font-size: 22px;
     margin-right: 1rem;

@@ -2,6 +2,11 @@
 title: Hello World
 date: "2015-05-01T22:12:03.284Z"
 thumbnail: ./salty_egg.jpg
+author: Morgan Segura
+category: Javascript
+tags: [green,color]
+excerpt: These eggs are sometimes sold covered in a thick layer of salted
+description: These eggs are sometimes sold covered in a thick layer of salted
 ---
 
 This is my first post on my new fake blog! How exciting!

@@ -78,7 +78,6 @@ const GlobalStyles = createGlobalStyle`
       font-family: var(--headline-font);
       font-weight: 500;
   }
- 
   img {
     display: block;
   	max-width: 100%;

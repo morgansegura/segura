@@ -1,0 +1,54 @@
+backend:
+  name: github
+  repo: morgansegura/segura
+  branch: master
+  site_domain: https://segura.llc/
+
+publish_mode: editorial_workflow
+media_folder: "content/assets/"
+public_folder: "assets/img"
+show_preview_links: true
+
+collections:
+  #Posts (English)
+  - name: "posts" # Used in routes, e.g., /admin/collections/blog
+    label: "Posts" # Used in the UI
+    folder: "content/blog/{{slug}}"
+    create: true # Allow users to create new documents in this collection
+    slug: "{{slug}}"
+    extension: "md"
+    format: frontmatter
+    fields: # The fields for each document, usually in front matter
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Excerpt", name: "excerpt", widget: "text" }
+      - {
+          label: "Date",
+          name: "date",
+          widget: "datetime",
+          format: "YYYY-MM-DD hh:mm:ss",
+        }
+      - { label: "Thumbnail", name: "thumnail", widget: "image" }
+      - {
+          label: "Author",
+          name: "author",
+          widget: "select",
+          options: ["Morgan Segura"],
+          default: ["Morgan Segura"],
+        }
+      - { label: "Tags", name: "tags", widget: "list" }
+      - {
+          label: "Category",
+          name: "category",
+          widget: "select",
+          options:
+            [
+              "Markdown",
+              "Javascript",
+              "Images",
+              "Gatsby",
+              "Imagens",
+              "Others",
+              "Outros",
+            ],
+        }
+      - { label: "Body", name: "body", widget: "markdown" }

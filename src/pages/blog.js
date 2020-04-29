@@ -1,9 +1,13 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-
+/* Components */
 import Layout from '../components/Layout';
 import SEO from '../components/seo';
 import PostCard from '../components/PostCard';
+/* Material UI */
+import Grid from '@material-ui/core/Grid';
+/* Styled Components */
+import * as S from '../styles/blog.styled.js';
 
 class BlogPageTemplate extends React.Component {
     render() {
@@ -15,7 +19,6 @@ class BlogPageTemplate extends React.Component {
         return (
             <Layout location={this.props.location} title={siteTitle}>
                 <SEO
-                    // title={`#${tag}`}
                     title={`Blog`}
                     keywords={[
                         `${tag}`,
@@ -25,22 +28,31 @@ class BlogPageTemplate extends React.Component {
                         `react`,
                     ]}
                 />
-                <header className='tag-page-head'>
-                    <h1 className='page-head-title'>
-                        #{tag}({props.data.allMarkdownRemark.totalCount})
-                    </h1>
-                </header>
-                <div className='post-feed'>
-                    {posts.map(({ node }) => {
-                        return (
-                            <PostCard
-                                key={node.fields.slug}
-                                node={node}
-                                postClass={`post`}
-                            />
-                        );
-                    })}
-                </div>
+                <S.BlogContainer>
+                    <S.BlogHeader>
+                        <h1>
+                            #Blog{' '}
+                            <span>
+                                ({props.data.allMarkdownRemark.totalCount})
+                            </span>
+                        </h1>
+                    </S.BlogHeader>
+                    <S.BlogPostFeed>
+                        <Grid container spacing={3}>
+                            {posts.map(({ node }) => {
+                                return (
+                                    <Grid item xs={12} lg={4}>
+                                        <PostCard
+                                            key={node.fields.slug}
+                                            node={node}
+                                            postClass={`post`}
+                                        />
+                                    </Grid>
+                                );
+                            })}
+                        </Grid>
+                    </S.BlogPostFeed>
+                </S.BlogContainer>
             </Layout>
         );
     }
@@ -65,7 +77,7 @@ export const pageQuery = graphql`
                         slug
                     }
                     frontmatter {
-                        date(formatString: "MMMM DD, YYYY")
+                        date(formatString: "MMM DD, YYYY")
                         title
                         description
                         tags

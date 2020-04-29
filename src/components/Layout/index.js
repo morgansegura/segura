@@ -78,25 +78,44 @@ const Layout = (props) => {
                             <li className='drawer-nav-item'>
                                 <div className='social-block'>
                                     <a
-                                        href='#'
+                                        href='https://www.linkedin.com/in/morgan-segura-4b08429'
+                                        target='_blank'
+                                        rel='noopener noreferrer'
                                         title='Connect with me on Linkedin'
                                     >
                                         <TiSocialLinkedin />
                                     </a>
-                                    <a href='#' title='Follow me on Github'>
+                                    <a
+                                        href='https://github.com/morgansegura'
+                                        target='_blank'
+                                        rel='noopener noreferrer'
+                                        title='Follow me on Github'
+                                    >
                                         <DiGithubAlt />
                                     </a>
-                                    <a href='#' title='Follow me on Twitter'>
+                                    <a
+                                        href='https://twitter.com/codestandard'
+                                        target='_blank'
+                                        rel='noopener noreferrer'
+                                        title='Follow me on Twitter'
+                                    >
                                         <TiSocialTwitter />
                                     </a>
                                     <a
-                                        href='#'
-                                        title='Check me out on Dribbble'
+                                        href='https://codepen.io/morgansegura'
+                                        target='_blank'
+                                        rel='noopener noreferrer'
+                                        title='Checkout my Codepens'
                                     >
                                         <DiCodepen />
                                     </a>
 
-                                    <a href='#' title='Checkout my Codepens'>
+                                    <a
+                                        href='https://dribbble.com/MorganSegura'
+                                        target='_blank'
+                                        rel='noopener noreferrer'
+                                        title='Check me out on Dribbble'
+                                    >
                                         <TiSocialDribbble />
                                     </a>
                                 </div>

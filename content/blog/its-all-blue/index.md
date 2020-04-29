@@ -3,6 +3,10 @@ title: It's all blue
 date: "2019-05-06"
 tags: [blue,color]
 thumbnail: ./cody-davis-253928-unsplash.jpg
+author: Morgan Segura
+category: Javascript
+tags: [green,color]
+excerpt: What if everything you knew was turned to blue?
 description: What if everything you knew was turned to blue?
 ---
 

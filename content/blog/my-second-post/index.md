@@ -1,6 +1,14 @@
 ---
 title: My Second Post!
 date: "2015-05-06T23:46:37.121Z"
+author: Morgan Segura
+category: Javascript
+thumbnail: ./sophia-valkova-30139-unsplash.jpg
+tags: [green,color]
+excerpt: Texture will be somewhat different, and the
+egg yolk will be less rich.
+description: Texture will be somewhat different, and the
+egg yolk will be less rich.
 ---
 
 Wow! I love blogging so much already.

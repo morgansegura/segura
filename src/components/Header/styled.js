@@ -13,7 +13,7 @@ export const HeaderWrapper = styled.div`
     position: relative;
     z-index: 1;
     width: 100%;
-    border-bottom: 1px solid ${({ theme }) => theme.outlines};
+    border-bottom: 1px solid ${({ theme }) => theme.outlinesDark};
 `;
 
 export const HeaderContainer = styled.div`

@@ -1,7 +1,11 @@
 ---
 title: Vaporwave
 date: "2019-11-11"
+author: Morgan Segura
+category: Javascript
 tags: [vaporwave,retrowave,future-funk]
+thumbnail: ./fabio-comparelli-696506-unsplash.jpg
+excerpt: I think the most trendy is the oldest. Vaporwave is an Internet-based microgenre that was built upon the experimental and ironic tendencies of genres such as chillwave and hypnagogic pop.
 description: I think the most trendy is the oldest. Vaporwave is an Internet-based microgenre that was built upon the experimental and ironic tendencies of genres such as chillwave and hypnagogic pop.
 ---
 

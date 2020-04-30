@@ -1,94 +1,131 @@
-import React from 'react';
-import { graphql } from 'gatsby';
+import React from 'react'
+import { Link, graphql } from 'gatsby'
+import { MDXRenderer } from 'gatsby-plugin-mdx'
 
-import Layout from '../components/Layout';
-import SEO from '../components/seo';
+import Bio from '../components/Bio'
+import Layout from '../components/Layout'
+import SEO from 'react-seo-component'
+import { useSiteMetadata } from '../hooks/useSiteMetadata'
 
 /* Styled Components */
-import * as S from '../styles/blog-post.styled.js';
+import * as S from '../styles/blog-post.styled.js'
 
-class BlogPostTemplate extends React.Component {
-    render() {
-        const post = this.props.data.markdownRemark;
-        const siteTitle = this.props.data.site.siteMetadata.title;
+export default ({ data, location, pageContext }) => {
+  const {
+    image,
+    siteUrl,
+    siteLanguage,
+    siteLocale,
+    title: siteTitle,
+    image: siteImage,
+    twitter,
+  } = useSiteMetadata()
+  const { frontmatter, body, fields, excerpt } = data.mdx
+  const { title, date, author, thumbnail, description } = frontmatter
+  const { previous, next } = pageContext
 
-        return (
-            <Layout location={this.props.location} title={siteTitle}>
-                <SEO
-                    title={post.frontmatter.title}
-                    description={post.frontmatter.description || post.excerpt}
-                />
-                <S.BlogContainer>
-                    <S.BlogHeader>
-                        <S.BlogTitle>{post.frontmatter.title}</S.BlogTitle>
-                        <S.BlogDate>Date</S.BlogDate>
-                        <S.BlogAuthor>Author</S.BlogAuthor>
-                        <S.BlogSocialBlock>
-                            <S.BlogSocial>Icon, Icon, Icon</S.BlogSocial>
-                        </S.BlogSocialBlock>
-                    </S.BlogHeader>
+  return (
+    <Layout location={location.pathname} title={siteTitle}>
+      <SEO
+        title={title}
+        description={excerpt}
+        image={
+          siteImage === null
+            ? `${siteUrl}${image}`
+            : `${siteUrl}${siteImage.publicURL}`
+        }
+        pathname={`${siteUrl}${fields.slug}`}
+        siteLanguage={siteLanguage}
+        siteLocale={siteLocale}
+        twitterUsername={twitter}
+        author={author}
+        article="true"
+        publishedDate={date}
+        modifiedDate={new Date(Date.now()).toISOString()}
+      />
+      <S.BlogContainer>
+        <S.BlogHeader>
+          <S.BlogTitle>{title}</S.BlogTitle>
+          <S.BlogDate>{date}</S.BlogDate>
+          <S.BlogAuthor>{author}</S.BlogAuthor>
+          <S.BlogSocialBlock>
+            <S.BlogSocial>Icon, Icon, Icon</S.BlogSocial>
+          </S.BlogSocialBlock>
+        </S.BlogHeader>
 
-                    {post.frontmatter.description && (
-                        <S.BlogDescription>
-                            {post.frontmatter.description}
-                        </S.BlogDescription>
-                    )}
+        {description && <S.BlogDescription>{description}</S.BlogDescription>}
 
-                    {post.frontmatter.thumbnail && (
-                        <S.BlogImageWrapper>
-                            <S.BlogImage
-                                className='kg-image'
-                                fluid={
-                                    post.frontmatter.thumbnail.childImageSharp
-                                        .fluid
-                                }
-                                alt={post.frontmatter.title}
-                            />
-                        </S.BlogImageWrapper>
-                    )}
+        {thumbnail && (
+          <S.BlogImageWrapper>
+            {/*
+            <S.BlogImage
+              className="kg-image"
+              fluid={thumbnail.childImageSharp.fluid}
+              alt={title}
+            />
+            */}
+          </S.BlogImageWrapper>
+        )}
 
-                    <S.BlogContent
-                        dangerouslySetInnerHTML={{ __html: post.html }}
-                    />
+        <S.BlogContent>
+          <MDXRenderer>{body}</MDXRenderer>
+        </S.BlogContent>
 
-                    <S.BlogFooter>
-                        {/* There are two options for how we display the byline/author-info.
-        If the post has more than one author, we load a specific template
-        from includes/byline-multiple.hbs, otherwise, we just use the
-        default byline. */}
-                    </S.BlogFooter>
-                </S.BlogContainer>
-            </Layout>
-        );
-    }
+        <S.BlogFooter>
+          <Bio />
+        </S.BlogFooter>
+
+        {previous === false ? null : (
+          <div>
+            {previous && (
+              <Link to={previous.fields.slug}>
+                <p>{previous.frontmatter.title}</p>
+              </Link>
+            )}
+          </div>
+        )}
+        {next === false ? null : (
+          <div>
+            {next && (
+              <Link to={next.fields.slug}>
+                <p>{next.frontmatter.title}</p>
+              </Link>
+            )}
+          </div>
+        )}
+      </S.BlogContainer>
+    </Layout>
+  )
 }
 
-export default BlogPostTemplate;
-
 export const pageQuery = graphql`
-    query BlogPostBySlug($slug: String!) {
-        site {
-            siteMetadata {
-                title
-                author
-            }
-        }
-        markdownRemark(fields: { slug: { eq: $slug } }) {
-            id
-            excerpt(pruneLength: 160)
-            html
-            frontmatter {
-                title
-                date(formatString: "MMMM DD, YYYY")
-                description
-                thumbnail {
-                    childImageSharp {
-                        fluid(maxWidth: 1360) {
-                            ...GatsbyImageSharpFluid
-                        }
-                    }
-                }
-            }
-        }
+  query BlogPostBySlug($slug: String!) {
+    site {
+      siteMetadata {
+        title
+        author
+      }
     }
-`;
+    mdx(fields: { slug: { eq: $slug } }) {
+      excerpt(pruneLength: 160)
+      body
+      fields {
+        slug
+      }
+      frontmatter {
+        title
+        description
+        author
+        date(formatString: "MMMM DD, YYYY")
+        # thumbnail
+        thumbnail {
+          childImageSharp {
+            fluid(maxWidth: 1360) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+      }
+    }
+  }
+`

@@ -1,28 +1,28 @@
-import React from 'react';
-import { graphql, StaticQuery } from 'gatsby';
+import React from 'react'
+import { graphql, StaticQuery } from 'gatsby'
 
-import Layout from '../components/Layout';
-import SEO from '../components/seo';
+import Layout from '../components/Layout'
+import SEO from '../components/seo'
 // import Bio from "../components/Bio"
 // import PostCard from '../components/PostCard';
-import WrapGameElement from '../components/Games/Reacteroids';
+import WrapGameElement from '../components/Games/Reacteroids'
 
 //
 // import * as S from './styled'
 //TODO: switch to staticQuery, get rid of comments, remove unnecessary components, export as draft template
 const BlogIndex = ({ data }, location) => {
-    const siteTitle = data.site.siteMetadata.title;
-    // const posts = data.allMarkdownRemark.edges;
-    // let postCounter = 0;
+  const siteTitle = data.site.siteMetadata.title
+  // const posts = data.allMarkdownRemark.edges;
+  // let postCounter = 0;
 
-    return (
-        <Layout title={siteTitle}>
-            <SEO
-                title='Blog'
-                keywords={[`devlog`, `blog`, `gatsby`, `javascript`, `react`]}
-            />
-            {/*<WrapGameElement />*}
-            {/* <Bio /> 
+  return (
+    <Layout title={siteTitle}>
+      <SEO
+        title="Blog"
+        keywords={[`devlog`, `blog`, `gatsby`, `javascript`, `react`]}
+      />
+      <WrapGameElement />
+      {/* <Bio /> 
             {data.site.siteMetadata.description && (
                 <header className='page-head'>
                     <h2 className='page-head-title'>
@@ -44,49 +44,49 @@ const BlogIndex = ({ data }, location) => {
                 })}
             </div>
             */}
-        </Layout>
-    );
-};
+    </Layout>
+  )
+}
 
 const indexQuery = graphql`
-    query {
-        site {
-            siteMetadata {
-                title
-                description
-            }
-        }
-        allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
-            edges {
-                node {
-                    excerpt
-                    fields {
-                        slug
-                    }
-                    frontmatter {
-                        date(formatString: "MMMM D, YYYY")
-                        title
-                        description
-                        tags
-                        thumbnail {
-                            childImageSharp {
-                                fluid(maxWidth: 1360) {
-                                    ...GatsbyImageSharpFluid
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
+  query {
+    site {
+      siteMetadata {
+        title
+        description
+      }
     }
-`;
-
-export default (props) => (
-    <StaticQuery
-        query={indexQuery}
-        render={(data) => (
-            <BlogIndex location={props.location} props data={data} {...props} />
-        )}
-    />
-);
+    allMdx(sort: { fields: [frontmatter___date], order: DESC }) {
+      edges {
+        node {
+          excerpt
+          fields {
+            slug
+          }
+          frontmatter {
+            date(formatString: "MMMM D, YYYY")
+            title
+            tags
+            description
+            # thumbnail
+            thumbnail {
+              childImageSharp {
+                fluid(maxWidth: 1360) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`
+export default props => (
+  <StaticQuery
+    query={indexQuery}
+    render={data => (
+      <BlogIndex location={props.location} props data={data} {...props} />
+    )}
+  />
+)

@@ -1,12 +1,11 @@
 ---
 title: New Beginnings
-date: "2015-05-28T22:40:32.169Z"
-author: Morgan Segura
+date: '2015-05-28T22:40:32.169Z'
+thumbnail: ./salty_egg.jpg
+tags: [blue, green]
 category: Javascript
-tags: [green,color]
-excerpt: This is a custom description for SEO and Open Graph purposes, rather than the default generated excerpt. Simply add a description field to the frontmatter.
-description: This is a custom description for SEO and Open Graph purposes, rather than the default generated excerpt. Simply add a description field to the frontmatter.
-thumbnail: ./bench-accounting-49909-unsplash.jpg
+author: Morgan Segura
+description: She packed her seven versalia, put her initial into the belt and made herself on the way.
 ---
 
 Far far away, behind the word mountains, far from the countries Vokalia and
@@ -111,3 +110,35 @@ to its own, safe country. But nothing the copy said could convince her and so it
 didn’t take long until a few insidious Copy Writers ambushed her, made her drunk
 with Longe and Parole and dragged her into their agency, where they abused her
 for their projects again and again.
+
+#### Some highlighted code
+
+## Using Prism React Renderer
+
+Using `prism-react-renderer`
+
+#### A live code sample:
+
+```jsx react-live
+import React from 'react'
+
+const Dump = props => (
+  <div
+    style={{
+      fontSize: 20,
+      border: '1px solid #efefef',
+      padding: 10,
+      background: 'white',
+    }}
+  >
+    {Object.entries(props).map(([key, val]) => (
+      <pre key={key}>
+        <strong style={{ color: 'white', background: 'red' }}>{key} 💩</strong>
+        {JSON.stringify(val, '', ' ')}
+      </pre>
+    ))}
+  </div>
+)
+
+export default Dump
+```

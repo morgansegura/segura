@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { generateMedia } from 'styled-media-query'
 
 const customMedia = generateMedia({
-  huge: '1400px',
+  medium: '768px',
 })
 
 export const BlogContainer = styled.section`

@@ -57,13 +57,11 @@ export default ({ data, location, pageContext }) => {
 
         {thumbnail && (
           <S.BlogImageWrapper>
-            {/*
             <S.BlogImage
               className="kg-image"
               fluid={thumbnail.childImageSharp.fluid}
               alt={title}
             />
-            */}
           </S.BlogImageWrapper>
         )}
 
@@ -120,7 +118,7 @@ export const pageQuery = graphql`
         # thumbnail
         thumbnail {
           childImageSharp {
-            fluid(maxWidth: 1360) {
+            fluid(maxWidth: 680) {
               ...GatsbyImageSharpFluid
             }
           }

@@ -157,9 +157,9 @@ module.exports = {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
         fonts: [
-          `hind\:500`,
+          `hind\:500,`,
           `rasmus andersson\:400,500`,
-          `merriweather\:400,500`,
+          `merriweather\:300,400`,
         ],
       },
     },

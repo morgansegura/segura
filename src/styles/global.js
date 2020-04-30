@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from 'styled-components'
 
 const GlobalStyles = createGlobalStyle`
   /* http://meyerweb.com/eric/tools/css/reset/
@@ -96,13 +96,14 @@ const GlobalStyles = createGlobalStyle`
   }
 
   :root { 
-    --base-extra-light: #fafafa;
+    --base-extra-light: #f4f7f9;
     --base-light: #eeeeee;
     --base-medium-light: #e0e0e0;
-    --base-medium: #919299;    
-    --base: #333647;
-    --base-medium-dark: #3D4054;
-    --base-dark: #252733;
+    --base-medium: #63768d;     
+    --base: #3D4054;
+    --base-medium-dark: #333647;
+    --base-dark: #252837;
+    --base-extra-dark: #161720;
 
     --accent-color: #42a5f5;
     --accent-light-color: #64b5f6;
@@ -114,7 +115,8 @@ const GlobalStyles = createGlobalStyle`
 
     --width-container: 1400px;
     --headline-font: "Hind", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    --serif-font: "Merriweather", serif;
     --base-font: "rasmus andersson", "Noto Sans", Noto Sans JP,Noto Sans KR,Noto Naskh Arabic,Noto Sans Thai,Noto Sans Hebrew,Noto Sans Bengali,sans-serif;
   }
-`;
-export default GlobalStyles;
+`
+export default GlobalStyles

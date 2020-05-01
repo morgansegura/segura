@@ -11,6 +11,7 @@ const customMedia = generateMedia({
 export const Main = styled.div`
   flex: 1;
   background-color: ${({ theme }) => theme.bgBody};
+  overflow: hidden;
 `
 export const Wrapper = styled.div`
   position: relative;

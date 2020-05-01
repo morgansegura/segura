@@ -34,23 +34,14 @@ const Layout = props => {
     <ThemeProvider theme={themeMode}>
       <GlobalStyles />
       <S.Wrapper className={`${toggleNav ? `drawer-open` : ``}`}>
-        {location.pathname === `/` ? (
+        <Sticky>
           <Header>
             <ToggleTheme theme={theme} toggleTheme={toggleTheme} />
             <S.DrawerToggle onClick={() => setToggleNav(!toggleNav)}>
               <GiHamburgerMenu />
             </S.DrawerToggle>
           </Header>
-        ) : (
-          <Sticky>
-            <Header>
-              <ToggleTheme theme={theme} toggleTheme={toggleTheme} />
-              <S.DrawerToggle onClick={() => setToggleNav(!toggleNav)}>
-                <GiHamburgerMenu />
-              </S.DrawerToggle>
-            </Header>
-          </Sticky>
-        )}
+        </Sticky>
 
         <S.NavDrawerWrapper className={`${toggleNav ? `drawer-open` : ``}`}>
           <S.NavDrawer>

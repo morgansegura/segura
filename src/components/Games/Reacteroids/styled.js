@@ -15,6 +15,12 @@ const customMedia = generateMedia({
 })
 
 export const GameWrapper = styled.div`
+  position: relative;
+  z-index: 3;
+  top: 0;
+  width: 100%;
+  height: 90vh;
+
   .title-section {
     display: flex;
     flex-direction: column;
@@ -74,11 +80,13 @@ export const GameWrapper = styled.div`
     }
   }
   .score-wrapper {
+    position: relative;
+    z-index: 3;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 1.5rem;
-    border: 1px solid rgba(255, 178, 0, 0.65);
+    border: 1px solid rgba(255, 178, 0, 0.25);
     p {
       padding-bottom: 0.5rem;
       &:first-child {
@@ -88,8 +96,7 @@ export const GameWrapper = styled.div`
   }
   canvas {
     z-index: -1;
-    display: block;
-    background-color: #252733;
+    background-color: #161720;
     position: absolute;
     top: 0;
     bottom: 0;
@@ -122,7 +129,7 @@ export const GameWrapper = styled.div`
     font-weight: 400;
     color: rgba(255, 178, 0, 0.65);
     padding: 0.75rem;
-    border: solid rgba(255, 178, 0, 0.35);
+    border: solid rgba(255, 178, 0, 0.25);
     span {
       color: white;
     }
@@ -138,23 +145,29 @@ export const GameWrapper = styled.div`
     border-width: 0 0 1px 1px;
   }
   .controls {
-    display: block;
-    position: absolute;
-    bottom: 15px;
-    left: 50%;
-    transform: translate(-50%, 0);
+    position: relative;
+    z-index: 3;
+    display: inline;
     z-index: 3;
     font-size: 13px;
     text-align: center;
     line-height: 1.6;
     padding: 0.25rem 0.5rem;
-    color: rgba(255, 178, 0, 0.35);
-    border: 1px solid rgba(255, 178, 0, 0.15);
+    color: rgba(255, 178, 0, 0.1);
     cursor: default;
     transition: color 0.3s ease-out;
 
     &:hover {
       color: rgba(255, 178, 0, 0.65);
+    }
+
+    span {
+      display: inline-block;
+      min-width: 20px;
+      padding: 0 3px;
+      margin: 5px 1px;
+      border-radius: 3px;
+      border: 1px solid rgba(255, 178, 0, 0.15);
     }
   }
   .endgame {
@@ -207,7 +220,7 @@ export const GameWrapper = styled.div`
 
   .image-container {
     position: absolute;
-    z-index: -1;
+    z-index: 1;
     top: 0;
     left: 0;
     right: 0;
@@ -231,7 +244,7 @@ export const GameWrapper = styled.div`
 
   .stars {
     background: url(${stars}) repeat top center;
-    z-index: 0;
+    z-index: 3;
   }
 
   .twinkling {

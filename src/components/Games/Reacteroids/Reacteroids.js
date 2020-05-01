@@ -100,7 +100,7 @@ export class Reacteroids extends Component {
     context.scale(this.state.screen.ratio, this.state.screen.ratio)
 
     // Motion trail
-    context.fillStyle = '#252733'
+    context.fillStyle = '#161720'
     // context.fillStyle = '#000'
     context.globalAlpha = 1
     context.fillRect(0, 0, this.state.screen.width, this.state.screen.height)
@@ -315,6 +315,23 @@ export class Reacteroids extends Component {
                 </span>
               )}
             </div>
+            <span className="controls">
+              Use{' '}
+              <b>
+                <span>A</span> <span>S</span> <span>W</span> <span>D</span>
+              </b>{' '}
+              or{' '}
+              <b>
+                <span>←</span> <span>↑</span> <span>↓</span> <span>→</span>
+              </b>{' '}
+              to MOVE
+              <br />
+              Use{' '}
+              <b>
+                <span>SPACE</span>
+              </b>{' '}
+              to SHOOT
+            </span>
           </div>
         </div>
       )
@@ -329,22 +346,12 @@ export class Reacteroids extends Component {
         <p className="score top-score">
           Top Score: <span>{this.state.topScore}</span>
         </p>
-        <span className="controls">
-          Use <b>[A] [S] [W] [D]</b> or <b>[←] [↑] [↓] [→]</b> to MOVE
-          <br />
-          Use <b>[SPACE]</b> to SHOOT
-        </span>
 
         <canvas
           ref="canvas"
           width={this.state.screen.width * this.state.screen.ratio}
           height={this.state.screen.height * this.state.screen.ratio}
         />
-        <div className="image-container">
-          <div className="stars" />
-          <div className="twinkling" />
-          <div className="clouds" />
-        </div>
       </S.GameWrapper>
     )
   }

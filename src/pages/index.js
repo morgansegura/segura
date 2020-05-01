@@ -1,5 +1,5 @@
 import React from 'react'
-import { graphql, StaticQuery } from 'gatsby'
+import { Link, graphql, StaticQuery } from 'gatsby'
 
 import Layout from '../components/Layout'
 import SEO from '../components/seo'
@@ -22,28 +22,49 @@ class BlogIndex extends React.Component {
     const posts = data.allMdx.edges
     let postCounter = 0
     return (
-      <Layout title={siteTitle}>
+      <Layout title={siteTitle} location={location}>
         <SEO
           title="Blog"
           keywords={[`devlog`, `blog`, `gatsby`, `javascript`, `react`]}
         />
         <Parallax ref={ref => (this.parallax = ref)} pages={2}>
-          <ParallaxLayer offset={0} speed={1}>
+          <ParallaxLayer offset={0} factor={1} speed={1}>
             <WrapGameElement />
-            <S.IndexButtonWrapper>
+            <S.IndexButtonWrapper className="buttons--bottom">
               <ColorButton onClick={() => this.parallax.scrollTo(2)}>
                 {' '}
                 Arrow
               </ColorButton>
             </S.IndexButtonWrapper>
           </ParallaxLayer>
-          <ParallaxLayer offset={1} speed={1}>
+    {/* 
+    
+                <div className="social-block">
+              <a
+                href="https://github.com/morgansegura/"
+                title="Follow me on Github"
+              >
+                <FaGithubAlt />
+              </a>
+              <a
+                href="https://twitter.com/codestandard"
+                title="Follow me on Twitter"
+              >
+                <FaTwitter />
+              </a>
+              <a
+                href="https://linkedin.com/morgansegura/"
+                title="Connect with me on Linkedin"
+              >
+                <FaLinkedinIn />
+              </a>
+            </div>
+    */}
+          <ParallaxLayer offset={0.99} speed={1}>
             <S.IndexContainer>
               {data.site.siteMetadata.description && (
                 <S.IndexHeader className="page-head">
-                  <h2 className="page-head-title">
-                    {data.site.siteMetadata.description}
-                  </h2>
+                  <h2 className="page-head-title">Blog</h2>
                 </S.IndexHeader>
               )}
 

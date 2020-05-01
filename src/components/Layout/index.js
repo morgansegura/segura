@@ -21,7 +21,7 @@ import {
 import { GrTag, GrTest, GrSign, GrSatellite, GrArticle } from 'react-icons/gr'
 
 const Layout = props => {
-  const { title, children } = props
+  const { children, location } = props
   const [toggleNav, setToggleNav] = React.useState(false)
   const [theme, toggleTheme, componentMounted] = useDarkMode()
 
@@ -34,14 +34,24 @@ const Layout = props => {
     <ThemeProvider theme={themeMode}>
       <GlobalStyles />
       <S.Wrapper className={`${toggleNav ? `drawer-open` : ``}`}>
-        <Sticky>
+        {location.pathname === `/` ? (
           <Header>
             <ToggleTheme theme={theme} toggleTheme={toggleTheme} />
             <S.DrawerToggle onClick={() => setToggleNav(!toggleNav)}>
               <GiHamburgerMenu />
             </S.DrawerToggle>
           </Header>
-        </Sticky>
+        ) : (
+          <Sticky>
+            <Header>
+              <ToggleTheme theme={theme} toggleTheme={toggleTheme} />
+              <S.DrawerToggle onClick={() => setToggleNav(!toggleNav)}>
+                <GiHamburgerMenu />
+              </S.DrawerToggle>
+            </Header>
+          </Sticky>
+        )}
+
         <S.NavDrawerWrapper className={`${toggleNav ? `drawer-open` : ``}`}>
           <S.NavDrawer>
             <ul>

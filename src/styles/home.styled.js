@@ -117,12 +117,13 @@ export const IndexButtonWrapper = styled.footer`
   justify-content: center;
 
   &.buttons {
-    position: absolute;
     &--top {
       top: 0;
+      position: absolute;
     }
     &--bottom {
       bottom: 0;
+      position: absolute;
     }
   }
 `

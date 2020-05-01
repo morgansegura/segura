@@ -42,6 +42,7 @@ export class Reacteroids extends Component {
       currentScore: 0,
       topScore: localStorage['topscore'] || 0,
       inGame: false,
+      playStart: true,
     }
     this.ship = []
     this.asteroids = []
@@ -117,10 +118,12 @@ export class Reacteroids extends Component {
     this.checkCollisionsWith(this.ship, this.asteroids)
 
     // Remove or render
-    this.updateObjects(this.particles, 'particles')
-    this.updateObjects(this.asteroids, 'asteroids')
-    this.updateObjects(this.bullets, 'bullets')
-    this.updateObjects(this.ship, 'ship')
+    if (!this.state.playStart) {
+      this.updateObjects(this.particles, 'particles')
+      this.updateObjects(this.asteroids, 'asteroids')
+      this.updateObjects(this.bullets, 'bullets')
+      this.updateObjects(this.ship, 'ship')
+    }
 
     context.restore()
 
@@ -138,12 +141,27 @@ export class Reacteroids extends Component {
     }
   }
 
+  playStart() {
+    this.setState({
+      playStart: false,
+    })
+    this.startGame.bind(this)
+  }
+
+  resetGame() {
+    this.setState({
+      currentScore: 0,
+      topScore: 0,
+    })
+    localStorage['topscore'] = 0
+    this.startGame.bind(this)
+  }
+
   startGame() {
     this.setState({
-      inGame: true,
       currentScore: 0,
+      inGame: true,
     })
-
     // Make ship
     let ship = new Ship({
       position: {
@@ -153,8 +171,8 @@ export class Reacteroids extends Component {
       create: this.createObject.bind(this),
       onDie: this.gameOver.bind(this),
     })
-    this.createObject(ship, 'ship')
 
+    this.createObject(ship, 'ship')
     // Make asteroids
     this.asteroids = []
     this.generateAsteroids(this.state.asteroidCount)
@@ -176,7 +194,9 @@ export class Reacteroids extends Component {
 
   generateAsteroids(howMany) {
     // let asteroids = []
+
     let ship = this.ship[0]
+
     for (let i = 0; i < howMany; i++) {
       let asteroid = new Asteroid({
         size: 80,
@@ -197,6 +217,7 @@ export class Reacteroids extends Component {
         create: this.createObject.bind(this),
         addScore: this.addScore.bind(this),
       })
+
       this.createObject(asteroid, 'asteroids')
     }
   }
@@ -244,19 +265,31 @@ export class Reacteroids extends Component {
   }
 
   render() {
-    let endgame
+    let gametext
     let message
+    let btnMessage
+    let titleMessage
 
-    if (this.state.currentScore <= 0) {
+    if (this.state.playStart) {
+      message = 'Top score, ' + this.state.topScore + ' points.'
+      btnMessage = 'Play game'
+      titleMessage = 'Want to play?'
+    } else if (this.state.currentScore <= 0 && !this.state.playStart) {
       message = '0 points... So sad.'
+      btnMessage = `Let's go!`
+      titleMessage = 'Test your luck again?'
     } else if (this.state.currentScore >= this.state.topScore) {
       message = 'Top score with ' + this.state.currentScore + ' points. Woo!'
+      btnMessage = 'try again?'
+      titleMessage = `You're the best!`
     } else {
+      btnMessage = 'Try again?'
+      titleMessage = 'Game over, man!'
       message = this.state.currentScore + ' Points though :)'
     }
 
-    if (!this.state.inGame) {
-      endgame = (
+    if ((!this.state.inGame && !this.state.playStart) || this.state.playStart) {
+      gametext = (
         <div className="endgame">
           <div className="title-section">
             <h1 className="section-headline">
@@ -264,31 +297,23 @@ export class Reacteroids extends Component {
             </h1>
             <p className="section-subline">Full Stack UI/UX Engineer</p>
             <div className="score-wrapper">
-              <p>Game over, man!</p>
+              <p>{titleMessage}</p>
               <p>{message}</p>
-              <ColorButton onClick={this.startGame.bind(this)}>
-                try again?
+              <ColorButton
+                className="game-button"
+                onClick={
+                  this.state.playStart
+                    ? this.playStart.bind(this)
+                    : this.startGame.bind(this)
+                }
+              >
+                {btnMessage}
               </ColorButton>
-            </div>
-            <div className="social-block">
-              <a
-                href="https://github.com/morgansegura/"
-                title="Follow me on Github"
-              >
-                <FaGithubAlt />
-              </a>
-              <a
-                href="https://twitter.com/codestandard"
-                title="Follow me on Twitter"
-              >
-                <FaTwitter />
-              </a>
-              <a
-                href="https://linkedin.com/morgansegura/"
-                title="Connect with me on Linkedin"
-              >
-                <FaLinkedinIn />
-              </a>
+              {this.state.topScore > 0 && (
+                <span className="reset" onClick={this.resetGame.bind(this)}>
+                  Reset Top Score
+                </span>
+              )}
             </div>
           </div>
         </div>
@@ -297,13 +322,13 @@ export class Reacteroids extends Component {
 
     return (
       <S.GameWrapper>
-        {endgame}
-        <span className="score current-score">
-          Score: {this.state.currentScore}
-        </span>
-        <span className="score top-score">
-          Top Score: {this.state.topScore}
-        </span>
+        {gametext}
+        <p className="score current-score">
+          Score: <span>{this.state.currentScore}</span>
+        </p>
+        <p className="score top-score">
+          Top Score: <span>{this.state.topScore}</span>
+        </p>
         <span className="controls">
           Use <b>[A] [S] [W] [D]</b> or <b>[←] [↑] [↓] [→]</b> to MOVE
           <br />

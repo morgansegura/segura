@@ -4,10 +4,8 @@ import React, { Component } from 'react'
 import Ship from './Ship'
 import Asteroid from './Asteroid'
 import { randomNumBetweenExcluding } from './helpers'
-import { ColorButton } from '../../Button'
-/* React Icons */
-import { FaGithubAlt, FaTwitter, FaLinkedinIn } from 'react-icons/fa'
 
+/* Styled Components */
 import * as S from './styled'
 
 const KEY = {
@@ -177,6 +175,57 @@ export class Reacteroids extends Component {
     this.asteroids = []
     this.generateAsteroids(this.state.asteroidCount)
   }
+  triggerChars(sentences) {
+    let sentenceCounter = 0
+    let sentenceDelay = 600
+
+    sentences.forEach(el => {
+      setTimeout(() => {
+        let spans = el.find('span')
+        let spanCounter = 0
+        let spanDelay = 75
+
+        spans.forEach(span => {
+          setTimeout(() => {
+            span.classList.addClass('active')
+          }, spanCounter * spanDelay)
+          spanCounter++
+        })
+      }, sentenceCounter * sentenceDelay)
+      sentenceCounter++
+    })
+  }
+
+  scrambleText() {
+    let spanSentences
+    let sentences = [
+      'Full Stack UI/UX Engineer',
+      'React Developer',
+      'React Developer',
+      'Wordpress Developer',
+      'Javascript Engineer',
+      'Front-end Developer',
+      'User Interface Designer',
+      'User Experience Advocate',
+      'User Experience Advocate',
+    ]
+    sentences.filter(sentence => {
+      let newContent = ''
+
+      for (let i = 0; i < sentence.length; i++) {
+        let substring = sentence.substr(i, 1)
+
+        if (substring !== ' ') {
+          newContent += `<span>${substring}</span>`
+        } else {
+          newContent += substring
+        }
+      }
+      sentence = sentence.replace(newContent)
+    })
+    console.log(sentences)
+    // return this.triggerChars(sentences)
+  }
 
   gameOver() {
     this.setState({
@@ -290,71 +339,77 @@ export class Reacteroids extends Component {
 
     if ((!this.state.inGame && !this.state.playStart) || this.state.playStart) {
       gametext = (
-        <div className="endgame">
-          <div className="title-section">
-            <h1 className="section-headline">
+        <S.GameOptions>
+          <S.DevInfo>
+            <S.DevHeading>
               Morgan <span className="line-break">Segura.</span>
-            </h1>
-            <p className="section-subline">Full Stack UI/UX Engineer</p>
-            <div className="score-wrapper">
-              <p>{titleMessage}</p>
-              <p>{message}</p>
-              <ColorButton
-                className="game-button"
-                onClick={
-                  this.state.playStart
-                    ? this.playStart.bind(this)
-                    : this.startGame.bind(this)
-                }
-              >
-                {btnMessage}
-              </ColorButton>
-              {this.state.topScore > 0 && (
-                <span className="reset" onClick={this.resetGame.bind(this)}>
-                  Reset Top Score
-                </span>
-              )}
-            </div>
-            <span className="controls">
-              Use{' '}
-              <b>
-                <span>A</span> <span>S</span> <span>W</span> <span>D</span>
-              </b>{' '}
-              or{' '}
-              <b>
-                <span>←</span> <span>↑</span> <span>↓</span> <span>→</span>
-              </b>{' '}
-              to MOVE
-              <br />
-              Use{' '}
-              <b>
-                <span>SPACE</span>
-              </b>{' '}
-              to SHOOT
-            </span>
-          </div>
-        </div>
+            </S.DevHeading>
+            <S.DevSubheading>
+              <S.Bracket></S.Bracket>{' '}
+              <S.AnimateText>{this.scrambleText()}</S.AnimateText>{' '}
+              <S.Bracket></S.Bracket>
+            </S.DevSubheading>
+          </S.DevInfo>
+
+          <S.ScoreWrapper>
+            <p>{titleMessage}</p>
+            <p>{message}</p>
+            <S.PlayButton
+              onClick={
+                this.state.playStart
+                  ? this.playStart.bind(this)
+                  : this.startGame.bind(this)
+              }
+            >
+              {btnMessage}
+            </S.PlayButton>
+            {this.state.topScore > 0 && (
+              <S.ResetButton onClick={this.resetGame.bind(this)}>
+                Reset Top Score
+              </S.ResetButton>
+            )}
+          </S.ScoreWrapper>
+
+          <S.GameControls>
+            Use{' '}
+            <b>
+              <span>A</span> <span>S</span> <span>W</span> <span>D</span>
+            </b>{' '}
+            or{' '}
+            <b>
+              <span>←</span> <span>↑</span> <span>↓</span> <span>→</span>
+            </b>{' '}
+            to MOVE
+            <br />
+            Use{' '}
+            <b>
+              <span>SPACE</span>
+            </b>{' '}
+            to SHOOT
+          </S.GameControls>
+        </S.GameOptions>
       )
     }
 
     return (
       <S.GameWrapper>
         {gametext}
-        <p className="score current-score">
+        <S.ScoreLabel className="current-score">
           Score: <span>{this.state.currentScore}</span>
-        </p>
-        <p className="score top-score">
+        </S.ScoreLabel>
+        <S.ScoreLabel className="score top-score">
           Top Score: <span>{this.state.topScore}</span>
-        </p>
-
-        <canvas
+        </S.ScoreLabel>
+        {/* Game Canvas*/}
+        <S.GameCanvas
           ref="canvas"
           width={this.state.screen.width * this.state.screen.ratio}
           height={this.state.screen.height * this.state.screen.ratio}
         />
-        <div className="image-container">
-          <div className="stars" />
-        </div>
+        {/* Star Background*/}
+        <S.BGContainer>
+          <S.Stars />
+        </S.BGContainer>
       </S.GameWrapper>
     )
   }

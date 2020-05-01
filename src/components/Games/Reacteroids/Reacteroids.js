@@ -352,6 +352,9 @@ export class Reacteroids extends Component {
           width={this.state.screen.width * this.state.screen.ratio}
           height={this.state.screen.height * this.state.screen.ratio}
         />
+        <div className="image-container">
+          <div className="stars" />
+        </div>
       </S.GameWrapper>
     )
   }

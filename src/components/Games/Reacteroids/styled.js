@@ -19,7 +19,7 @@ export const GameWrapper = styled.div`
   z-index: 3;
   top: 0;
   width: 100%;
-  height: 90vh;
+  height: 92vh;
 
   .title-section {
     display: flex;
@@ -86,7 +86,7 @@ export const GameWrapper = styled.div`
     flex-direction: column;
     align-items: center;
     padding: 1.5rem;
-    border: 1px solid rgba(255, 178, 0, 0.25);
+    border: 1px solid rgba(255, 178, 0, 0.35);
     p {
       padding-bottom: 0.5rem;
       &:first-child {
@@ -129,7 +129,7 @@ export const GameWrapper = styled.div`
     font-weight: 400;
     color: rgba(255, 178, 0, 0.65);
     padding: 0.75rem;
-    border: solid rgba(255, 178, 0, 0.25);
+    border: solid rgba(255, 178, 0, 0.35);
     span {
       color: white;
     }
@@ -153,7 +153,7 @@ export const GameWrapper = styled.div`
     text-align: center;
     line-height: 1.6;
     padding: 0.25rem 0.5rem;
-    color: rgba(255, 178, 0, 0.1);
+    color: rgba(255, 178, 0, 0.35);
     cursor: default;
     transition: color 0.3s ease-out;
 
@@ -167,7 +167,7 @@ export const GameWrapper = styled.div`
       padding: 0 3px;
       margin: 5px 1px;
       border-radius: 3px;
-      border: 1px solid rgba(255, 178, 0, 0.15);
+      border: 1px solid rgba(255, 178, 0, 0.35);
     }
   }
   .endgame {

@@ -14,10 +14,10 @@ const customMedia = generateMedia({
 
 export const GameWrapper = styled.div`
   position: relative;
-  z-index: 3;
+  z-index: 1000;
   top: 0;
   width: 100%;
-  height: 93vh;
+  height: 100vh;
 
   @keyframes bounceUp {
     0% {

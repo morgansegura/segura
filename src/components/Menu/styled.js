@@ -94,6 +94,9 @@ export const MainNavLink = styled(Link)`
   font-weight: 600;
   text-transform: uppercase;
   padding: 1rem 0;
+
+  .drawer-open & {
+  }
 `
 
 export const SocialNavDrawer = styled.div`

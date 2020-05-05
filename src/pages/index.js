@@ -26,7 +26,7 @@ class BlogIndex extends React.Component {
           keywords={[`devlog`, `blog`, `gatsby`, `javascript`, `react`]}
         />
         {/* Rasteroids Game */}
-        {/* <WrapGameElement /> */}
+        <WrapGameElement />
 
         {/* Large Card */}
         <S.Background className="bg-shapes half-height">

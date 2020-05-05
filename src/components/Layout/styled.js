@@ -38,7 +38,7 @@ export const Container = styled.div`
 `
 
 export const MainNavToggle = styled.div`
-  font-size: 12px;
+  font-size: 11px;
   font-family: var(--headline-font);
   font-weight: 600;
   text-transform: uppercase;
@@ -68,7 +68,7 @@ export const MainNavToggle = styled.div`
 
   span {
     position: relative;
-    top: -3px;
+    top: -2px;
   }
 
   ${customMedia.greaterThan('large')`
@@ -84,8 +84,8 @@ export const Hamburger = styled.div`
   display: flex;
   align-items: center;
   margin-bottom: 0.125rem;
-  width: 32px;
-  height: 32px;
+  width: 30px;
+  height: 30px;
 
   .drawer-open & {
     justify-content: center;
@@ -105,17 +105,18 @@ export const Hamburger = styled.div`
   }
   &:before {
     transform: translateY(-5px);
-    width: 32px;
+    width: 30px;
 
     .drawer-open & {
-      width: 22px;
+      width: 23px;
       transform: rotate(45deg);
     }
   }
   &:after {
     transform: translateY(5px);
-    width: 22px;
+    width: 20px;
     .drawer-open & {
+      width: 23px;
       transform: rotate(-45deg);
     }
   }

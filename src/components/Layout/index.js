@@ -35,7 +35,7 @@ const Layout = props => {
       {/* BAse Global Styles */}
       <GlobalStyles />
       <S.Wrapper
-        className={`${toggleNav ? `drawer-open` : ``} ${
+        className={`${toggleNav ? `drawer-open` : `drawer-closed`} ${
           toggleSocial ? `social-drawer-open` : ``
         }`}
       >

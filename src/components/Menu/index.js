@@ -5,6 +5,8 @@ import * as S from './styled'
 export const MainNavigation = ({ props }) => (
   <S.MainNavDrawer>
     <S.MainNav {...props}>
+      <S.MenuLogo>Segura</S.MenuLogo>
+      <S.MenuLabel>Menu</S.MenuLabel>
       <S.MainNavLink to={`/portfolio`}>Projects</S.MainNavLink>
       <S.MainNavLink to={`/blog`}>Blog</S.MainNavLink>
       <S.MainNavLink to={`/tags`}>Tags</S.MainNavLink>

@@ -10,9 +10,16 @@ const customMedia = generateMedia({
 
 export const Main = styled.div`
   flex: 1;
+  z-index: 1;
+  position: relative;
+  opacity: 1;
   background-color: ${({ theme }) => theme.bgBody};
+  transition: opacity 0.2s ease-in;
 
-  ${customMedia.greaterThan('medium')`
+  .drawer-open & {
+    opacity: 0.15;
+  }
+  ${customMedia.greaterThan('large')`
     width: calc(100%-90px);
     margin-left: 90px;
   `}
@@ -45,14 +52,14 @@ export const MainNavToggle = styled.div`
   right: 60px;
   width: 60px;
   height: 60px;
-  background-color: cyan;
+  background-color: transparent;
   transition: background-color 0.3s ease-out;
 
   &:hover {
-    background-color: ${({ theme }) => theme.bgOpaque};
+    /* background-color: ${({ theme }) => theme.ctaLightColor}; */
   }
   &:active {
-    background-color: ${({ theme }) => theme.ctaDarkColor};
+    /* background-color: ${({ theme }) => theme.ctaDarkColor}; */
   }
 
   svg path {
@@ -60,9 +67,11 @@ export const MainNavToggle = styled.div`
   }
 
   span {
+    position: relative;
+    top: -3px;
   }
 
-  ${customMedia.greaterThan('medium')`
+  ${customMedia.greaterThan('large')`
     width: 90px;
     height: 90px;
     top: 90px;
@@ -72,34 +81,41 @@ export const MainNavToggle = styled.div`
 `
 export const Hamburger = styled.div`
   position: relative;
+  display: flex;
+  align-items: center;
   margin-bottom: 0.125rem;
   width: 32px;
   height: 32px;
+
+  .drawer-open & {
+    justify-content: center;
+  }
 
   &:before,
   &:after {
     content: '';
     position: absolute;
     top: 45%;
-    background-color: ${({ theme }) => theme.headline};
+    left: inherit;
+    background-color: ${({ theme }) => theme.ctaColor};
     height: 4px;
     border-radius: 4px;
     transform-origin: 50% 50%;
-    transition: width 0.2s ease-in, transform 0.2s ease-in;
+    transition: width 0.1s ease-in, transform 0.1s ease-in;
   }
   &:before {
-    transform: translate(0, -5px);
+    transform: translateY(-5px);
     width: 32px;
 
     .drawer-open & {
+      width: 22px;
       transform: rotate(45deg);
     }
   }
   &:after {
-    transform: translate(0, 5px);
+    transform: translateY(5px);
     width: 22px;
     .drawer-open & {
-      width: 32px;
       transform: rotate(-45deg);
     }
   }
@@ -134,7 +150,7 @@ export const SocialNavToggle = styled.div`
     }
   }
 
-  ${customMedia.greaterThan('medium')`
+  ${customMedia.greaterThan('large')`
     width: 90px;
     height: 90px;
     top: inherit;
@@ -157,7 +173,7 @@ export const FooterContainer = styled.div`
 
   background-color: ${({ theme }) => theme.bgBody};
 
-  ${customMedia.greaterThan('medium')`
+  ${customMedia.greaterThan('large')`
         justify-content: flex-end;
         padding-left: 40px;
         padding-right: 40px;

@@ -1,0 +1,97 @@
+---
+title: Learn how to create a personal portfolio and blog in Gatsby JS
+excerpt: Pixie cut des’ree fly michael jordan nike overalls, atlanta summer
+  olympics ken griffey jr the macarena alanis morissette gordon bombay the
+  simpsons
+date: 2020-05-05 10:10:41
+thumnail: assets/images/gatsby-cover.jpg
+author: Morgan Segura
+tags:
+  - Gatsby
+  - Javascript
+  - React
+  - MDX
+  - GraphQL
+  - Styled Components
+category: Tutorials
+---
+Aerosmith carlton dance velcro sneakers baseball jacket sonic the hedgehog. Savage garden uncle phil dsl personal computer. Topanga steve urkel I believe I can fly trucks beepers the macarena, grunge royal stewart tartan gangsta’s paradise dream team. Portable cd players pixie cut pogs hot pockets. Toy story dawg bye bye bye wonderwall internet.
+
+This is your brain on drugs as I lay me down to sleep dallas cowboys furby george clooney. Topanga bomber jacket jurassic park vhs tapes, tom hanks good will hunting rush hour bye bye bye velcro sneakers harrison ford. Boy bands des’ree inflatable furniture fresh prince of bel-air. Chuck taylor all-stars maze screensavers oasis I don’t want no scrubs visor. Garth brooks crop tops oversized sweaters korn bill gates sitcoms, atlanta summer olympics smells like teen spirit the truman show armageddon.
+
+```javascript
+import React, { useState } from 'react'
+/* Components */
+import { useDarkMode } from '../Theme/useDarkMode'
+import { lightTheme, darkTheme } from '../Theme/themeStyles'
+// import ToggleTheme from '../Theme/toggleTheme'
+import Header from '../Header'
+import { SocialNavigation, MainNavigation } from '../Menu'
+/* Styled Components */
+import { ThemeProvider } from 'styled-components'
+import GlobalStyles from '../../styles/global'
+import * as S from './styled'
+
+import { GrApps } from 'react-icons/gr'
+
+const Layout = props => {
+  // Define props
+  const { children, location } = props
+  // useState Hook
+  const [
+    toggleNav,
+    setToggleNav,
+    toggleSocial,
+    setToggleSocial,
+  ] = React.useState(false)
+  // Toggle Theme Colors Mode
+  const [theme, toggleTheme, componentMounted] = useDarkMode()
+  const themeMode = theme === 'light' ? lightTheme : darkTheme
+
+  if (!componentMounted) {
+    return <div />
+  }
+
+  return (
+    <ThemeProvider theme={themeMode}>
+      {/* BAse Global Styles */}
+      <GlobalStyles />
+      <S.Wrapper
+        className={`${toggleNav ? `drawer-open` : `drawer-closed`} ${
+          toggleSocial ? `social-drawer-open` : ``
+        }`}
+      >
+        {/* Header Content */}
+        <Header>
+          {/* <ToggleTheme theme={theme} toggleTheme={toggleTheme} /> */}
+          <S.MainNavToggle onClick={() => setToggleNav(!toggleNav)}>
+            <S.Hamburger />
+            <span>Menu</span>
+          </S.MainNavToggle>
+          <S.SocialNavToggle onClick={() => setToggleSocial(!toggleSocial)}>
+            <GrApps />
+          </S.SocialNavToggle>
+        </Header>
+
+        {/* Main Navigation Drawer */}
+        <MainNavigation className={`${toggleNav ? `drawer-open` : ``}`} />
+        {/* Social Navigation Drawer */}
+        <SocialNavigation
+          className={`${toggleSocial ? `social-drawer-open` : ``}`}
+        />
+        {/* Main Content ({children}) */}
+        <S.Main>{children}</S.Main>
+        {/* Main Footer */}
+        <S.FooterWrapper>
+          <S.FooterContainer>
+            <p>&copy;{new Date().getFullYear()} . Morgan Segura</p>
+          </S.FooterContainer>
+        </S.FooterWrapper>
+      </S.Wrapper>
+    </ThemeProvider>
+  )
+}
+
+export default Layout
+
+```

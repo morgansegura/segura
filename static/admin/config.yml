@@ -3,17 +3,27 @@ backend:
   repo: morgansegura/segura
   branch: master
   site_domain: https://segura.llc/
+  commit_messages:
+    create: Create {{collection}} “{{slug}}”
+    update: Update {{collection}} “{{slug}}”
+    delete: Delete {{collection}} “{{slug}}”
+    uploadMedia: Upload “{{path}}”
+    deleteMedia: Delete “{{path}}”
+    openAuthoring: "{{message}}"
 
 publish_mode: editorial_workflow
-media_folder: "content/assets/"
-public_folder: "assets/images/"
+media_folder: "static/assets/images/"
+public_folder: "content/assets/"
 show_preview_links: true
 
 collections:
   #Posts (English)
   - name: "posts" # Used in routes, e.g., /admin/collections/blog
     label: "Posts" # Used in the UI
-    folder: "content/blog/{{slug}}"
+    folder: "content/blog/"
+    path: "{{slug}}/index"
+    media_folder: ""
+    public_folder: ""
     create: true # Allow users to create new documents in this collection
     slug: "{{slug}}"
     extension: "mdx"

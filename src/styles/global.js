@@ -105,7 +105,7 @@ const GlobalStyles = createGlobalStyle`
     --base-dark: #252837;
     --base-extra-dark: #161720;
 
-    --accent-color: #42a5f5;
+    --accent-color: #ffb200;
     --accent-light-color: #64b5f6;
     --accent-dark-color: #1e88e5;
     --cta-color: #9b59b6;

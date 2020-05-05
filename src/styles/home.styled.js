@@ -2,8 +2,8 @@ import Img from 'gatsby-image'
 import styled from 'styled-components'
 import { generateMedia } from 'styled-media-query'
 
-import shapesLeft from '../../public/assets/images/shapes-left.svg'
-import shapesRight from '../../public/assets/images/shapes-right.svg'
+// import shapesLeft from '../../public/assets/images/shapes-left.svg'
+// import shapesRight from '../../public/assets/images/shapes-right.svg'
 
 const customMedia = generateMedia({
   small: '480px',
@@ -170,13 +170,11 @@ export const Background = styled.div`
       top: 0;
       background-attachment: fixed;
       transform: translate(-20%, -35%);
-      background-image: url(${shapesLeft});
     }
     &:after {
       left: 0;
       bottom: 0;
       background-attachment: fixed;
-      background-image: url(${shapesRight});
     }
   }
   h2 {

@@ -41,6 +41,7 @@ export class Reacteroids extends Component {
       topScore: localStorage['topscore'] || 0,
       inGame: false,
       playStart: true,
+      fixedLayout: false,
     }
     this.ship = []
     this.asteroids = []
@@ -208,7 +209,7 @@ export class Reacteroids extends Component {
     //   changeText += newContent
     //   console.log(changeText)
     // })
-    target.innerHTML = 'Multi Stack, UI/UX Engineer'
+    target.innerHTML = 'Multi Stack UI/UX Web Developer'
   }
 
   gameOver() {
@@ -287,6 +288,14 @@ export class Reacteroids extends Component {
     }
   }
 
+  togglefixedScreen() {
+    const body = document.body
+    if (this.state.inGame) {
+      body.classList.add('fixed-layout')
+      console.log(this.state.inGame)
+    }
+  }
+
   checkCollision(obj1, obj2) {
     var vx = obj1.position.x - obj2.position.x
     var vy = obj1.position.y - obj2.position.y
@@ -331,7 +340,7 @@ export class Reacteroids extends Component {
             <S.DevSubheading>
               <S.Bracket></S.Bracket>{' '}
               <S.AnimateText id="changeText">
-                Full Stack UI/UX Engineer
+                Multi Stack UI/UX Web Developer
               </S.AnimateText>{' '}
               <S.Bracket></S.Bracket>
             </S.DevSubheading>
@@ -378,7 +387,11 @@ export class Reacteroids extends Component {
     }
 
     return (
-      <S.GameWrapper>
+      <S.GameWrapper
+        className={`${
+          this.state.inGame && !this.state.playStart ? `fixed-layout` : ``
+        }`}
+      >
         {gametext}
         <S.ScoreLabel className="current-score">
           Score: <span>{this.state.currentScore}</span>

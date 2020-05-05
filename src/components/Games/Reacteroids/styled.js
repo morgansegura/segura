@@ -19,6 +19,11 @@ export const GameWrapper = styled.div`
   width: 100%;
   height: 100vh;
 
+  &.fixed-layout {
+    position: fixed;
+    width: calc(100% - 90px);
+  }
+
   @keyframes bounceUp {
     0% {
       transform: translate3d(0px, 0px, 0px);
@@ -57,7 +62,7 @@ export const DevHeading = styled.h1`
   flex-direction: column;
   text-transform: uppercase;
   align-items: center;
-  text-align: center;
+  ftext-align: center;
   font-weight: 600;
   color: white;
   margin-bottom: 1rem;

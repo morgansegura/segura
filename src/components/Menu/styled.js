@@ -47,7 +47,7 @@ export const MenuLogo = styled.p`
 
 export const MainNavDrawer = styled.div`
   position: fixed;
-  z-index: 2;
+  z-index: -1;
   display: flex;
   width: 100%;
   height: calc(100% - 60px);
@@ -56,6 +56,10 @@ export const MainNavDrawer = styled.div`
   justify-content: center;
   padding-bottom: 60px;
   padding-left: 60px;
+
+  .drawer-open & {
+    z-index: 2;
+  }
 
   ${customMedia.greaterThan('large')`
 		top: 0;

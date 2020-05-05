@@ -2,8 +2,6 @@ import styled from 'styled-components'
 import { generateMedia } from 'styled-media-query'
 
 import stars from './images/stars.png'
-import clouds from './images/clouds.png'
-import twinkling from './images/twinkling.png'
 
 const customMedia = generateMedia({
   xsmall: '250px',

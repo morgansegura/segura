@@ -11,115 +11,136 @@ const customMedia = generateMedia({
 export const Main = styled.div`
   flex: 1;
   background-color: ${({ theme }) => theme.bgBody};
-  overflow: hidden;
+
+  ${customMedia.greaterThan('medium')`
+    width: calc(100%-90px);
+    margin-left: 90px;
+  `}
 `
 export const Wrapper = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
   height: 100vh;
-  left: 0;
-  transition: left 0.2s ease-in;
-
-  &.drawer-open {
-    left: -260px;
-    transition: left 0.2s ease-out;
-  }
 `
+
 export const Container = styled.div`
   margin-left: auto;
   margin-right: auto;
   max-width: var(--width-container);
 `
-export const NavDrawerWrapper = styled.div`
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  right: -260px;
-  height: 100vh;
-  width: 260px;
-  padding-left: 40px;
-  background-color: rgba(0, 0, 0, 0.05);
-  transition: right 0.2s ease-in;
 
-  &.drawer-open {
-    right: 0;
-    border-left: 1px solid rgba(0, 0, 0, 0.03);
-    transition: right 0.2s ease-out;
-  }
-`
-export const NavDrawer = styled.div`
+export const MainNavToggle = styled.div`
+  font-size: 12px;
+  font-family: var(--headline-font);
+  font-weight: 600;
+  text-transform: uppercase;
+  cursor: pointer;
+  position: absolute;
   display: flex;
   flex-direction: column;
-  padding-top: 80px;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  right: 60px;
+  width: 60px;
+  height: 60px;
+  background-color: cyan;
+  transition: background-color 0.3s ease-out;
 
-  .drawer-nav-item {
-    a {
-      display: flex;
-      align-items: center;
-      color: ${({ theme }) => theme.ctaColor};
-      padding: 0.25rem;
-      text-decoration: none;
+  &:hover {
+    background-color: ${({ theme }) => theme.bgOpaque};
+  }
+  &:active {
+    background-color: ${({ theme }) => theme.ctaDarkColor};
+  }
 
-      &:hover {
-        color: ${({ theme }) => theme.ctaDarkColor};
-        & .gr {
-          path {
-            stroke: ${({ theme }) => theme.ctaDarkColor};
-          }
-        }
-      }
+  svg path {
+    stroke: white;
+  }
 
-      svg {
-        width: 20px;
-        height: 20px;
-        margin-right: 0.75rem;
-        &.gr {
-          path {
-            stroke: ${({ theme }) => theme.ctaColor};
-          }
-        }
-      }
+  span {
+  }
+
+  ${customMedia.greaterThan('medium')`
+    width: 90px;
+    height: 90px;
+    top: 90px;
+    right: inherit;
+    bottom: 90px;
+	`};
+`
+export const Hamburger = styled.div`
+  position: relative;
+  margin-bottom: 0.125rem;
+  width: 32px;
+  height: 32px;
+
+  &:before,
+  &:after {
+    content: '';
+    position: absolute;
+    top: 45%;
+    background-color: ${({ theme }) => theme.headline};
+    height: 4px;
+    border-radius: 4px;
+    transform-origin: 50% 50%;
+    transition: width 0.2s ease-in, transform 0.2s ease-in;
+  }
+  &:before {
+    transform: translate(0, -5px);
+    width: 32px;
+
+    .drawer-open & {
+      transform: rotate(45deg);
     }
   }
-  .social-block {
-    padding-top: 2rem;
-    display: flex;
-    align-items: center;
-
-    a {
-      display: flex;
-      margin-right: 0.5rem;
-      color: ${({ theme }) => theme.ctaColor};
-      border: 1px solid ${({ theme }) => theme.ctaColor};
-      padding: 2px;
-      transition: all 0.3s ease-out;
-
-      svg {
-        margin-right: 0;
-        width: 17px;
-        height: 17px;
-      }
-      &:hover {
-        color: ${({ theme }) => theme.ctaDarkColor};
-        border: 1px solid ${({ theme }) => theme.ctaDarkColor};
-      }
+  &:after {
+    transform: translate(0, 5px);
+    width: 22px;
+    .drawer-open & {
+      width: 32px;
+      transform: rotate(-45deg);
     }
   }
 `
-export const DrawerToggle = styled.div`
-  font-size: 22px;
+
+export const SocialNavToggle = styled.div`
+  /* position: absolute; */
+  right: 0;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 1;
+  width: 60px;
+  height: 60px;
+  justify-content: center;
   cursor: pointer;
-  transition: opacity 0.3sec ease-out;
+  background-color: ${({ theme }) => theme.ctaColor};
+  font-size: 20px;
+  transition: background-color 0.3s ease-out;
+
+  &:hover {
+    background-color: ${({ theme }) => theme.ctaLightColor};
+  }
+  &:active {
+    background-color: ${({ theme }) => theme.ctaDarkColor};
+  }
 
   svg {
-    fill: ${({ theme }) => theme.headline};
+    path {
+      stroke: white;
+    }
   }
-  &:hover {
-    opacity: 0.8;
-  }
-`
 
+  ${customMedia.greaterThan('medium')`
+    width: 90px;
+    height: 90px;
+    top: inherit;
+    bottom: 0;
+	`};
+`
 export const FooterWrapper = styled.div`
   border-top: 1px solid ${({ theme }) => theme.outlines};
 `

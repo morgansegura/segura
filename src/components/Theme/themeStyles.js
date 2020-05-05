@@ -2,7 +2,7 @@ export const lightTheme = {
   bgBody: 'var(--base-extra-light)',
   bgBodyLight: 'var(--base-light)',
   bgBodyDark: 'var(--base-medium-light)',
-  bgOpaque: 'rgba(244, 247, 249, .98)',
+  bgOpaque: 'rgba(0, 0, 0, .05)',
   links: 'var(--base)',
   headline: 'var(--base-extra-dark)',
   subheadline: 'var(--base-medium-dark)',

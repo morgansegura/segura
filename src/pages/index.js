@@ -6,18 +6,13 @@ import SEO from '../components/seo'
 // import Bio from "../components/Bio"
 import Header from '../components/Header'
 import PostCard from '../components/PostCard'
-import { ColorButton } from '../components/Button'
 import WrapGameElement from '../components/Games/Reacteroids'
+
 /* Material UI */
 import Grid from '@material-ui/core/Grid'
-/* React Spring */
-import { Parallax, ParallaxLayer } from 'react-spring/renderprops-addons'
-/* Icons */
-import { GiHamburgerMenu } from 'react-icons/gi'
 
-//
 import * as S from '../styles/home.styled.js'
-//TODO: switch to staticQuery, get rid of comments, remove unnecessary components, export as draft template
+
 class BlogIndex extends React.Component {
   render() {
     const { data, location } = this.props
@@ -30,10 +25,49 @@ class BlogIndex extends React.Component {
           title="Blog"
           keywords={[`devlog`, `blog`, `gatsby`, `javascript`, `react`]}
         />
+        {/* Rasteroids Game */}
+        {/* <WrapGameElement /> */}
 
-        <WrapGameElement />
+        {/* Large Card */}
+        <S.Background className="bg-shapes half-height">
+          <S.Container>
+            <h2>Do you like clowns?</h2>
+          </S.Container>
+        </S.Background>
 
-        {/* 
+        {/* Large Card */}
+        <S.Container>
+          {data.site.siteMetadata.description && (
+            <S.Header className="page-head">
+              <h2 className="page-head-title">Blog</h2>
+            </S.Header>
+          )}
+
+          <Grid container spacing={3}>
+            {posts.map(({ node }) => {
+              postCounter++
+              return (
+                <Grid key={node.fields.slug} item xs={12} sm={6} md={6} lg={4}>
+                  <PostCard
+                    count={postCounter}
+                    node={node}
+                    postClass={`post`}
+                  />
+                </Grid>
+              )
+            })}
+          </Grid>
+          <S.Footer>
+            <S.ButtonWrapper></S.ButtonWrapper>
+          </S.Footer>
+        </S.Container>
+      </Layout>
+    )
+  }
+}
+
+{
+  /* 
     
                 <div className="social-block">
               <a
@@ -55,36 +89,7 @@ class BlogIndex extends React.Component {
                 <FaLinkedinIn />
               </a>
             </div>
-    */}
-
-        <S.IndexContainer>
-          {data.site.siteMetadata.description && (
-            <S.IndexHeader className="page-head">
-              <h2 className="page-head-title">Blog</h2>
-            </S.IndexHeader>
-          )}
-
-          <Grid container spacing={3}>
-            {posts.map(({ node }) => {
-              postCounter++
-              return (
-                <Grid key={node.fields.slug} item xs={12} md={6} lg={4}>
-                  <PostCard
-                    count={postCounter}
-                    node={node}
-                    postClass={`post`}
-                  />
-                </Grid>
-              )
-            })}
-          </Grid>
-          <S.IndexFooter>
-            <S.IndexButtonWrapper></S.IndexButtonWrapper>
-          </S.IndexFooter>
-        </S.IndexContainer>
-      </Layout>
-    )
-  }
+    */
 }
 
 const indexQuery = graphql`

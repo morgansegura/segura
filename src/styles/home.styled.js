@@ -2,6 +2,9 @@ import Img from 'gatsby-image'
 import styled from 'styled-components'
 import { generateMedia } from 'styled-media-query'
 
+import shapesLeft from '../../public/assets/images/shapes-left.svg'
+import shapesRight from '../../public/assets/images/shapes-right.svg'
+
 const customMedia = generateMedia({
   small: '480px',
   medium: '768px',
@@ -9,7 +12,7 @@ const customMedia = generateMedia({
   huge: '1400px',
 })
 
-export const IndexContainer = styled.section`
+export const Container = styled.div`
   max-width: var(--width-container);
   margin-left: auto;
   margin-right: auto;
@@ -21,26 +24,26 @@ export const IndexContainer = styled.section`
   `}
 `
 
-export const IndexHeader = styled.header`
+export const Header = styled.header`
   margin-top: 40px;
 `
 
-export const IndexTitle = styled.h1`
+export const Title = styled.h1`
   font-size: 40px;
 `
 
-export const IndexDescription = styled.p`
+export const Description = styled.p`
   font-size: 18px;
 `
 
-export const IndexImageWrapper = styled.div`
+export const ImageWrapper = styled.div`
   h3 {
   }
 `
 
-export const IndexImage = styled(Img)``
+export const Image = styled(Img)``
 
-export const IndexContent = styled.div`
+export const Content = styled.div`
   /* h1 {
     font-size: 40px;
     line-height: 60px;
@@ -100,18 +103,18 @@ export const IndexContent = styled.div`
   } */
 `
 
-export const IndexDate = styled.div``
+export const Date = styled.div``
 
-export const IndexAuthor = styled.div``
+export const Author = styled.div``
 
-export const IndexSocialBlock = styled.div``
+export const SocialBlock = styled.div``
 
-export const IndexSocial = styled.div``
+export const Social = styled.div``
 
-export const IndexFooter = styled.footer`
+export const Footer = styled.footer`
   position: relative;
 `
-export const IndexButtonWrapper = styled.footer`
+export const ButtonWrapper = styled.footer`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -125,5 +128,60 @@ export const IndexButtonWrapper = styled.footer`
       bottom: 0;
       position: absolute;
     }
+  }
+`
+
+export const Background = styled.div`
+  background-size: 100%;
+  align-items: center;
+  justify-content: center;
+
+  &.quarter-height,
+  .quarter-height {
+    height: 25vh;
+  }
+  &.half-height,
+  .half-height {
+    height: 50vh;
+  }
+  &.three-quarter-height,
+  .three-quarter-height {
+    height: 75vh;
+  }
+  &.full-height,
+  .full-height {
+    height: 100vh;
+  }
+  &.bg-shapes {
+    display: flex;
+    position: relative;
+    z-index: 1;
+
+    &:before,
+    &:after {
+      content: '';
+      z-index: -1;
+      position: absolute;
+      background-repeat: no-repeat;
+    }
+
+    &:before {
+      left: 0;
+      top: 0;
+      background-attachment: fixed;
+      transform: translate(-20%, -35%);
+      background-image: url(${shapesLeft});
+    }
+    &:after {
+      left: 0;
+      bottom: 0;
+      background-attachment: fixed;
+      background-image: url(${shapesRight});
+    }
+  }
+  h2 {
+    position: relative;
+    z-index: 2;
+    font-size: 80px;
   }
 `

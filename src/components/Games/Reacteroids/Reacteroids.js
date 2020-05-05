@@ -78,6 +78,7 @@ export class Reacteroids extends Component {
     const context = this.refs.canvas.getContext('2d')
     this.setState({ context: context })
     this.startGame()
+    this.animateText()
     requestAnimationFrame(() => {
       this.update()
     })
@@ -175,56 +176,39 @@ export class Reacteroids extends Component {
     this.asteroids = []
     this.generateAsteroids(this.state.asteroidCount)
   }
-  triggerChars(sentences) {
-    let sentenceCounter = 0
-    let sentenceDelay = 600
-
-    sentences.forEach(el => {
-      setTimeout(() => {
-        let spans = el.find('span')
-        let spanCounter = 0
-        let spanDelay = 75
-
-        spans.forEach(span => {
-          setTimeout(() => {
-            span.classList.addClass('active')
-          }, spanCounter * spanDelay)
-          spanCounter++
-        })
-      }, sentenceCounter * sentenceDelay)
-      sentenceCounter++
-    })
+  changeAtInterval(changeItem) {
+    changeItem = setTimeout(newContent[0], 3000)
   }
+  animateText() {
+    let target = document.getElementById('changeText')
+    // let changeText = ''
+    // let newContent = ''
+    // let sentences = [
+    //   'Full Stack UI/UX Engineer',
+    //   'React Developer',
+    //   'React Developer',
+    //   'Wordpress Developer',
+    //   'Javascript Engineer',
+    //   'Front-end Developer',
+    //   'User Interface Designer',
+    //   'User Experience Advocate',
+    //   'User Experience Advocate',
+    // ]
+    // sentences.forEach(sentence => {
+    //   for (let i = 0; i < sentence.length; i++) {
+    //     let substring = sentence.substr(i, 1)
 
-  scrambleText() {
-    let spanSentences
-    let sentences = [
-      'Full Stack UI/UX Engineer',
-      'React Developer',
-      'React Developer',
-      'Wordpress Developer',
-      'Javascript Engineer',
-      'Front-end Developer',
-      'User Interface Designer',
-      'User Experience Advocate',
-      'User Experience Advocate',
-    ]
-    sentences.filter(sentence => {
-      let newContent = ''
-
-      for (let i = 0; i < sentence.length; i++) {
-        let substring = sentence.substr(i, 1)
-
-        if (substring !== ' ') {
-          newContent += `<span>${substring}</span>`
-        } else {
-          newContent += substring
-        }
-      }
-      sentence = sentence.replace(newContent)
-    })
-    console.log(sentences)
-    // return this.triggerChars(sentences)
+    //     if (substring !== ' ') {
+    //       newContent += `<span>${substring}</span>`
+    //     } else {
+    //       newContent += substring
+    //     }
+    //   }
+    //   // return newContent
+    //   changeText += newContent
+    //   console.log(changeText)
+    // })
+    target.innerHTML = 'Multi Stack, UI/UX Engineer'
   }
 
   gameOver() {
@@ -346,7 +330,9 @@ export class Reacteroids extends Component {
             </S.DevHeading>
             <S.DevSubheading>
               <S.Bracket></S.Bracket>{' '}
-              <S.AnimateText>{this.scrambleText()}</S.AnimateText>{' '}
+              <S.AnimateText id="changeText">
+                Full Stack UI/UX Engineer
+              </S.AnimateText>{' '}
               <S.Bracket></S.Bracket>
             </S.DevSubheading>
           </S.DevInfo>

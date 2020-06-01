@@ -42,7 +42,7 @@ export const MainNavToggle = styled.div`
   font-weight: 600;
   text-transform: uppercase;
   cursor: pointer;
-  position: absolute;
+  /* position: absolute; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -71,21 +71,25 @@ export const MainNavToggle = styled.div`
     display: block;
     font-weight: 300;
     top: -2px;
-    letter-spacing: 0.095rem;
-    transition: color .3s ease-out;
+    opacity: 1;
+    /* letter-spacing: 0.05rem; */
+    transition: color .3s ease-out, display .1s ease-out;
+
+    .drawer-open & {
+      display: none;
+    }     
   }
 
   &:hover {
+
     span {
-       color: ${({ theme }) => theme.HamburgerTextHover};
+       color: ${({ theme }) => theme.HamburgerTextHover};      
     }
 
-    .hamburger > .hamburger__center, 
-    .drawer-open & {
-      width: 30px;
+    .hamburger > .hamburger__center {
+      width: 30px;     
     }
-    .hamburger:before, 
-    .drawer-open & {
+    .hamburger:before {
       width: 30px;
     }    
     .hamburger:after {
@@ -97,7 +101,7 @@ export const MainNavToggle = styled.div`
     width: var(--size);
     height: var(--size);
     top: var(--size);
-    right: inherit;
+    right: auto;
     bottom: var(--size);
 	`};
 `
@@ -111,6 +115,7 @@ export const Hamburger = styled.div`
 
   .drawer-open & {
     justify-content: center;
+    margin-bottom: 0;
   }
 
   &:before,
@@ -131,7 +136,7 @@ export const Hamburger = styled.div`
     width: 30px;
 
     .drawer-open & {
-      width: 23px;
+      width: 25px;
       transform: rotate(45deg);
     }
   }
@@ -140,7 +145,7 @@ export const Hamburger = styled.div`
     width: 20px;
 
     .drawer-open & {
-      width: 23px;
+      width: 25px;
       transform: rotate(-45deg);
     }
   }
@@ -155,7 +160,7 @@ export const Hamburger = styled.div`
   }
 `
 export const SocialNavToggle = styled.div`
-  /* position: absolute; */
+  position: absolute;
   right: 0;
   top: 0;
   display: flex;
@@ -166,20 +171,19 @@ export const SocialNavToggle = styled.div`
   height: 60px;
   justify-content: center;
   cursor: pointer;
-  background-color: ${({ theme }) => theme.accentColor};
-  font-size: 20px;
+  font-size: 22px;
   transition: background-color 0.3s ease-out;
-
-  &:hover {
-    background-color: ${({ theme }) => theme.accentLightColor};
-  }
-  &:active {
-    background-color: ${({ theme }) => theme.accentDarkColor};
-  }
 
   svg {
     path {
-      stroke: white;
+      stroke: ${({ theme }) => theme.accentLightColor};
+    }
+  }
+  &:hover {
+    svg {
+      path {
+        stroke: ${({ theme }) => theme.HamburgerTextHover};
+      }
     }
   }
 
@@ -188,6 +192,18 @@ export const SocialNavToggle = styled.div`
     height: var(--size);
     top: inherit;
     bottom: 0;
+    background-color: ${({ theme }) => theme.accentColor};
+    svg {
+      path {
+        stroke: ${({ theme }) => theme.HamburgerTextHover};
+      }
+    }    
+    &:hover {
+      background-color: ${({ theme }) => theme.accentLightColor};
+    }
+    &:active {
+      background-color: ${({ theme }) => theme.accentDarkColor};
+    }    
 	`};
 `
 export const FooterWrapper = styled.div`

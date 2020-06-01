@@ -138,15 +138,26 @@ export const ScoreLabel = styled.p`
   }
 
   &.current-score {
-    left: var(--size);
+    left: 0;
+    top: 60px;
     border-radius: 0 0 15px 0;
     border-width: 0 1px 1px 0;
   }
   &.top-score {
     right: 0;
+    top: 60px;
     border-radius: 0 0 0 15px;
     border-width: 0 0 1px 1px;
   }
+  ${customMedia.greaterThan('large')`
+    &.top-score {
+      top: 0;
+    }  
+    &.current-score {
+      left: var(--size);
+      top: 0;
+    }
+  `}
 `
 export const GameCanvas = styled.canvas`
   z-index: -1;

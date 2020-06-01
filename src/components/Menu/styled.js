@@ -86,7 +86,7 @@ export const MainNav = styled.nav`
   }
 
   ${customMedia.greaterThan('large')`
-	padding-top: var(--size);
+	  padding-top: var(--size);
   `};
 `
 export const MainNavLink = styled(Link)`

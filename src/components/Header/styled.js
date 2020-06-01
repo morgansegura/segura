@@ -37,37 +37,39 @@ export const HeaderContainer = styled.div`
   height: 100%;
   position: relative;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
+  padding-right: 60px;
   align-items: center;
   margin-left: auto;
   margin-right: auto;
 
   ${customMedia.greaterThan('large')`
     flex-direction: column;
-    align-items: space-between;
+    align-items: center;
+    justify-content: flex-start;
+    padding-right: 0;
 	`}
 `
 
 export const LogoLink = styled(Link)`
+  position: absolute;
+  left: 0;
   display: flex;
   overflow: hidden;
   align-items: center;
   justify-content: center;
-  width: 60px;
+  width: 75px;
   height: 60px;
 
   ${customMedia.greaterThan('large')`
+    position: relative;
     height: var(--size);
     width: var(--size);
   `}
 
   .logo {
-    height: 30px;
-    width: 30px;
-    ${customMedia.greaterThan('large')`
-      height: 40px;
-      width: 40px;
-    `}
+    height: 45px;
+    width: 45px;
   }
   /* SVG class */
   .cls-2 {

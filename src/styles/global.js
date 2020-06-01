@@ -101,10 +101,10 @@ const GlobalStyles = createGlobalStyle`
   padding-right: 20px;
 
   ${customMedia.greaterThan('medium')`
-    margin-left: var(--size);
-    width: calc(100% - var(--size));
-    padding-left: 40px;
-    padding-right: 40px;
+      margin-left: var(--size);
+      width: calc(100% - var(--size));
+      padding-left: 40px;
+      padding-right: 40px;
   `};
 }
 

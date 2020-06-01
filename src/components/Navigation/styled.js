@@ -22,7 +22,7 @@ export const HeaderNavWrapper = styled.div`
 export const HeaderNav = styled.nav`
   position: absolute;
   width: 100%;
-  justify-self: flex-end;
+  /* justify-self: flex-end; */
   display: flex;
   align-items: center;
   padding: 0 40px;

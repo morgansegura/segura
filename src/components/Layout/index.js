@@ -41,13 +41,13 @@ const Layout = props => {
       >
         {/* Header Content */}
         <Header>
-          <ToggleTheme theme={theme} toggleTheme={toggleTheme} />
           <S.MainNavToggle onClick={() => setToggleNav(!toggleNav)}>
             <S.Hamburger className="hamburger">
               <div className="hamburger__center" />
             </S.Hamburger>
             <span>Menu</span>
           </S.MainNavToggle>
+          <ToggleTheme theme={theme} toggleTheme={toggleTheme} />
           <S.SocialNavToggle onClick={() => setToggleSocial(!toggleSocial)}>
             <GrApps />
           </S.SocialNavToggle>

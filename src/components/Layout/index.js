@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 /* Components */
 import { useDarkMode } from '../Theme/useDarkMode'
 import { lightTheme, darkTheme } from '../Theme/themeStyles'
-// import ToggleTheme from '../Theme/toggleTheme'
+import ToggleTheme from '../Theme/toggleTheme'
 import Header from '../Header'
 import { SocialNavigation, MainNavigation } from '../Menu'
 /* Styled Components */
@@ -41,9 +41,11 @@ const Layout = props => {
       >
         {/* Header Content */}
         <Header>
-          {/* <ToggleTheme theme={theme} toggleTheme={toggleTheme} /> */}
+          <ToggleTheme theme={theme} toggleTheme={toggleTheme} />
           <S.MainNavToggle onClick={() => setToggleNav(!toggleNav)}>
-            <S.Hamburger />
+            <S.Hamburger className="hamburger">
+              <div className="hamburger__center" />
+            </S.Hamburger>
             <span>Menu</span>
           </S.MainNavToggle>
           <S.SocialNavToggle onClick={() => setToggleSocial(!toggleSocial)}>

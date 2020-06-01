@@ -38,7 +38,12 @@ export const darkTheme = {
   HeaderNavText: 'var(--white)',
 
   Logo: 'var(--accent-color)',
-  text: 'var(--dark-6)',
+  text: 'var(--gray)',
+
+  // Menu
+  HamburgerText: 'var(--gray-4)',
+  HamburgerTextHover: 'var(--light)',
+
   // Container
   BaseContainerLight: 'rgba(255, 255, 255, 0.11)',
   BaseContainerDark: 'var(--dark-2)',

@@ -67,7 +67,33 @@ export const MainNavToggle = styled.div`
 
   span {
     position: relative;
+    color: ${({ theme }) => theme.HamburgerText};
+    display: block;
+    font-weight: 300;
     top: -2px;
+    letter-spacing: 0.095rem;
+    transition: color .3s ease-out;
+  }
+
+  &:hover {
+    span {
+       color: ${({ theme }) => theme.HamburgerTextHover};
+    }
+
+    .hamburger__center {
+      width: 30px;
+
+      .drawer-open & {
+        /* width: 23px; */
+      }
+    }
+    .hamburger:after {
+      width: 30px;
+
+      .drawer-open & {
+        width: 0;
+      }
+    }    
   }
 
   ${customMedia.greaterThan('large')`
@@ -82,7 +108,7 @@ export const Hamburger = styled.div`
   position: relative;
   display: flex;
   align-items: center;
-  margin-bottom: 0.125rem;
+  margin-bottom: 0.5rem;
   width: 30px;
   height: 30px;
 
@@ -91,7 +117,8 @@ export const Hamburger = styled.div`
   }
 
   &:before,
-  &:after {
+  &:after,
+  & .hamburger__center {
     content: '';
     position: absolute;
     top: 45%;
@@ -111,16 +138,25 @@ export const Hamburger = styled.div`
       transform: rotate(45deg);
     }
   }
-  &:after {
-    transform: translateY(5px);
+  & .hamburger__center {
+    transform: translateY(3px);
     width: 20px;
+
     .drawer-open & {
       width: 23px;
       transform: rotate(-45deg);
     }
   }
-`
+  &:after {
+    transform: translateY(11px);
+    width: 0;
 
+    .drawer-open & {
+      width: 23px;
+      opacity: 0;
+    }
+  }
+`
 export const SocialNavToggle = styled.div`
   /* position: absolute; */
   right: 0;

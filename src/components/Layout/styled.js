@@ -80,19 +80,16 @@ export const MainNavToggle = styled.div`
        color: ${({ theme }) => theme.HamburgerTextHover};
     }
 
-    .hamburger__center {
+    .hamburger > .hamburger__center, 
+    .drawer-open & {
       width: 30px;
-
-      .drawer-open & {
-        /* width: 23px; */
-      }
     }
+    .hamburger:before, 
+    .drawer-open & {
+      width: 30px;
+    }    
     .hamburger:after {
       width: 30px;
-
-      .drawer-open & {
-        width: 0;
-      }
     }    
   }
 

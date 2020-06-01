@@ -3,10 +3,10 @@ import _ from 'lodash'
 import { Link } from 'gatsby'
 import { graphql, StaticQuery } from 'gatsby'
 
-import Layout from '../components/Layout'
-import SEO from '../components/seo'
+import Layout from '../../components/Layout'
+import SEO from '../../components/seo'
 
-// import * as S from '../styles/tags.styled.js';
+// import * as S from './styled.js'
 
 const TagIndex = ({ data }) => {
   const siteTitle = data.site.siteMetadata.title

@@ -14,12 +14,21 @@ export const HeaderWrapper = styled.div`
   z-index: 11;
   width: 100%;
   height: 60px;
-  background-color: ${({ theme }) => theme.bgBodyLight};
 
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: ${({ theme }) => theme.Header};
+    opacity: 0.6;
+  }
   ${customMedia.greaterThan('large')`
     top: 0;
     left: 0;
-    width: 90px;
+    width: var(--size);
     height: 100%;
   `}
 `
@@ -48,8 +57,8 @@ export const LogoLink = styled(Link)`
   height: 60px;
 
   ${customMedia.greaterThan('large')`
-    height: 90px;
-    width: 90px;
+    height: var(--size);
+    width: var(--size);
   `}
 
   .logo {
@@ -62,6 +71,6 @@ export const LogoLink = styled(Link)`
   }
   /* SVG class */
   .cls-2 {
-    fill: ${({ theme }) => theme.headline};
+    fill: ${({ theme }) => theme.Logo};
   }
 `

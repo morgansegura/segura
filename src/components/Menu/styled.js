@@ -25,12 +25,12 @@ export const MenuLabel = styled.p`
 export const MenuLogo = styled.p`
   position: relative;
   z-index: 2;
-  font-size: 40px;
+  font-size: 30px;
   font-family: var(--headline-font);
-  font-weight: 600;
+  font-weight: 500;
   text-transform: uppercase;
   padding: 1.125rem 0;
-  margin-left: -35px;
+  color: ${({ theme }) => theme.HeaderNavText};
   margin-bottom: 1.25rem;
 
   &:before {
@@ -41,7 +41,7 @@ export const MenuLogo = styled.p`
     left: 13%;
     height: 100%;
     width: 100%;
-    background: rgba(255, 255, 255, 0.25);
+    background-color: ${({ theme }) => theme.HeaderNav};
   }
 `
 
@@ -54,8 +54,7 @@ export const MainNavDrawer = styled.div`
   top: 60px;
   flex-direction: column;
   justify-content: center;
-  padding-bottom: 60px;
-  padding-left: 60px;
+  padding: 35px 30px 35px 160px;
 
   .drawer-open & {
     z-index: 2;
@@ -64,7 +63,7 @@ export const MainNavDrawer = styled.div`
   ${customMedia.greaterThan('large')`
 		top: 0;
 		height: 100%;
-		left: 90px;
+		left: var(--size);
 	`};
 `
 export const MainNav = styled.nav`
@@ -72,11 +71,11 @@ export const MainNav = styled.nav`
   overflow-x: hidden;
   top: 0;
   left: -100%;
-  width: 65%;
+  width: 45%;
   height: 100%;
   padding-top: 45px;
-  padding-left: 90px;
-  background-color: ${({ theme }) => theme.bgBodyDark};
+  padding-left: var(--size);
+  background-color: ${({ theme }) => theme.HeaderNav};
   display: flex;
   flex-direction: column;
   transition: left 0.3s ease-out;
@@ -87,19 +86,34 @@ export const MainNav = styled.nav`
   }
 
   ${customMedia.greaterThan('large')`
-	padding-top: 90px;
+	padding-top: var(--size);
   `};
 `
 export const MainNavLink = styled(Link)`
-  color: ${({ theme }) => theme.headline};
+  color: ${({ theme }) => theme.opaqueLight91};
   text-decoration: none;
-  font-size: 1rem;
+  font-size: 14px;
   font-family: var(--headline-font);
-  font-weight: 600;
+  font-weight: 500;
+  letter-spacing: 3px;
   text-transform: uppercase;
-  padding: 1rem 0;
+  width: 100%;
+  height: 40px;
 
   .drawer-open & {
+  }
+
+  &:hover {
+    color: ${({ theme }) => theme.accentColor};
+
+    &:after {
+      content: '';
+      position: absolute;
+      left: -10px;
+      top: 0;
+      height: 100%;
+      background-color: var(--opaque-white-71);
+    }
   }
 `
 
@@ -119,7 +133,7 @@ export const SocialNavDrawer = styled.div`
   
   ${customMedia.greaterThan('large')`
     top: 0;
-    left: 90px;
+    left: var(--size);
   `};
 `
 export const SocialNav = styled.nav`

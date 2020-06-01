@@ -12,8 +12,9 @@ export const BlogContainer = styled.section`
   margin-left: auto;
 
   ${customMedia.greaterThan('medium')`
-        padding: 3rem 40px;
-    `}
+    margin-left: var(--size);
+    padding: 3rem 40px;
+  `}
 `
 
 export const BlogHeader = styled.header`

@@ -18,18 +18,20 @@ const PostCard = props => (
           <S.PostCardTitle>{props.node.frontmatter.title}</S.PostCardTitle>
           <S.PostCardDate>{props.node.frontmatter.date}</S.PostCardDate>
         </S.PostCardHeader>
-        <S.PostCardBody>
-          {truncateString(props.node.excerpt, 250, ' ...')}
-        </S.PostCardBody>
+        <S.PostCardFlex>
+          <S.PostCardBody>
+            {truncateString(props.node.excerpt, 250, ' ...')}
+          </S.PostCardBody>
 
-        {props.node.frontmatter.thumbnail && (
-          <S.PostCardImageWrapper>
-            <S.PostCardImage
-              fluid={props.node.frontmatter.thumbnail.childImageSharp.fluid}
-              alt={props.node.frontmatter.title}
-            />
-          </S.PostCardImageWrapper>
-        )}
+          {props.node.frontmatter.thumbnail && (
+            <S.PostCardImageWrapper>
+              <S.PostCardImage
+                fluid={props.node.frontmatter.thumbnail.childImageSharp.fluid}
+                alt={props.node.frontmatter.title}
+              />
+            </S.PostCardImageWrapper>
+          )}
+        </S.PostCardFlex>
         <S.PostCardFooterWrapper>
           <S.PostCardFooter>
             <Tags tags={props.node.frontmatter.tags} />

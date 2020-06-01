@@ -21,7 +21,7 @@ export const GameWrapper = styled.div`
 
   &.fixed-layout {
     position: fixed;
-    width: calc(100% - 90px);
+    /* width: calc(100% - var(--size)); */
   }
 
   @keyframes bounceUp {
@@ -62,7 +62,7 @@ export const DevHeading = styled.h1`
   flex-direction: column;
   text-transform: uppercase;
   align-items: center;
-  ftext-align: center;
+  text-align: center;
   font-weight: 600;
   color: white;
   margin-bottom: 1rem;
@@ -138,7 +138,7 @@ export const ScoreLabel = styled.p`
   }
 
   &.current-score {
-    left: 0;
+    left: var(--size);
     border-radius: 0 0 15px 0;
     border-width: 0 1px 1px 0;
   }
@@ -260,6 +260,7 @@ export const Stars = styled.div`
   width: 100%;
   height: 100%;
   display: block;
+  background-attachment: fixed;
   background: url(${stars}) repeat top center;
   z-index: 3;
 `

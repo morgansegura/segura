@@ -1,5 +1,12 @@
 import { createGlobalStyle } from 'styled-components'
+import { generateMedia } from 'styled-media-query'
 
+const customMedia = generateMedia({
+  small: '480px',
+  medium: '768px',
+  large: '1024px',
+  huge: '1400px',
+})
 const GlobalStyles = createGlobalStyle`
   /* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
@@ -53,7 +60,7 @@ const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
   }
   body {
-    background: ${({ theme }) => theme.bgBody};
+    background: ${({ theme }) => theme.Body};
     font-weight: 500;
     color: ${({ theme }) => theme.text};
     text-size-adjust: 100%;
@@ -84,11 +91,35 @@ const GlobalStyles = createGlobalStyle`
   	height: auto;
   }
 
+.container {
+  position: relative;
+  width: 100%;
+  max-width: var(--width-container);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+
+  ${customMedia.greaterThan('medium')`
+    margin-left: var(--size);
+    width: calc(100% - var(--size));
+    padding-left: 40px;
+    padding-right: 40px;
+  `};
+}
+
+  .light-background {
+    background-color: ${({ theme }) => theme.BaseContainerLight};
+  }
+  .dark-background {
+    background-color: ${({ theme }) => theme.BaseContainerDark}; 
+  }
+
   a {
-    color: ${({ theme }) => theme.ctaColor};
+    color: ${({ theme }) => theme.actionColor};
     transition: color .2s ease-out;
     &:hover {
-      color: ${({ theme }) => theme.ctaLightColor};
+      color: ${({ theme }) => theme.actionLightColor};
     }
     &:active {
       color: ${({ theme }) => theme.ctaDarkColor};
@@ -96,22 +127,40 @@ const GlobalStyles = createGlobalStyle`
   }
 
   :root { 
-    --base-extra-light: #f4f7f9;
-    --base-light: #eeeeee;
-    --base-medium-light: #e0e0e0;
-    --base-medium: #63768d;     
-    --base: #3D4054;
-    --base-medium-dark: #333647;
-    --base-dark: #252837;
-    --base-extra-dark: #161720;
+    --size: 80px;
+    --white: #fff;
+    --light: #f9f9f9;
+    --light-1: #f2f2f2;
+    --light-2: #eeeeee;
+    --light-3: #f9f9f9;
 
-    --accent-color: #ffb200;
-    --accent-light-color: #64b5f6;
-    --accent-dark-color: #1e88e5;
-    --cta-color: #9b59b6;
-    --cta-light-color: #80d6ff;
-    --cta-dark-color: #0077c2;
-  
+    --gray: #d1d1d1;
+    --gray-1: #cccccc;
+    --gray-2: #999999;
+    --gray-3: #8b8b8b;
+    --gray-4: #666666;    
+ 
+    --blue-gray: #878c9f;
+    --blue-gray-1: #63768d;
+    --blue-gray-2: #323a45;
+   
+    --dark: #35353a;
+    --dark-1: #2d2d32;
+    --dark-2: #2a2a2e;
+    --dark-3: #292929;
+    --dark-4: #252425;
+    --dark-5: #171717;
+    --dark-6: #161720;
+
+    --yellow: #ffb200;
+
+    --accent-color: #5cdb95;
+    --accent-light-color: #8ee4af;
+    --accent-dark-color: #379683;
+
+    --action-color: #2196F3;
+    --action-light-color: #90CAF9;
+    --action-dark-color-: #1976D2;
 
     --width-container: 1400px;
     --headline-font: "Hind", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";

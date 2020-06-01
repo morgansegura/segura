@@ -1,14 +1,14 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 /* Components */
-import Layout from '../components/Layout'
-import SEO from '../components/seo'
-import { useSiteMetadata } from '../hooks/useSiteMetadata'
-import PostCard from '../components/PostCard'
+import Layout from '../../components/Layout'
+import SEO from '../../components/seo'
+import { useSiteMetadata } from '../../hooks/useSiteMetadata'
+import PostCard from '../../components/PostCard'
 /* Material UI */
 import Grid from '@material-ui/core/Grid'
 /* Styled Components */
-import * as S from '../styles/blog.styled.js'
+import * as S from '../../styles/blog/styled'
 
 export default ({ data, location, pageContext }) => {
   const { title: siteTitle } = useSiteMetadata()
@@ -33,7 +33,7 @@ export default ({ data, location, pageContext }) => {
           <Grid container spacing={3}>
             {posts.map(({ node }) => {
               return (
-                <Grid key={node.fields.slug} item xs={12} md={6} lg={4}>
+                <Grid key={node.fields.slug} item xs={12} md={6} xl={4}>
                   <PostCard node={node} postClass={`post`} />
                 </Grid>
               )

@@ -1,37 +1,30 @@
-import React, { Component } from 'react'
+import React, { useEffect, useRef } from 'react'
 import * as S from './styled'
-import Headroom from 'react-headroom'
 
-class Sticky extends Component {
-    constructor(props) {
-        super(props)
+function Sticky({ children, ...moreProps }) {
+  const stickyElement = useRef(null)
 
-        this.state = {
-            sticky: false,
-        }
+  useEffect(() => {
+    const el = document.getElementById('stickyElement')
+    const sticky = el.offsetTop
 
-        this.isSticky.bind(this.isSticky)
+    const scrollCallBack = window.addEventListener('scroll', () => {
+      if (window.pageYOffset > sticky) {
+        el.classList.add('sticky')
+      } else {
+        el.classList.remove('sticky')
+      }
+    })
+    return () => {
+      window.removeEventListener('scroll', scrollCallBack)
     }
-    isSticky = () => {
-        this.setState({ sticky: !this.state.sticky })
-    }
+  }, [])
 
-    render() {
-        return (
-            <Headroom
-                onPin={() => {
-                    this.isSticky()
-                }}
-                onUnpin={() => {
-                    this.isSticky()
-                }}
-            >
-                <S.StickyContainer sticky={this.state.sticky}>
-                    {this.props.children}
-                </S.StickyContainer>
-            </Headroom>
-        )
-    }
+  return (
+    <S.StickyContainer id="stickyElement" {...moreProps}>
+      {children}
+    </S.StickyContainer>
+  )
 }
 
 export default Sticky

@@ -1,43 +1,80 @@
 export const lightTheme = {
-  bgBody: 'var(--base-extra-light)',
-  bgBodyLight: 'var(--base-light)',
+  bgBody: 'var(--light)',
+  bgHeader: 'white',
+  bgFooter: 'var(--base-light)',
   bgBodyDark: 'var(--base-medium-light)',
-  bgOpaque: 'rgba(0, 0, 0, .95s)',
+
   links: 'var(--base)',
+
   headline: 'var(--base-extra-dark)',
   subheadline: 'var(--base-medium-dark)',
   superText: 'var(--base-dark)',
-  text: 'var(--base-dark)',
-  textOffset: 'var(--base)',
+
+  basText: 'var(--base-dark)',
+  textOnLight: 'var(--base-dark)',
+  textOnDark: 'var(--base)',
+
   outlines: 'var(--base-light)',
+  outlinesMedium: 'var(--base-light)',
   outlinesDark: 'var(--base-light)',
+
   cards: 'white',
+
   accentColor: 'var(--accent-color)',
   accentLightColor: 'var(--accent-light-color)',
   accentDarkColor: 'var(--accent-dark-color)',
-  ctaColor: 'var(--cta-color)',
-  ctaLightColor: 'var(--cta-light-color)',
-  ctaDarkColor: 'var(--cta-dark-color)',
+  actionColor: 'var(--cta-color)',
+  actionLightColor: 'var(--cta-light-color)',
+  actionDarkColor: 'var(--cta-dark-color)',
 }
 
 export const darkTheme = {
-  bgBody: 'var(--base-dark)',
-  bgBodyLight: 'var(--base-medium-dark)',
-  bgBodyDark: 'var(--base-extra-dark)',
-  bgOpaque: 'rgba(22, 23, 32, .98)',
-  links: 'var(--base-light)',
-  headline: 'var(--base-extra-light)',
-  subheadline: 'var(--base-light)',
-  superText: 'var(--white)',
-  text: 'var(--base-light)',
-  textOffset: 'var(--base-medium)',
-  outlines: 'var(--base)',
-  outlinesDark: 'var(--base-extra-dark)',
-  cards: 'var(--base-medium-dark)',
+  // Defaults
+  Body: 'var(--dark-5)',
+  Header: 'var(--dark-1)',
+  HeaderText: 'var(--gray-3)',
+  Footer: 'var(--dark-1)',
+  HeaderNav: 'var(--dark-4)',
+  HeaderNavText: 'var(--white)',
+
+  Logo: 'var(--accent-color)',
+  text: 'var(--dark-6)',
+  // Container
+  BaseContainerLight: 'rgba(255, 255, 255, 0.11)',
+  BaseContainerDark: 'var(--dark-2)',
+
+  // Opaque
+  opaqueLight041: 'rgba(255, 255, 255, 0.041)',
+  opaqueLight41: 'rgba(255, 255, 255, 0.41)',
+  opaqueLight71: 'rgba(255,255,255,0.71)',
+  opaqueLight91: 'rgba(255,255,255,0.91)',
+
+  links: 'var(--base)',
+
+  headline: 'var(--base-extra-dark)',
+  subheadline: 'var(--base-medium-dark)',
+  superText: 'var(--base-dark)',
+
+  basText: 'var(--base-dark)',
+  textOnLight: 'var(--base-dark)',
+  textOnDark: 'var(--base)',
+
+  outlines: 'var(--base-light)',
+  outlinesMedium: 'var(--base-light)',
+  outlinesDark: 'var(--base-light)',
+
+  // Cards
+  Cards: 'rgba(255,255,255,0.1)',
+  CardsHeadline: 'var(--white)',
+  CardsSubheading: 'var(--light)',
+  CardsText: 'rgba(255,255,255,0.71)',
+  CardsOffset: 'var(--dark-3)',
+  CardsOutlines: 'rgba(255,255,255,0.1)',
+
   accentColor: 'var(--accent-color)',
   accentLightColor: 'var(--accent-light-color)',
   accentDarkColor: 'var(--accent-dark-color)',
-  ctaColor: 'var(--cta-color)',
-  ctaLightColor: 'var(--cta-light-color)',
-  ctaDarkColor: 'var(--cta-dark-color)',
+  actionColor: 'var(--action-color)',
+  actionLightColor: 'var(--action-light-color)',
+  actionDarkColor: 'var(--action-dark-color)',
 }

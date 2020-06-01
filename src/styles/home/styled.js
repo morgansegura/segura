@@ -12,20 +12,49 @@ const customMedia = generateMedia({
   huge: '1400px',
 })
 
-export const Container = styled.div`
-  max-width: var(--width-container);
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 20px;
-  padding-right: 20px;
-  ${customMedia.greaterThan('medium')`
-    padding-left: 40px;
-    padding-right: 40px;
-  `}
-`
+export const Container = styled.div``
 
 export const Header = styled.header`
-  margin-top: 40px;
+  padding-top: 90px;
+  padding-bottom: 40px;
+
+  h2 {
+    width: 100%;
+    position: relative;
+    padding: 0.5rem 0 0.5rem 90px;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #8b8b8b;
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 50px;
+      height: 2px;
+      margin-top: -1px;
+      background: ${({ theme }) => theme.accentColor};
+    }
+    &:after {
+      content: '';
+      position: absolute;
+      top: -15px;
+      left: -20px;
+      right: 0;
+      bottom: -15px;
+      width: 105%;
+      background: ${({ theme }) => theme.opaqueLight041};
+
+      ${customMedia.greaterThan('large')`
+        top: -15px;
+        left: -40px;
+        bottom: -15px;
+        width: 30%;
+    `};
+    }
+  }
 `
 
 export const Title = styled.h1`
@@ -113,6 +142,7 @@ export const Social = styled.div``
 
 export const Footer = styled.footer`
   position: relative;
+  padding-bottom: 90px;
 `
 export const ButtonWrapper = styled.footer`
   display: flex;
@@ -130,11 +160,42 @@ export const ButtonWrapper = styled.footer`
     }
   }
 `
+export const ContentHero = styled.div`
+  margin-bottom: 40px;
+
+  h3 {
+    font-size: 40px;
+    font-weight: 600;
+    font-family: var(--headline-font);
+    color: ${({ theme }) => theme.opaqueLight91};
+
+    span {
+      color: ${({ theme }) => theme.accentColor};
+    }
+  }
+`
+export const ContentLeft = styled.div`
+  position: relative;
+  height: 100%;
+  text-align: left;
+
+  &.bg-image {
+  }
+  &.bg-image {
+    &:after {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: -40px;
+    }
+  }
+`
+export const ContentRight = styled.div`
+  text-align: right;
+`
 
 export const Background = styled.div`
   background-size: 100%;
-  align-items: center;
-  justify-content: center;
 
   &.quarter-height,
   .quarter-height {
@@ -177,9 +238,33 @@ export const Background = styled.div`
       background-attachment: fixed;
     }
   }
-  h2 {
-    position: relative;
-    z-index: 2;
-    font-size: 80px;
+  ${customMedia.greaterThan('large')`
+    width: calc(100% - var(--size));
+    margin-left: var(--size);
+  `};
+`
+
+export const MasonryLayout = styled.div`
+  display: flex;
+  flex-flow: column wrap;
+
+  &:before,
+  &:after {
+    content: '';
+    flex-basis: 100%;
+    width: 0;
+    order: 2;
+  }
+`
+export const MasonryLayoutItem = styled.div`
+  &:nth-child(3n + 1) {
+    order: 1;
+    border: 1px solid yellow;
+  }
+  &:nth-child(3n + 2) {
+    order: 2;
+  }
+  &:nth-child(3n) {
+    order: 3;
   }
 `

@@ -1,69 +1,92 @@
 import React from 'react'
-import { Link, graphql, StaticQuery } from 'gatsby'
+import { graphql, StaticQuery } from 'gatsby'
 
 import Layout from '../components/Layout'
 import SEO from '../components/seo'
-// import Bio from "../components/Bio"
-import Header from '../components/Header'
+// import { HeaderNavigation } from '../../components/Navigation'
 import PostCard from '../components/PostCard'
+// import Sticky from '../components/Sticky'
 import WrapGameElement from '../components/Games/Reacteroids'
 
 /* Material UI */
 import Grid from '@material-ui/core/Grid'
 
-import * as S from '../styles/home.styled.js'
+import * as S from '../styles/home/styled'
 
-class BlogIndex extends React.Component {
-  render() {
-    const { data, location } = this.props
-    const siteTitle = data.site.siteMetadata.title
-    const posts = data.allMdx.edges
-    let postCounter = 0
-    return (
-      <Layout title={siteTitle} location={location}>
-        <SEO
-          title="Blog"
-          keywords={[`devlog`, `blog`, `gatsby`, `javascript`, `react`]}
-        />
-        {/* Rasteroids Game */}
-        <WrapGameElement />
+// Images
+import brickWall from '../../static/assets/images/brick-wall.jpg'
 
-        {/* Large Card */}
-        <S.Background className="bg-shapes half-height">
-          <S.Container>
-            <h2>Do you like clowns?</h2>
-          </S.Container>
-        </S.Background>
+const BlogIndex = ({ data, location }) => {
+  const siteTitle = data.site.siteMetadata.title
+  const posts = data.allMdx.edges
+  let postCounter = 0
 
-        {/* Large Card */}
-        <S.Container>
-          {data.site.siteMetadata.description && (
-            <S.Header className="page-head">
-              <h2 className="page-head-title">Blog</h2>
-            </S.Header>
-          )}
+  return (
+    <Layout title={siteTitle} location={location}>
+      <SEO
+        title="Blog"
+        keywords={[`devlog`, `blog`, `gatsby`, `javascript`, `react`]}
+      />
+      {/* Rasteroids Game */}
+      <WrapGameElement />
+      {/* Sticky Nav 
+      <Sticky>
+        <HeaderNavigation />
+      </Sticky> */}
+      {/* Large Card */}
 
+      <S.Container className="container light-background">
+        <S.Header className="page-head">
+          <h2 className="page-head-title">Skills</h2>
+        </S.Header>
+        <S.ContentHero>
           <Grid container spacing={3}>
-            {posts.map(({ node }) => {
-              postCounter++
-              return (
-                <Grid key={node.fields.slug} item xs={12} sm={6} md={6} lg={4}>
-                  <PostCard
-                    count={postCounter}
-                    node={node}
-                    postClass={`post`}
-                  />
-                </Grid>
-              )
-            })}
+            <Grid item xs={12} md={6}>
+              <S.ContentLeft
+                className="bg-image"
+                style={{ backgroundImage: `url(${brickWall})` }}
+              >
+                Left One
+              </S.ContentLeft>
+            </Grid>
+            <Grid item xs={12} md={6}>
+              <S.ContentLeft>
+                <h3>
+                  My <span>Design</span> and <span>Development</span> Skills
+                </h3>
+              </S.ContentLeft>
+            </Grid>
           </Grid>
-          <S.Footer>
-            <S.ButtonWrapper></S.ButtonWrapper>
-          </S.Footer>
-        </S.Container>
-      </Layout>
-    )
-  }
+        </S.ContentHero>
+
+        <S.Content></S.Content>
+        <S.Footer>
+          <S.ButtonWrapper></S.ButtonWrapper>
+        </S.Footer>
+      </S.Container>
+
+      {/* Large Card */}
+      <S.Container className="container dark-background">
+        <S.Header className="page-head">
+          <h2 className="page-head-title">Blog</h2>
+        </S.Header>
+
+        <Grid container spacing={3}>
+          {posts.map(({ node }) => {
+            postCounter++
+            return (
+              <Grid key={node.fields.slug} item xs={12} sm={6} md={6} lg={4}>
+                <PostCard count={postCounter} node={node} postClass={`post`} />
+              </Grid>
+            )
+          })}
+        </Grid>
+        <S.Footer>
+          <S.ButtonWrapper></S.ButtonWrapper>
+        </S.Footer>
+      </S.Container>
+    </Layout>
+  )
 }
 
 {

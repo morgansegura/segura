@@ -13,15 +13,14 @@ export const Main = styled.div`
   z-index: 1;
   position: relative;
   opacity: 1;
-  background-color: ${({ theme }) => theme.bgBody};
+  background-color: ${({ theme }) => theme.Body};
   transition: opacity 0.2s ease-in;
 
   .drawer-open & {
     opacity: 0.15;
   }
   ${customMedia.greaterThan('large')`
-    width: calc(100%-90px);
-    margin-left: 90px;
+
   `}
 `
 export const Wrapper = styled.div`
@@ -72,11 +71,11 @@ export const MainNavToggle = styled.div`
   }
 
   ${customMedia.greaterThan('large')`
-    width: 90px;
-    height: 90px;
-    top: 90px;
+    width: var(--size);
+    height: var(--size);
+    top: var(--size);
     right: inherit;
-    bottom: 90px;
+    bottom: var(--size);
 	`};
 `
 export const Hamburger = styled.div`
@@ -97,8 +96,8 @@ export const Hamburger = styled.div`
     position: absolute;
     top: 45%;
     left: inherit;
-    background-color: ${({ theme }) => theme.ctaColor};
-    height: 4px;
+    background-color: ${({ theme }) => theme.accentColor};
+    height: 3px;
     border-radius: 4px;
     transform-origin: 50% 50%;
     transition: width 0.1s ease-in, transform 0.1s ease-in;
@@ -134,15 +133,15 @@ export const SocialNavToggle = styled.div`
   height: 60px;
   justify-content: center;
   cursor: pointer;
-  background-color: ${({ theme }) => theme.ctaColor};
+  background-color: ${({ theme }) => theme.accentColor};
   font-size: 20px;
   transition: background-color 0.3s ease-out;
 
   &:hover {
-    background-color: ${({ theme }) => theme.ctaLightColor};
+    background-color: ${({ theme }) => theme.accentLightColor};
   }
   &:active {
-    background-color: ${({ theme }) => theme.ctaDarkColor};
+    background-color: ${({ theme }) => theme.accentDarkColor};
   }
 
   svg {
@@ -152,39 +151,53 @@ export const SocialNavToggle = styled.div`
   }
 
   ${customMedia.greaterThan('large')`
-    width: 90px;
-    height: 90px;
+    width: var(--size);
+    height: var(--size);
     top: inherit;
     bottom: 0;
 	`};
 `
 export const FooterWrapper = styled.div`
-  border-top: 1px solid ${({ theme }) => theme.outlines};
+  position: relative;
+  width: 100%;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.6;
+    background-color: ${({ theme }) => theme.Footer};
+  }
+  ${customMedia.greaterThan('large')`
+    margin-left: var(--size);
+    width: calc(100% - var(--size));
+  `}
 `
 
 export const FooterContainer = styled.div`
-  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto;
-  font-size: 14px;
-  padding: 1rem 20px 0.75rem;
-  color: ${({ theme }) => theme.subheadline};
+  font-size: 12px;
+  text-transform: uppercase;
+  font-family: var(--headline-font);
+  height: var(--size);
+  color: ${({ theme }) => theme.opaqueLight41};
 
-  background-color: ${({ theme }) => theme.bgBody};
+  span {
+    position: relative;
+    top: 4px;
+    font-family: var(--headline-font);
+    font-weight: 300;
+    letter-spacing: 1px;
+  }
 
   ${customMedia.greaterThan('large')`
-        justify-content: flex-end;
-        padding-left: 40px;
-        padding-right: 40px;
-    `}
-  p {
-    position: relative;
-    top: -3px;
-    color: ${({ theme }) => theme.headline};
-    opacity: 0.65;
-    font-weight: 300;
-    padding-right: 0.5rem;
-  }
+    justify-content: flex-end;
+    padding-left: 40px;
+    padding-right: 40px;
+  `}
 `

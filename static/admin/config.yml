@@ -60,3 +60,46 @@ collections:
             ],
         }
       - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: "projects" # Used in routes, e.g., /admin/collections/blog
+    label: "Projects" # Used in the UI
+    folder: "content/projects/"
+    path: "{{slug}}/index"
+    media_folder: ""
+    public_folder: ""
+    create: true # Allow users to create new documents in this collection
+    slug: "{{slug}}"
+    extension: "mdx"
+    format: frontmatter
+    fields: # The fields for each document, usually in front matter
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Excerpt", name: "excerpt", widget: "text" }
+      - {
+          label: "Date",
+          name: "date",
+          widget: "datetime",
+          format: "YYYY-MM-DD hh:mm:ss",
+        }
+      - { label: "Thumbnail", name: "thumnail", widget: "image" }
+      - {
+          label: "Author",
+          name: "author",
+          widget: "select",
+          options: ["Morgan Segura"],
+        }
+      - { label: "Tags", name: "tags", widget: "list" }
+      - {
+          label: "Category",
+          name: "category",
+          widget: "select",
+          options:
+            [
+              "Blog",
+              "Projects",
+              "Tutorials",
+              "Quick Tips",
+              "Reviews",
+              "Case Study",
+            ],
+        }
+      - { label: "Body", name: "body", widget: "markdown" }

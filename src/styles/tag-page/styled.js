@@ -1,6 +1,9 @@
+import Img from 'gatsby-image'
 import styled from 'styled-components'
-
 import { generateMedia } from 'styled-media-query'
+
+// import shapesLeft from '../../public/assets/images/shapes-left.svg'
+// import shapesRight from '../../public/assets/images/shapes-right.svg'
 
 const customMedia = generateMedia({
   small: '480px',
@@ -8,15 +11,3 @@ const customMedia = generateMedia({
   large: '1024px',
   huge: '1400px',
 })
-
-export const StickyContainer = styled('div')`
-  position: relative;
-  top: 0;
-
-  &.sticky {
-    position: fixed;
-    width: 100%;
-    height: var(--size);
-    z-index: 10;
-  }
-`

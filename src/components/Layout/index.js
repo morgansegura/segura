@@ -62,7 +62,10 @@ const Layout = props => {
         {/* Main Footer */}
         <S.FooterWrapper>
           <S.FooterContainer>
-            <p>&copy;{new Date().getFullYear()} . Morgan Segura</p>
+            <span>
+              &copy; Morgan Segura {new Date().getFullYear()} / All Projects are
+              Open Source{' '}
+            </span>
           </S.FooterContainer>
         </S.FooterWrapper>
       </S.Wrapper>

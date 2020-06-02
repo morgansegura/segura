@@ -41,7 +41,7 @@ export const HeaderContainer = styled.div`
   position: relative;
   display: flex;
   justify-content: flex-end;
-  padding-right: 60px;
+  padding-right: 50px;
   align-items: center;
   margin-left: auto;
   margin-right: auto;
@@ -61,7 +61,7 @@ export const LogoLink = styled(Link)`
   overflow: hidden;
   align-items: center;
   justify-content: center;
-  width: 75px;
+  width: 70px;
   height: 60px;
 
   ${customMedia.greaterThan('large')`
@@ -71,8 +71,8 @@ export const LogoLink = styled(Link)`
   `}
 
   .logo {
-    height: 45px;
-    width: 45px;
+    height: 40px;
+    width: 40px;
   }
   /* SVG class */
   .cls-2 {

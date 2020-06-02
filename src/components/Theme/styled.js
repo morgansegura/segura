@@ -1,4 +1,3 @@
-import { Link } from 'gatsby'
 import styled from 'styled-components'
 import { generateMedia } from 'styled-media-query'
 
@@ -11,30 +10,44 @@ const customMedia = generateMedia({
 
 export const ToggleContainer = styled.div`
   position: relative;
+  z-index: 2;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 30px;
-  width: 60px;
-  height: 60px;
+  width: 50px;
+  height: 50px;
   cursor: pointer;
-  color: ${({ theme }) => theme.accentColor};
-  transition: color 0.3s ease-out;
+  /* color: ${({ theme }) => theme.textOnLight}; */
+  color: ${({ theme }) => theme.actionOnLight};
+  transition: opacity 0.1s ease-in;
+  /* background: cyan; */
 
   svg {
     transform: ${({ themeStyle }) =>
       themeStyle === 'light' ? 'rotate(180deg)' : 'rotate()'};
-    transition: transform 0.2s ease-out;
+    transition: transform 0.15s ease-out;
   }
-  span {
-    color: red;
+  &:after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    background-color: ${({ theme }) => theme.bgMenuHover};
+    width: 80%;
+    height: 80%;
+    border-radius: 100%;
+    transform: scale(0);
+    transition: transform 0.2s ease-in;
   }
   &:hover {
-    color: ${({ theme }) => theme.HamburgerTextHover};
+    opacity: 1;
+
+    &:after {
+      transform: scale(1);
+    }
   }
 
   ${customMedia.greaterThan('large')`
-    height: var(--size);
-    width: var(--size);
+
   `}
 `

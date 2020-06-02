@@ -120,7 +120,7 @@ const GlobalStyles = createGlobalStyle`
   }
 
   :root { 
-    --size: 60px;
+    --size: 45px;
     --white: #fff;
     --light: #f9f9f9;
     --light-1: #f2f2f2;

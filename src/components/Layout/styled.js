@@ -37,29 +37,19 @@ export const Container = styled.div`
 `
 
 export const MainNavToggle = styled.div`
+  position: relative;
   font-size: 11px;
   font-family: var(--headline-font);
   font-weight: 600;
   text-transform: uppercase;
   cursor: pointer;
-  /* position: absolute; */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  top: 0;
-  right: 60px;
-  width: 60px;
-  height: 60px;
-  background-color: transparent;
-  transition: background-color 0.3s ease-out;
-
-  &:hover {
-    /* background-color: ${({ theme }) => theme.ctaLightColor}; */
-  }
-  &:active {
-    /* background-color: ${({ theme }) => theme.ctaDarkColor}; */
-  }
+  width: 50px;
+  height: 50px;
+  /* background: magenta; */
 
   svg path {
     stroke: white;
@@ -67,42 +57,39 @@ export const MainNavToggle = styled.div`
 
   span {
     position: relative;
-    color: ${({ theme }) => theme.HamburgerText};
+    color: ${({ theme }) => theme.textOnLight};
     display: block;
     font-weight: 300;
     top: -2px;
     opacity: 1;
-    /* letter-spacing: 0.05rem; */
-    transition: color .3s ease-out, display .1s ease-out;
+    transition: color 0.3s ease-out, display 0.1s ease-out;
 
     .drawer-open & {
       display: none;
-    }     
+    }
   }
-
+  &:after {
+    content: '';
+    position: absolute;
+    background-color: ${({ theme }) => theme.bgMenuHover};
+    width: 80%;
+    height: 80%;
+    border-radius: 100%;
+    transform-origin: 50% 50%;
+    transform: scale(0);
+    transition: transform 0.2s ease-out;
+  }
   &:hover {
-
     span {
-       color: ${({ theme }) => theme.HamburgerTextHover};      
+      color: ${({ theme }) => theme.textOnLight};
     }
-
-    .hamburger > .hamburger__center {
-      width: 30px;     
+    &:after {
+      transform: scale(1);
     }
-    .hamburger:before {
-      width: 30px;
-    }    
-    .hamburger:after {
-      width: 30px;
-    }    
   }
 
   ${customMedia.greaterThan('large')`
-    width: var(--size);
-    height: var(--size);
-    top: var(--size);
-    right: auto;
-    bottom: var(--size);
+    
 	`};
 `
 export const Hamburger = styled.div`
@@ -110,8 +97,8 @@ export const Hamburger = styled.div`
   display: flex;
   align-items: center;
   margin-bottom: 0.5rem;
-  width: 30px;
-  height: 30px;
+  width: var(--size);
+  height: var(--size);
 
   .drawer-open & {
     justify-content: center;
@@ -123,67 +110,79 @@ export const Hamburger = styled.div`
   & .hamburger__center {
     content: '';
     position: absolute;
-    top: 45%;
-    left: inherit;
-    background-color: ${({ theme }) => theme.accentOnLight};
+    top: 50%;
+    left: 50%;
+    transform-origin: 50% 50%;
+    /* background-color: ${({ theme }) => theme.textOnLight}; */
+    background-color: magenta;
     height: 3px;
     border-radius: 4px;
-    transform-origin: 50% 50%;
-    transition: width 0.1s ease-in, transform 0.1s ease-in;
+    transition: transform 0.1s ease-in;
   }
   &:before {
-    transform: translateY(-5px);
-    width: 30px;
-
-    .drawer-open & {
-      width: 25px;
-      transform: rotate(45deg);
-    }
-  }
-  & .hamburger__center {
-    transform: translateY(3px);
+    transform: translateY(-5px) translateX(-50%);
     width: 20px;
 
     .drawer-open & {
       width: 25px;
-      transform: rotate(-45deg);
+      transform: rotate(45deg);
+      left: auto;
+    }
+  }
+  & .hamburger__center {
+    transform: translateY(3px) translateX(-50%);
+    width: 20px;
+    transition: width 0.1s ease-in;
+
+    .drawer-open & {
+      opacity: 0;
     }
   }
   &:after {
-    transform: translateY(11px);
-    width: 0;
+    transform: translateY(11px) translateX(-50%);
+    width: 20px;
+    transition: width 0.2s ease-in;
 
     .drawer-open & {
-      width: 23px;
-      opacity: 0;
+      width: 25px;
+      transform: rotate(-45deg);
+      left: auto;
     }
   }
 `
 export const SocialNavToggle = styled.div`
   position: absolute;
   right: 0;
-  top: 0;
+  top: auto;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-shrink: 1;
-  width: 60px;
-  height: 60px;
-  justify-content: center;
+  width: 50px;
+  height: 50px;
   cursor: pointer;
-  font-size: 22px;
-  transition: font-size 0.1s ease-out, stroke 0.3s ease-out;
+  font-size: 26px;
+  transition: transform 0.15s ease-out;
 
   svg {
     path {
-      stroke: ${({ theme }) => theme.accentOnLight};
+      stroke: ${({ theme }) => theme.textOnLight};
     }
   }
+  &:after {
+    content: '';
+    position: absolute;
+    /* z-index: -1; */
+    background-color: ${({ theme }) => theme.bgMenuHover};
+    width: 80%;
+    height: 80%;
+    border-radius: 100%;
+    transform: scale(0);
+    transition: transform 0.2s ease-in;
+  }
   &:hover {
-    svg {
-      path {
-        stroke: ${({ theme }) => theme.accentOnLight2};
-      }
+    &:after {
+      transform: scale(1);
     }
   }
 
@@ -203,7 +202,11 @@ export const SocialNavToggle = styled.div`
     }
     &:active {
       font-size: 22px;
-    }    
+    }  
+    &:after {
+      width: 60%;
+      height: 60%;      
+    }  
 	`};
 `
 export const FooterWrapper = styled.div`

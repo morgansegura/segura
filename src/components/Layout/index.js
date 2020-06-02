@@ -16,12 +16,9 @@ const Layout = props => {
   // Define props
   const { children, location } = props
   // useState Hook
-  const [
-    toggleNav,
-    setToggleNav,
-    toggleSocial,
-    setToggleSocial,
-  ] = React.useState(false)
+  const [toggleNav, setToggleNav, toggleSocial, setToggleSocial] = useState(
+    false
+  )
   // Toggle Theme Colors Mode
   const [theme, toggleTheme, componentMounted] = useDarkMode()
   const themeMode = theme === 'light' ? lightTheme : darkTheme
@@ -35,7 +32,7 @@ const Layout = props => {
       {/* BAse Global Styles */}
       <GlobalStyles />
       <S.Wrapper
-        className={`${toggleNav ? `drawer-open` : `drawer-closed`} ${
+        className={`${toggleNav ? `drawer-open` : ``} ${
           toggleSocial ? `social-drawer-open` : ``
         }`}
       >
@@ -45,7 +42,7 @@ const Layout = props => {
             <S.Hamburger className="hamburger">
               <div className="hamburger__center" />
             </S.Hamburger>
-            <span>Menu</span>
+            {/*<span>Menu</span>*/}
           </S.MainNavToggle>
           <ToggleTheme theme={theme} toggleTheme={toggleTheme} />
           <S.SocialNavToggle onClick={() => setToggleSocial(!toggleSocial)}>

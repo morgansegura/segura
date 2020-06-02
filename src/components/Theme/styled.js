@@ -18,11 +18,8 @@ export const ToggleContainer = styled.div`
   width: 50px;
   height: 50px;
   cursor: pointer;
-  /* color: ${({ theme }) => theme.textOnLight}; */
   color: ${({ theme }) => theme.actionOnLight};
   transition: opacity 0.1s ease-in;
-  /* background: cyan; */
-
   svg {
     transform: ${({ themeStyle }) =>
       themeStyle === 'light' ? 'rotate(180deg)' : 'rotate()'};
@@ -46,7 +43,9 @@ export const ToggleContainer = styled.div`
       transform: scale(1);
     }
   }
-
+  .squeeze-menu & {
+    display: none;
+  }
   ${customMedia.greaterThan('large')`
 
   `}

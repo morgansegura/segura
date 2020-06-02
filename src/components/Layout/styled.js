@@ -87,7 +87,9 @@ export const MainNavToggle = styled.div`
       transform: scale(1);
     }
   }
-
+  .squeeze-menu & {
+    display: none;
+  }
   ${customMedia.greaterThan('large')`
     
 	`};

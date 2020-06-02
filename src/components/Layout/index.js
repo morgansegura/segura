@@ -15,10 +15,11 @@ import { GrApps } from 'react-icons/gr'
 const Layout = props => {
   // Define props
   const { children, location } = props
+
   // useState Hook
-  const [toggleNav, setToggleNav, toggleSocial, setToggleSocial] = useState(
-    false
-  )
+  const [toggleNav, setToggleNav] = useState(false)
+  const [toggleMenu, setToggleMenu] = useState(false)
+
   // Toggle Theme Colors Mode
   const [theme, toggleTheme, componentMounted] = useDarkMode()
   const themeMode = theme === 'light' ? lightTheme : darkTheme
@@ -33,7 +34,7 @@ const Layout = props => {
       <GlobalStyles />
       <S.Wrapper
         className={`${toggleNav ? `drawer-open` : ``} ${
-          toggleSocial ? `social-drawer-open` : ``
+          toggleMenu ? `squeeze-menu` : ``
         }`}
       >
         {/* Header Content */}
@@ -44,8 +45,10 @@ const Layout = props => {
             </S.Hamburger>
             {/*<span>Menu</span>*/}
           </S.MainNavToggle>
+
           <ToggleTheme theme={theme} toggleTheme={toggleTheme} />
-          <S.SocialNavToggle onClick={() => setToggleSocial(!toggleSocial)}>
+
+          <S.SocialNavToggle onClick={() => setToggleMenu(!toggleMenu)}>
             <GrApps />
           </S.SocialNavToggle>
         </Header>
@@ -54,7 +57,7 @@ const Layout = props => {
         <MainNavigation className={`${toggleNav ? `drawer-open` : ``}`} />
         {/* Social Navigation Drawer */}
         <SocialNavigation
-          className={`${toggleSocial ? `social-drawer-open` : ``}`}
+          className={`${toggleMenu ? `social-drawer-open` : ``}`}
         />
         {/* Main Content ({children}) */}
         <S.Main>{children}</S.Main>

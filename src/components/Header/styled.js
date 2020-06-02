@@ -14,6 +14,7 @@ export const HeaderWrapper = styled.div`
   z-index: 11;
   width: 100%;
   height: 60px;
+  transition: width 0.2s ease-out;
 
   &:before {
     content: '';
@@ -24,8 +25,20 @@ export const HeaderWrapper = styled.div`
     height: 100%;
     background: ${({ theme }) => theme.bgHeader};
     border-bottom: 1px solid ${({ theme }) => theme.outlineOnLight};
-    /* opacity: 0.95; */
   }
+
+  .squeeze-menu & {
+    width: auto;
+    right: 0;
+    padding-left: 0.25rem;
+
+    &:before {
+      border-radius: 40px 0 0 40px;
+      border-left: 1px solid ${({ theme }) => theme.outlineOnLight};
+      background-color: ${({ theme }) => theme.opaqueOnLight};
+    }
+  }
+
   ${customMedia.greaterThan('large')`
     top: 0;
     left: 0;
@@ -33,6 +46,11 @@ export const HeaderWrapper = styled.div`
     height: 100%;
     border-right: 1px solid ${({ theme }) => theme.outlineOnLight};
     border-bottom: none;
+
+    .squeeze-menu & {
+      height: auto;
+      border-radius: 0 0 0 20px;
+    }
   `}
 `
 export const HeaderContainer = styled.div`
@@ -77,5 +95,8 @@ export const LogoLink = styled(Link)`
   /* SVG class */
   .cls-2 {
     fill: ${({ theme }) => theme.Logo};
+  }
+  .squeeze-menu & {
+    display: none;
   }
 `

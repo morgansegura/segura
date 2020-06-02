@@ -13,13 +13,17 @@ export const BlogContainer = styled.article`
   max-width: 680px;
   margin-left: auto;
   margin-right: auto;
-  padding-left: 24px;
-  padding-right: 24px;
+  padding: 120px 24px;
+
+  ${customMedia.greaterThan('large')`
+    padding-top: var(--size);
+  `}
+  ${customMedia.greaterThan('huge')`
+    max-width: 1024px;
+  `}
 `
 
-export const BlogHeader = styled.header`
-  margin-top: 40px;
-`
+export const BlogHeader = styled.header``
 
 export const BlogTitle = styled.h1`
   font-size: 40px;
@@ -30,6 +34,9 @@ export const BlogDescription = styled.p`
 `
 
 export const BlogImageWrapper = styled.div`
+  overflow: hidden;
+  margin-top: 2rem;
+
   h3 {
     color: offset;
   }
@@ -76,7 +83,7 @@ export const BlogContent = styled.div`
     font-size: 16px;
     line-height: 32px;
 
-    ${customMedia.greaterThan('medium')`
+    ${customMedia.greaterThan('large')`
         font-size: 18px;
         line-height: 36px;
     `}

@@ -1,85 +1,113 @@
 export const lightTheme = {
-  bgBody: 'var(--light)',
-  bgHeader: 'white',
-  bgFooter: 'var(--base-light)',
-  bgBodyDark: 'var(--base-medium-light)',
+  bgHeader: 'var(--white)',
+  bgFooter: 'var(--light-1)',
+  bgBody: 'var(--white)',
+  Logo: 'var(--dark)',
 
-  links: 'var(--base)',
+  /* Background Color */
+  bgLight: 'var(--base-medium-light)',
+  bgLight1: 'var(--base-medium-light)',
+  bgLight2: 'var(--base-medium-light)',
+  bgLight3: 'var(--base-medium-light)',
+  bgDark: 'var(--base-medium-light)',
+  bgDark1: 'var(--base-medium-light)',
+  bgDark2: 'var(--base-medium-light)',
+  bgDark3: 'var(--base-medium-light)',
 
-  headline: 'var(--base-extra-dark)',
-  subheadline: 'var(--base-medium-dark)',
-  superText: 'var(--base-dark)',
-
-  basText: 'var(--base-dark)',
-  textOnLight: 'var(--base-dark)',
+  /* Text on BG */
+  textOnLight: 'var(--dark)',
+  textOnLight1: 'var(--dark-2)',
+  textOnLight2: 'var(--base-dark)',
   textOnDark: 'var(--base)',
+  textOnDark1: 'var(--base)',
+  textOnDark2: 'var(--base)',
 
-  outlines: 'var(--base-light)',
-  outlinesMedium: 'var(--base-light)',
-  outlinesDark: 'var(--base-light)',
+  /* Border or Outline */
+  outlineOnLight: 'var(--light-2)',
+  outlineOnLight1: 'var(--gray-1)',
+  outlineOnLight2: 'var(--gray-2)',
+  outlineOnDark: 'var(--base-light)',
+  outlineOnDark1: 'var(--base-light)',
+  outlineOnDark2: 'var(--base-light)',
 
-  cards: 'white',
+  /* Opaque */
+  opaqueOnLight: 'rgba(0,0,0,.23)',
+  opaqueOnLight1: 'rgba(0,0,0,.45)',
+  opaqueOnLight2: 'rgba(0,0,0,.67)',
+  opaqueOnDark: 'rgba(255,255,255,.45)',
+  opaqueOnDark1: 'rgba(255,255,255,.67)',
+  opaqueOnDark2: 'rgba(255,255,255,.89)',
 
-  accentColor: 'var(--accent-color)',
-  accentLightColor: 'var(--accent-light-color)',
-  accentDarkColor: 'var(--accent-dark-color)',
-  actionColor: 'var(--cta-color)',
-  actionLightColor: 'var(--cta-light-color)',
-  actionDarkColor: 'var(--cta-dark-color)',
+  /* Accent color */
+  accentOnLight: 'var(--accent-color)',
+  accentOnLight1: 'var(--accent-light-color)',
+  accentOnLight2: 'var(--accent-dark-color)',
+  accentOnDark: 'var(--accent-color)',
+  accentOnDark1: 'var(--accent-light-color)',
+  accentOnDark2: 'var(--accent-dark-color)',
+
+  /* Action Color */
+  actionOnLight: 'var(--cta-color)',
+  actionOnLight1: 'var(--cta-light-color)',
+  actionOnLight2: 'var(--cta-light-color)',
+  actionOnDark: 'var(--cta-dark-color)',
+  actionOnDark1: 'var(--cta-dark-color)',
+  actionOnDark2: 'var(--cta-dark-color)',
 }
 
 export const darkTheme = {
-  // Defaults
-  Body: 'var(--dark-5)',
-  Header: 'var(--dark-1)',
-  HeaderText: 'var(--gray-3)',
-  Footer: 'var(--dark-1)',
-  HeaderNav: 'var(--dark-4)',
-  HeaderNavText: 'var(--white)',
-
+  bgHeader: 'var(--dark-2)',
+  bgFooter: 'var(--dark-2)',
+  bgBody: 'var(--dark-4)',
   Logo: 'var(--accent-color)',
-  text: 'var(--gray)',
 
-  // Menu
-  HamburgerText: 'var(--gray-4)',
-  HamburgerTextHover: 'var(--light)',
+  /* Background Color */
+  bgLight: 'var(--base-medium-light)',
+  bgLight1: 'var(--base-medium-light)',
+  bgLight2: 'var(--base-medium-light)',
+  bgLight3: 'var(--base-medium-light)',
+  bgDark: 'var(--base-medium-light)',
+  bgDark1: 'var(--base-medium-light)',
+  bgDark2: 'var(--base-medium-light)',
+  bgDark3: 'var(--base-medium-light)',
 
-  // Container
-  BaseContainerLight: 'rgba(255, 255, 255, 0.11)',
-  BaseContainerDark: 'var(--dark-2)',
-
-  // Opaque
-  opaqueLight041: 'rgba(255, 255, 255, 0.041)',
-  opaqueLight41: 'rgba(255, 255, 255, 0.41)',
-  opaqueLight71: 'rgba(255,255,255,0.71)',
-  opaqueLight91: 'rgba(255,255,255,0.91)',
-
-  links: 'var(--base)',
-
-  headline: 'var(--base-extra-dark)',
-  subheadline: 'var(--base-medium-dark)',
-  superText: 'var(--base-dark)',
-
-  basText: 'var(--base-dark)',
-  textOnLight: 'var(--base-dark)',
+  /* Text on BG */
+  textOnLight: 'var(--light)',
+  textOnLight1: 'var(--gray)',
+  textOnLight2: 'var(--gray-4)',
   textOnDark: 'var(--base)',
+  textOnDark1: 'var(--base)',
+  textOnDark2: 'var(--base)',
 
-  outlines: 'var(--base-light)',
-  outlinesMedium: 'var(--base-light)',
-  outlinesDark: 'var(--base-light)',
+  /* Border or Outline */
+  outlineOnLight: 'var(--dark)',
+  outlineOnLight1: 'var(--gray-1)',
+  outlineOnLight2: 'var(--gray-2)',
+  outlineOnDark: 'var(--base-light)',
+  outlineOnDark1: 'var(--base-light)',
+  outlineOnDark2: 'var(--base-light)',
 
-  // Cards
-  Cards: 'rgba(255,255,255,0.1)',
-  CardsHeadline: 'var(--white)',
-  CardsSubheading: 'var(--light)',
-  CardsText: 'rgba(255,255,255,0.71)',
-  CardsOffset: 'var(--dark-3)',
-  CardsOutlines: 'rgba(255,255,255,0.1)',
+  /* Opaque */
+  opaqueOnLight: 'rgba(0,0,0,.23)',
+  opaqueOnLight1: 'rgba(0,0,0,.45)',
+  opaqueOnLight2: 'rgba(0,0,0,.67)',
+  opaqueOnDark: 'rgba(255,255,255,.45)',
+  opaqueOnDark1: 'rgba(255,255,255,.67)',
+  opaqueOnDark2: 'rgba(255,255,255,.89)',
 
-  accentColor: 'var(--accent-color)',
-  accentLightColor: 'var(--accent-light-color)',
-  accentDarkColor: 'var(--accent-dark-color)',
-  actionColor: 'var(--action-color)',
-  actionLightColor: 'var(--action-light-color)',
-  actionDarkColor: 'var(--action-dark-color)',
+  /* Accent color */
+  accentOnLight: 'var(--accent-color)',
+  accentOnLight1: 'var(--accent-light-color)',
+  accentOnLight2: 'var(--accent-dark-color)',
+  accentOnDark: 'var(--accent-color)',
+  accentOnDark1: 'var(--accent-light-color)',
+  accentOnDark2: 'var(--accent-dark-color)',
+
+  /* Action Color */
+  actionOnLight: 'var(--action-color)',
+  actionOnLight1: 'var(--action-light-color)',
+  actionOnLight2: 'var(--action-dark-color)',
+  actionOnDark: 'var(--action-color)',
+  actionOnDark1: 'var(--action-light-color)',
+  actionOnDark2: 'var(--action-dark-color)',
 }

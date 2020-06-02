@@ -22,14 +22,17 @@ export const HeaderWrapper = styled.div`
     left: 0;
     width: 100%;
     height: 100%;
-    background: ${({ theme }) => theme.Header};
-    opacity: 0.6;
+    background: ${({ theme }) => theme.bgHeader};
+    border-bottom: 1px solid ${({ theme }) => theme.outlineOnLight};
+    /* opacity: 0.95; */
   }
   ${customMedia.greaterThan('large')`
     top: 0;
     left: 0;
     width: var(--size);
     height: 100%;
+    border-right: 1px solid ${({ theme }) => theme.outlineOnLight};
+    border-bottom: none;
   `}
 `
 export const HeaderContainer = styled.div`

@@ -60,9 +60,9 @@ const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
   }
   body {
-    background: ${({ theme }) => theme.Body};
+    background: ${({ theme }) => theme.bgBody};
     font-weight: 500;
-    color: ${({ theme }) => theme.text};
+    color: ${({ theme }) => theme.textOnLight};
     text-size-adjust: 100%;
     font-size: 100%;
     font-family: var(--base-font);
@@ -100,7 +100,7 @@ const GlobalStyles = createGlobalStyle`
   padding-left: 20px;
   padding-right: 20px;
 
-  ${customMedia.greaterThan('medium')`
+  ${customMedia.greaterThan('large')`
       margin-left: var(--size);
       width: calc(100% - var(--size));
       padding-left: 40px;
@@ -108,26 +108,19 @@ const GlobalStyles = createGlobalStyle`
   `};
 }
 
-  .light-background {
-    background-color: ${({ theme }) => theme.BaseContainerLight};
-  }
-  .dark-background {
-    background-color: ${({ theme }) => theme.BaseContainerDark}; 
-  }
-
   a {
-    color: ${({ theme }) => theme.actionColor};
+    color: ${({ theme }) => theme.actionOnLight};
     transition: color .2s ease-out;
     &:hover {
-      color: ${({ theme }) => theme.actionLightColor};
+      color: ${({ theme }) => theme.actionOnLight1};
     }
     &:active {
-      color: ${({ theme }) => theme.ctaDarkColor};
+      color: ${({ theme }) => theme.actionOnLight2};
     }
   }
 
   :root { 
-    --size: 80px;
+    --size: 60px;
     --white: #fff;
     --light: #f9f9f9;
     --light-1: #f2f2f2;
@@ -162,10 +155,18 @@ const GlobalStyles = createGlobalStyle`
     --action-light-color: #90CAF9;
     --action-dark-color-: #1976D2;
 
+    --action-on-dark-color: #2196F3;
+    --action-on-dark-light-color: #90CAF9;
+    --action-on-dark-dark-color-: #1976D2;
+
     --width-container: 1400px;
     --headline-font: "Hind", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     --serif-font: "Merriweather", serif;
     --base-font: "rasmus andersson", "Noto Sans", Noto Sans JP,Noto Sans KR,Noto Naskh Arabic,Noto Sans Thai,Noto Sans Hebrew,Noto Sans Bengali,sans-serif;
+
+  ${customMedia.greaterThan('large')`
+    --size: 80px;
+  `};    
   }
 `
 export default GlobalStyles

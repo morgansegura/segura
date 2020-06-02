@@ -8,7 +8,7 @@ import SEO from 'react-seo-component'
 import { useSiteMetadata } from '../hooks/useSiteMetadata'
 
 /* Styled Components */
-import * as S from '../styles/project-post/styled'
+import * as S from '../styles/blog-post/styled'
 
 export default ({ data, location, pageContext }) => {
   const {

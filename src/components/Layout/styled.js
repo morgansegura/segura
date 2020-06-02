@@ -13,7 +13,7 @@ export const Main = styled.div`
   z-index: 1;
   position: relative;
   opacity: 1;
-  background-color: ${({ theme }) => theme.Body};
+  background-color: ${({ theme }) => theme.bgBody};
   transition: opacity 0.2s ease-in;
 
   .drawer-open & {
@@ -125,7 +125,7 @@ export const Hamburger = styled.div`
     position: absolute;
     top: 45%;
     left: inherit;
-    background-color: ${({ theme }) => theme.accentColor};
+    background-color: ${({ theme }) => theme.accentOnLight};
     height: 3px;
     border-radius: 4px;
     transform-origin: 50% 50%;
@@ -172,17 +172,17 @@ export const SocialNavToggle = styled.div`
   justify-content: center;
   cursor: pointer;
   font-size: 22px;
-  transition: background-color 0.3s ease-out;
+  transition: font-size 0.1s ease-out, stroke 0.3s ease-out;
 
   svg {
     path {
-      stroke: ${({ theme }) => theme.accentLightColor};
+      stroke: ${({ theme }) => theme.accentOnLight};
     }
   }
   &:hover {
     svg {
       path {
-        stroke: ${({ theme }) => theme.HamburgerTextHover};
+        stroke: ${({ theme }) => theme.accentOnLight2};
       }
     }
   }
@@ -192,23 +192,24 @@ export const SocialNavToggle = styled.div`
     height: var(--size);
     top: inherit;
     bottom: 0;
-    background-color: ${({ theme }) => theme.accentColor};
+    background-color: ${({ theme }) => theme.accentOnLight};
     svg {
       path {
-        stroke: ${({ theme }) => theme.HamburgerTextHover};
+        stroke: ${({ theme }) => theme.bgHeader};
       }
     }    
     &:hover {
-      background-color: ${({ theme }) => theme.accentLightColor};
+      font-size: 26px;
     }
     &:active {
-      background-color: ${({ theme }) => theme.accentDarkColor};
+      font-size: 22px;
     }    
 	`};
 `
 export const FooterWrapper = styled.div`
   position: relative;
   width: 100%;
+  color: ${({ theme }) => theme.textOnLight1};
 
   &:before {
     content: '';
@@ -217,8 +218,8 @@ export const FooterWrapper = styled.div`
     left: 0;
     width: 100%;
     height: 100%;
-    opacity: 0.6;
-    background-color: ${({ theme }) => theme.Footer};
+    background-color: ${({ theme }) => theme.bgFooter};
+    border-top: 1px solid ${({ theme }) => theme.outlineOnLight};
   }
   ${customMedia.greaterThan('large')`
     margin-left: var(--size);
@@ -234,7 +235,6 @@ export const FooterContainer = styled.div`
   text-transform: uppercase;
   font-family: var(--headline-font);
   height: var(--size);
-  color: ${({ theme }) => theme.opaqueLight41};
 
   span {
     position: relative;

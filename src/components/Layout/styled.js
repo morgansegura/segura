@@ -185,13 +185,14 @@ export const SocialNavToggle = styled.div`
     height: 90%;
     border-radius: 100%;
     transform: scale(0);
-    transition: transform 0.2s ease-in;
+    transition: transform 0.1s ease-in;
   }
   &:hover {
     &:after {
       transform: scale(1);      
     }
     svg {
+      transition: transform 0.1s ease-in;
       path {
         stroke: cyan;
       }
@@ -199,25 +200,25 @@ export const SocialNavToggle = styled.div`
   }
   &:active {
     svg {
-      transform: scale(1.1);
-      transition: transform 0.1s ease-out;    
+      transition: transform 0.1s ease-out;
     }  
   }
   .squeeze-menu & {
-    background-color: cyan;
-    transition: opacity 0.2s ease-out;
+    background-color: rgba(0,255,255,.8);
+    transition: opacity 0.2s ease-out, background-color 0.2s ease-out;
     border-radius: 100%;
     svg {
-      transform: scale(1);
+      transform: rotate(90deg);
+      transition: transform 0.1s ease-in;
       path {
-        stroke: var(--dark);
+        fill: var(--dark);
       }
     }
     &:after {
       background-color: transparent; 
     }   
     &:hover {
-      opacity: .8;
+      background-color: cyan;    
       &:after {
        background-color: transparent; 
       }      

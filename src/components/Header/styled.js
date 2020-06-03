@@ -17,7 +17,7 @@ export const HeaderWrapper = styled.div`
   right: 0;
   width: 100%;
   height: 60px;
-  transition: width 0.2s ease-out;
+  transition: width 0.2s ease-in;
 
 
   &:before {
@@ -34,7 +34,7 @@ export const HeaderWrapper = styled.div`
   .squeeze-menu & {
     width: 65px;
     height: 60px;
-
+    transition: width 0.2s ease-out;
     &:before {
       width: 50px;
       height: 50px;
@@ -91,7 +91,12 @@ export const LogoLink = styled(Link)`
   width: 35px;
   height: 35px;
   overflow: hidden;
+  transform: scale(1);
+  transition: transform 0.2s ease-out;
 
+  &:hover {
+    transform: scale(1.1);
+  }
   .logo {
     width: 35px;
   }

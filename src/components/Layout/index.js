@@ -10,7 +10,7 @@ import { ThemeProvider } from 'styled-components'
 import GlobalStyles from '../../styles/global'
 import * as S from './styled'
 
-import { GrApps, GrProjects } from 'react-icons/gr'
+import { GrMoreVertical } from 'react-icons/gr'
 
 const Layout = props => {
   // Define props
@@ -49,7 +49,7 @@ const Layout = props => {
           <ToggleTheme theme={theme} toggleTheme={toggleTheme} />
 
           <S.SocialNavToggle onClick={() => setToggleMenu(!toggleMenu)}>
-            {!toggleMenu ? <GrApps /> : <GrProjects />}
+            <GrMoreVertical />
           </S.SocialNavToggle>
         </Header>
 

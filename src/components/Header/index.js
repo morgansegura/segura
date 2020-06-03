@@ -1,7 +1,8 @@
 import React from 'react'
 import { Link } from 'gatsby'
 /* Images */
-import Logo from '../../../static/assets/icons/segura-icon.svg'
+import Logo from '../../../static/assets/icons/segura-square-icon.svg'
+import Icon from '../../../static/assets/icons/segura-square-icon.svg'
 /* React Icons */
 import { DiGithubAlt, DiCodepen } from 'react-icons/di'
 import {
@@ -26,6 +27,7 @@ const Header = ({ children, ...otherProps }) => {
       <S.HeaderContainer>
         <S.LogoLink to="/" title="Home" aria-label="Home">
           <Logo className="logo" />
+          <Icon className="icon" />
         </S.LogoLink>
         {children}
       </S.HeaderContainer>

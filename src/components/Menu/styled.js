@@ -11,48 +11,28 @@ const customMedia = generateMedia({
 
 export const MenuLabel = styled.p`
   position: absolute;
-  left: -3rem;
-  bottom: 140px;
+  left: 0;
+  top: 50%;
   display: flex;
+  /* align-items: flex-end;
+  justify-content: flex-start; */
   z-index: 2;
   font-size: 95px;
   font-family: var(--headline-font);
   font-weight: 600;
   text-transform: uppercase;
   color: ${({ theme }) => theme.opaqueOnLight};
+  background-color: ${({ theme }) => theme.opaqueOnLight};
   transform: rotate(-90deg);
+  display: none;
 
   ${customMedia.greaterThan('large')`
-    left: -1rem;
-	`};
-`
-export const MenuLogo = styled.p`
-  position: relative;
-  z-index: 2;
-  font-size: 30px;
-  font-family: var(--headline-font);
-  font-weight: 600;
-  text-transform: uppercase;
-  padding: 1.125rem 0;
-  color: ${({ theme }) => theme.textOnLight};
-  margin-bottom: 1.25rem;
 
-  &:before {
-    content: '';
-    position: absolute;
-    z-index: -1;
-    top: 0;
-    left: -1.5rem;
-    padding-left: 1.5rem;
-    height: 100%;
-    width: 100%;
-    background-color: ${({ theme }) => theme.opaqueOnLight};
-  }
+	`};
 `
 
 export const MainNavDrawer = styled.div`
   position: fixed;
-  /* z-index: -1; */
   display: flex;
   width: 100%;
   height: calc(100% - 60px);
@@ -68,7 +48,6 @@ export const MainNavDrawer = styled.div`
   ${customMedia.greaterThan('large')`
 		top: 0;
 		height: 100%;
-		left: var(--size);
 	`};
 `
 export const MainNav = styled.nav`
@@ -81,6 +60,7 @@ export const MainNav = styled.nav`
   padding-top: 45px;
   padding-left: var(--size);
   background-color: ${({ theme }) => theme.bgDrawer};
+  border-left: 80px solid ${({ theme }) => theme.opaqueOnLight};
   box-shadow: 0 0 40px ${({ theme }) => theme.bgDrawerShadow};
   display: flex;
   flex-direction: column;
@@ -89,10 +69,13 @@ export const MainNav = styled.nav`
     left: 0;
     transition: left 0.4s ease-out;
   }
+  .squeeze-menu & {
+    display: none;
+  }
 
   ${customMedia.greaterThan('large')`
     width: 45%;
-	  padding-top: var(--size);
+	  padding-top: 200px;
   `};
 `
 export const MainNavLink = styled(Link)`
@@ -111,6 +94,19 @@ export const MainNavLink = styled(Link)`
   align-items: center;
   transition: color 0.3 ease-out;
 
+  &:before {
+    content: '';
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    left: -1.5rem;
+    top: 45%;
+    transform: translateY(-55%);
+    height: 10px;
+    width: 10px;
+    background-color: ${({ theme }) => theme.opaqueOnLight};
+  }
   &:after {
     content: '';
     position: absolute;
@@ -135,36 +131,5 @@ export const MainNavLink = styled(Link)`
       height: 100%;
       background-color: ${({ theme }) => theme.opaqueOnLight2};
     }
-  }
-`
-
-export const SocialNavDrawer = styled.div`
-	position: fixed;
-	width: 100%;
-	height: 100%;
-	top: 60px;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	/* background-color: ${({ theme }) => theme.bgBodyDark}; */
-	background: pink;
-	padding-bottom: 60px;
-	padding-left: 60px;
-	display: none;
-  
-  ${customMedia.greaterThan('large')`
-    top: 0;
-    left: var(--size);
-  `};
-`
-export const SocialNav = styled.nav`
-  a {
-    padding: 1rem 0;
-    text-transform: uppercase;
-    font-size: 14px;
-    font-family: var(--headline-font);
-    font-weight: 600;
-    text-decoration: none;
-    color: ${({ theme }) => theme.headline};
   }
 `

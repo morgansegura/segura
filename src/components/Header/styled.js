@@ -11,35 +11,41 @@ const customMedia = generateMedia({
 
 export const HeaderWrapper = styled.div`
   position: fixed;
+  display: flex;
+  align-items: center;  
   z-index: 11;
+  right: 0;
   width: 100%;
   height: 60px;
   transition: width 0.2s ease-out;
 
+
   &:before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
+    top: auto;
     width: 100%;
     height: 100%;
-    background: ${({ theme }) => theme.bgHeader};
+    background-color: ${({ theme }) => theme.bgHeader};
     border-bottom: 1px solid ${({ theme }) => theme.outlineOnLight};
+    transition: background-color 1s ease-out;
   }
 
   .squeeze-menu & {
-    width: auto;
-    right: 0;
-    padding-left: 0.25rem;
+    width: 65px;
+    height: 60px;
 
     &:before {
-      border-radius: 40px 0 0 40px;
-      border-left: 1px solid ${({ theme }) => theme.outlineOnLight};
-      background-color: ${({ theme }) => theme.opaqueOnLight};
+      width: 50px;
+      height: 50px;
+      right: 0.5rem;      
+      border-radius: 100%;
+      border-bottom-color: transparent;
+      background-color: transparent;
     }
   }
 
-  ${customMedia.greaterThan('large')`
+  /* ${customMedia.greaterThan('large')`
     top: 0;
     left: 0;
     width: var(--size);
@@ -49,54 +55,78 @@ export const HeaderWrapper = styled.div`
 
     .squeeze-menu & {
       height: auto;
+      border-right: none;
       border-radius: 0 0 0 20px;
     }
-  `}
+  `} */
 `
 export const HeaderContainer = styled.div`
   width: 100%;
   height: 100%;
   position: relative;
   display: flex;
+  align-items: center;  
   justify-content: flex-end;
-  padding-right: 50px;
-  align-items: center;
-  margin-left: auto;
-  margin-right: auto;
+  padding-right: 58px;
 
-  ${customMedia.greaterThan('large')`
+  .squeeze-menu & {
+    padding-right: 0;
+  }
+
+  /* ${customMedia.greaterThan('large')`
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
     padding-right: 0;
-	`}
+	`} */
 `
 
 export const LogoLink = styled(Link)`
   position: absolute;
-  left: 0;
+  left: 1.5rem;
   display: flex;
   overflow: hidden;
   align-items: center;
   justify-content: center;
-  width: 70px;
-  height: 60px;
-
-  ${customMedia.greaterThan('large')`
-    position: relative;
-    height: var(--size);
-    width: var(--size);
-  `}
+  width: 35px;
+  height: 35px;
+  overflow: hidden;
 
   .logo {
-    height: 40px;
-    width: 40px;
+    width: 35px;
+  }
+  .icon {
+    display: none;
   }
   /* SVG class */
-  .cls-2 {
-    fill: ${({ theme }) => theme.Logo};
+  svg {
+    position: absolute;
+    path {
+      fill: ${({ theme }) => theme.Logo};
+    }
   }
   .squeeze-menu & {
     display: none;
   }
+
+  /* ${customMedia.greaterThan('large')`
+    position: relative;
+    top: 0.25rem;
+    left: auto;
+    width: 60px;
+    height: 80px;
+
+    .logo {
+      display: none;
+    }
+    .icon {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 30px;
+      width: auto;
+    }
+    svg {}
+  `} */
 `

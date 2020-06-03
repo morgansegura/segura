@@ -64,7 +64,7 @@ export const darkTheme = {
   bgBody: 'var(--dark-4)',
   bgDrawer: 'var(--dark-4)',
   bgDrawerShadow: 'black',
-  Logo: 'var(--accent-color)',
+  Logo: 'var(--gray-2)',
   bgMenuHover: 'rgba(255,255,255,.1)',
 
   /* Background Color */

@@ -4,13 +4,13 @@ import { useDarkMode } from '../Theme/useDarkMode'
 import { lightTheme, darkTheme } from '../Theme/themeStyles'
 import ToggleTheme from '../Theme/toggleTheme'
 import Header from '../Header'
-import { SocialNavigation, MainNavigation } from '../Menu'
+import { MainNavigation } from '../Menu'
 /* Styled Components */
 import { ThemeProvider } from 'styled-components'
 import GlobalStyles from '../../styles/global'
 import * as S from './styled'
 
-import { GrApps } from 'react-icons/gr'
+import { GrApps, GrProjects } from 'react-icons/gr'
 
 const Layout = props => {
   // Define props
@@ -49,16 +49,13 @@ const Layout = props => {
           <ToggleTheme theme={theme} toggleTheme={toggleTheme} />
 
           <S.SocialNavToggle onClick={() => setToggleMenu(!toggleMenu)}>
-            <GrApps />
+            {!toggleMenu ? <GrApps /> : <GrProjects />}
           </S.SocialNavToggle>
         </Header>
 
         {/* Main Navigation Drawer */}
-        <MainNavigation className={`${toggleNav ? `drawer-open` : ``}`} />
-        {/* Social Navigation Drawer */}
-        <SocialNavigation
-          className={`${toggleMenu ? `social-drawer-open` : ``}`}
-        />
+        <MainNavigation />
+
         {/* Main Content ({children}) */}
         <S.Main>{children}</S.Main>
         {/* Main Footer */}

@@ -19,6 +19,9 @@ export const Main = styled.div`
   .drawer-open & {
     opacity: 0.15;
   }
+  .squeeze-menu & {
+    opacity: 1;
+  }
   ${customMedia.greaterThan('large')`
 
   `}
@@ -39,52 +42,50 @@ export const Container = styled.div`
 export const MainNavToggle = styled.div`
   position: relative;
   font-size: 11px;
+  /* left: 50px; */
+  z-index: 10;
   font-family: var(--headline-font);
   font-weight: 600;
   text-transform: uppercase;
   cursor: pointer;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 50px;
   height: 50px;
-  /* background: magenta; */
 
-  svg path {
-    stroke: white;
-  }
-
-  span {
-    position: relative;
-    color: ${({ theme }) => theme.textOnLight};
-    display: block;
-    font-weight: 300;
-    top: -2px;
-    opacity: 1;
-    transition: color 0.3s ease-out, display 0.1s ease-out;
-
-    .drawer-open & {
-      display: none;
-    }
-  }
   &:after {
     content: '';
     position: absolute;
-    background-color: ${({ theme }) => theme.bgMenuHover};
-    width: 80%;
-    height: 80%;
+    width: 100%;
+    height: 100%;
     border-radius: 100%;
     transform-origin: 50% 50%;
     transform: scale(0);
+    background-color: ${({ theme }) => theme.bgMenuHover};
     transition: transform 0.2s ease-out;
   }
   &:hover {
-    span {
-      color: ${({ theme }) => theme.textOnLight};
-    }
     &:after {
       transform: scale(1);
+      transition: transform 0.2s ease-out;
+    }
+    & .hamburger:before,
+    & .hamburger:after,
+    & .hamburger__center {
+      background-color: magenta;
+    }
+  }
+  .drawer-open & {
+    & .hamburger:before,
+    & .hamburger:after,
+    & .hamburger__center {
+      background-color: magenta;
+    }
+    & .hamburger:before,
+    & .hamburger:after,
+    & .hamburger__center {
+      /* transition: transform 0.1s ease-in; */
     }
   }
   .squeeze-menu & {
@@ -98,9 +99,8 @@ export const Hamburger = styled.div`
   position: relative;
   display: flex;
   align-items: center;
-  margin-bottom: 0.5rem;
-  width: var(--size);
-  height: var(--size);
+  width: 50px;
+  height: 50px;
 
   .drawer-open & {
     justify-content: center;
@@ -112,49 +112,52 @@ export const Hamburger = styled.div`
   & .hamburger__center {
     content: '';
     position: absolute;
-    top: 50%;
+    z-index: 1;
     left: 50%;
     transform-origin: 50% 50%;
-    /* background-color: ${({ theme }) => theme.textOnLight}; */
-    background-color: magenta;
+    background-color: ${({ theme }) => theme.textOnLight};
     height: 3px;
-    border-radius: 4px;
-    transition: transform 0.1s ease-in;
+    border: none;
+    transform: translateX(-50%);
+    transition: rotate 0.1s ease-in;
   }
   &:before {
-    transform: translateY(-5px) translateX(-50%);
-    width: 20px;
-
-    .drawer-open & {
-      width: 25px;
-      transform: rotate(45deg);
-      left: auto;
-    }
-  }
-  & .hamburger__center {
-    transform: translateY(3px) translateX(-50%);
-    width: 20px;
-    transition: width 0.1s ease-in;
-
+    top: 32%;
+    width: 25px;
     .drawer-open & {
       opacity: 0;
     }
   }
+  & .hamburger__center {
+    top: 47%;
+    width: 25px;
+    transition: width 0.1s ease-in;
+
+    .drawer-open & {
+      width: 28px;
+      top: 50%;
+      transform: rotate(45deg) translateY(-50%) translateX(0);
+      left: 22%;
+    }
+  }
   &:after {
-    transform: translateY(11px) translateX(-50%);
-    width: 20px;
+    top: 63%;
+    transform: translateX(-50%);
+    width: 25px;
     transition: width 0.2s ease-in;
 
     .drawer-open & {
-      width: 25px;
-      transform: rotate(-45deg);
-      left: auto;
+      top: 50%;
+      width: 28px;
+      transform: rotate(-45deg) translateY(-50%) translateX(0);
+      left: 24%;
     }
   }
 `
 export const SocialNavToggle = styled.div`
   position: absolute;
-  right: 0;
+  z-index: 2;
+  right: 0.5rem;
   top: auto;
   display: flex;
   justify-content: center;
@@ -163,53 +166,79 @@ export const SocialNavToggle = styled.div`
   width: 50px;
   height: 50px;
   cursor: pointer;
-  font-size: 26px;
-  transition: transform 0.15s ease-out;
+  font-size: 24px;
+  
+  transition: transform 0.15s ease-out;  
 
   svg {
     path {
       stroke: ${({ theme }) => theme.textOnLight};
+      transition: stroke 0.2s ease-in;
     }
   }
   &:after {
     content: '';
+    z-index: 1;
     position: absolute;
-    /* z-index: -1; */
     background-color: ${({ theme }) => theme.bgMenuHover};
-    width: 80%;
-    height: 80%;
+    width: 90%;
+    height: 90%;
     border-radius: 100%;
     transform: scale(0);
     transition: transform 0.2s ease-in;
   }
   &:hover {
     &:after {
+      transform: scale(1);      
+    }
+    svg {
+      path {
+        stroke: cyan;
+      }
+    }    
+  }
+  &:active {
+    svg {
+      transform: scale(1.1);
+      transition: transform 0.1s ease-out;    
+    }  
+  }
+  .squeeze-menu & {
+    background-color: cyan;
+    transition: opacity 0.2s ease-out;
+    border-radius: 100%;
+    svg {
       transform: scale(1);
+      path {
+        stroke: var(--dark);
+      }
+    }
+    &:after {
+      background-color: transparent; 
+    }   
+    &:hover {
+      opacity: .8;
+      &:after {
+       background-color: transparent; 
+      }      
     }
   }
 
-  ${customMedia.greaterThan('large')`
-    width: var(--size);
-    height: var(--size);
+  /* ${customMedia.greaterThan('large')`
+    position: relative;
     top: inherit;
     bottom: 0;
-    background-color: ${({ theme }) => theme.accentOnLight};
-    svg {
-      path {
-        stroke: ${({ theme }) => theme.bgHeader};
-      }
-    }    
+
     &:hover {
-      font-size: 26px;
+
     }
     &:active {
-      font-size: 22px;
+
     }  
     &:after {
-      width: 60%;
-      height: 60%;      
+
     }  
-	`};
+	`}; */
 `
 export const FooterWrapper = styled.div`
   position: relative;

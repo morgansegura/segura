@@ -18,8 +18,8 @@ export const ToggleContainer = styled.div`
   width: 50px;
   height: 50px;
   cursor: pointer;
-  color: ${({ theme }) => theme.actionOnLight};
-  transition: opacity 0.1s ease-in;
+  color: ${({ theme }) => theme.textOnLight};
+  transition: opacity 0.1s ease-in, color 0.1s ease-in;
   svg {
     transform: ${({ themeStyle }) =>
       themeStyle === 'light' ? 'rotate(180deg)' : 'rotate()'};
@@ -30,14 +30,15 @@ export const ToggleContainer = styled.div`
     position: absolute;
     z-index: -1;
     background-color: ${({ theme }) => theme.bgMenuHover};
-    width: 80%;
-    height: 80%;
+    width: 100%;
+    height: 100%;
     border-radius: 100%;
     transform: scale(0);
     transition: transform 0.2s ease-in;
   }
   &:hover {
     opacity: 1;
+    color: ${({ theme }) => theme.actionOnLight};
 
     &:after {
       transform: scale(1);

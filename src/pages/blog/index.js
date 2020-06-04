@@ -66,6 +66,7 @@ export const pageQuery = graphql`
             title
             description
             tags
+            author
             # thumbnail
             thumbnail {
               childImageSharp {

@@ -2,6 +2,8 @@ import React, { Fragment } from 'react'
 import _ from 'lodash'
 import { Link } from 'gatsby'
 
+import * as S from './styled'
+
 const Tags = ({ tags, tagLink }) => {
   return (
     <div className="post-card-tags">
@@ -11,16 +13,13 @@ const Tags = ({ tags, tagLink }) => {
             <Fragment key={tag}>
               {tagLink ? (
                 <span>
-                  <Link
-                    className="post-card-tag-link"
-                    to={`/tags/${_.kebabCase(tag)}`}
-                  >
-                    #{tag}
+                  <Link to={`/tags/${_.kebabCase(tag)}`}>
+                    <S.Tag>#{tag}</S.Tag>
                   </Link>{' '}
                 </span>
               ) : (
                 <Fragment key={tag}>
-                  <span>#{tag}</span>{' '}
+                  <S.Tag>#{tag}</S.Tag>{' '}
                 </Fragment>
               )}
             </Fragment>

@@ -9,97 +9,123 @@ backend:
     delete: Delete {{collection}} “{{slug}}”
     uploadMedia: Upload “{{path}}”
     deleteMedia: Delete “{{path}}”
-    openAuthoring: "{{message}}"
+    openAuthoring: '{{message}}'
 
 publish_mode: editorial_workflow
-media_folder: "static/assets/images/"
-public_folder: "content/assets/"
+media_folder: 'static/assets/images/'
+public_folder: 'content/assets/'
 show_preview_links: true
 
 collections:
-  #Posts (English)
-  - name: "posts" # Used in routes, e.g., /admin/collections/blog
-    label: "Posts" # Used in the UI
-    folder: "content/blog/"
-    path: "{{slug}}/index"
-    media_folder: ""
-    public_folder: ""
+  # Posts
+  - name: 'posts' # Used in routes, e.g., /admin/collections/blog
+    label: 'Posts' # Used in the UI
+    folder: 'content/blog/'
+    path: '{{slug}}/index'
+    media_folder: ''
+    public_folder: ''
     create: true # Allow users to create new documents in this collection
-    slug: "{{slug}}"
-    extension: "mdx"
+    slug: '{{slug}}'
+    extension: 'mdx'
     format: frontmatter
     fields: # The fields for each document, usually in front matter
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Excerpt", name: "excerpt", widget: "text" }
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Excerpt', name: 'excerpt', widget: 'text' }
       - {
-          label: "Date",
-          name: "date",
-          widget: "datetime",
-          format: "YYYY-MM-DD hh:mm:ss",
+          label: 'Date',
+          name: 'date',
+          widget: 'datetime',
+          format: 'YYYY-MM-DD hh:mm:ss',
         }
-      - { label: "Thumbnail", name: "thumnail", widget: "image" }
+      - { label: 'Thumbnail', name: 'thumnail', widget: 'image' }
       - {
-          label: "Author",
-          name: "author",
-          widget: "select",
-          options: ["Morgan Segura"],
+          label: 'Author',
+          name: 'author',
+          widget: 'relation',
+          collection: 'author',
+          searchFields: ['title'],
+          valueField: 'title',
+          displayFields: ['title'],
+          multiple: true
         }
-      - { label: "Tags", name: "tags", widget: "list" }
+      - { label: 'Tags', name: 'tags', widget: 'list' }
       - {
-          label: "Category",
-          name: "category",
-          widget: "select",
+          label: 'Category',
+          name: 'category',
+          widget: 'select',
           options:
             [
-              "Blog",
-              "Projects",
-              "Tutorials",
-              "Quick Tips",
-              "Reviews",
-              "Case Study",
+              'Blog',
+              'Projects',
+              'Tutorials',
+              'Quick Tips',
+              'Reviews',
+              'Case Study',
             ],
         }
-      - { label: "Body", name: "body", widget: "markdown" }
-
-  - name: "projects" # Used in routes, e.g., /admin/collections/blog
-    label: "Projects" # Used in the UI
-    folder: "content/projects/"
-    path: "{{slug}}/index"
-    media_folder: ""
-    public_folder: ""
+      - { label: 'Body', name: 'body', widget: 'markdown' }
+  # Projects
+  - name: 'projects' # Used in routes, e.g., /admin/collections/blog
+    label: 'Projects' # Used in the UI
+    folder: 'content/projects/'
+    path: '{{slug}}/index'
+    media_folder: ''
+    public_folder: ''
     create: true # Allow users to create new documents in this collection
-    slug: "{{slug}}"
-    extension: "mdx"
+    slug: '{{slug}}'
+    extension: 'mdx'
     format: frontmatter
     fields: # The fields for each document, usually in front matter
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Excerpt", name: "excerpt", widget: "text" }
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Excerpt', name: 'excerpt', widget: 'text' }
       - {
-          label: "Date",
-          name: "date",
-          widget: "datetime",
-          format: "YYYY-MM-DD hh:mm:ss",
+          label: 'Date',
+          name: 'date',
+          widget: 'datetime',
+          format: 'YYYY-MM-DD hh:mm:ss',
         }
-      - { label: "Thumbnail", name: "thumnail", widget: "image" }
       - {
-          label: "Author",
-          name: "author",
-          widget: "select",
-          options: ["Morgan Segura"],
-        }
-      - { label: "Tags", name: "tags", widget: "list" }
+          label: 'Author',
+          name: 'author',
+          widget: 'relation',
+          collection: 'author',
+          searchFields: ['title'],
+          valueField: 'title',
+          displayFields: ['title'],
+          multiple: true
+        }        
+      - { label: 'Thumbnail', name: 'thumnail', widget: 'image' }
+      - { label: 'Tags', name: 'tags', widget: 'list' }
       - {
-          label: "Category",
-          name: "category",
-          widget: "select",
+          label: 'Category',
+          name: 'category',
+          widget: 'select',
           options:
             [
-              "Blog",
-              "Projects",
-              "Tutorials",
-              "Quick Tips",
-              "Reviews",
-              "Case Study",
+              'Blog',
+              'Projects',
+              'Tutorials',
+              'Quick Tips',
+              'Reviews',
+              'Case Study',
             ],
         }
-      - { label: "Body", name: "body", widget: "markdown" }
+      - { label: 'Body', name: 'body', widget: 'markdown' }
+  # Authors
+  - name: 'author'
+    label: 'Author'
+    folder: 'content/authors/'
+    path: '{{slug}}/index'
+    media_folder: ''
+    public_folder: ''
+    identifier_field: 'post_author'
+    create: true
+    slug: '{{slug}}'
+    extension: 'mdx'
+    format: frontmatter
+    fields:
+      - { label: 'Full Name', name: 'title', widget: 'string' }
+      - { label: 'Avatar', name: 'avatar', widget: 'image' }
+      - { label: 'Job Title', name: 'jobTitle', widget: 'list' }
+      - { label: 'Bio Excerpt', name: 'bioExcerpt', widget: 'text' }
+      - { label: 'Bio', name: 'bio', widget: 'markdown' }

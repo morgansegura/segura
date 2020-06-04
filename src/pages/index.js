@@ -28,7 +28,7 @@ const BlogIndex = ({ data, location }) => {
         keywords={[`devlog`, `blog`, `gatsby`, `javascript`, `react`]}
       />
       {/* Rasteroids Game */}
-      <WrapGameElement />
+      {/* <WrapGameElement /> /*}
       {/* Sticky Nav 
       <Sticky>
         <HeaderNavigation />

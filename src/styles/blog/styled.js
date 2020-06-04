@@ -7,13 +7,12 @@ const customMedia = generateMedia({
 
 export const BlogContainer = styled.section`
   max-width: var(--width-container);
-  padding: 3rem 20px;
+  padding: 6rem 20px;
   margin-right: auto;
   margin-left: auto;
 
   ${customMedia.greaterThan('medium')`
-    margin-left: var(--size);
-    padding: 3rem 40px;
+    padding: 6rem 40px;
   `}
 `
 

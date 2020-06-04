@@ -153,11 +153,7 @@ const GlobalStyles = createGlobalStyle`
 
     --action-color: #2196F3;
     --action-light-color: #90CAF9;
-    --action-dark-color-: #1976D2;
-
-    --action-on-dark-color: #2196F3;
-    --action-on-dark-light-color: #90CAF9;
-    --action-on-dark-dark-color-: #1976D2;
+    --action-dark-color: #1976D2;
 
     --width-container: 1400px;
     --headline-font: "Hind", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";

@@ -11,13 +11,14 @@ const customMedia = generateMedia({
 })
 
 export const PostCard = styled.article`
-  margin-top: 30px;
+  margin-top: 1rem;
 `
 
-export const PostCardLink = styled(Link)`
+export const PostCardLink = styled.div`
   text-decoration: none;
   display: block;
   position: relative;
+  z-index: 1;
 
   ${customMedia.greaterThan('small')`       
         &:hover {
@@ -34,57 +35,90 @@ export const PostCardContent = styled.div`
   flex-direction: column;
   justify-content: center;
   border-radius: 4px;
-  background-color: ${({ theme }) => theme.Cards};
+  background-color: ${({ theme }) => theme.bgCard};
   box-shadow: 0 20px 20px rgba(0, 0, 0, 0.08);
   transition: all 250ms cubic-bezier(0.02, 0.01, 0.47, 1);
 `
 export const PostCardHeader = styled.header`
   position: relative;
-  padding: 20px 15px 0;
+  z-index: 2;
+  padding: 1.25rem 1rem 0;
 `
-export const PostCardTitle = styled.h2`
-  font-family: var(--headline-font);
-  font-size: 24px;
-  line-height: 30px;
-  padding-right: 75px;
-  color: ${({ theme }) => theme.CardsHeadline};
+export const PostCardTitle = styled(Link)`
+  cursor: pointer;
+  text-decoration: none;
+  h2 {
+    font-family: var(--headline-font);
+    font-size: 24px;
+    line-height: 30px;
+    padding-top: 1.5rem;
+    padding-right: 75px;
+    color: ${({ theme }) => theme.textCardHeadline};
+  }
 `
-export const PostCardDate = styled.span`
-  display: block;
-  position: absolute;
-  right: 15px;
-  top: 20px;
+export const PostCardDate = styled.div`
   font-size: 12px;
   line-height: 14px;
   padding: 3px 6px;
   border-radius: 4px;
-  color: ${({ theme }) => theme.CardsText};
-  background-color: ${({ theme }) => theme.CardsOffset};
+  color: ${({ theme }) => theme.textCardDate};
+  background-color: ${({ theme }) => theme.bgCardDate};
 `
-export const PostCardBody = styled.p`
-  font-size: 14px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  padding-left: 15px;
-  padding-right: 15px;
-  font-family: var(--base-font);
-  font-weight: 400;
-  line-height: 30px;
-  flex: 1;
-  color: ${({ theme }) => theme.CardsText};
+export const PostCardImageButton = styled.div`
+  position: relative;
+  cursor: pointer;
+  z-index: 2;
+  font-size: 12px;
+  line-height: 14px;
+  padding: 3px 6px;
+  border-radius: 4px;
+  margin-left: 0.5rem;
+  color: var(--light);
+  background-color: ${({ theme }) => theme.actionOnLight2};
+  transition: background-color 0.2s ease-out;
+
+  &:hover {
+    background-color: ${({ theme }) => theme.actionOnLight};
+  }
+  &:active {
+    background-color: ${({ theme }) => theme.actionOnLight2};
+  }
 `
-export const PostCardImageWrapper = styled.div`
+export const PostCardBody = styled(Link)`
+  text-decoration: none;
+  p {
+    font-size: 14px;
+    padding-top: 0.5rem;
+    padding-bottom: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    font-family: var(--base-font);
+    font-weight: 400;
+    line-height: 30px;
+    flex: 1;
+    color: ${({ theme }) => theme.textCardBody};
+  }
+`
+export const PostCardImageWrapper = styled(Link)`
   position: relative;
   background-size: contain;
   background-position: top;
   background-repeat: no-repeat;
   position: relative;
   overflow: hidden;
-  padding: 15px 15px 15px 0;
+  padding: 1.25rem 0 1rem;
+  display: none;
+  height: 0;
+  transition: height 0.2s ease-out;
+
+  &.show-image {
+    display: block;
+    height: 200px;
+  }
 `
 export const PostCardImage = styled(Img)`
-  width: 100px;
-  height: 100px;
+  width: 100%;
+  max-height: 200px;
   display: block;
 `
 export const PostCardButtonBlock = styled.div`
@@ -98,7 +132,7 @@ export const PostCardFooterWrapper = styled.div`
   width: 100%;
   max-width: 100%;
   padding: 15px;
-  border-top: 1px solid ${({ theme }) => theme.CardsOutlines};
+  border-top: 1px solid ${({ theme }) => theme.bgCardOutline};
 `
 export const PostCardFooter = styled.footer`
   font-size: 11px;
@@ -108,15 +142,35 @@ export const PostCardFooter = styled.footer`
   width: 100%;
 `
 export const PostCardFlex = styled.div`
+  position: relative;
   display: flex;
+
+  &.flex-end {
+    justify-content: flex-end;
+  }
 `
-export const PostCardAuthorImg = styled.div`
-  height: 48px;
-  width: 48px;
+export const PostCardAuthor = styled(Link)`
+  position: absolute;
+  text-decoration: none;
+  left: 0;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  color: ${({ theme }) => theme.textOnLight};
+  p {
+    position: relative;
+    top: -3px;
+    margin-left: 0.5rem;
+    font-size: 14px;
+  }
+`
+export const PostCardAuthorImg = styled.img`
+  height: 30px;
+  width: 30px;
   border-radius: 100px;
   background-color: white;
   margin-bottom: 12px;
-  background-size: 48px 48px;
+  background-size: 30px 30px;
   background-repeat: no-repeat;
   background-position: 50% 50%;
   display: inline-block;

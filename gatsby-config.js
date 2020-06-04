@@ -18,13 +18,13 @@ module.exports = {
   plugins: [
     `gatsby-plugin-netlify-cms`,
     `gatsby-transformer-yaml`,
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: `${__dirname}/content/mappings`,
-        name: `mappings`,
-      },
-    },
+    // {
+    //   resolve: `gatsby-source-filesystem`,
+    //   options: {
+    //     path: `${__dirname}/content/mappings`,
+    //     name: `mappings`,
+    //   },
+    // },
     {
       resolve: `gatsby-source-filesystem`,
       options: {

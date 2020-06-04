@@ -18,6 +18,7 @@ module.exports = {
   plugins: [
     `gatsby-plugin-netlify-cms`,
     `gatsby-transformer-yaml`,
+    `gatsby-plugin-catch-links`
     // {
     //   resolve: `gatsby-source-filesystem`,
     //   options: {

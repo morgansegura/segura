@@ -2,15 +2,59 @@ const path = require(`path`)
 const _ = require('lodash')
 const { createFilePath } = require(`gatsby-source-filesystem`)
 
+const postNodes = [];
+
+function addSiblingNodes(createNodeField) {
+  postNodes.sort(
+    ({ frontmatter: { date: date1 } }, { frontmatter: { date: date2 } }) => {
+      const dateA = moment(date1, siteConfig.dateFromFormat);
+      const dateB = moment(date2, siteConfig.dateFromFormat);
+
+      if (dateA.isBefore(dateB)) return 1;
+
+      if (dateB.isBefore(dateA)) return -1;
+
+      return 0;
+    }
+  );
+  for (let i = 0; i < postNodes.length; i += 1) {
+    const nextID = i + 1 < postNodes.length ? i + 1 : 0;
+    const prevID = i - 1 >= 0 ? i - 1 : postNodes.length - 1;
+    const currNode = postNodes[i];
+    const nextNode = postNodes[nextID];
+    const prevNode = postNodes[prevID];
+    createNodeField({
+      node: currNode,
+      name: "nextTitle",
+      value: nextNode.frontmatter.title
+    });
+    createNodeField({
+      node: currNode,
+      name: "nextSlug",
+      value: nextNode.fields.slug
+    });
+    createNodeField({
+      node: currNode,
+      name: "prevTitle",
+      value: prevNode.frontmatter.title
+    });
+    createNodeField({
+      node: currNode,
+      name: "prevSlug",
+      value: prevNode.fields.slug
+    });
+  }
+}
+
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
 
   const blogPost = path.resolve(`./src/templates/blog-post.js`)
   const projectPost = path.resolve(`./src/templates/project-post.js`)
-  // const tagPage = path.resolve('src/templates/tag.jsx')
-  // const categoryPage = path.resolve('src/templates/category.jsx')
-  const authorsPage = path.resolve(`./src/templates/Authors/index.js`)
-  const authorPage = path.resolve(`./src/templates/Author/index.js`)
+  const tagPage = path.resolve("src/templates/Tag/index.js");
+  const categoryPage = path.resolve("src/templates/Category/index.js");
+  const authorsPage = path.resolve("src/templates/Authors/index.js");
+  const authorPage = path.resolve("src/templates/Author/index.js");
 
   return graphql(
     `
@@ -28,6 +72,7 @@ exports.createPages = ({ graphql, actions }) => {
               }
               frontmatter {
                 title
+
               }
               body
             }
@@ -37,8 +82,76 @@ exports.createPages = ({ graphql, actions }) => {
     `
   ).then(result => {
     if (result.errors) {
-      throw result.errors
+      console.log(result.errors);
+      reject(result.errors);
     }
+
+
+    const tagSet = new Set();
+    const categorySet = new Set();
+    const authorSet = new Set();
+
+
+    result.data.allMdx.edges.forEach(edge => {
+        if (edge.node.frontmatter.tags) {
+          edge.node.frontmatter.tags.forEach(tag => {
+            tagSet.add(tag);
+          });
+        }
+
+        if (edge.node.frontmatter.category) {
+          categorySet.add(edge.node.frontmatter.category);
+        }
+
+        if (edge.node.fields.authorId) {
+          authorSet.add(edge.node.fields.authorId);
+        }
+
+        createPage({
+          path: edge.node.fields.slug,
+          component: blogPost,
+          context: {
+            slug: edge.node.fields.slug
+          }
+        });
+      });
+
+      const tagList = Array.from(tagSet);
+      tagList.forEach(tag => {
+        createPage({
+          path: `/tags/${_.kebabCase(tag)}/`,
+          component: tagPage,
+          context: {
+            tag
+          }
+        });
+      });
+
+      const categoryList = Array.from(categorySet);
+      categoryList.forEach(category => {
+        createPage({
+          path: `/categories/${_.kebabCase(category)}/`,
+          component: categoryPage,
+          context: {
+            category
+          }
+        });
+      });
+
+      createPage({
+        path: `/authors/`,
+        component: authorsPage
+      });
+      const authorList = Array.from(authorSet);
+      authorList.forEach(author => {
+        createPage({
+          path: `/author/${_.kebabCase(author)}/`,
+          component: authorPage,
+          context: {
+            authorId: author
+          }
+        });
+      });
 
     // Create blog posts pages.
     const posts = result.data.allMdx.edges
@@ -58,6 +171,7 @@ exports.createPages = ({ graphql, actions }) => {
       })
     })
 
+
     // Create project posts pages.
     const projects = result.data.allMdx.edges
 
@@ -71,45 +185,6 @@ exports.createPages = ({ graphql, actions }) => {
         component: projectPost,
         context: {
           slug: project.node.fields.slug,
-          previous,
-          next,
-        },
-      })
-    })
-
-    const authorSet = new Set()
-    result.data.allMdx.edges.forEach(edge => {
-      if (edge.node.fields.authorId) {
-        authorSet.add(edge.node.fields.authorId)
-      }
-    })
-
-    // create author's pages inside export.createPages:
-    const authorList = Array.from(authorSet)
-
-    authorList.forEach(author => {
-      createPage({
-        path: `/author/${_.kebabCase(author)}/`,
-        component: authorPage,
-        context: {
-          authorId: author,
-        },
-      })
-    })
-
-    // Create author pages.
-    const authors = result.data.allMdx.edges
-
-    authors.forEach((author, index) => {
-      const previous =
-        index === authors.length - 1 ? null : authors[index + 1].node
-      const next = index === 0 ? null : authors[index - 1].node
-
-      createPage({
-        path: author.node.fields.slug,
-        component: authorsPage,
-        context: {
-          slug: author.node.fields.slug,
           previous,
           next,
         },

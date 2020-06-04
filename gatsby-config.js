@@ -13,12 +13,12 @@ module.exports = {
     twitter: siteConfig.twitter,
   },
   mapping: {
-    'mdx.frontmatter.author': `./content/authors/AuthorYaml`,
+    'mdx.frontmatter.author': `AuthorYaml`,
   },
   plugins: [
     `gatsby-plugin-netlify-cms`,
     `gatsby-transformer-yaml`,
-    `gatsby-plugin-catch-links`
+    `gatsby-plugin-catch-links`,
     // {
     //   resolve: `gatsby-source-filesystem`,
     //   options: {
@@ -74,6 +74,8 @@ module.exports = {
               wrapperStyle: `margin-bottom: 1.0725rem`,
             },
           },
+          "gatsby-remark-prismjs",
+          "gatsby-remark-autolink-headers",
           {
             resolve: `gatsby-remark-copy-linked-files`,
           },
@@ -168,6 +170,8 @@ module.exports = {
         ],
       },
     },
+    "gatsby-plugin-twitter",
+    "gatsby-plugin-sitemap",    
     {
       resolve: `gatsby-plugin-manifest`,
       options: {

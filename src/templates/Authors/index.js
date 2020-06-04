@@ -1,31 +1,34 @@
-import React from 'react'
+import React from "react";
+import { Link } from "gatsby";
+import _ from "lodash";
+import Layout from "../../components/Layout";
 
-// export default ({
-//   data: {
-//     // allAuthorYaml: { edges: authorNodes },
-//   },
-// }) => (
-//   <div>
-//     {authorNodes.map(({ node: author }, index) => (
-//       <div key={`author-${author.id}`}>{author.id}</div>
-//     ))}
-//   </div>
-// )
+export default ({
+  data: {
+    allAuthorYaml: { edges: authorNodes }
+  }
+}) => (
+  <Layout>
+    <ul>
+      {authorNodes.map(({ node: author }, index) => (
+        <li key={`author-${author.id}`}>
+          <Link to={`/author/${_.kebabCase(author.id)}`}>{author.id}</Link>
+        </li>
+      ))}
+    </ul>
+  </Layout>
+);
 
-// export const pageQuery = graphql`
-//   query AuthorsQuery {
-//     allAuthorYaml {
-//       edges {
-//         node {
-//           id
-//           bio
-//           twitter
-//         }
-//       }
-//     }
-//   }
-// `
-
-export default () => (
-  <div>Author List page</div>
-)
+export const pageQuery = graphql`
+  query AuthorsQuery {
+    allAuthorYaml {
+      edges {
+        node {
+          id
+          bio
+          twitter
+        }
+      }
+    }
+  }
+`;

@@ -3,7 +3,7 @@ import { graphql, StaticQuery } from 'gatsby'
 import Img from 'gatsby-image'
 
 import Layout from '../../components/Layout'
-import SEO from '../../components/seo'
+import SEO from '../../components/SEO'
 
 const ElementsPage = ({ data }, location) => {
   const siteTitle = data.site.siteMetadata.title

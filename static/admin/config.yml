@@ -37,17 +37,17 @@ collections:
           widget: 'datetime',
           format: 'YYYY-MM-DD hh:mm:ss',
         }
-      - { label: 'Thumbnail', name: 'thumnail', widget: 'image' }
       - {
           label: 'Author',
           name: 'author',
-          widget: 'relation',
-          collection: 'author',
-          searchFields: ['title'],
-          valueField: 'title',
-          displayFields: ['title'],
-          multiple: true
-        }
+          widget: 'select',
+          options:
+            [
+              'Morgan Segura',
+              'Mike Mallowe'
+            ],
+        }        
+      - { label: 'Thumbnail', name: 'thumnail', widget: 'image' }
       - { label: 'Tags', name: 'tags', widget: 'list' }
       - {
           label: 'Category',
@@ -69,8 +69,8 @@ collections:
     label: 'Projects' # Used in the UI
     folder: 'content/projects/'
     path: '{{slug}}/index'
-    media_folder: ''
-    public_folder: ''
+    media_folder: 'static/assets/images/'
+    public_folder: 'content/assets/'
     create: true # Allow users to create new documents in this collection
     slug: '{{slug}}'
     extension: 'mdx'
@@ -87,13 +87,13 @@ collections:
       - {
           label: 'Author',
           name: 'author',
-          widget: 'relation',
-          collection: 'author',
-          searchFields: ['title'],
-          valueField: 'title',
-          displayFields: ['title'],
-          multiple: true
-        }        
+          widget: 'select',
+          options:
+            [
+              'Morgan Segura',
+              'Mike Mallowe'
+            ],
+        }       
       - { label: 'Thumbnail', name: 'thumnail', widget: 'image' }
       - { label: 'Tags', name: 'tags', widget: 'list' }
       - {
@@ -111,21 +111,3 @@ collections:
             ],
         }
       - { label: 'Body', name: 'body', widget: 'markdown' }
-  # Authors
-  - name: 'author'
-    label: 'Author'
-    folder: 'content/authors/'
-    path: '{{slug}}/index'
-    media_folder: ''
-    public_folder: ''
-    identifier_field: 'post_author'
-    create: true
-    slug: '{{slug}}'
-    extension: 'mdx'
-    format: frontmatter
-    fields:
-      - { label: 'Full Name', name: 'title', widget: 'string' }
-      - { label: 'Avatar', name: 'avatar', widget: 'image' }
-      - { label: 'Job Title', name: 'jobTitle', widget: 'list' }
-      - { label: 'Bio Excerpt', name: 'bioExcerpt', widget: 'text' }
-      - { label: 'Bio', name: 'bio', widget: 'markdown' }

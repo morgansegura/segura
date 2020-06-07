@@ -66,7 +66,7 @@ export default ({ data, location, pageContext }) => {
         )}
 
         <S.BlogContent>
-          <MDXRenderer>{body}</MDXRenderer>
+          <MDXRenderer>{Mdx.body}</MDXRenderer>
         </S.BlogContent>
 
         <S.BlogFooter>
@@ -96,8 +96,8 @@ export default ({ data, location, pageContext }) => {
   )
 }
 
-export const projectQuery = graphql`
-  query ProjectPostBySlug($slug: String!) {
+export const pageQuery = graphql`
+  query BlogPostBySlug($slug: String!) {
     site {
       siteMetadata {
         title

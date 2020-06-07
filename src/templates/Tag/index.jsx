@@ -1,15 +1,15 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 
-import Layout from '../components/Layout'
-import SEO from '../components/seo'
-import PostCard from '../components/PostCard'
+import Layout from '../../components/Layout'
+import SEO from '../../components/SEO'
+import PostCard from '../../components/PostCard'
 
 class TagPageTemplate extends React.Component {
   render() {
     const props = this.props
     const tag = this.props.pageContext.tag
-    const posts = this.props.data.allMarkdownRemark.edges
+    const posts = this.props.data.allMdx.edges
     const siteTitle = this.props.data.site.siteMetadata.title
 
     return (
@@ -21,7 +21,7 @@ class TagPageTemplate extends React.Component {
         />
         <header className="tag-page-head">
           <h1 className="page-head-title">
-            #{tag}({props.data.allMarkdownRemark.totalCount})
+            #{tag}({props.data.allMdx.totalCount})
           </h1>
         </header>
         <div className="post-feed">

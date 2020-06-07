@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState, Fragment } from 'react'
+import _ from "lodash";
 /* Components */
 import Tags from '../Tags'
 /* Utils */
@@ -10,6 +11,7 @@ const PostCard = props => {
   // useState Hook
   const [toggleImage, setToggleImage] = useState(false)
   const post = props.node
+  const authors = props.authors
   return (
     <S.PostCard
       className={`post-card ${props.count % 3 === 0 && `post-card--large`} ${
@@ -19,10 +21,19 @@ const PostCard = props => {
       <S.PostCardLink>
         <S.PostCardContent className="post-card-link">
           <S.PostCardHeader>
+          {console.log(authors)}
             <S.PostCardFlex className="flex-end">
-              <S.PostCardAuthor>
-                <S.PostCardAuthorImg /> <p>{post.frontmatter.author}</p>
-              </S.PostCardAuthor>
+              {!!authors && authors.map(({ node: author }) => (
+              <S.PostCardAuthor to={`/author/${_.kebabCase(author.title)}`}>
+              { author.title == post.frontmatter.author ? (
+                <Fragment>
+                  <S.PostCardAuthorImg fluid={author.avatar.childImageSharp.fluid}
+                  alt={`${author.title}`} /> 
+                  <p>{author.title}</p>
+                </Fragment>
+              ) : ''}
+              </S.PostCardAuthor> 
+              ))}
               <S.PostCardDate>{post.frontmatter.date}</S.PostCardDate>
               {post.frontmatter.thumbnail && (
                 <S.PostCardImageButton

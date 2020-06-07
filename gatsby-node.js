@@ -1,6 +1,7 @@
-const path = require(`path`)
-const _ = require('lodash')
-const { createFilePath } = require(`gatsby-source-filesystem`)
+const path = require("path");
+const _ = require("lodash");
+const moment = require("moment");
+const siteConfig = require("./data/SiteConfig");
 
 const postNodes = [];
 
@@ -46,172 +47,172 @@ function addSiblingNodes(createNodeField) {
   }
 }
 
+exports.onCreateNode = ({ node, actions, getNode }) => {
+  const { createNodeField } = actions;
+  let slug;
+  if (node.internal.type === "Mdx") {
+    const fileNode = getNode(node.parent);
+    const parsedFilePath = path.parse(fileNode.relativePath);
+    if (
+      Object.prototype.hasOwnProperty.call(node, "frontmatter") &&
+      Object.prototype.hasOwnProperty.call(node.frontmatter, "title")
+    ) {
+      slug = `/${_.kebabCase(node.frontmatter.title)}`;
+    } else if (parsedFilePath.name !== "index" && parsedFilePath.dir !== "") {
+      slug = `/${parsedFilePath.dir}/${parsedFilePath.name}/`;
+    } else if (parsedFilePath.dir === "") {
+      slug = `/${parsedFilePath.name}/`;
+    } else {
+      slug = `/${parsedFilePath.dir}/`;
+    }
+
+    if (Object.prototype.hasOwnProperty.call(node, "frontmatter")) {
+      if (Object.prototype.hasOwnProperty.call(node.frontmatter, "slug"))
+        slug = `/${_.kebabCase(node.frontmatter.slug)}`;
+      if (Object.prototype.hasOwnProperty.call(node.frontmatter, "date")) {
+        const date = moment(node.frontmatter.date, siteConfig.dateFromFormat);
+        if (!date.isValid)
+          console.warn(`WARNING: Invalid date.`, node.frontmatter);
+
+        createNodeField({
+          node,
+          name: "date",
+          value: date.toISOString()
+        });
+      }
+      if (Object.prototype.hasOwnProperty.call(node.frontmatter, "author")) {
+        createNodeField({
+          node,
+          name: "authorId",
+          value: node.frontmatter.author
+        });
+      }
+    }
+    createNodeField({ node, name: "slug", value: slug });
+    postNodes.push(node);
+  }
+};
+
+exports.setFieldsOnGraphQLNodeType = ({ type, actions }) => {
+  const { name } = type;
+  const { createNodeField } = actions;
+  if (name === "Mdx") {
+    addSiblingNodes(createNodeField);
+  }
+};
+
 exports.createPages = ({ graphql, actions }) => {
-  const { createPage } = actions
+  const { createPage } = actions;
 
-  const blogPost = path.resolve(`./src/templates/blog-post.js`)
-  const projectPost = path.resolve(`./src/templates/project-post.js`)
-  const tagPage = path.resolve("src/templates/Tag/index.js");
-  const categoryPage = path.resolve("src/templates/Category/index.js");
-  const authorsPage = path.resolve("src/templates/Authors/index.js");
-  const authorPage = path.resolve("src/templates/Author/index.js");
-
-  return graphql(
-    `
-      {
-        allMdx(
-          sort: { fields: [frontmatter___date], order: DESC }
-          limit: 1000
-        ) {
-          edges {
-            node {
-              id
-              fields {
-                slug
-                authorId
+  return new Promise((resolve, reject) => {
+    const blogPost = path.resolve(`./src/templates/BlogPost/index.jsx`)
+    const projectPost = path.resolve(`./src/templates/ProjectPost/index.jsx`)
+    const tagPage = path.resolve("src/templates/Tag/index.jsx");
+    const categoryPage = path.resolve("src/templates/Category/index.jsx");
+    const authorsPage = path.resolve("src/templates/Authors/index.jsx");
+    const authorPage = path.resolve("src/templates/Author/index.jsx");
+    resolve(
+      graphql(
+        `
+          {
+            allMdx {
+              edges {
+                node {
+                  frontmatter {
+                    tags
+                    category
+                    author
+                  }
+                  fields {
+                    slug
+                    authorId
+                  }
+                }
               }
-              frontmatter {
-                title
-
-              }
-              body
             }
           }
+        `
+      ).then(result => {
+        if (result.errors) {
+          /* eslint no-console: "off" */
+          console.log(result.errors);
+          reject(result.errors);
         }
-      }
-    `
-  ).then(result => {
-    if (result.errors) {
-      console.log(result.errors);
-      reject(result.errors);
-    }
 
+        const tagSet = new Set();
+        const categorySet = new Set();
+        const authorSet = new Set();
 
-    const tagSet = new Set();
-    const categorySet = new Set();
-    const authorSet = new Set();
+        result.data.allMdx.edges.forEach(edge => {
+          if (edge.node.frontmatter.tags) {
+            edge.node.frontmatter.tags.forEach(tag => {
+              tagSet.add(tag);
+            });
+          }
 
+          if (edge.node.frontmatter.category) {
+            categorySet.add(edge.node.frontmatter.category);
+          }
 
-    result.data.allMdx.edges.forEach(edge => {
-        if (edge.node.frontmatter.tags) {
-          edge.node.frontmatter.tags.forEach(tag => {
-            tagSet.add(tag);
+          if (edge.node.fields.authorId) {
+            authorSet.add(edge.node.fields.authorId);
+          }
+
+          createPage({
+            path: edge.node.fields.slug,
+            component: blogPost,
+            context: {
+              slug: edge.node.fields.slug
+            }
           });
-        }
+          createPage({
+            path: edge.node.fields.slug,
+            component: projectPost,
+            context: {
+              slug: edge.node.fields.slug
+            }
+          });
+        });
 
-        if (edge.node.frontmatter.category) {
-          categorySet.add(edge.node.frontmatter.category);
-        }
+        const tagList = Array.from(tagSet);
+        tagList.forEach(tag => {
+          createPage({
+            path: `/tags/${_.kebabCase(tag)}/`,
+            component: tagPage,
+            context: {
+              tag
+            }
+          });
+        });
 
-        if (edge.node.fields.authorId) {
-          authorSet.add(edge.node.fields.authorId);
-        }
+        const categoryList = Array.from(categorySet);
+        categoryList.forEach(category => {
+          createPage({
+            path: `/categories/${_.kebabCase(category)}/`,
+            component: categoryPage,
+            context: {
+              category
+            }
+          });
+        });
 
         createPage({
-          path: edge.node.fields.slug,
-          component: blogPost,
-          context: {
-            slug: edge.node.fields.slug
-          }
+          path: `/authors/`,
+          component: authorsPage
         });
-      });
-
-      const tagList = Array.from(tagSet);
-      tagList.forEach(tag => {
-        createPage({
-          path: `/tags/${_.kebabCase(tag)}/`,
-          component: tagPage,
-          context: {
-            tag
-          }
+        
+        const authorList = Array.from(authorSet);
+    
+        authorList.forEach(author => {
+          createPage({
+            path: `/author/${_.kebabCase(author)}/`,
+            component: authorPage,
+            context: {
+              authorId: author
+            }
+          });
         });
-      });
-
-      const categoryList = Array.from(categorySet);
-      categoryList.forEach(category => {
-        createPage({
-          path: `/categories/${_.kebabCase(category)}/`,
-          component: categoryPage,
-          context: {
-            category
-          }
-        });
-      });
-
-      createPage({
-        path: `/authors/`,
-        component: authorsPage
-      });
-      const authorList = Array.from(authorSet);
-      authorList.forEach(author => {
-        createPage({
-          path: `/author/${_.kebabCase(author)}/`,
-          component: authorPage,
-          context: {
-            authorId: author
-          }
-        });
-      });
-
-    // Create blog posts pages.
-    const posts = result.data.allMdx.edges
-
-    posts.forEach((post, index) => {
-      const previous = index === posts.length - 1 ? null : posts[index + 1].node
-      const next = index === 0 ? null : posts[index - 1].node
-
-      createPage({
-        path: post.node.fields.slug,
-        component: blogPost,
-        context: {
-          slug: post.node.fields.slug,
-          previous,
-          next,
-        },
       })
-    })
-
-
-    // Create project posts pages.
-    const projects = result.data.allMdx.edges
-
-    projects.forEach((project, index) => {
-      const previous =
-        index === projects.length - 1 ? null : projects[index + 1].node
-      const next = index === 0 ? null : projects[index - 1].node
-
-      createPage({
-        path: project.node.fields.slug,
-        component: projectPost,
-        context: {
-          slug: project.node.fields.slug,
-          previous,
-          next,
-        },
-      })
-    })
-  })
-}
-
-exports.onCreateNode = ({ node, actions, getNode }) => {
-  const { createNodeField } = actions
-
-  if (node.internal.type === `Mdx`) {
-    const value = createFilePath({
-      node,
-      getNode,
-    })
-    createNodeField({
-      name: `slug`,
-      node,
-      value,
-    })
-    if (Object.prototype.hasOwnProperty.call(node.frontmatter, 'author')) {
-      createNodeField({
-        node,
-        name: 'authorId',
-        value: node.frontmatter.author,
-      })
-    }
-  }
-}
+    );
+  });
+};

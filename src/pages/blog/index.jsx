@@ -2,12 +2,11 @@ import React from 'react'
 import { graphql } from 'gatsby'
 /* Components */
 import Layout from '../../components/Layout'
-import SEO from '../../components/seo'
+import SEO from '../../components/SEO'
 import { useSiteMetadata } from '../../hooks/useSiteMetadata'
 import PostCard from '../../components/PostCard'
 /* Material UI */
 import Grid from '@material-ui/core/Grid'
-/* Styled Components */
 import * as S from '../../styles/blog/styled'
 
 export default ({ data, location, pageContext }) => {
@@ -15,6 +14,7 @@ export default ({ data, location, pageContext }) => {
 
   const tag = pageContext
   const posts = data.allMdx.edges
+  const authors = data.allAuthorYaml.edges
 
   console.log(posts)
   return (
@@ -31,10 +31,10 @@ export default ({ data, location, pageContext }) => {
         </S.BlogHeader>
         <S.BlogPostFeed>
           <Grid container spacing={3}>
-            {posts.map(({ node }) => {
+            {!!posts && posts.map(({ node }) => {
               return (
                 <Grid key={node.fields.slug} item xs={12} md={6} xl={4}>
-                  <PostCard node={node} postClass={`post`} />
+                  <PostCard authors={authors} node={node} postClass={`post`} />
                 </Grid>
               )
             })}
@@ -79,5 +79,23 @@ export const pageQuery = graphql`
         }
       }
     }
+    allAuthorYaml {
+      edges {
+        node {
+          # id
+          bio
+          bioExcerpt
+          title
+          jobTitle
+          avatar {
+            childImageSharp {
+              fluid(maxWidth: 48) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+        }
+      }    
+    }     
   }
 `

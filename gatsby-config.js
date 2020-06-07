@@ -19,18 +19,25 @@ module.exports = {
     `gatsby-plugin-netlify-cms`,
     `gatsby-transformer-yaml`,
     `gatsby-plugin-catch-links`,
-    // {
-    //   resolve: `gatsby-source-filesystem`,
-    //   options: {
-    //     path: `${__dirname}/content/mappings`,
-    //     name: `mappings`,
-    //   },
-    // },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'mappings',
+        path: `${__dirname}/content/mappings`,
+      },
+    },    
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/content/blog`,
         name: `blog`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/content/authors`,
+        name: `authors`,
       },
     },
     {
@@ -94,6 +101,7 @@ module.exports = {
         ],
       },
     },
+    `gatsby-transformer-yaml`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {

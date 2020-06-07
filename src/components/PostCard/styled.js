@@ -164,9 +164,9 @@ export const PostCardAuthor = styled(Link)`
     font-size: 14px;
   }
 `
-export const PostCardAuthorImg = styled.img`
-  height: 30px;
-  width: 30px;
+export const PostCardAuthorImg = styled(Img)`
+  height: 32px;
+  width: 32px;
   border-radius: 100px;
   background-color: white;
   margin-bottom: 12px;

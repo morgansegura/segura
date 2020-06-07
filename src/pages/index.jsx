@@ -2,7 +2,7 @@ import React from 'react'
 import { graphql, StaticQuery } from 'gatsby'
 
 import Layout from '../components/Layout'
-import SEO from '../components/seo'
+import SEO from '../components/SEO'
 // import { HeaderNavigation } from '../../components/Navigation'
 import PostCard from '../components/PostCard'
 // import Sticky from '../components/Sticky'
@@ -87,32 +87,6 @@ const BlogIndex = ({ data, location }) => {
       </S.Container>
     </Layout>
   )
-}
-
-{
-  /* 
-    
-                <div className="social-block">
-              <a
-                href="https://github.com/morgansegura/"
-                title="Follow me on Github"
-              >
-                <FaGithubAlt />
-              </a>
-              <a
-                href="https://twitter.com/codestandard"
-                title="Follow me on Twitter"
-              >
-                <FaTwitter />
-              </a>
-              <a
-                href="https://linkedin.com/morgansegura/"
-                title="Connect with me on Linkedin"
-              >
-                <FaLinkedinIn />
-              </a>
-            </div>
-    */
 }
 
 const indexQuery = graphql`

@@ -1,14 +1,14 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
-import { MDXRenderer } from 'gatsby-plugin-mdx'
 
-import Bio from '../components/Bio'
-import Layout from '../components/Layout'
+
+import Bio from '../../components/Bio'
+import Layout from '../../components/Layout'
 import SEO from 'react-seo-component'
-import { useSiteMetadata } from '../hooks/useSiteMetadata'
+import { useSiteMetadata } from '../../hooks/useSiteMetadata'
 
 /* Styled Components */
-import * as S from '../styles/blog-post/styled'
+import * as S from '../../styles/blog-post/styled'
 
 export default ({ data, location, pageContext }) => {
   const {
@@ -66,7 +66,7 @@ export default ({ data, location, pageContext }) => {
         )}
 
         <S.BlogContent>
-          <MDXRenderer>{body}</MDXRenderer>
+          {body}
         </S.BlogContent>
 
         <S.BlogFooter>
@@ -96,8 +96,8 @@ export default ({ data, location, pageContext }) => {
   )
 }
 
-export const pageQuery = graphql`
-  query BlogPostBySlug($slug: String!) {
+export const projectQuery = graphql`
+  query ProjectPostBySlug($slug: String!) {
     site {
       siteMetadata {
         title

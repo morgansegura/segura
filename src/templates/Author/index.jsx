@@ -14,7 +14,6 @@ export default ({data}) => {
 
   return (
   <Layout>
-  {console.log(data)}
     <div>
       <h2>{authorTitle}</h2>
       <p>{bioExcerpt}</p>

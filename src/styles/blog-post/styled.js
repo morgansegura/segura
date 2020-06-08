@@ -1,4 +1,5 @@
 import Img from 'gatsby-image'
+import { Link } from 'gatsby'
 import styled from 'styled-components'
 import { generateMedia } from 'styled-media-query'
 
@@ -106,7 +107,43 @@ export const BlogContent = styled.div`
 
 export const BlogDate = styled.div``
 
-export const BlogAuthor = styled.div``
+export const BlogFlex = styled.div`
+  position: relative;
+  display: flex;
+
+  &.flex-end {
+    justify-content: flex-end;
+  }
+`
+export const BlogAuthor = styled(Link)`
+  /* position: absolute; */
+  text-decoration: none;
+  left: 0;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  color: ${({ theme }) => theme.textOnLight};
+  p {
+    position: relative;
+    top: -3px;
+    margin-left: 0.5rem;
+    font-size: 14px;
+  }
+`
+export const BlogAuthorImg = styled(Img)`
+  height: 32px;
+  width: 32px;
+  border-radius: 100px;
+  background-color: white;
+  margin-bottom: 12px;
+  background-size: 30px 30px;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  display: inline-block;
+  line-height: 66px;
+  text-align: center;
+`
+
 
 export const BlogSocialBlock = styled.div``
 

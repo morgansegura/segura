@@ -67,7 +67,6 @@ export const pageQuery = graphql`
             description
             tags
             author
-            # thumbnail
             thumbnail {
               childImageSharp {
                 fluid(maxWidth: 1360) {
@@ -82,7 +81,6 @@ export const pageQuery = graphql`
     allAuthorYaml {
       edges {
         node {
-          # id
           bio
           bioExcerpt
           title

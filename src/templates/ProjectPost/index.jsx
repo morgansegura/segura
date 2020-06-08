@@ -47,7 +47,7 @@ export default ({ data, location, pageContext }) => {
         <S.BlogHeader>
           <S.BlogTitle>{title}</S.BlogTitle>
           <S.BlogDate>{date}</S.BlogDate>
-          <S.BlogAuthor>{author}</S.BlogAuthor>
+          <S.BlogAuthor to="/">{author}</S.BlogAuthor>
           <S.BlogSocialBlock>
             <S.BlogSocial>Icon, Icon, Icon</S.BlogSocial>
           </S.BlogSocialBlock>

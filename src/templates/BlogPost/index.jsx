@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
+import _ from "lodash";
 
 import Bio from '../components/Bio'
 import Layout from '../components/Layout'
@@ -22,6 +23,7 @@ export default ({ data, location, pageContext }) => {
   } = useSiteMetadata()
   const { frontmatter, body, fields, excerpt } = data.mdx
   const { title, date, author, thumbnail, description } = frontmatter
+  const { title: authorTitle, avatar, bio, bioExcerpt, jobTitle } = data.authorYaml
   const { previous, next } = pageContext
 
   return (
@@ -47,7 +49,14 @@ export default ({ data, location, pageContext }) => {
         <S.BlogHeader>
           <S.BlogTitle>{title}</S.BlogTitle>
           <S.BlogDate>{date}</S.BlogDate>
-          <S.BlogAuthor>{author}</S.BlogAuthor>
+
+          <S.BlogFlex>
+            <S.BlogAuthor to={`/author/${_.kebabCase(authorTitle)}`} title="">
+              {authorTitle}
+              <BlogAuthorImg fluid={avatar.childImageSharp.fluid} alt="" />
+            </S.BlogAuthor>
+          </S.BlogFlex>
+
           <S.BlogSocialBlock>
             <S.BlogSocial>Icon, Icon, Icon</S.BlogSocial>
           </S.BlogSocialBlock>
@@ -97,7 +106,7 @@ export default ({ data, location, pageContext }) => {
 }
 
 export const pageQuery = graphql`
-  query BlogPostBySlug($slug: String!) {
+  query BlogPostBySlug($slug: String!, $authorId: String!) {
     site {
       siteMetadata {
         title
@@ -113,7 +122,6 @@ export const pageQuery = graphql`
       frontmatter {
         title
         description
-        author
         date(formatString: "MMMM DD, YYYY")
         # thumbnail
         thumbnail {
@@ -125,5 +133,18 @@ export const pageQuery = graphql`
         }
       }
     }
+    authorYaml(title: { eq: $authorId }) {
+      bio
+      bioExcerpt
+      title
+      jobTitle
+      avatar {
+        childImageSharp {
+          fluid(maxWidth: 200) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }     
   }
 `

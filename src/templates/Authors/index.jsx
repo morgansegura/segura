@@ -1,4 +1,5 @@
 import React from "react";
+import Img from "gatsby-image";
 import { Link } from "gatsby";
 import _ from "lodash";
 import Layout from "../../components/Layout";
@@ -17,7 +18,7 @@ export default ({
       {authorNodes.map(({ node: author }, index) => (
         <li key={`author-${_.kebabCase(author.title)}`}>
           <Link to={`/author/${_.kebabCase(author.title)}`}>{author.title}
-              <S.PostCardImage
+              <Img
                 fluid={author.avatar.childImageSharp.fluid}
                 alt=""
               />

@@ -21,7 +21,6 @@ const PostCard = props => {
       <S.PostCardLink>
         <S.PostCardContent className="post-card-link">
           <S.PostCardHeader>
-          {console.log(authors)}
             <S.PostCardFlex className="flex-end">
               {!!authors && authors.map(({ node: author }) => (
               <S.PostCardAuthor to={`/author/${_.kebabCase(author.title)}`}>

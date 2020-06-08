@@ -81,7 +81,7 @@ module.exports = {
               wrapperStyle: `margin-bottom: 1.0725rem`,
             },
           },
-          "gatsby-remark-prismjs",
+          "gatsby-plugin-mdx-prismjs",
           "gatsby-remark-autolink-headers",
           {
             resolve: `gatsby-remark-copy-linked-files`,
@@ -91,14 +91,14 @@ module.exports = {
             resolve: `gatsby-remark-smartypants`,
           },
         ],
-        plugin: [
-          {
-            resolve: `gatsby-remark-images`,
-            options: {
-              maxWidth: 680,
-            },
-          },
-        ],
+        // plugin: [
+        //   {
+        //     resolve: `gatsby-remark-images`,
+        //     options: {
+        //       maxWidth: 680,
+        //     },
+        //   },
+        // ],
       },
     },
     `gatsby-transformer-yaml`,

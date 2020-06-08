@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
-import { MDXRenderer } from 'gatsby-plugin-mdx'
+import { MDXProvider } from "@mdx-js/react"
+import { MDXRenderer } from "gatsby-plugin-mdx"
 import _ from "lodash";
 
 import Bio from '../components/Bio'
@@ -75,7 +76,9 @@ export default ({ data, location, pageContext }) => {
         )}
 
         <S.BlogContent>
-          <MDXRenderer>{Mdx.body}</MDXRenderer>
+        <MDXProvider>
+          <MDXRenderer>{body}</MDXRenderer>
+        </MDXProvider>
         </S.BlogContent>
 
         <S.BlogFooter>

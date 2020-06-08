@@ -65,9 +65,12 @@ module.exports = {
       resolve: `gatsby-plugin-mdx`,
       options: {
         extensions: ['.mdx', '.md'],
+        defaultLayouts: {
+          posts: require.resolve("./src/templates/BlogPost/index.jsx"),
+          default: require.resolve("./src/templates/BlogPost/index.jsx"),
+        },        
         // a workaround to solve mdx-remark plugin compat issue
         // https://github.com/gatsbyjs/gatsby/issues/15486
-        plugins: [`gatsby-remark-images`],
         gatsbyRemarkPlugins: [
           {
             resolve: `gatsby-remark-images`,
@@ -81,7 +84,13 @@ module.exports = {
               wrapperStyle: `margin-bottom: 1.0725rem`,
             },
           },
-          "gatsby-plugin-mdx-prismjs",
+          {
+            resolve: `gatsby-remark-prismjs`,
+            options: {
+              classPrefix: 'language-',
+              inlineCodeMarker: null
+            }
+          },
           "gatsby-remark-autolink-headers",
           {
             resolve: `gatsby-remark-copy-linked-files`,
@@ -91,14 +100,6 @@ module.exports = {
             resolve: `gatsby-remark-smartypants`,
           },
         ],
-        // plugin: [
-        //   {
-        //     resolve: `gatsby-remark-images`,
-        //     options: {
-        //       maxWidth: 680,
-        //     },
-        //   },
-        // ],
       },
     },
     `gatsby-transformer-yaml`,

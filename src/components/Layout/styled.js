@@ -76,18 +76,6 @@ export const MainNavToggle = styled.div`
       background-color: magenta;
     }
   }
-  .drawer-open & {
-    & .hamburger:before,
-    & .hamburger:after,
-    & .hamburger__center {
-      background-color: magenta;
-    }
-    & .hamburger:before,
-    & .hamburger:after,
-    & .hamburger__center {
-      /* transition: transform 0.1s ease-in; */
-    }
-  }
   .squeeze-menu & {
     display: none;
   }
@@ -99,11 +87,11 @@ export const Hamburger = styled.div`
   position: relative;
   display: flex;
   align-items: center;
+  justify-content: center;
   width: 50px;
   height: 50px;
 
   .drawer-open & {
-    justify-content: center;
     margin-bottom: 0;
   }
 
@@ -112,45 +100,49 @@ export const Hamburger = styled.div`
   & .hamburger__center {
     content: '';
     position: absolute;
-    z-index: 1;
-    left: 50%;
-    transform-origin: 50% 50%;
+    z-index: 1;    
     background-color: ${({ theme }) => theme.textOnLight};
     height: 3px;
     border: none;
-    transform: translateX(-50%);
+    /* transform: translateX(-50%); */
     transition: rotate 0.1s ease-in;
   }
   &:before {
-    top: 32%;
+    top: 30%;
     width: 25px;
+    transform-origin: 50% 50%;
+    transform: translateX(0) rotate(180deg);
+
     .drawer-open & {
       opacity: 0;
     }
   }
   & .hamburger__center {
-    top: 47%;
+    top: 46%;
     width: 25px;
-    transition: width 0.1s ease-in;
+    transform-origin: 50% 50%;
+    transform: translateX(0) rotate(180deg);
+    transition: width 0.1s ease-in, transform 0.1s ease-in;
 
     .drawer-open & {
       width: 28px;
-      top: 50%;
-      transform: rotate(45deg) translateY(-50%) translateX(0);
+      top: 48%;
+      transform: rotate(-45deg) translateX(0);
       left: 22%;
     }
   }
   &:after {
-    top: 63%;
+    top: 62%;
     transform: translateX(-50%);
     width: 25px;
+    transform-origin: 50% 50%;
+    transform: translateX(0) rotate(-180deg); 
     transition: width 0.2s ease-in;
 
     .drawer-open & {
-      top: 50%;
+      top: 48%;
       width: 28px;
-      transform: rotate(-45deg) translateY(-50%) translateX(0);
-      left: 24%;
+      transform: rotate(45deg) translateX(0);
     }
   }
 `

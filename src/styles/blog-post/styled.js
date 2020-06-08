@@ -11,27 +11,41 @@ const customMedia = generateMedia({
 })
 
 export const BlogContainer = styled.article`
+  position: relative;
   max-width: 680px;
   margin-left: auto;
   margin-right: auto;
   padding: 120px 24px;
 
-  ${customMedia.greaterThan('large')`
-    padding-top: var(--size);
-  `}
   ${customMedia.greaterThan('huge')`
     max-width: 1024px;
   `}
 `
 
 export const BlogHeader = styled.header``
+export const BlogHeaderMeta = styled.div`
+  padding: 1rem 0;
+  border: 1px solid #ccc;
+`
 
 export const BlogTitle = styled.h1`
   font-size: 40px;
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
 `
 
-export const BlogDescription = styled.p`
-  font-size: 18px;
+export const BlogDescription = styled.div`
+  background-color: ${({ theme }) => theme.bgCardDate};
+  padding: 1.5rem 1rem 1rem;
+  border-left: 10px solid ${({ theme }) => theme.opaqueOnLight};
+  p {
+    font-weight: 300;
+    letter-spacing: -0.003em;
+    font-family: var(--serif-font);
+    margin-top: 1rem;
+    font-size: 18px;
+    line-height: 36px;
+  }
 `
 
 export const BlogImageWrapper = styled.div`
@@ -81,13 +95,8 @@ export const BlogContent = styled.div`
     font-family: var(--serif-font);
     margin-bottom: -0.46em;
     margin-top: 1.23em;
-    font-size: 16px;
-    line-height: 32px;
-
-    ${customMedia.greaterThan('large')`
-        font-size: 18px;
-        line-height: 36px;
-    `}
+    font-size: 18px;
+    line-height: 36px;
   }
   img,
   pre {
@@ -105,7 +114,14 @@ export const BlogContent = styled.div`
   }
 `
 
-export const BlogDate = styled.div``
+export const BlogDate = styled.div`
+  font-size: 12px;
+  line-height: 14px;
+  padding: 3px 6px;
+  border-radius: 4px;
+  color: ${({ theme }) => theme.textCardDate};
+  background-color: ${({ theme }) => theme.bgCardDate};
+`
 
 export const BlogFlex = styled.div`
   position: relative;
@@ -116,7 +132,7 @@ export const BlogFlex = styled.div`
   }
 `
 export const BlogAuthor = styled(Link)`
-  /* position: absolute; */
+  position: absolute;
   text-decoration: none;
   left: 0;
   height: 30px;
@@ -145,7 +161,17 @@ export const BlogAuthorImg = styled(Img)`
 `
 
 
-export const BlogSocialBlock = styled.div``
+export const BlogSocialBlock = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+
+  svg {
+    font-size: 25px;
+    margin-right: 0.25rem;
+  }
+`
 
 export const BlogSocial = styled.div``
 

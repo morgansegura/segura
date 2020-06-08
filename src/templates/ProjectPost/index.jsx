@@ -1,11 +1,13 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
+import { MDXProvider } from "@mdx-js/react"
+import { MDXRenderer } from "gatsby-plugin-mdx"
+import _ from "lodash";
 
-
-import Bio from '../../components/Bio'
 import Layout from '../../components/Layout'
 import SEO from 'react-seo-component'
 import { useSiteMetadata } from '../../hooks/useSiteMetadata'
+import { AiFillTwitterSquare, AiFillFacebook, AiFillLinkedin } from 'react-icons/ai'
 
 /* Styled Components */
 import * as S from '../../styles/blog-post/styled'
@@ -22,6 +24,8 @@ export default ({ data, location, pageContext }) => {
   } = useSiteMetadata()
   const { frontmatter, body, fields, excerpt } = data.mdx
   const { title, date, author, thumbnail, description } = frontmatter
+  const { title: authorTitle, avatar, bio, bioExcerpt, jobTitle } = data.authorYaml
+  
   const { previous, next } = pageContext
 
   return (
@@ -43,17 +47,34 @@ export default ({ data, location, pageContext }) => {
         publishedDate={date}
         modifiedDate={new Date(Date.now()).toISOString()}
       />
+      {console.log(data)}
       <S.BlogContainer>
-        <S.BlogHeader>
-          <S.BlogTitle>{title}</S.BlogTitle>
-          <S.BlogDate>{date}</S.BlogDate>
-          <S.BlogAuthor to="/">{author}</S.BlogAuthor>
-          <S.BlogSocialBlock>
-            <S.BlogSocial>Icon, Icon, Icon</S.BlogSocial>
-          </S.BlogSocialBlock>
+        <S.BlogHeader>       
+          <S.BlogFlex className="flex-end"> 
+            <S.BlogSocialBlock>
+              <S.BlogSocial>
+                <Link to="">
+                  <AiFillTwitterSquare />
+                </Link>
+                <Link to="">
+                  <AiFillFacebook />
+                </Link>
+                <Link to="">
+                  <AiFillLinkedin />
+                </Link>
+              </S.BlogSocial>
+            </S.BlogSocialBlock>            
+            <S.BlogDate>{date}</S.BlogDate>
+          </S.BlogFlex> 
+          <S.BlogTitle>{title}</S.BlogTitle>         
         </S.BlogHeader>
 
-        {description && <S.BlogDescription>{description}</S.BlogDescription>}
+        {!!description && 
+          <S.BlogDescription>
+            <h2>Synopsis:</h2>
+            <p>{description}</p>
+          </S.BlogDescription>
+        }
 
         {thumbnail && (
           <S.BlogImageWrapper>
@@ -66,11 +87,18 @@ export default ({ data, location, pageContext }) => {
         )}
 
         <S.BlogContent>
-          {body}
+        <MDXProvider>
+          <MDXRenderer>{body}</MDXRenderer>
+        </MDXProvider>
         </S.BlogContent>
 
         <S.BlogFooter>
-          <Bio />
+          <S.BlogFlex className="flex-end">          
+              <S.BlogAuthor to={`/author/${_.kebabCase(authorTitle)}`} title="">
+              <S.BlogAuthorImg fluid={avatar.childImageSharp.fluid} alt="" />
+                <p>{authorTitle}</p>
+              </S.BlogAuthor>
+          </S.BlogFlex>
         </S.BlogFooter>
 
         {previous === false ? null : (
@@ -96,7 +124,7 @@ export default ({ data, location, pageContext }) => {
   )
 }
 
-export const projectQuery = graphql`
+export const pageQuery = graphql`
   query ProjectPostBySlug($slug: String!) {
     site {
       siteMetadata {
@@ -109,11 +137,11 @@ export const projectQuery = graphql`
       body
       fields {
         slug
+        authorId
       }
       frontmatter {
         title
         description
-        author
         date(formatString: "MMMM DD, YYYY")
         # thumbnail
         thumbnail {
@@ -125,5 +153,18 @@ export const projectQuery = graphql`
         }
       }
     }
+    authorYaml {
+      bio
+      bioExcerpt
+      title
+      jobTitle
+      avatar {
+        childImageSharp {
+          fluid(maxWidth: 200) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }     
   }
 `

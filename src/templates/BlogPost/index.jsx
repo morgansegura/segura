@@ -25,6 +25,7 @@ export default ({ data, location, pageContext }) => {
   const { frontmatter, body, fields, excerpt } = data.mdx
   const { title, date, author, thumbnail, description } = frontmatter
   const { title: authorTitle, avatar, bio, bioExcerpt, jobTitle } = data.authorYaml
+  
   const { previous, next } = pageContext
 
   return (
@@ -46,6 +47,7 @@ export default ({ data, location, pageContext }) => {
         publishedDate={date}
         modifiedDate={new Date(Date.now()).toISOString()}
       />
+      test
       <S.BlogContainer>
         <S.BlogHeader>
           <S.BlogTitle>{title}</S.BlogTitle>

@@ -118,7 +118,9 @@ const GlobalStyles = createGlobalStyle`
       color: ${({ theme }) => theme.actionOnLight2};
     }
   }
-
+  .relative {
+    position: relative;
+  }
   :root { 
     --size: 45px;
     --white: #fff;

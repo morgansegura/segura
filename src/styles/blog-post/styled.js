@@ -35,16 +35,35 @@ export const BlogTitle = styled.h1`
 `
 
 export const BlogDescription = styled.div`
+  position: relative;
   background-color: ${({ theme }) => theme.bgCardDate};
-  padding: 1.5rem 1rem 1rem;
-  border-left: 10px solid ${({ theme }) => theme.opaqueOnLight};
+  padding: 1.25rem 1rem 1rem;
+  border: solid ${({ theme }) => theme.accentOnDark};
+  border-width: 1px 1px 1px 3px;
+
+  h2 {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: -0.5rem;
+    left: -3px;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.025rem;
+    background-color: ${({ theme }) => theme.accentOnDark};
+    color: ${({ theme }) => theme.textOnDark} !important;
+    padding: 0.65rem 1rem 0.45rem 1rem;
+    border-radius: 0 0 10px 0;
+  }
   p {
     font-weight: 300;
     letter-spacing: -0.003em;
     font-family: var(--serif-font);
     margin-top: 1rem;
     font-size: 18px;
-    line-height: 36px;
+    line-height: 36px;    
   }
 `
 

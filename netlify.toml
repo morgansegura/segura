@@ -1,6 +1,6 @@
-[build]
-  command = "gatsby build"
-  publish = "public"
+# [build]
+#   command = "yarn build"
+#   publish = "public"
 
-[build.environment]
-  NODE_VERSION = "12.14.1"
+# [build.environment]
+#   NODE_VERSION = "12.14.1"

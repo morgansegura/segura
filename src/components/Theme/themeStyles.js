@@ -55,11 +55,17 @@ export const lightTheme = {
   accentOnLight: 'var(--accent-color)',
   accentOnLight1: 'var(--accent-light-color)',
   accentOnLight2: 'var(--accent-dark-color)',
+  accentOnDark: 'var(--accent-color)',
+  accentOnDark1: 'var(--accent-light-color)',
+  accentOnDark2: 'var(--accent-dark-color)',
 
   /* Action Color */
   actionOnLight: 'var(--action-color)',
   actionOnLight1: 'var(--action-light-color)',
   actionOnLight2: 'var(--action-dark-color)',
+  actionOnDark: 'var(--action-color)',
+  actionOnDark1: 'var(--action-light-color)',
+  actionOnDark2: 'var(--action-dark-color)',
 }
 
 export const darkTheme = {
@@ -94,9 +100,9 @@ export const darkTheme = {
   textOnLight: 'var(--light)',
   textOnLight1: 'var(--gray)',
   textOnLight2: 'var(--gray-4)',
-  textOnDark: 'var(--base)',
-  textOnDark1: 'var(--base)',
-  textOnDark2: 'var(--base)',
+  textOnDark: 'var(--dark)',
+  textOnDark1: 'var(--dark-1)',
+  textOnDark2: 'var(--dark-2)',
 
   /* Border or Outline */
   outlineOnLight: 'var(--dark)',

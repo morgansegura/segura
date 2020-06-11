@@ -75,7 +75,7 @@ const BlogIndex = ({ data, location }) => {
           {posts.map(({ node }) => {
             postCounter++
             return (
-              <Grid key={node.fields.slug} item xs={12} sm={6} md={6} lg={4}>
+              <Grid key={node.fields.slug} item xs={12} sm={6}>
                 <PostCard count={postCounter} node={node} postClass={`post`} />
               </Grid>
             )

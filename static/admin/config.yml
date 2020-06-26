@@ -30,40 +30,86 @@ collections:
     format: frontmatter
     fields: # The fields for each document, usually in front matter
       - { label: 'Title', name: 'title', widget: 'string' }
-      - { label: 'Excerpt', name: 'excerpt', widget: 'text' }
       - {
           label: 'Date',
           name: 'date',
           widget: 'datetime',
           format: 'YYYY-MM-DD hh:mm:ss',
         }
-      - {
-          label: 'Author',
-          name: 'author',
-          widget: 'select',
-          options:
-            [
-              'Morgan Segura',
-              'Mike Mallowe'
-            ],
-        }        
-      - { label: 'Thumbnail', name: 'thumnail', widget: 'image' }
-      - { label: 'Tags', name: 'tags', widget: 'list' }
-      - {
-          label: 'Category',
-          name: 'category',
-          widget: 'select',
-          options:
-            [
-              'Blog',
-              'Projects',
-              'Tutorials',
-              'Quick Tips',
-              'Reviews',
-              'Case Study',
-            ],
-        }
-      - { label: 'Body', name: 'body', widget: 'markdown' }
+      - label: 'Meta'
+        name: 'meta'
+        widget: 'object'
+        collapsed: true
+        fields:
+          - { label: 'Tags', name: 'tags', widget: 'list', required: false }
+          - {
+              label: 'Category',
+              name: 'category',
+              widget: 'select',
+              required: false,
+              options:
+                [
+                  'Blog',
+                  'Projects',
+                  'Tutorials',
+                  'Quick Tips',
+                  'Reviews',
+                  'Case Study',
+                ],
+            }
+          - {
+              label: 'Author',
+              name: 'author',
+              widget: 'select',
+              options: ['Morgan Segura', 'Mike Mallowe'],
+            }
+      - label: 'Display Card'
+        name: 'cards'
+        widget: 'list'
+        collapsed: true
+        required: false
+        fields:
+          - { label: 'Card Title', name: 'title', widget: 'text' }
+          - { label: 'Card Image', name: 'image', widget: 'image' }
+          - { label: 'Summary', name: 'summary', widget: 'text' }
+          - label: 'Links'
+            name: 'link'
+            widget: 'list'
+            collapsed: true
+            required: false
+            fields:
+              - { label: 'Label', name: 'label', widget: 'string' }
+              - {
+                  label: 'Link type',
+                  name: 'link_type',
+                  widget: 'select',
+                  options: ['Internal', 'External'],
+                }
+              - { label: 'Url', name: 'image', widget: 'string' }
+              - {
+                  label: 'Target',
+                  name: 'target',
+                  widget: 'select',
+                  options: ['This window', 'New Tab'],
+                }
+      - label: 'Content'
+        name: 'content'
+        widget: 'object'
+        collapsed: true
+        fields:
+          - {
+              label: 'Thumbnail',
+              name: 'thumbnail',
+              widget: 'image',
+              required: false,
+            }
+          - {
+              label: 'Excerpt',
+              name: 'excerpt',
+              widget: 'text',
+              required: false,
+            }
+          - { label: 'Body', name: 'body', widget: 'markdown' }
   # Projects
   - name: 'projects' # Used in routes, e.g., /admin/collections/blog
     label: 'Projects' # Used in the UI
@@ -77,37 +123,83 @@ collections:
     format: frontmatter
     fields: # The fields for each document, usually in front matter
       - { label: 'Title', name: 'title', widget: 'string' }
-      - { label: 'Excerpt', name: 'excerpt', widget: 'text' }
       - {
           label: 'Date',
           name: 'date',
           widget: 'datetime',
           format: 'YYYY-MM-DD hh:mm:ss',
         }
-      - {
-          label: 'Author',
-          name: 'author',
-          widget: 'select',
-          options:
-            [
-              'Morgan Segura',
-              'Mike Mallowe'
-            ],
-        }       
-      - { label: 'Thumbnail', name: 'thumnail', widget: 'image' }
-      - { label: 'Tags', name: 'tags', widget: 'list' }
-      - {
-          label: 'Category',
-          name: 'category',
-          widget: 'select',
-          options:
-            [
-              'Blog',
-              'Projects',
-              'Tutorials',
-              'Quick Tips',
-              'Reviews',
-              'Case Study',
-            ],
-        }
-      - { label: 'Body', name: 'body', widget: 'markdown' }
+      - label: 'Meta'
+        name: 'meta'
+        widget: 'object'
+        collapsed: true
+        fields:
+          - { label: 'Tags', name: 'tags', widget: 'list', required: false }
+          - {
+              label: 'Category',
+              name: 'category',
+              widget: 'select',
+              required: false,
+              options:
+                [
+                  'Blog',
+                  'Projects',
+                  'Tutorials',
+                  'Quick Tips',
+                  'Reviews',
+                  'Case Study',
+                ],
+            }
+          - {
+              label: 'Author',
+              name: 'author',
+              widget: 'select',
+              options: ['Morgan Segura', 'Mike Mallowe'],
+            }
+      - label: 'Display Card'
+        name: 'cards'
+        widget: 'list'
+        collapsed: true
+        required: false
+        fields:
+          - { label: 'Card Title', name: 'title', widget: 'text' }
+          - { label: 'Card Image', name: 'image', widget: 'image' }
+          - { label: 'Summary', name: 'summary', widget: 'text' }
+          - label: 'Links'
+            name: 'link'
+            widget: 'list'
+            collapsed: true
+            required: false
+            fields:
+              - { label: 'Label', name: 'label', widget: 'string' }
+              - {
+                  label: 'Link type',
+                  name: 'link_type',
+                  widget: 'select',
+                  options: ['Internal', 'External'],
+                }
+              - { label: 'Url', name: 'image', widget: 'string' }
+              - {
+                  label: 'Target',
+                  name: 'target',
+                  widget: 'select',
+                  options: ['This window', 'New Tab'],
+                }
+      - label: 'Content'
+        name: 'content'
+        widget: 'object'
+        collapsed: true
+        fields:
+          - {
+              label: 'Thumbnail',
+              name: 'thumbnail',
+              widget: 'image',
+              required: false,
+            }
+          - {
+              label: 'Excerpt',
+              name: 'excerpt',
+              widget: 'text',
+              required: false,
+            }
+          - { label: 'Body', name: 'body', widget: 'markdown' }

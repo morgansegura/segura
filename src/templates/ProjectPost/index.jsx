@@ -1,13 +1,17 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
-import { MDXProvider } from "@mdx-js/react"
-import { MDXRenderer } from "gatsby-plugin-mdx"
-import _ from "lodash";
+import { MDXProvider } from '@mdx-js/react'
+import { MDXRenderer } from 'gatsby-plugin-mdx'
+import _ from 'lodash'
 
 import Layout from '../../components/Layout'
 import SEO from 'react-seo-component'
 import { useSiteMetadata } from '../../hooks/useSiteMetadata'
-import { AiFillTwitterSquare, AiFillFacebook, AiFillLinkedin } from 'react-icons/ai'
+import {
+  AiFillTwitterSquare,
+  AiFillFacebook,
+  AiFillLinkedin,
+} from 'react-icons/ai'
 
 /* Styled Components */
 import * as S from '../../styles/blog-post/styled'
@@ -24,8 +28,14 @@ export default ({ data, location, pageContext }) => {
   } = useSiteMetadata()
   const { frontmatter, body, fields, excerpt } = data.mdx
   const { title, date, author, thumbnail, description } = frontmatter
-  const { title: authorTitle, avatar, bio, bioExcerpt, jobTitle } = data.authorYaml
-  
+  const {
+    title: authorTitle,
+    avatar,
+    bio,
+    bioExcerpt,
+    jobTitle,
+  } = data.authorYaml
+
   const { previous, next } = pageContext
 
   return (
@@ -49,7 +59,23 @@ export default ({ data, location, pageContext }) => {
       />
       {console.log(data)}
       <S.BlogContainer>
-        <S.BlogHeader>       
+        <S.BlogFixedSidebar>
+          <S.BlogSidebar>
+            <h3>The aside title</h3>
+            <S.List>
+              <S.ListItem>A list item</S.ListItem>
+              <S.ListItem>A list item</S.ListItem>
+              <S.ListItem>A list item</S.ListItem>
+              <S.ListItem>A list item</S.ListItem>
+              <S.ListItem>A list item</S.ListItem>
+              <S.ListItem>A list item</S.ListItem>
+            </S.List>
+          </S.BlogSidebar>
+        </S.BlogFixedSidebar>
+
+        <S.BlogContent>
+          <S.BlogHeader>
+            {/*     
           <S.BlogFlex className="flex-end"> 
             <S.BlogSocialBlock>
               <S.BlogSocial>
@@ -66,41 +92,51 @@ export default ({ data, location, pageContext }) => {
             </S.BlogSocialBlock>            
             <S.BlogDate>{date}</S.BlogDate>
           </S.BlogFlex> 
-          <S.BlogTitle>{title}</S.BlogTitle>         
-        </S.BlogHeader>
+          */}
+            <S.BlogTitle>{title}</S.BlogTitle>
+            <S.BlogParagraph>
+              Snapple digital pets punk speed bye bye bye, stretch armstrong tim
+              “the tool man” taylor pizza bagels dawson’s creek.
+              <br />
+              <br />
+              Home improvement catsuit cornrows wayne’s world meg ryan, converse
+              da bomb the rachel haircut slap bracelet girl power.
+            </S.BlogParagraph>
+          </S.BlogHeader>
 
-        {!!description && 
+          {/*!!description && (
           <S.BlogDescription>
             <h2>Synopsis:</h2>
             <p>{description}</p>
           </S.BlogDescription>
-        }
+        )*/}
 
-        {thumbnail && (
-          <S.BlogImageWrapper>
-            <S.BlogImage
-              className="kg-image"
-              fluid={thumbnail.childImageSharp.fluid}
-              alt={title}
-            />
-          </S.BlogImageWrapper>
-        )}
-
-        <S.BlogContent>
-        <MDXProvider>
-          <MDXRenderer>{body}</MDXRenderer>
-        </MDXProvider>
+          {thumbnail && (
+            <S.BlogImageWrapper>
+              <S.BlogImage
+                className="kg-image"
+                fluid={thumbnail.childImageSharp.fluid}
+                alt={title}
+              />
+            </S.BlogImageWrapper>
+          )}
+          <S.BlogPost>
+            <MDXProvider>
+              <MDXRenderer>{body}</MDXRenderer>
+            </MDXProvider>
+          </S.BlogPost>
         </S.BlogContent>
 
+        {/* 
         <S.BlogFooter>
-          <S.BlogFlex className="flex-end">          
-              <S.BlogAuthor to={`/author/${_.kebabCase(authorTitle)}`} title="">
+          <S.BlogFlex className="flex-end">
+            <S.BlogAuthor to={`/author/${_.kebabCase(authorTitle)}`} title="">
               <S.BlogAuthorImg fluid={avatar.childImageSharp.fluid} alt="" />
-                <p>{authorTitle}</p>
-              </S.BlogAuthor>
+              <p>{authorTitle}</p>
+            </S.BlogAuthor>
           </S.BlogFlex>
         </S.BlogFooter>
-
+      */}
         {previous === false ? null : (
           <div>
             {previous && (
@@ -165,6 +201,6 @@ export const pageQuery = graphql`
           }
         }
       }
-    }     
+    }
   }
 `

@@ -12,26 +12,81 @@ const customMedia = generateMedia({
 
 export const BlogContainer = styled.article`
   position: relative;
-  max-width: 680px;
+  padding: 120px 40px;
   margin-left: auto;
   margin-right: auto;
-  padding: 120px 24px;
+  display: flex;
 
   ${customMedia.greaterThan('huge')`
-    max-width: 1024px;
+    max-width: 1240px;
   `}
 `
 
-export const BlogHeader = styled.header``
+export const BlogContent = styled.main`
+  ${customMedia.greaterThan('medium')`
+    flex: 1 1 auto;
+    flex-basis: 66.666%;
+    margin-left: 280px;
+  `}
+`
+export const BlogFixedSidebar = styled.div`
+  display: none;
+
+  ${customMedia.greaterThan('medium')`
+    display: block;
+    min-width: 280px;
+    background-color: rgba(0, 0, 0, 0.5);
+    overflow-y: auto;
+    overflow-y: auto;
+    position: fixed;
+    height: 100%;
+    left: 0;
+    top: 60px;    
+  `}
+`
+export const BlogSidebar = styled.aside`
+  h3 {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    font-weight: 400;
+    letter-spacing: normal;
+    text-decoration: inherit;
+    text-transform: inherit;
+    color: #212121;
+    padding-top: 40px;
+    padding-bottom: 12px;
+    padding-left: 24px;
+    font-size: 1.125rem;
+    font-weight: 400;
+    line-height: 1.5;
+  }
+
+  ${customMedia.greaterThan('medium')`
+    width: 280px; 
+  `}
+`
+export const BlogHeader = styled.section`
+  padding-top: 100px;
+  margin-bottom: 48px;
+  max-width: 66.666%;
+  flex-basis: 66.666%;
+`
 export const BlogHeaderMeta = styled.div`
   padding: 1rem 0;
   border: 1px solid #ccc;
 `
-
 export const BlogTitle = styled.h1`
-  font-size: 40px;
-  margin-top: 2.5rem;
-  margin-bottom: 2.5rem;
+  font-size: 3.125rem;
+  font-weight: 400;
+`
+export const BlogParagraph = styled.p`
+  font-size: 1rem;
+  line-height: 1.5;
+  font-weight: 400;
+  font-family: $base-font;
+  letter-spacing: 0.03125em;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 `
 
 export const BlogDescription = styled.div`
@@ -63,7 +118,7 @@ export const BlogDescription = styled.div`
     font-family: var(--serif-font);
     margin-top: 1rem;
     font-size: 18px;
-    line-height: 36px;    
+    line-height: 36px;
   }
 `
 
@@ -78,7 +133,12 @@ export const BlogImageWrapper = styled.div`
 
 export const BlogImage = styled(Img)``
 
-export const BlogContent = styled.div`
+export const List = styled.ul``
+export const ListItem = styled.li`
+  padding: ;
+`
+
+export const BlogPost = styled.div`
   h1 {
     font-size: 40px;
     line-height: 60px;
@@ -178,7 +238,6 @@ export const BlogAuthorImg = styled(Img)`
   line-height: 66px;
   text-align: center;
 `
-
 
 export const BlogSocialBlock = styled.div`
   position: absolute;

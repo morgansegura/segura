@@ -22,7 +22,17 @@ export const BlogHeader = styled.header`
 `
 
 export const BlogTitle = styled.h1`
-  font-size: 40px;
+  font-size: 3.125rem;
+  font-weight: 400;
+`
+export const BlogParagraph = styled.p`
+  font-size: 1rem;
+  line-height: 1.5;
+  font-weight: 400;
+  font-family: var('base-font');
+  letter-spacing: 0.03125em;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 `
 
 export const BlogDescription = styled.p`

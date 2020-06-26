@@ -57,8 +57,8 @@ export default ({ data, location, pageContext }) => {
       <S.BlogContainer>
         <S.BlogHeader>
           <S.BlogTitle>{title}</S.BlogTitle>
+          {/* 
           <S.BlogDate>{date}</S.BlogDate>
-
           <S.BlogFlex>
             <S.BlogAuthor to={`/author/${_.kebabCase(authorTitle)}`} title="">
               {authorTitle}
@@ -69,6 +69,7 @@ export default ({ data, location, pageContext }) => {
           <S.BlogSocialBlock>
             <S.BlogSocial>Icon, Icon, Icon</S.BlogSocial>
           </S.BlogSocialBlock>
+          */}
         </S.BlogHeader>
 
         {description && <S.BlogDescription>{description}</S.BlogDescription>}

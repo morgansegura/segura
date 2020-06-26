@@ -25,7 +25,7 @@ module.exports = {
         name: 'mappings',
         path: `${__dirname}/content/mappings`,
       },
-    },    
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -66,9 +66,9 @@ module.exports = {
       options: {
         extensions: ['.mdx', '.md'],
         defaultLayouts: {
-          posts: require.resolve("./src/templates/BlogPost/index.jsx"),
-          default: require.resolve("./src/templates/BlogPost/index.jsx"),
-        },        
+          posts: require.resolve('./src/templates/BlogPost/index.jsx'),
+          default: require.resolve('./src/templates/BlogPost/index.jsx'),
+        },
         // a workaround to solve mdx-remark plugin compat issue
         // https://github.com/gatsbyjs/gatsby/issues/15486
         gatsbyRemarkPlugins: [
@@ -88,10 +88,10 @@ module.exports = {
             resolve: `gatsby-remark-prismjs`,
             options: {
               classPrefix: 'language-',
-              inlineCodeMarker: null
-            }
+              inlineCodeMarker: null,
+            },
           },
-          "gatsby-remark-autolink-headers",
+          'gatsby-remark-autolink-headers',
           {
             resolve: `gatsby-remark-copy-linked-files`,
           },
@@ -179,8 +179,8 @@ module.exports = {
         ],
       },
     },
-    "gatsby-plugin-twitter",
-    "gatsby-plugin-sitemap",    
+    'gatsby-plugin-twitter',
+    'gatsby-plugin-sitemap',
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -198,7 +198,8 @@ module.exports = {
       options: {
         fonts: [
           `hind\:500,700`,
-          `rasmus andersson\:400,500`,
+          // `rasmus andersson\:400,500`,
+          `roboto\:300,400,500,700,900`,
           `merriweather\:300,400`,
         ],
       },

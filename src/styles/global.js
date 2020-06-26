@@ -161,7 +161,8 @@ const GlobalStyles = createGlobalStyle`
     --width-container: 1400px;
     --headline-font: "Hind", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     --serif-font: "Merriweather", serif;
-    --base-font: "rasmus andersson", "Noto Sans", Noto Sans JP,Noto Sans KR,Noto Naskh Arabic,Noto Sans Thai,Noto Sans Hebrew,Noto Sans Bengali,sans-serif;
+
+    --base-font: Roboto, "rasmus andersson", "Noto Sans", Noto Sans JP,Noto Sans KR,Noto Naskh Arabic,Noto Sans Thai,Noto Sans Hebrew,Noto Sans Bengali,sans-serif;
 
   ${customMedia.greaterThan('large')`
     --size: 80px;

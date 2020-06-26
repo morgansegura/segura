@@ -1,8 +1,8 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
-import { MDXProvider } from "@mdx-js/react"
-import { MDXRenderer } from "gatsby-plugin-mdx"
-import _ from "lodash";
+import { MDXProvider } from '@mdx-js/react'
+import { MDXRenderer } from 'gatsby-plugin-mdx'
+import _ from 'lodash'
 
 import Bio from '../components/Bio'
 import Layout from '../components/Layout'
@@ -24,8 +24,14 @@ export default ({ data, location, pageContext }) => {
   } = useSiteMetadata()
   const { frontmatter, body, fields, excerpt } = data.mdx
   const { title, date, author, thumbnail, description } = frontmatter
-  const { title: authorTitle, avatar, bio, bioExcerpt, jobTitle } = data.authorYaml
-  
+  const {
+    title: authorTitle,
+    avatar,
+    bio,
+    bioExcerpt,
+    jobTitle,
+  } = data.authorYaml
+
   const { previous, next } = pageContext
 
   return (
@@ -47,7 +53,7 @@ export default ({ data, location, pageContext }) => {
         publishedDate={date}
         modifiedDate={new Date(Date.now()).toISOString()}
       />
-      test
+
       <S.BlogContainer>
         <S.BlogHeader>
           <S.BlogTitle>{title}</S.BlogTitle>
@@ -78,9 +84,9 @@ export default ({ data, location, pageContext }) => {
         )}
 
         <S.BlogContent>
-        <MDXProvider>
-          <MDXRenderer>{body}</MDXRenderer>
-        </MDXProvider>
+          <MDXProvider>
+            <MDXRenderer>{body}</MDXRenderer>
+          </MDXProvider>
         </S.BlogContent>
 
         <S.BlogFooter>
@@ -150,6 +156,6 @@ export const pageQuery = graphql`
           }
         }
       }
-    }     
+    }
   }
 `

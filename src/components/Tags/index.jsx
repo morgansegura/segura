@@ -19,7 +19,7 @@ const Tags = ({ tags, tagLink }) => {
                 </span>
               ) : (
                 <Fragment key={tag}>
-                  <S.Tag>#{tag}</S.Tag>{' '}
+                  <S.Tag to="">#{tag}</S.Tag>{' '}
                 </Fragment>
               )}
             </Fragment>

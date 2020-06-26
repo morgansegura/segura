@@ -121,6 +121,7 @@ const GlobalStyles = createGlobalStyle`
   .relative {
     position: relative;
   }
+  
   :root { 
     --size: 45px;
     --white: #fff;

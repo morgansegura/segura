@@ -15,8 +15,8 @@ const customMedia = generateMedia({
 export const Container = styled.div``
 
 export const Header = styled.header`
-  padding-top: 90px;
-  padding-bottom: 40px;
+  padding-top: 120px;
+  padding-bottom: 3rem;
 
   h2 {
     width: 100%;
@@ -26,34 +26,40 @@ export const Header = styled.header`
     letter-spacing: 2px;
     text-transform: uppercase;
     color: #8b8b8b;
-
-    &:before {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: 0;
-      width: 50px;
-      height: 2px;
-      margin-top: -1px;
-      background: ${({ theme }) => theme.accentColor};
-    }
-    &:after {
-      content: '';
-      position: absolute;
-      top: -15px;
-      left: -20px;
-      right: 0;
-      bottom: -15px;
-      width: 105%;
-      background: ${({ theme }) => theme.opaqueLight041};
-
-      ${customMedia.greaterThan('large')`
-        top: -15px;
-        left: -40px;
-        bottom: -15px;
-        width: 30%;
-    `};
-    }
+  }
+  &.headline-dash h2,
+  &.headline-fill h2 {
+    position: relative;
+    padding: 0.5rem 1rem;
+    display: inline;
+  }
+  &.headline-dash h2 {
+    color: ${({ theme }) => theme.textOnLight};
+    padding: 0.75rem 1rem 0.65rem 50px;
+  }
+  &.headline-fill h2 {
+    color: ${({ theme }) => theme.textOnDark};
+    padding: 0.75rem 6rem 0.65rem 3rem;
+  }
+  &.headline-dash h2:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 30px;
+    height: 2px;
+    margin-top: -1px;
+    background-color: ${({ theme }) => theme.textOnLight};
+  }
+  &.headline-fill h2:after {
+    content: '';
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: ${({ theme }) => theme.opaqueOnLight1};
   }
 `
 

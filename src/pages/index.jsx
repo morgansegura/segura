@@ -6,7 +6,8 @@ import SEO from '../components/SEO'
 // import { HeaderNavigation } from '../../components/Navigation'
 import PostCard from '../components/PostCard'
 // import Sticky from '../components/Sticky'
-import WrapGameElement from '../components/Games/Reacteroids'
+// import WrapGameElement from '../components/Games/Reacteroids'
+import Skills from '../components/Blocks/Skills'
 
 /* Material UI */
 import Grid from '@material-ui/core/Grid'
@@ -34,6 +35,17 @@ const BlogIndex = ({ data, location }) => {
         <HeaderNavigation />
       </Sticky> */}
       {/* Large Card */}
+
+      <S.Container className="container">
+        <S.Header className="headline-fill">
+          <h2 className="page-head-title">Skills</h2>
+        </S.Header>
+        <S.ContentLeft
+          className="bg-image"
+          style={{ backgroundImage: `url(${brickWall})` }}
+        />
+        <Skills />
+      </S.Container>
 
       <S.Container className="container light-background">
         <S.Header className="page-head">

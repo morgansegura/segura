@@ -31,7 +31,9 @@ export const PostCardContainer = styled.div`
     `}
 `
 export const PostCardContent = styled.div`
-
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   height: 100%;
   border-radius: 4px;
   background-color: ${({ theme }) => theme.bgCard};
@@ -50,7 +52,7 @@ export const PostCardTitle = styled(Link)`
   h2 {
     flex: 1;
     height: 100%;
-    background: lime;    
+    background: lime;
     font-family: var(--headline-font);
     font-size: 24px;
     line-height: 30px;

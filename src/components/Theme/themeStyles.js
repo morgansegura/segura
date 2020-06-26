@@ -30,10 +30,10 @@ export const lightTheme = {
   /* Text on BG */
   textOnLight: 'var(--dark)',
   textOnLight1: 'var(--dark-2)',
-  textOnLight2: 'var(--base-dark)',
+  textOnLight2: 'var(--dark-3)',
   textOnDark: 'var(--light)',
-  textOnDark1: 'var(--base)',
-  textOnDark2: 'var(--base)',
+  textOnDark1: 'var(--light-1)',
+  textOnDark2: 'var(--light-2)',
 
   /* Border or Outline */
   outlineOnLight: 'var(--light-2)',

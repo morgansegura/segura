@@ -19,24 +19,24 @@ export const HeaderNavWrapper = styled.div`
   z-index: 5;
   width: calc(100% - var(--size));
 `
-export const HeaderNav = styled.nav`
-  position: absolute;
-  width: 100%;
-  /* justify-self: flex-end; */
-  display: flex;
-  align-items: center;
-  padding: 0 40px;
-  height: 100%;
-  background-color: ${({ theme }) => theme.HeaderNav};
+// export const HeaderNav = styled.nav`
+//   position: absolute;
+//   width: 100%;
+//   /* justify-self: flex-end; */
+//   display: flex;
+//   align-items: center;
+//   padding: 0 40px;
+//   height: 100%;
+//   /* background-color: ${({ theme }) => theme.HeaderNav}; */
 
-  .drawer-open & {
-    opacity: 0.15;
-  }
+//   .drawer-open & {
+//     opacity: 0.15;
+//   }
 
-  ${customMedia.greaterThan('large')`
+//   ${customMedia.greaterThan('large')`
 
-  `}
-`
+//   `}
+// `
 export const HeaderNavListItem = styled.div`
   margin-right: 10px;
   ${customMedia.greaterThan('large')`

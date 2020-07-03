@@ -1,6 +1,7 @@
 /* Defaults && Utils */
 import React, { useState, Fragment } from 'react'
-import _ from "lodash";
+import { Link } from 'gatsby'
+import _ from 'lodash'
 
 /* Components */
 import Tags from '../Tags'
@@ -10,6 +11,7 @@ import { truncateString } from '../../utils'
 
 /* Styled Components */
 import * as S from './styled'
+import { Paragraph, Headline, Heading } from '../Typography/styled'
 
 const PostCard = props => {
   // useState Hook
@@ -27,17 +29,16 @@ const PostCard = props => {
           {/* Card Header */}
           <S.PostCardHeader>
             <S.PostCardFlex className="flex-end">
-
               {/* Card Date */}
               <S.PostCardDate>{post.frontmatter.date}</S.PostCardDate>
             </S.PostCardFlex>
 
             {/* Card Title */}
-            <S.PostCardTitle to={post.fields.slug}>
-              <h2>{post.frontmatter.title}</h2>
-            </S.PostCardTitle>
-          </S.PostCardHeader> {/* [end] Card Header */}
-
+            <Link to={post.fields.slug}>
+              <Headline size="h3" className="" text={post.frontmatter.title} />
+            </Link>
+          </S.PostCardHeader>{' '}
+          {/* [end] Card Header */}
           {/* Card Thumbnail */}
           {post.frontmatter.thumbnail && (
             <S.PostCardImageWrapper
@@ -50,30 +51,36 @@ const PostCard = props => {
               />
             </S.PostCardImageWrapper>
           )}
-
           {/* Card Body */}
-          <S.PostCardBody to={post.fields.slug}>
-            <p>{truncateString(post.excerpt, 250, ' ...')}</p>
-              {/* Card Author */}
-              {!!authors && authors.map(({ node: author }) => (
-              <Fragment>
-                { author.title == post.frontmatter.author ? (
-                <S.PostCardAuthor to={`/author/${_.kebabCase(author.title)}`}>
-                  <p>{author.title}</p>
-                  <S.PostCardAuthorImg fluid={author.avatar.childImageSharp.fluid}
-                  alt={`${author.title}`} /> 
-                </S.PostCardAuthor> 
-                ) : ''}
-              </Fragment>
-              ))}            
-          </S.PostCardBody>
-
+          <Link to={post.fields.slug}>
+            <Paragraph
+              className=""
+              text={truncateString(post.excerpt, 250, ' ...')}
+            />
+            {/* Card Author */}
+            {!!authors &&
+              authors.map(({ node: author }) => (
+                <Fragment>
+                  {author.title == post.frontmatter.author ? (
+                    <S.PostCardAuthor
+                      to={`/author/${_.kebabCase(author.title)}`}
+                    >
+                      <p>{author.title}</p>
+                      <S.PostCardAuthorImg
+                        fluid={author.avatar.childImageSharp.fluid}
+                        alt={`${author.title}`}
+                      />
+                    </S.PostCardAuthor>
+                  ) : (
+                    ''
+                  )}
+                </Fragment>
+              ))}
+          </Link>
           <S.PostCardFooterWrapper>
             <S.PostCardFooter>
               {/* Card Tags */}
-              {!!post.frontmatter.tags && (
-                <Tags tags={post.frontmatter.tags} />
-              )}
+              {!!post.frontmatter.tags && <Tags tags={post.frontmatter.tags} />}
               {/* Card Image Toggle */}
               {!!post.frontmatter.thumbnail && (
                 <S.PostCardImageButton
@@ -82,14 +89,17 @@ const PostCard = props => {
                   {!toggleImage ? 'View image' : 'Hide image'}
                 </S.PostCardImageButton>
               )}
-{/* [end] Card Header */}
-            </S.PostCardFooter> {/* [end] Footer */}
-          </S.PostCardFooterWrapper> {/* [end] Footer Wrapper */}
-
-        </S.PostCardContent> {/* [end] Content */}
-      </S.PostCardContainer> {/* [end] Card Container */}
-    {/* [end]  Card Wrapper */}
-    </S.PostCardWrapper> 
+              {/* [end] Card Header */}
+            </S.PostCardFooter>{' '}
+            {/* [end] Footer */}
+          </S.PostCardFooterWrapper>{' '}
+          {/* [end] Footer Wrapper */}
+        </S.PostCardContent>{' '}
+        {/* [end] Content */}
+      </S.PostCardContainer>{' '}
+      {/* [end] Card Container */}
+      {/* [end]  Card Wrapper */}
+    </S.PostCardWrapper>
   )
 }
 

@@ -10,8 +10,10 @@ const customMedia = generateMedia({
 })
 
 export const Tag = styled(Link)`
-  color: ${({ theme }) => theme.textCardTag};
   text-decoration: none;
   margin-right: 0.25rem;
   font-weight: 600;
+  &.mdx {
+    color: green;
+  }
 `

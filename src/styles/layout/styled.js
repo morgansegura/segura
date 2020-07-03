@@ -8,12 +8,14 @@ const customMedia = generateMedia({
   huge: '1400px',
 })
 
+// Layout Components
+
 export const Main = styled.div`
   flex: 1;
   z-index: 1;
   position: relative;
   opacity: 1;
-  background-color: ${({ theme }) => theme.bgBody};
+  background-color: ${({ theme }) => theme.gray50};
   transition: opacity 0.2s ease-in;
 
   .drawer-open & {
@@ -26,6 +28,7 @@ export const Main = styled.div`
 
   `}
 `
+
 export const Wrapper = styled.div`
   position: relative;
   display: flex;
@@ -34,15 +37,38 @@ export const Wrapper = styled.div`
 `
 
 export const Container = styled.div`
-  margin-left: auto;
-  margin-right: auto;
-  max-width: var(--width-container);
+  margin: 60px auto 0 auto;
+  &.sidebar--left,
+  &.sidebar--right {
+    display: flex;
+  }
+`
+export const Section = styled.section`
+  padding: 80px 0;
+`
+
+export const Content = styled.section`
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-bottom: 4.5rem;
+  padding-top: 60px;
+
+  ${customMedia.greaterThan('medium')`
+    width: 75%;
+    flex-basis: 75%;
+
+    .sidebar--left & {
+      order: 1;
+    }
+    .sidebar--right & {
+      order: 0;
+    }    
+  `}
 `
 
 export const MainNavToggle = styled.div`
   position: relative;
   font-size: 11px;
-  /* left: 50px; */
   z-index: 10;
   font-family: var(--headline-font);
   font-weight: 600;
@@ -62,7 +88,7 @@ export const MainNavToggle = styled.div`
     border-radius: 100%;
     transform-origin: 50% 50%;
     transform: scale(0);
-    background-color: ${({ theme }) => theme.bgMenuHover};
+    background-color: ${({ theme }) => theme.gray50};
     transition: transform 0.2s ease-out;
   }
   &:hover {
@@ -100,8 +126,8 @@ export const Hamburger = styled.div`
   & .hamburger__center {
     content: '';
     position: absolute;
-    z-index: 1;    
-    background-color: ${({ theme }) => theme.textOnLight};
+    z-index: 1;
+    background-color: ${({ theme }) => theme.gray800};
     height: 3px;
     border: none;
     /* transform: translateX(-50%); */
@@ -136,7 +162,7 @@ export const Hamburger = styled.div`
     transform: translateX(-50%);
     width: 25px;
     transform-origin: 50% 50%;
-    transform: translateX(0) rotate(-180deg); 
+    transform: translateX(0) rotate(-180deg);
     transition: width 0.2s ease-in;
 
     .drawer-open & {
@@ -159,20 +185,20 @@ export const SocialNavToggle = styled.div`
   height: 50px;
   cursor: pointer;
   font-size: 24px;
-  
-  transition: transform 0.15s ease-out;  
+
+  transition: transform 0.15s ease-out;
 
   svg {
     path {
-      stroke: ${({ theme }) => theme.textOnLight};
+      fill: ${({ theme }) => theme.gray800};
       transition: stroke 0.2s ease-in;
     }
   }
   &:after {
     content: '';
-    z-index: 1;
+    z-index: -1;
     position: absolute;
-    background-color: ${({ theme }) => theme.bgMenuHover};
+    background-color: ${({ theme }) => theme.gray50};
     width: 90%;
     height: 90%;
     border-radius: 100%;
@@ -181,22 +207,23 @@ export const SocialNavToggle = styled.div`
   }
   &:hover {
     &:after {
-      transform: scale(1);      
+      transform: scale(1);
     }
     svg {
+      stroke: ${({ theme }) => theme.gray800};
       transition: transform 0.1s ease-in;
       path {
-        stroke: cyan;
+        fill: var(--accent2);
       }
-    }    
+    }
   }
   &:active {
     svg {
       transition: transform 0.1s ease-out;
-    }  
+    }
   }
   .squeeze-menu & {
-    background-color: rgba(0,255,255,.8);
+    background-color: var(--accent2);
     transition: opacity 0.2s ease-out, background-color 0.2s ease-out;
     border-radius: 100%;
     svg {
@@ -207,36 +234,20 @@ export const SocialNavToggle = styled.div`
       }
     }
     &:after {
-      background-color: transparent; 
-    }   
+      background-color: transparent;
+    }
     &:hover {
-      background-color: cyan;    
+      background-color: var(--accent2);
       &:after {
-       background-color: transparent; 
-      }      
+        background-color: transparent;
+      }
     }
   }
-
-  /* ${customMedia.greaterThan('large')`
-    position: relative;
-    top: inherit;
-    bottom: 0;
-
-    &:hover {
-
-    }
-    &:active {
-
-    }  
-    &:after {
-
-    }  
-	`}; */
 `
-export const FooterWrapper = styled.div`
+export const FooterWrapper = styled.footer`
   position: relative;
   width: 100%;
-  color: ${({ theme }) => theme.textOnLight1};
+  color: ${({ theme }) => theme.gray700};
 
   &:before {
     content: '';
@@ -245,12 +256,11 @@ export const FooterWrapper = styled.div`
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: ${({ theme }) => theme.bgFooter};
-    border-top: 1px solid ${({ theme }) => theme.outlineOnLight};
+    background-color: ${({ theme }) => theme.opaqueLight};
+    border-top: 1px solid rgba(0, 0, 0, 0.125);
   }
   ${customMedia.greaterThan('large')`
-    margin-left: var(--size);
-    width: calc(100% - var(--size));
+
   `}
 `
 
@@ -259,9 +269,9 @@ export const FooterContainer = styled.div`
   align-items: center;
   justify-content: center;
   font-size: 12px;
+  padding: 1.25rem 0;
   text-transform: uppercase;
   font-family: var(--headline-font);
-  height: var(--size);
 
   span {
     position: relative;

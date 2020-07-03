@@ -8,6 +8,9 @@ const customMedia = generateMedia({
   huge: '1400px',
 })
 const GlobalStyles = createGlobalStyle`
+
+  @import url('https://use.typekit.net/oji6pho.css');
+
   /* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
    License: none (public domain)
@@ -59,8 +62,10 @@ const GlobalStyles = createGlobalStyle`
   * {
     box-sizing: border-box;
   }
-  body {
-    background: ${({ theme }) => theme.bgBody};
+  html, body {
+    background-color: ${({ theme }) => theme.gray50};
+  }
+  body {    
     font-weight: 500;
     color: ${({ theme }) => theme.textOnLight};
     text-size-adjust: 100%;
@@ -71,102 +76,158 @@ const GlobalStyles = createGlobalStyle`
   * {
     outline: none !important;
   }
-    h1,
-    .h1,
-    h2,
-    .h2,
-    h3,
-    .h3,
-    h4,
-    .h4,
-    h5,.h5,
-    h6,.h6,
-    .headline {
-      font-family: var(--headline-font);
-      font-weight: 500;
-  }
   img {
     display: block;
   	max-width: 100%;
   	height: auto;
   }
-
-.container {
-  position: relative;
-  width: 100%;
-  max-width: var(--width-container);
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 20px;
-  padding-right: 20px;
-
-  ${customMedia.greaterThan('large')`
-      margin-left: var(--size);
-      width: calc(100% - var(--size));
-      padding-left: 40px;
-      padding-right: 40px;
-  `};
-}
-
+  b {
+    font-weight: 700;
+  }
+  strong {
+    font-weight: 800;
+  }
+  br {
+    height: 20px;
+  }
   a {
-    color: ${({ theme }) => theme.actionOnLight};
+    color: ${({ theme }) => theme.action};
     transition: color .2s ease-out;
     &:hover {
-      color: ${({ theme }) => theme.actionOnLight1};
+      color: ${({ theme }) => theme.actionLight};
     }
     &:active {
-      color: ${({ theme }) => theme.actionOnLight2};
+      color: ${({ theme }) => theme.actionDark};
     }
   }
   .relative {
     position: relative;
   }
+  .accent1 {
+    &--bg {
+      background-color: var(--accent1) !important;
+    }
+    &--border {
+      border-color: var(--accent1) !important;
+    }
+    &--border-bottom {
+      border-bottom-color: var(--accent1) !important;
+    }
+    &--border-top {
+      border-top-color: var(--accent1) !important;
+    }
+    &--left {
+      border-left-color: var(--accent1) !important;
+    }
+    &--color {
+      color: var(--accent1) !important;
+    }
+    &--fill {
+      fill: var(--accent1) !important;
+    }
+    &--stroke {
+      stroke: var(--accent1) !important;
+    }
+  }
+  .accent2 {
+    &--bg {
+      background-color: var(--accent2) !important;
+    }
+    &--border {
+      border-color: var(--accent2) !important;
+    }
+    &--border-bottom {
+      border-bottom-color: var(--accent2) !important;
+    }
+    &--border-top {
+      border-top-color: var(--accent2) !important;
+    }
+    &--border-left {
+      border-left-color: var(--accent2) !important;
+    }
+    &--color {
+      color: var(--accent2) !important;
+    }
+    &--stroke {
+      stroke: var(--accent2) !important;
+    }
+    &--fill {
+      fill: var(--accent2) !important;
+    }
+  }
+  .accent3 {
+    &--bg {
+      background-color: var(--accent3) !important;
+    }
+    &--border {
+      border-color: var(--accent3) !important;
+    }
+    &--border-bottom {
+      border-bottom-color: var(--accent3) !important;
+    }
+    &--border-top {
+      border-top-color: var(--accent3) !important;
+    }
+    &--left {
+      border-left-color: var(--accent3) !important;
+    }
+    &--color {
+      color: var(--accent3) !important;
+    }
+    &--fill {
+      fill: var(--accent3) !important;
+    }
+    &--stroke {
+      stroke: var(--accent3) !important;
+    }
+  }
   
   :root { 
     --size: 45px;
     --white: #fff;
-    --light: #f9f9f9;
-    --light-1: #f2f2f2;
-    --light-2: #eeeeee;
-    --light-3: #f9f9f9;
+    --black: #000;
 
-    --gray: #d1d1d1;
-    --gray-1: #cccccc;
-    --gray-2: #999999;
-    --gray-3: #8b8b8b;
-    --gray-4: #666666;    
- 
-    --blue-gray: #878c9f;
-    --blue-gray-1: #63768d;
-    --blue-gray-2: #323a45;
-   
-    --dark: #35353a;
-    --dark-1: #2d2d32;
-    --dark-2: #2a2a2e;
-    --dark-3: #292929;
-    --dark-4: #252425;
-    --dark-5: #171717;
-    --dark-6: #161720;
+    --gray-50: #FAFAFA;
+    --gray-100: #F5F5F5;
+    --gray-200: #EEEEEE;
+    --gray-300: #E0E0E0;
+    --gray-400: #BDBDBD;    
+    --gray-500: #9E9E9E;    
+    --gray-600: #757575;    
+    --gray-700: #616161;    
+    --gray-800: #424242;    
+    --gray-900: #212121;    
+
+    --blue-gray-50: #ECEFF1;
+    --blue-gray-100: #CFD8DC;
+    --blue-gray-200: #B0BEC5;
+    --blue-gray-300: #90A4AE;
+    --blue-gray-400: #78909C;    
+    --blue-gray-500: #607D8B;    
+    --blue-gray-600: #546E7A;    
+    --blue-gray-700: #455A64;    
+    --blue-gray-800: #37474F;    
+    --blue-gray-900: #263238;
 
     --yellow: #ffb200;
-
-    --accent-color: #5cdb95;
-    --accent-light-color: #8ee4af;
-    --accent-dark-color: #379683;
-
-    --action-color: #2196F3;
-    --action-light-color: #90CAF9;
-    --action-dark-color: #1976D2;
+    
+    --accent1: #e602e6;
+    --accent2: #0399dc;
+    --accent3: #16c79b;
 
     --width-container: 1400px;
-    --headline-font: "Hind", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    --serif-font: "Merriweather", serif;
 
-    --base-font: Roboto, "rasmus andersson", "Noto Sans", Noto Sans JP,Noto Sans KR,Noto Naskh Arabic,Noto Sans Thai,Noto Sans Hebrew,Noto Sans Bengali,sans-serif;
+    --headline-font: "usual", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+
+    --alt-font: 'aglet-slab', cursive;
+
+    --base-font: "frank-new", Roboto, "rasmus andersson", "Noto Sans", Noto Sans JP,Noto Sans KR,Noto Naskh Arabic,Noto Sans Thai,Noto Sans Hebrew,Noto Sans Bengali,sans-serif;
 
   ${customMedia.greaterThan('large')`
     --size: 80px;
   `};    
   }
 `
+// Magenta https://www.color-hex.com/color-palette/31535
+
 export default GlobalStyles

@@ -11,17 +11,14 @@ const Tags = ({ tags, tagLink }) => {
         {tags &&
           tags.map(tag => (
             <Fragment key={tag}>
-              {tagLink ? (
-                <span>
-                  <Link to={`/tags/${_.kebabCase(tag)}`}>
-                    <S.Tag>#{tag}</S.Tag>
-                  </Link>{' '}
-                </span>
-              ) : (
-                <Fragment key={tag}>
-                  <S.Tag to="">#{tag}</S.Tag>{' '}
-                </Fragment>
-              )}
+              <span>
+                <S.Tag
+                  to={`/tags/${_.kebabCase(tag)}`}
+                  className={_.kebabCase(tag).toLowerCase()}
+                >
+                  #{tag}
+                </S.Tag>
+              </span>
             </Fragment>
           ))}
       </p>

@@ -8,7 +8,7 @@ import { MainNavigation } from '../Menu'
 /* Styled Components */
 import { ThemeProvider } from 'styled-components'
 import GlobalStyles from '../../styles/global'
-import * as S from './styled'
+import * as S from '../../styles/layout/styled'
 
 import { GrMoreVertical } from 'react-icons/gr'
 

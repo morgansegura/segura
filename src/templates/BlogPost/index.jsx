@@ -11,6 +11,11 @@ import { useSiteMetadata } from '../hooks/useSiteMetadata'
 
 /* Styled Components */
 import * as S from '../styles/blog-post/styled'
+import {
+  Heading,
+  Headline,
+  Paragraph,
+} from '../../components/Typography/styled'
 
 export default ({ data, location, pageContext }) => {
   const {
@@ -56,7 +61,8 @@ export default ({ data, location, pageContext }) => {
 
       <S.BlogContainer>
         <S.BlogHeader>
-          <S.BlogTitle>{title}</S.BlogTitle>
+          <Headline size="h1" className="" text={title} />
+          Blog
           {/* 
           <S.BlogDate>{date}</S.BlogDate>
           <S.BlogFlex>

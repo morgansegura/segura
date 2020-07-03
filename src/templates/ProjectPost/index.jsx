@@ -7,14 +7,18 @@ import _ from 'lodash'
 import Layout from '../../components/Layout'
 import SEO from 'react-seo-component'
 import { useSiteMetadata } from '../../hooks/useSiteMetadata'
-import {
-  AiFillTwitterSquare,
-  AiFillFacebook,
-  AiFillLinkedin,
-} from 'react-icons/ai'
+import Sidebar from '../../components/Sidebar'
 
 /* Styled Components */
 import * as S from '../../styles/blog-post/styled'
+import {
+  Heading,
+  Headline,
+  Paragraph,
+  HorizontalRule,
+} from '../../components/Typography'
+
+import { Content, Container, Section } from '../../styles/layout/styled'
 
 export default ({ data, location, pageContext }) => {
   const {
@@ -27,7 +31,7 @@ export default ({ data, location, pageContext }) => {
     twitter,
   } = useSiteMetadata()
   const { frontmatter, body, fields, excerpt } = data.mdx
-  const { title, date, author, thumbnail, description } = frontmatter
+  const { title, date, author, category, thumbnail, description } = frontmatter
   const {
     title: authorTitle,
     avatar,
@@ -58,85 +62,51 @@ export default ({ data, location, pageContext }) => {
         modifiedDate={new Date(Date.now()).toISOString()}
       />
       {console.log(data)}
-      <S.BlogContainer>
-        <S.BlogFixedSidebar>
-          <S.BlogSidebar>
-            <h3>The aside title</h3>
-            <S.List>
-              <S.ListItem>A list item</S.ListItem>
-              <S.ListItem>A list item</S.ListItem>
-              <S.ListItem>A list item</S.ListItem>
-              <S.ListItem>A list item</S.ListItem>
-              <S.ListItem>A list item</S.ListItem>
-              <S.ListItem>A list item</S.ListItem>
-            </S.List>
-          </S.BlogSidebar>
-        </S.BlogFixedSidebar>
+      <Container className="sidebar--right">
+        <Sidebar>
+          <h3>The aside title</h3>
+          <S.List>
+            <S.ListItem>A list item</S.ListItem>
+            <S.ListItem>A list item</S.ListItem>
+            <S.ListItem>A list item</S.ListItem>
+            <S.ListItem>A list item</S.ListItem>
+            <S.ListItem>A list item</S.ListItem>
+            <S.ListItem>A list item</S.ListItem>
+          </S.List>
+        </Sidebar>
 
-        <S.BlogContent>
-          <S.BlogHeader>
-            {/*     
-          <S.BlogFlex className="flex-end"> 
-            <S.BlogSocialBlock>
-              <S.BlogSocial>
-                <Link to="">
-                  <AiFillTwitterSquare />
-                </Link>
-                <Link to="">
-                  <AiFillFacebook />
-                </Link>
-                <Link to="">
-                  <AiFillLinkedin />
-                </Link>
-              </S.BlogSocial>
-            </S.BlogSocialBlock>            
-            <S.BlogDate>{date}</S.BlogDate>
-          </S.BlogFlex> 
-          */}
-            <S.BlogTitle>{title}</S.BlogTitle>
-            <S.BlogParagraph>
-              Snapple digital pets punk speed bye bye bye, stretch armstrong tim
-              “the tool man” taylor pizza bagels dawson’s creek.
-              <br />
-              <br />
-              Home improvement catsuit cornrows wayne’s world meg ryan, converse
-              da bomb the rachel haircut slap bracelet girl power.
-            </S.BlogParagraph>
-          </S.BlogHeader>
+        <Content>
+          <Section>
+            <Heading
+              type="supertitle"
+              className="supertitle-outline accent3--border"
+              text="Category"
+            />
 
-          {/*!!description && (
-          <S.BlogDescription>
-            <h2>Synopsis:</h2>
-            <p>{description}</p>
-          </S.BlogDescription>
-        )*/}
+            <Headline className="" size="h1" text={title} />
+            <Headline className="accent2--color" size="h2" text={title} />
+            {!!excerpt && <Paragraph>{excerpt}</Paragraph>}
 
-          {thumbnail && (
-            <S.BlogImageWrapper>
-              <S.BlogImage
-                className="kg-image"
-                fluid={thumbnail.childImageSharp.fluid}
-                alt={title}
-              />
-            </S.BlogImageWrapper>
-          )}
-          <S.BlogPost>
-            <MDXProvider>
-              <MDXRenderer>{body}</MDXRenderer>
-            </MDXProvider>
-          </S.BlogPost>
-        </S.BlogContent>
+            {thumbnail && (
+              <S.BlogImageWrapper>
+                <S.BlogImage
+                  className="kg-image"
+                  fluid={thumbnail.childImageSharp.fluid}
+                  alt={title}
+                />
+              </S.BlogImageWrapper>
+            )}
+          </Section>
+          <HorizontalRule />
+          <Section>
+            <S.BlogPost>
+              <MDXProvider>
+                <MDXRenderer>{body}</MDXRenderer>
+              </MDXProvider>
+            </S.BlogPost>
+          </Section>
+        </Content>
 
-        {/* 
-        <S.BlogFooter>
-          <S.BlogFlex className="flex-end">
-            <S.BlogAuthor to={`/author/${_.kebabCase(authorTitle)}`} title="">
-              <S.BlogAuthorImg fluid={avatar.childImageSharp.fluid} alt="" />
-              <p>{authorTitle}</p>
-            </S.BlogAuthor>
-          </S.BlogFlex>
-        </S.BlogFooter>
-      */}
         {previous === false ? null : (
           <div>
             {previous && (
@@ -155,7 +125,7 @@ export default ({ data, location, pageContext }) => {
             )}
           </div>
         )}
-      </S.BlogContainer>
+      </Container>
     </Layout>
   )
 }
@@ -177,7 +147,8 @@ export const pageQuery = graphql`
       }
       frontmatter {
         title
-        description
+        excerpt
+        category
         date(formatString: "MMMM DD, YYYY")
         # thumbnail
         thumbnail {

@@ -134,48 +134,60 @@ export const BlogImageWrapper = styled.div`
 export const BlogImage = styled(Img)``
 
 export const List = styled.ul``
-export const ListItem = styled.li`
-  padding: ;
-`
+export const ListItem = styled.li``
 
 export const BlogPost = styled.div`
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--headline-font);
+    color: ${({ theme }) => theme.gray900};
+    font-weight: 700;
+    padding-top: 1.25rem;
+    padding-bottom: 1.125rem;
+
+    a {
+      padding-right: 0.5rem;
+    }
+  }
   h1 {
     font-size: 40px;
-    line-height: 60px;
-    padding-bottom: 1rem;
   }
-  h2 {
-    font-size: 21px;
-    font-weight: 600;
-    line-height: 1.18;
-    letter-spacing: -0.022em;
-    margin-top: 1.23em;
-    margin-bottom: -0.31em;
+  h2, h3 {
+    font-size: 1.85rem;
   }
-  h3 {
-    font-size: 30px;
-    line-height: 45px;
+  h4, h5, h6 {
+    font-size: 1.65rem;
   }
-  h4 {
-    font-size: 25px;
-    line-height: 40px;
-  }
-  h5 {
-    font-size: 20px;
-    line-height: 35px;
-  }
-  h6 {
-    font-size: 18px;
-    line-height: 27px;
-  }
+
   p {
-    font-weight: 300;
-    letter-spacing: -0.003em;
-    font-family: var(--serif-font);
-    margin-bottom: -0.46em;
-    margin-top: 1.23em;
-    font-size: 18px;
-    line-height: 36px;
+    font-size: 1.125rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: ${({ theme }) => theme.gray800};
+    padding-bottom: 0.75rem;
+
+      a,
+      b,
+      strong {
+        font-family: var(--alt-font);
+        font-size: 1.195rem;
+        padding: 0 0.25rem;
+        color: ${({ theme }) => theme.black};
+        font-weight: 500;
+      }
+    }
+    a {
+      color: var(--accent1-dark);
+      text-decoration: none;
+      font-weight: bold;
+    }
+    code {
+      margin: 0 0.25rem;
+    }
   }
   img,
   pre {
@@ -199,7 +211,7 @@ export const BlogDate = styled.div`
   padding: 3px 6px;
   border-radius: 4px;
   color: ${({ theme }) => theme.textCardDate};
-  background-color: ${({ theme }) => theme.bgCardDate};
+  background-color: ${({ theme }) => theme.gray800};
 `
 
 export const BlogFlex = styled.div`

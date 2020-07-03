@@ -1,21 +1,23 @@
 import React from 'react'
 import { graphql, StaticQuery } from 'gatsby'
 
+// Components
 import Layout from '../components/Layout'
 import SEO from '../components/SEO'
-// import { HeaderNavigation } from '../../components/Navigation'
+import Sidebar from '../components/Sidebar'
+import { Paragraph, Headline, Heading } from '../components/Typography'
 import PostCard from '../components/PostCard'
-// import Sticky from '../components/Sticky'
 // import WrapGameElement from '../components/Games/Reacteroids'
-import Skills from '../components/Blocks/Skills'
 
 /* Material UI */
 import Grid from '@material-ui/core/Grid'
 
-import * as S from '../styles/home/styled'
+import { Content, Container, Section } from '../styles/layout/styled'
+
+import { HorizontalRule } from '../components/Typography'
 
 // Images
-import brickWall from '../../static/assets/images/brick-wall.jpg'
+// import brickWall from '../../static/assets/images/brick-wall.jpg'
 
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title
@@ -28,75 +30,10 @@ const BlogIndex = ({ data, location }) => {
         title="Blog"
         keywords={[`devlog`, `blog`, `gatsby`, `javascript`, `react`]}
       />
-      {/* Rasteroids Game */}
-      {/* <WrapGameElement /> /*}
-      {/* Sticky Nav 
-      <Sticky>
-        <HeaderNavigation />
-      </Sticky> */}
-      {/* Large Card */}
 
-      <S.Container className="container">
-        <S.Header className="headline-fill">
-          <h2 className="page-head-title">Skills</h2>
-        </S.Header>
-        <S.ContentLeft
-          className="bg-image"
-          style={{ backgroundImage: `url(${brickWall})` }}
-        />
-        <Skills />
-      </S.Container>
+      {/* <WrapGameElement /> */}
 
-      <S.Container className="container light-background">
-        <S.Header className="page-head">
-          <h2 className="page-head-title">Skills</h2>
-        </S.Header>
-        <S.ContentHero>
-          <Grid container spacing={3}>
-            <Grid item xs={12} md={6}>
-              <S.ContentLeft
-                className="bg-image"
-                style={{ backgroundImage: `url(${brickWall})` }}
-              >
-                Left One
-              </S.ContentLeft>
-            </Grid>
-            <Grid item xs={12} md={6}>
-              <S.ContentLeft>
-                <h3>
-                  My <span>Design</span> and <span>Development</span> Skills
-                </h3>
-              </S.ContentLeft>
-            </Grid>
-          </Grid>
-        </S.ContentHero>
-
-        <S.Content></S.Content>
-        <S.Footer>
-          <S.ButtonWrapper></S.ButtonWrapper>
-        </S.Footer>
-      </S.Container>
-
-      {/* Large Card */}
-      <S.Container className="container dark-background">
-        <S.Header className="page-head">
-          <h2 className="page-head-title">Blog</h2>
-        </S.Header>
-
-        <Grid container spacing={3}>
-          {posts.map(({ node }) => {
-            postCounter++
-            return (
-              <Grid key={node.fields.slug} item xs={12} sm={6}>
-                <PostCard count={postCounter} node={node} postClass={`post`} />
-              </Grid>
-            )
-          })}
-        </Grid>
-        <S.Footer>
-          <S.ButtonWrapper></S.ButtonWrapper>
-        </S.Footer>
-      </S.Container>
+      <Container className="container sidebar--left"></Container>
     </Layout>
   )
 }

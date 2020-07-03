@@ -193,17 +193,17 @@ module.exports = {
         icon: `content/assets/gatsby-icon.png`,
       },
     },
-    {
-      resolve: `gatsby-plugin-google-fonts`,
-      options: {
-        fonts: [
-          `hind\:500,700`,
-          // `rasmus andersson\:400,500`,
-          `roboto\:300,400,500,700,900`,
-          `merriweather\:300,400`,
-        ],
-      },
-    },
+    // {
+    //   resolve: `gatsby-plugin-google-fonts`,
+    //   options: {
+    //     fonts: [
+    //       `hind\:500,700`,
+    //       // `rasmus andersson\:400,500`,
+    //       `roboto\:300,400,500,700,900`,
+    //       `courgette\:400`,
+    //     ],
+    //   },
+    // },
     `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
   ],

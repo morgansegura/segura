@@ -18,7 +18,7 @@ export const ToggleContainer = styled.div`
   width: 50px;
   height: 50px;
   cursor: pointer;
-  color: ${({ theme }) => theme.textOnLight};
+  color: ${({ theme }) => theme.gray800};
   transition: opacity 0.1s ease-in, color 0.1s ease-in;
   svg {
     transform: ${({ themeStyle }) =>
@@ -29,7 +29,7 @@ export const ToggleContainer = styled.div`
     content: '';
     position: absolute;
     z-index: -1;
-    background-color: ${({ theme }) => theme.bgMenuHover};
+    background-color: ${({ theme }) => theme.gray50};
     width: 100%;
     height: 100%;
     border-radius: 100%;
@@ -38,8 +38,11 @@ export const ToggleContainer = styled.div`
   }
   &:hover {
     opacity: 1;
-    color: ${({ theme }) => theme.actionOnLight};
+    color: ${({ theme }) => theme.gray800};
 
+    svg {
+      fill: var(--accent3);
+    }
     &:after {
       transform: scale(1);
     }

@@ -7,7 +7,7 @@ excerpt: >-
 
   Duden flows by their place and supplies it with the necessary regelialia.
 title: Wrestling Python
-date: 2020-06-26 01:43:01
+date: 2020-06-26T01:43:01.000Z
 meta:
   author: Morgan Segura
   category: Case Study
@@ -39,6 +39,48 @@ content:
 
 
     Millenials the simpsons scrunched socks alanis morissette. Steve urkel fargo buddy list neon colors. Paper fortune teller kurt cobain jonathan taylor thomas moby.
+
+
+    ``{`<Grid container spacing={3}>``
+
+
+    `{posts.map(({ node }) => {`
+
+
+    `postCounter++`
+
+
+    `return (`
+
+
+    `<Grid key={node.fields.slug} item xs={12} md={6} lg={4}>`
+
+
+    `<PostCard`
+
+
+    `count={postCounter}`
+
+
+    `node={node}`
+
+
+    ``postClass={`post`}``
+
+
+    `/>`
+
+
+    `</Grid>`
+
+
+    `)`
+
+
+    `})}`
+
+
+    ``</Grid>`}``
   excerpt: Millenials the simpsons scrunched socks alanis morissette. Steve urkel
     fargo buddy list neon colors. Paper fortune teller kurt cobain jonathan
     taylor thomas moby.

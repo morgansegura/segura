@@ -45,9 +45,11 @@ export const MainNavDrawer = styled.div`
     z-index: 2;
   }
 
-  ${customMedia.greaterThan('large')`
+  ${customMedia.greaterThan('medium')`
 		top: 0;
 		height: 100%;
+    z-index: 2;
+    padding: 0;
 	`};
 `
 export const MainNav = styled.nav`
@@ -55,13 +57,14 @@ export const MainNav = styled.nav`
   overflow-x: hidden;
   top: 0;
   left: -100%;
-  width: 65%;
+  width: 100%;
   height: 100%;
+  max-width: 320px;
   padding-top: 45px;
   padding-left: var(--size);
   background-color: ${({ theme }) => theme.bgDrawer};
-  border-left: 80px solid ${({ theme }) => theme.opaqueOnLight};
-  box-shadow: 0 0 40px ${({ theme }) => theme.bgDrawerShadow};
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.18);
+
   display: flex;
   flex-direction: column;
 
@@ -73,8 +76,10 @@ export const MainNav = styled.nav`
     display: none;
   }
 
-  ${customMedia.greaterThan('large')`
-    width: 45%;
+  ${customMedia.greaterThan('medium')`
+    width: 165px;
+    left: 0;
+    position: relative;
 	  padding-top: 200px;
   `};
 `

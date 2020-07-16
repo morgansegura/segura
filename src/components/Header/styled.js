@@ -11,13 +11,15 @@ const customMedia = generateMedia({
 
 export const HeaderWrapper = styled.div`
   position: fixed;
+  opacity: 1;
+  visibility: visible;
   display: flex;
   align-items: center;
   z-index: 11;
   right: 0;
   width: 100%;
   height: 60px;
-  transition: width 0.2s ease-in;
+  transition: width 0.2s ease-in, opacity 0.2s ease-in, visibility 0.2s ease-in;
 
   &:before {
     content: '';
@@ -25,9 +27,9 @@ export const HeaderWrapper = styled.div`
     top: auto;
     width: 100%;
     height: 100%;
-    background-color: ${({ theme }) => theme.opaqueLight};
-    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
-    transition: background-color 1s ease-out;
+    background-color: ${({ theme }) => theme.panelHeader};
+    border-bottom: 1px solid ${({ theme }) => theme.borderNav};
+    transition: background-color 0.4s ease-out;
   }
 
   .squeeze-menu & {
@@ -43,6 +45,12 @@ export const HeaderWrapper = styled.div`
       background-color: transparent;
     }
   }
+  ${customMedia.greaterThan('large')`
+      &.mobile:before {
+        background-color: transparent;
+        border-bottom-color: transparent;
+      }
+  `};
 `
 export const HeaderContainer = styled.div`
   width: 100%;
@@ -56,6 +64,11 @@ export const HeaderContainer = styled.div`
   .squeeze-menu & {
     padding-right: 0;
   }
+  ${customMedia.greaterThan('large')`
+      .mobile & {
+        padding-right: 1rem;
+      }
+  `};
 `
 
 export const LogoLink = styled(Link)`
@@ -71,6 +84,17 @@ export const LogoLink = styled(Link)`
   transform: scale(1);
   transition: transform 0.2s ease-out;
 
+  &.logo-link--lg {
+    width: 65px;
+    height: 65px;
+    position: relative;
+    left: auto;
+
+    .logo {
+      width: 65px;
+    }
+  }
+
   &:hover {
     transform: scale(1.1);
   }
@@ -84,10 +108,15 @@ export const LogoLink = styled(Link)`
   svg {
     position: absolute;
     path {
-      fill: ${({ theme }) => theme.gray800};
+      fill: ${({ theme }) => theme.textHeadline};
     }
   }
   .squeeze-menu & {
     display: none;
   }
+  ${customMedia.greaterThan('large')`
+      .mobile & {
+        display: none;
+      }
+  `};
 `

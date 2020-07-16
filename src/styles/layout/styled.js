@@ -15,7 +15,7 @@ export const Main = styled.div`
   z-index: 1;
   position: relative;
   opacity: 1;
-  background-color: ${({ theme }) => theme.gray50};
+  background-color: ${({ theme }) => theme.panelHeader};
   transition: opacity 0.2s ease-in;
 
   .drawer-open & {
@@ -25,7 +25,7 @@ export const Main = styled.div`
     opacity: 1;
   }
   ${customMedia.greaterThan('large')`
-
+    margin-left: 11.3125rem;
   `}
 `
 
@@ -106,8 +106,10 @@ export const MainNavToggle = styled.div`
     display: none;
   }
   ${customMedia.greaterThan('large')`
-    
-	`};
+      .mobile & {
+        display: none;
+      }
+  `};
 `
 export const Hamburger = styled.div`
   position: relative;
@@ -243,6 +245,11 @@ export const SocialNavToggle = styled.div`
       }
     }
   }
+  ${customMedia.greaterThan('large')`
+      .mobile & {
+        display: none;
+      }
+  `};
 `
 export const FooterWrapper = styled.footer`
   position: relative;

@@ -38,7 +38,7 @@ const Layout = props => {
         }`}
       >
         {/* Header Content */}
-        <Header>
+        <Header className="mobile">
           <S.MainNavToggle onClick={() => setToggleNav(!toggleNav)}>
             <S.Hamburger className="hamburger">
               <div className="hamburger__center" />
@@ -58,7 +58,7 @@ const Layout = props => {
 
         {/* Main Content ({children}) */}
         <S.Main>{children}</S.Main>
-        {/* Main Footer */}
+        {/* Main Footer 
         <S.FooterWrapper>
           <S.FooterContainer>
             <span>
@@ -67,6 +67,7 @@ const Layout = props => {
             </span>
           </S.FooterContainer>
         </S.FooterWrapper>
+        */}
       </S.Wrapper>
     </ThemeProvider>
   )

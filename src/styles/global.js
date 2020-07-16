@@ -63,11 +63,11 @@ const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
   }
   html, body {
-    background-color: ${({ theme }) => theme.gray50};
+    background-color: ${({ theme }) => theme.panelBody};
   }
   body {    
     font-weight: 500;
-    color: ${({ theme }) => theme.textOnLight};
+    color: ${({ theme }) => theme.textBody};
     text-size-adjust: 100%;
     font-size: 100%;
     font-family: var(--base-font);
@@ -214,6 +214,7 @@ const GlobalStyles = createGlobalStyle`
     --accent1: #e602e6;
     --accent2: #0399dc;
     --accent3: #16c79b;
+    --accent4: #ff714a;
 
     --width-container: 1400px;
 

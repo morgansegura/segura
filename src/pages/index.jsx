@@ -33,7 +33,11 @@ const BlogIndex = ({ data, location }) => {
 
       {/* <WrapGameElement /> */}
 
-      <Container className="container sidebar--left"></Container>
+      <Container className="container">
+        <Content>
+          <Headline size="h1" text="This is a test" />
+        </Content>
+      </Container>
     </Layout>
   )
 }

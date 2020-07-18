@@ -7,7 +7,6 @@ import _ from 'lodash'
 import Layout from '../../components/Layout'
 import SEO from 'react-seo-component'
 import { useSiteMetadata } from '../../hooks/useSiteMetadata'
-import Sidebar from '../../components/Sidebar'
 
 /* Styled Components */
 import * as S from '../../styles/blog-post/styled'
@@ -63,17 +62,6 @@ export default ({ data, location, pageContext }) => {
       />
       {console.log(data)}
       <Container className="sidebar--right">
-        <Sidebar>
-          <h3>The aside title</h3>
-          <S.List>
-            <S.ListItem>A list item</S.ListItem>
-            <S.ListItem>A list item</S.ListItem>
-            <S.ListItem>A list item</S.ListItem>
-            <S.ListItem>A list item</S.ListItem>
-            <S.ListItem>A list item</S.ListItem>
-            <S.ListItem>A list item</S.ListItem>
-          </S.List>
-        </Sidebar>
 
         <Content>
           <Section>

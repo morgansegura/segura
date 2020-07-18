@@ -9,6 +9,33 @@ const customMedia = generateMedia({
   huge: '1400px',
 })
 
+export const Section = styled.section`
+  display: flex;
+  flex-wrap: wrap;
+
+  &.section--inner {
+    padding: 25px 30px 60px;
+    margin-left: 0;
+  }
+  &.section--offset-light {
+    background-color: ${({ theme }) => theme.panelOffset};
+  }
+  &.section--offset-dark {
+    background-color: ${({ theme }) => theme.hoverNav};
+  }
+  &.bt-1 {
+    border-top: 1px solid ${({ theme }) => theme.panelIcon};
+  }
+  .t-center {
+    text-align: center;
+  }
+  .w-100 {
+    width: 100%;
+  }
+  ${customMedia.greaterThan('large')`
+    
+  `};
+`
 export const BioImageContainer = styled.div`
   min-height: 100%;
   flex: 0 0 100%;
@@ -42,7 +69,7 @@ export const BioContent = styled.div`
   h2 {
     font-family: var(--headline-font);
     font-size: 36px;
-    line-height: 1;
+    line-height: 1.2em;
     font-weight: 600;
     margin-bottom: 15px;
     color: ${({ theme }) => theme.textHeadline};

@@ -92,6 +92,7 @@ export const MainNavHeader = styled.header`
 
   h2 {
     font-size: 1.5rem;
+    line-height: 1;
     font-family: var(--base-font);
     font-weight: 500;
     text-align: center;

@@ -4,7 +4,6 @@ import { graphql, StaticQuery } from 'gatsby'
 // Components
 import Layout from '../components/Layout'
 import SEO from '../components/SEO'
-import PostCard from '../components/PostCard'
 
 // Material UI
 import Grid from '@material-ui/core/Grid';
@@ -12,6 +11,7 @@ import Grid from '@material-ui/core/Grid';
 // import WrapGameElement from '../components/Games/Reacteroids'
 
 // Styled components
+import { Section } from '../styles/Layout/styled'
 import * as S from '../styles/home/styled'
 
 // Images
@@ -19,13 +19,11 @@ import quoteImage from '../../static/assets/images/quote.jpg'
 
 // Icons 
 import { FcMultipleDevices, FcCommandLine, FcComboChart, FcStatistics, FcWorkflow, FcMindMap } from "react-icons/fc";
-import { FaLaravel, FaVuejs, FaReact, FaSass, FaNodeJs, FaPython } from "react-icons/fa";
+import { FaLaravel, FaVuejs, FaReact, FaSass, FaNodeJs } from "react-icons/fa";
 import { MdStyle } from "react-icons/md";
 
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title
-  const posts = data.allMdx.edges
-  let postCounter = 0
 
   return (
     <Layout title={siteTitle} location={location}>
@@ -36,7 +34,7 @@ const BlogIndex = ({ data, location }) => {
 
       {/* <WrapGameElement /> */}
 
-      <S.Section>
+      <Section>
         <S.BioImageContainer>
           <S.BioImage
             style={{ backgroundImage: `url(${quoteImage})` }}
@@ -62,9 +60,9 @@ const BlogIndex = ({ data, location }) => {
             <S.Button>Download CV</S.Button>
           </S.ButtonBlock>
         </S.BioContent>
-      </S.Section>
+      </Section>
 
-      <S.Section className="section--inner">
+      <Section className="section--inner">
         <S.TitleBlock>
           <h3>What I Do</h3>
         </S.TitleBlock>
@@ -131,9 +129,9 @@ const BlogIndex = ({ data, location }) => {
             </S.ListColumn>
           </Grid>
         </Grid>
-      </S.Section>
+      </Section>
 
-      <S.Section className="section__stack section--inner section--offset-dark">
+      <Section className="section__stack section--inner section--offset-dark">
         <S.StackContainer>
           <S.StackIconContainer>
             <S.TitleBlock>
@@ -197,9 +195,9 @@ const BlogIndex = ({ data, location }) => {
             </Grid>
           </S.StackIconContainer>
         </S.StackContainer>
-      </S.Section>
+      </Section>
 
-      <S.Section className="section--inner">
+      <Section className="section--inner">
         <S.TitleBlock>
           <h3>Currently Learning</h3>
         </S.TitleBlock>
@@ -239,10 +237,10 @@ const BlogIndex = ({ data, location }) => {
           </Grid>
 
         </Grid>
-      </S.Section>
+      </Section>
 
 
-      <S.Section className="section--inner">
+      <Section className="section--inner">
         <S.TitleBlock>
           <h3>Testimonials</h3>
         </S.TitleBlock>
@@ -288,7 +286,7 @@ const BlogIndex = ({ data, location }) => {
             </S.TestimonialItem>
           </Grid>
         </Grid>
-      </S.Section>
+      </Section>
     </Layout>
   )
 }

@@ -71,50 +71,6 @@ export const BioContent = styled.div`
      
   `};
 `
-export const ButtonBlock = styled.div`
-  margin-top: 30px;
-`
-export const Button = styled.button`
-  cursor: pointer;
-  display: inline-block;
-  position: relative;
-  padding: 0.8em 2em;
-  margin-bottom: 0.25em;
-  font-size: 1em;
-  line-height: 1.2;
-  border: 0;
-  outline: 0;
-  border: 2px solid ${({ theme }) => theme.accentSecondary};
-  color: ${({ theme }) => theme.textButton};
-  text-shadow: none;
-  background-color: transparent;
-  border-radius: 0;
-  font-family: var(--headline-font);
-  transition: all 0.3s ease-in-out;
-
-  &:hover {
-    background-color: ${({ theme }) => theme.accentSecondary};
-    border-color: ${({ theme }) => theme.accentSecondary};
-    color: #fff;
-  }
-`
-export const TitleBlock = styled.div`
-  h3 {
-    display: inline-block;
-    margin: 0 0 20px;
-    padding-bottom: 3px;    
-    font-size: 21px;
-
-    &:after {
-      content: '';
-      display: block;
-      width: 100%;
-      height: 2px;
-      margin-top: -1px;
-      background-color: ${({ theme }) => theme.accentPrimary};
-    }
-  }
-`
 
 export const ListColumn = styled.div`
   

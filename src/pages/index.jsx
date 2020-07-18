@@ -4,6 +4,7 @@ import { graphql, StaticQuery } from 'gatsby'
 // Components
 import Layout from '../components/Layout'
 import SEO from '../components/SEO'
+import { ButtonOutline } from '../components/Button'
 
 // Material UI
 import Grid from '@material-ui/core/Grid';
@@ -11,8 +12,9 @@ import Grid from '@material-ui/core/Grid';
 // import WrapGameElement from '../components/Games/Reacteroids'
 
 // Styled components
-import { Section } from '../styles/Layout/styled'
+import { Section, BlockTitle } from '../styles/Layout/styled'
 import * as S from '../styles/home/styled'
+import { ButtonBlock } from '../components/Button/styled'
 
 // Images
 import quoteImage from '../../static/assets/images/quote.jpg'
@@ -56,16 +58,16 @@ const BlogIndex = ({ data, location }) => {
             can't get up wayne gretzky tamagotchi. Nintendo 64 sup hip hop playa
             puff daddy, courtney love end of the road warheads push pencils.
           </p>
-          <S.ButtonBlock>
-            <S.Button>Download CV</S.Button>
-          </S.ButtonBlock>
+          <ButtonBlock>
+            <ButtonOutline>Download CV</ButtonOutline>
+          </ButtonBlock>
         </S.BioContent>
       </Section>
 
       <Section className="section--inner">
-        <S.TitleBlock>
+        <TitleBlock>
           <h3>What I Do</h3>
-        </S.TitleBlock>
+        </TitleBlock>
         <Grid container spacing={3}>
           <Grid item xs={12} sm={6}>
             <S.ListColumn class="list-column--with-icon">
@@ -134,9 +136,9 @@ const BlogIndex = ({ data, location }) => {
       <Section className="section__stack section--inner section--offset-dark">
         <S.StackContainer>
           <S.StackIconContainer>
-            <S.TitleBlock>
+            <TitleBlock>
               <h3>Preferred Stacks</h3>
-            </S.TitleBlock>
+            </TitleBlock>
             <Grid container spacing={3}>
               <Grid item xs={12} sm={6}>
                 <S.Card class="card--offset">
@@ -198,9 +200,9 @@ const BlogIndex = ({ data, location }) => {
       </Section>
 
       <Section className="section--inner">
-        <S.TitleBlock>
+        <TitleBlock>
           <h3>Currently Learning</h3>
-        </S.TitleBlock>
+        </TitleBlock>
 
         <Grid container spacing={3}>
           <Grid item xs={12} sm={6}>
@@ -241,9 +243,9 @@ const BlogIndex = ({ data, location }) => {
 
 
       <Section className="section--inner">
-        <S.TitleBlock>
+        <TitleBlock>
           <h3>Testimonials</h3>
-        </S.TitleBlock>
+        </TitleBlock>
         <Grid container spacing={3}>
           <Grid item xs={12} sm={6}>
             <S.TestimonialItem>

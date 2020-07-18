@@ -149,6 +149,21 @@ const GlobalStyles = createGlobalStyle`
   .relative {
     position: relative;
   }
+  .bt-1 {
+    border-top: 1px solid ${({ theme }) => theme.panelIcon};
+  }
+  .t-center {
+    text-align: center;
+  }
+  .w-100 {
+    width: 100%;
+  }  
+  .pt-4 {
+    padding-top: 2rem;
+  }
+  .pb-4 {
+    padding-bottom: 2rem;
+  }
   .accent1 {
     &--bg {
       background-color: var(--accent1) !important;

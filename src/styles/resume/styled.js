@@ -9,322 +9,201 @@ const customMedia = generateMedia({
   huge: '1400px',
 })
 
-export const Section = styled.section`
-  display: flex;
-  flex-wrap: wrap;
-
-  &.section--inner {
-    padding: 25px 30px 60px;
-    margin-left: 0;
-  }
-  &.section--offset-light {
-    background-color: ${({ theme }) => theme.panelOffset};
-  }
-  &.section--offset-dark {
-    background-color: ${({ theme }) => theme.hoverNav};
-  }
-  &.bt-1 {
-    border-top: 1px solid ${({ theme }) => theme.panelIcon};
-  }
-  .t-center {
-    text-align: center;
-  }
-  .w-100 {
-    width: 100%;
-  }
-  ${customMedia.greaterThan('large')`
-    
-  `};
-`
-export const BioImageContainer = styled.div`
-  min-height: 100%;
-  flex: 0 0 100%;
-  max-width: 100%;
-
-  ${customMedia.greaterThan('large')`
-    flex: 0 0 50%;
-    max-width: 50%;
-  `};
-`
-export const BioImage = styled.div`
+export const TimelineItem = styled.div`
   position: relative;
-  height: 100%;
-  min-height: 300px;
+  display: table;
+  table-layout: fixed;
   width: 100%;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  ${customMedia.greaterThan('large')`
-       
-  `};
-`
-export const BioContent = styled.div`
-  padding: 30px 30px 50px;
-  flex: 0 0 100%;
-  max-width: 100%;
-  background-color: ${({ theme }) => theme.panelOffset};
-  height: 100%;
-  min-height: 100px;
+  padding-bottom: 15px;
 
-  h2 {
-    font-family: var(--headline-font);
-    font-size: 36px;
-    line-height: 1.2em;
-    font-weight: 600;
-    margin-bottom: 15px;
-    color: ${({ theme }) => theme.textHeadline};
-
-    ${customMedia.greaterThan('large')`
-      font-size: 48px;    
-  `};
-  }
-  span {
-    color: ${({ theme }) => theme.textOffset1};
-    font-weight: 300;
-  }
-  p {
-    font-size: 14px;
-    margin: 0 0 10px;
-    font-weight: 400;
-    font-style: normal;
-    line-height: 1.85em;
-    color: ${({ theme }) => theme.textBody};
-  }
-
-  ${customMedia.greaterThan('large')`
-    padding: 70px 8%;
-    flex: 0 0 50%;
-    max-width: 50%;
-     
-  `};
-`
-export const ButtonBlock = styled.div`
-  margin-top: 30px;
-`
-export const Button = styled.button`
-  cursor: pointer;
-  display: inline-block;
-  position: relative;
-  padding: 0.8em 2em;
-  margin-bottom: 0.25em;
-  font-size: 1em;
-  line-height: 1.2;
-  border: 0;
-  outline: 0;
-  border: 2px solid ${({ theme }) => theme.accentSecondary};
-  color: ${({ theme }) => theme.textButton};
-  text-shadow: none;
-  background-color: transparent;
-  border-radius: 0;
-  font-family: var(--headline-font);
-  transition: all 0.3s ease-in-out;
-
-  &:hover {
-    background-color: ${({ theme }) => theme.accentSecondary};
-    border-color: ${({ theme }) => theme.accentSecondary};
-    color: #fff;
-  }
-`
-export const TitleBlock = styled.div`
-  h3 {
-    display: inline-block;
-    margin: 0 0 20px;
-    padding-bottom: 3px;    
-    font-size: 21px;
+  .divider {
+    position: absolute;
+    top: 0;
+    left: 30%;
+    bottom: 0;
+    width: 1px;
+    background-color: #666;
 
     &:after {
       content: '';
       display: block;
-      width: 100%;
-      height: 2px;
-      margin-top: -1px;
-      background-color: ${({ theme }) => theme.accentPrimary};
-    }
-  }
-`
-
-export const ListColumn = styled.div`
-  
-  .list-column--with-icon {
-    position: relative;
-    text-align: left;
-    width: 100%;
-    display: table;
-    margin: 0;
-    padding: 10px 10px 10px 0;
-  }
-`
-export const ListColumnBody = styled.div`
-  position: relative;
-  display: table-cell;
-  padding: 0;
-  vertical-align: middle;
-  h4 {
-    position: relative;
-    font-weight: 600;
-    font-style: normal;
-    line-height: 1.5em;    
-  }
-  p {
-    margin: 0 0 10px;
-    font-weight: 400;
-  }  
-`
-export const ListItemIcon = styled.div`
-    display: table-cell;
-    width: 54px;
-    padding-right: 25px;  
-
-    svg, i {
-      position: relative;
-      font-size: 42px;
-      color: ${({ theme }) => theme.textOffset1};     
-    }
-`
-
-export const StackContainer = styled.div`
-  width: 100%;
-`
-export const StackIconContainer = styled.div`    
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;    
-    justify-content: space-between;
-
-    h5 {
-      color: ${({ theme }) => theme.textOffset};
-    }
-  .stack-icons {
-    font-size: 4rem;
-    color: ${({ theme }) => theme.textOffset};
-    transition: color 0.3s ease-out;
-
-    &.scomp {
-      color:  #c69;
-    } 
-    &.sass {
-      color:  #c69;
-    } 
-    &.react {
-      color: #00d8ff;  
-    }
-    &.vue {
-      color: #42b883;
-    }
-    &.node {
-      color: #6cc24a;      
-    }
-    &.laravel {
-      color: #F05340;      
-    }
-  }
-    a {
-      color: ${({ theme }) => theme.textOffset};
-      text-decoration: none;
-      transition: color 0.3s ease-out;
-    
-      &:hover {
-        .react, .python, .vue, .laravel, .node, .sass, .scomp {
-          /* color: ${({ theme }) => theme.accentPrimary}; */
-        }
-        color: ${({ theme }) => theme.accentSecondary};
-      }    
-    }
-`
-
-export const Badge = styled.span`
-  border-radius: 1rem;
-  padding: 0.15rem 0.25rem 0.15rem;
-  line-height: 1;
-  display: inline-block;
-
-  font-size: 0.65rem;
-  top: -0.5rem;
-  left: -1px;
-  color: white;
-  position: relative;
-  background-color: ${({ theme }) => theme.accentSecondary}; 
-`
-
-// Cards
-export const Card = styled.div`
-  position: relative;
-  overflow: hidden;
-  border-radius: 4px;
-  background-color: ${({ theme }) => theme.panelCardOffset};
-  border: 1px solid ${({ theme }) => theme.panelIcon};
-  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.05);
-  margin-bottom: 1rem;
-`
-export const CardHeader = styled.header`
-  padding-top: 1.25rem;
-  padding-left: 1.125rem;
-`
-export const CardBody = styled.div`
-  padding: 1rem;
-`
-export const CardFooter = styled.div`
-  padding: 1rem;
-`
-// Testimonials
-export const TestimonialItem = styled.div`
-  width: 100%;
-  margin: 0 auto;
-`
-export const TestimonialContent = styled.div`
-  padding-left: 50px;
-  width: 100%;
-  height: auto;
-`
-export const TestimonialText = styled.div`
-    padding: 1.4em 1.8em;
-    background-color: ${({ theme }) => theme.panelCardOffset};
-    border-radius: 6px;
-    border: 1px solid ${({ theme }) => theme.borderDefault};
-    width: 100%;
-    position: relative;
-    margin: 0;
-    z-index: -1;
-`
-export const TestimonialCredits = styled.div`
-    margin-top: 10px;
-    display: block;
-    position: relative;
-`
-export const TestimonialPhoto = styled.div`
-    display: inline-block;
-    position: absolute;
-    width: 80px;
-    height: 80px;
-    overflow: hidden;
-    margin: 0;
-    top: -37px;
-    border-radius: 40px;
-    z-index: 1;
-
-    img {
-      width: 100%;
+      margin-top: 5px;
+      width: 10px;
+      height: 10px;
+      margin-left: -0.45rem;
       border-radius: 100%;
-      border: 2px solid ${({ theme }) => theme.borderDefault};
+      border: 2px solid ${({ theme }) => theme.accentSecondary};
+      background-color: ${({ theme }) => theme.panelHeader};
     }
+  }
+
+  ${customMedia.greaterThan('large')`
+
+  `};
 `
-export const TestimonialAuthorInfo = styled.div`
-  display: inline-block;
+export const TimelineLeft = styled.div`
+  width: 30%;
+  display: table-cell;
+  padding-right: 25px;
+  min-height: 100%;
+  text-align: right;
+  vertical-align: top;
+
+  ${customMedia.greaterThan('large')`
+
+  `};
+`
+export const TimelineRight = styled.div`
+  width: 70%;
+  display: table-cell;
+  padding-left: 25px;
+  padding-right: 15px;
+  vertical-align: top;
+
+  p {
+    font-size: .92em;
+  }
+
+  ${customMedia.greaterThan('large')`
+
+  `};
+`
+export const ItemTitle = styled.h5`
+    font-size: 16px;
+    margin-bottom: 3px;
+
+  ${customMedia.greaterThan('large')`
+    
+  `};
+`
+export const ItemPeriod = styled.h5`
+  margin: 3px 0;
+  font-size: 14px;
+  line-height: 1.4em;
+
+  ${customMedia.greaterThan('large')`
+    font-size: 16px;
+  `};
+`
+export const ItemCompany = styled.span`
+  display: block;
+  color: ${({ theme }) => theme.textOffset};
+  margin: 0 0 4px;
+  font-size: 12px;
+  line-height: 1.45em;
+
+  ${customMedia.greaterThan('large')`
+    
+  `};
+`
+export const SkillsInfo = styled.div`
+
+  h4 {
+    font-size: 13px;
+    line-height: 1.1em;
+    position: relative;
+    margin: 0 0 4px;    
+  }
+
+  ${customMedia.greaterThan('large')`
+    
+  `};
+`
+export const SkillValueContainer = styled.div`
+  display: flex;
+
+  h4 {
+    flex: 1 0 auto;
+  }
+
+  ${customMedia.greaterThan('large')`
+    
+  `};
+`
+export const SkillValue = styled.div`
+  font-size: 11px;
+  line-height: 1.1em;
   position: relative;
-  padding-left: 92px;
+  float: right;
+  margin: 0 0 4px;
+  color: #aaa;
+  transition: all 2s ease-in-out;
+
+  ${customMedia.greaterThan('large')`
+    
+  `};
 `
-export const TestimonialAuthor = styled.p`
-    display: inline-block;
-    font-size: 1.07em;
-    color: ${({ theme }) => theme.textHeadline};
-    margin: 0;
-    font-weight: 600;
-    text-align: center;
+export const SkillBarContainer = styled.div`
+  position: relative;
+  background-color: transparent;
+  border: 1px solid ${({ theme }) => theme.accentSecondary};
+  border-radius: 30px;
+  height: 10px;
+  margin-bottom: 15px;
+  width: 100%;
+
+  ${customMedia.greaterThan('large')`
+    
+  `};
 `
-export const TestimonialFirm = styled.p`
-    font-size: 11px;
-    line-height: 1.3em;
-    margin: 0;
-    font-weight: 400;
-    color: ${({ theme }) => theme.textOffset};
+export const SkillBarPercentage = styled.div`
+  background-color: ${({ theme }) => theme.accentSecondary};
+  border: 2px solid ${({ theme }) => theme.panelHeader};
+  border-radius: 30px;
+  height: 8px;
+  padding: 0;
+  transition: all 2s ease-in-out;
+
+  &.skill {
+    &--45 {
+      width: 45%;
+    }
+    &--50 {
+      width: 50%;
+    }
+    &--60 {
+      width: 60%;
+    }
+    &--65 {
+      width: 65%;
+    }
+    &--70 {
+      width: 70%;
+    }
+    &--75 {
+      width: 75%;
+    }
+    &--80 {
+      width: 80%;
+    }
+    &--85 {
+      width: 85%;
+    }
+    &--90 {
+      width: 90%;
+    }
+    &--95 {
+      width: 95%;
+    }
+    &--96 {
+      width: 96%;
+    }
+    &--97 {
+      width: 97%;
+    }
+    &--98 {
+      width: 98%;
+    }
+    &--98 {
+      width: 98%;
+    }
+    &--100 {
+      width: 100%;
+    }
+  }
+
+
+  ${customMedia.greaterThan('large')`
+    
+  `};
 `

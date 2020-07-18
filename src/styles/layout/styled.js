@@ -57,20 +57,92 @@ export const Section = styled.section`
   &.section--offset-dark {
     background-color: ${({ theme }) => theme.hoverNav};
   }
-  &.bt-1 {
-    border-top: 1px solid ${({ theme }) => theme.panelIcon};
-  }
-  .t-center {
-    text-align: center;
-  }
-  .w-100 {
-    width: 100%;
-  }
   ${customMedia.greaterThan('large')`
     
   `};
 `
+export const SectionInner = styled.div`
+  position: relative;
+  height: auto;
+  width: 100%;
+  min-width: 100%;
+  min-height: 100%;
+  background-color: transparent;
+  padding: 6rem 30px 60px;
+  margin-left: 0;    
+  background-color: ${({ theme }) => theme.panelHeader};
+  transform: translate3d(0,0,0);
 
+  ${customMedia.greaterThan('large')`
+      padding: 50px 70px 70px;
+  `};
+`
+export const SectionTitleBlock = styled.div`
+  margin-bottom: 40px;
+
+  ${customMedia.greaterThan('large')`
+
+  `};
+`
+export const SectionTitle = styled.h2`
+  color: ${({ theme }) => theme.textHeadline};
+  font-size: 30px;
+  font-weight: 600;
+  font-style: normal;
+  letter-spacing: 0px;
+  margin: 0 0 8px;
+  line-height: 1.5em;
+
+  &:after {
+    display: block;
+    content: '';
+    width: 100%;
+    margin-top: 5px;
+    height: 2px;
+    background-color: ${({ theme }) => theme.textBody};
+    opacity: 1;
+  }
+
+  ${customMedia.greaterThan('large')`
+
+  `};
+`
+export const SectionDescription = styled.h5`
+  display: block;
+  margin: 0;
+  color: #bbb;
+  font-size: 14px;
+  font-weight: 300;
+  text-align: right;
+
+  ${customMedia.greaterThan('large')`
+
+  `};
+`
+
+export const SectionContent = styled.section`
+
+  ${customMedia.greaterThan('medium')`
+   
+  `}
+`
+export const TitleBlock = styled.div`
+  h3 {
+    display: inline-block;
+    margin: 0 0 20px;
+    padding-bottom: 3px;    
+    font-size: 21px;
+
+    &:after {
+      content: '';
+      display: block;
+      width: 100%;
+      height: 2px;
+      margin-top: -1px;
+      background-color: ${({ theme }) => theme.accentPrimary};
+    }
+  }
+`
 export const Content = styled.section`
   padding-left: 40px;
   padding-right: 40px;

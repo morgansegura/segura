@@ -1,107 +1,53 @@
 import styled from 'styled-components'
-import media from 'styled-media-query'
-import { Link } from 'gatsby'
 
-export const Button = styled(Link)`
-    &.button {
-        text-decoration: none;
-        white-space: nowrap;
-        transition: opacity 0.3s ease-out, background-color 0.3s ease-out;
-        font-family: var(--headline-font);
-        font-weight: 600;
-        letter-spacing: 0.15px;
-        padding: 20px 52px;
-        font-size: 1rem;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-top: 30px;
+export const ButtonBlock = styled.div`
+  margin-top: 30px;
+`
+export const ButtonOutline = styled.button`
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    padding: 0.8em 2em;
+    margin-bottom: 0.25em;
+    font-size: 1em;
+    line-height: 1.2;
+    border: 0;
+    outline: 0;
+    text-shadow: none;
+    border: 2px solid ${({ theme }) => theme.accentSecondary};
+    color: ${({ theme }) => theme.textButton};
+    background-color: transparent;
+    border-radius: 0;
+    font-family: var(--headline-font);
+    transition: all 0.3s ease-in-out;
 
-        /* Sizes */
-        &.medium {
-            max-width: 175px;
-            padding: 10px 0;
-        }
+  &:hover {
+    background-color: ${({ theme }) => theme.accentSecondary};
+    border-color: ${({ theme }) => theme.accentSecondary};
+    color: #fff;
+  }
+`
+export const ButtonSolid = styled.button`
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    padding: 0.8em 2em;
+    margin-bottom: 0.25em;
+    font-size: 1em;
+    line-height: 1.2;
+    border: 0;
+    outline: 0;
+    text-shadow: none;
+    border: 2px solid ${({ theme }) => theme.accentSecondary};
+    color: #fff;
+    background-color: ${({ theme }) => theme.textButton};
+    border-radius: 0;
+    font-family: var(--headline-font);
+    transition: all 0.3s ease-in-out;
 
-        &.round {
-            &--4 {
-                border-radius: 4px;
-            }
-            &--8 {
-                border-radius: 8px;
-            }
-            &--30 {
-                border-radius: 30px;
-            }
-        }
-        &.outline {
-            border: 2px solid var(--primary-color);
-            color: var(--primary-color);
-
-            &:hover {
-                color: var(--primary-light-color);
-                border-color: var(--primary-color);
-            }
-        }
-        &.white {
-            background-color: #fff;
-            color: var(--tertiary-color);
-            &:hover {
-                opacity: 0.85;
-            }
-        }
-        &.primary {
-            background-color: var(--primary-color);
-            color: white;
-            &:hover {
-                opacity: 0.85;
-            }
-        }
-        &.secondary {
-            background-color: var(--secondary-color);
-            color: white;
-
-            &:hover {
-                background-color: var(--secondary-light-color);
-            }
-            &:active {
-                background-color: var(--secondary-dark-color);
-            }
-        }
-        &.thirdy {
-            background-color: var(--tertiary-color);
-            color: white;
-            &:hover {
-                opacity: 0.85;
-            }
-        }
-        &.transparent {
-            &__on-dark {
-                color: white;
-                background-color: transparent;
-                &:hover {
-                    color: var(--tertiary-color);
-                    background-color: white;
-                }
-            }
-            &__on-light {
-                color: var(--tertiary-color);
-                background-color: transparent;
-
-                &:hover {
-                    opacity: 0.85;
-                }
-            }
-        }
-
-        i,
-        svg {
-            &.icon-left {
-                margin-right: 0.25rem;
-            }
-            &.icon-right {
-                margin-left: 0.25rem;
-            }
-        }
-    }
+  &:hover {
+    background-color: transparent;
+    border-color: ${({ theme }) => theme.accentSecondary};
+    color: ${({ theme }) => theme.textButton};
+  }
 `

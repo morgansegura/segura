@@ -8,6 +8,7 @@ import PostCard from '../../components/PostCard'
 /* Material UI */
 import Grid from '@material-ui/core/Grid'
 import * as S from '../../styles/blog/styled'
+import { Section, SectionInner, SectionTitleBlock, SectionTitle, SectionDescription, SectionContent, TitleBlock } from '../../styles/layout/styled'
 
 export default ({ data, location, pageContext }) => {
   const { title: siteTitle } = useSiteMetadata()
@@ -23,71 +24,74 @@ export default ({ data, location, pageContext }) => {
         title={`Blog`}
         keywords={[`${tag}`, `blog`, `gatsby`, `javascript`, `react`]}
       />
-      <S.BlogContainer>
-        <S.BlogHeader>
-          <h1>
-            #Blog <span>({data.allMdx.totalCount})</span>
-          </h1>
-        </S.BlogHeader>
-        <S.BlogPostFeed>
-          <Grid container spacing={3}>
-            {!!posts && posts.map(({ node }) => {
-              return (
-                <Grid key={node.fields.slug} item xs={12} md={6} xl={4}>
-                  <PostCard authors={authors} node={node} postClass={`post`} />
-                </Grid>
-              )
-            })}
-          </Grid>
-        </S.BlogPostFeed>
-      </S.BlogContainer>
+      <Section>
+        <SectionInner>
+          <SectionTitleBlock>
+            <SectionTitle>Blog</SectionTitle>
+            <SectionDescription>({data.allMdx.totalCount}) Post and Counting</SectionDescription>
+          </SectionTitleBlock>
+
+          <SectionContent>
+            <Grid container spacing={3}>
+              {!!posts && posts.map(({ node }) => {
+                return (
+                  <Grid key={node.fields.slug} item xs={12} md={6} xl={4}>
+                    <PostCard authors={authors} node={node} postClass={`post`} />
+                  </Grid>
+                )
+              })}
+            </Grid>
+          </SectionContent>
+        </SectionInner>
+      </Section>
     </Layout>
   )
 }
 
 export const pageQuery = graphql`
   query PostPage {
-    site {
-      siteMetadata {
+      site {
+        siteMetadata {
         title
         author
       }
     }
-    allMdx(sort: { fields: [frontmatter___date], order: DESC }) {
-      totalCount
-      edges {
+    allMdx(sort: {fields: [frontmatter___date], order: DESC }) {
+                totalCount
+    edges {
         node {
-          excerpt
-          fields {
-            slug
-          }
-          frontmatter {
-            date(formatString: "MMM DD, YYYY")
-            title
-            description
-            tags
-            author
-            thumbnail {
-              childImageSharp {
-                fluid(maxWidth: 1360) {
-                  ...GatsbyImageSharpFluid
-                }
+        excerpt
+        fields {
+          slug
+        }
+        frontmatter {
+          date(formatString: "MMM DD, YYYY")
+          title
+          description
+          tags
+          category
+          author
+          thumbnail {
+            childImageSharp {
+              fluid(maxWidth: 1360) {
+              ...GatsbyImageSharpFluid
               }
             }
+          }
           }
         }
       }
     }
     allAuthorYaml {
-      edges {
-        node {
-          bio
+                edges {
+                node {
+                bio
           bioExcerpt
           title
           jobTitle
           avatar {
-            childImageSharp {
-              fluid(maxWidth: 48) {
+                childImageSharp {
+                fluid(maxWidth: 48) {
                 ...GatsbyImageSharpFluid
               }
             }

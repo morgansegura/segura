@@ -61,6 +61,7 @@ export default ({ data, location, pageContext }) => {
         modifiedDate={new Date(Date.now()).toISOString()}
       />
       {console.log(data)}
+
       <Container className="sidebar--right">
 
         <Content>

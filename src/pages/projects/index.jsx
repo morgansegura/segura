@@ -15,6 +15,7 @@ const ProjectIndex = ({ data }) => {
   return (
     <Layout title={siteTitle}>
       <SEO title="Projects" />
+
       <S.LayoutWithSidebar>
         <header className="tag-page-head">
           <Link to="/projects">&laquot; All Projects</Link>

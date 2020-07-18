@@ -12,7 +12,7 @@ import Grid from '@material-ui/core/Grid';
 // import WrapGameElement from '../components/Games/Reacteroids'
 
 // Styled components
-import { Section, BlockTitle } from '../styles/Layout/styled'
+import { Section, TitleBlock } from '../styles/Layout/styled'
 import * as S from '../styles/home/styled'
 import { ButtonBlock } from '../components/Button/styled'
 

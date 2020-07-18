@@ -70,7 +70,7 @@ const BlogIndex = ({ data, location }) => {
         </TitleBlock>
         <Grid container spacing={3}>
           <Grid item xs={12} sm={6}>
-            <S.ListColumn class="list-column--with-icon">
+            <S.ListColumn className="list-column--with-icon">
               <S.ListItemIcon>
                 <FcMultipleDevices />
               </S.ListItemIcon>
@@ -85,7 +85,7 @@ const BlogIndex = ({ data, location }) => {
             </S.ListColumn>
           </Grid>
           <Grid item xs={12} sm={6}>
-            <S.ListColumn class="list-column--with-icon">
+            <S.ListColumn className="list-column--with-icon">
               <S.ListItemIcon>
                 <FcCommandLine />
               </S.ListItemIcon>
@@ -101,7 +101,7 @@ const BlogIndex = ({ data, location }) => {
           </Grid>
 
           <Grid item xs={12} sm={6}>
-            <S.ListColumn class="list-column--with-icon">
+            <S.ListColumn className="list-column--with-icon">
               <S.ListItemIcon>
                 <FcComboChart />
               </S.ListItemIcon>
@@ -116,7 +116,7 @@ const BlogIndex = ({ data, location }) => {
             </S.ListColumn>
           </Grid>
           <Grid item xs={12} sm={6}>
-            <S.ListColumn class="list-column--with-icon">
+            <S.ListColumn className="list-column--with-icon">
               <S.ListItemIcon>
                 <FcStatistics />
               </S.ListItemIcon>
@@ -141,22 +141,22 @@ const BlogIndex = ({ data, location }) => {
             </TitleBlock>
             <Grid container spacing={3}>
               <Grid item xs={12} sm={6}>
-                <S.Card class="card--offset">
+                <S.Card className="card--offset">
                   <S.CardBody>
                     <Grid container spacing={3}>
-                      <Grid item xs="4" className="t-center">
+                      <Grid item xs={4} className="t-center">
                         <a href="/">
                           <FaSass className="stack-icons sass" />
                           <p>Sass</p>
                         </a>
                       </Grid>
-                      <Grid item xs="4" className="t-center">
+                      <Grid item xs={4} className="t-center">
                         <a href="/">
                           <FaVuejs className="stack-icons vue" />
                           <p>Vue JS</p>
                         </a>
                       </Grid>
-                      <Grid item xs="4" className="t-center">
+                      <Grid item xs={4} className="t-center">
                         <a href="/">
                           <FaLaravel className="stack-icons laravel" />
                           <p>Laravel</p>
@@ -168,22 +168,22 @@ const BlogIndex = ({ data, location }) => {
               </Grid>
 
               <Grid item xs={12} sm={6}>
-                <S.Card class="card--offset">
+                <S.Card className="card--offset">
                   <S.CardBody>
                     <Grid container spacing={3}>
-                      <Grid item xs="4" className="t-center">
+                      <Grid item xs={4} className="t-center">
                         <a href="/">
                           <MdStyle className="stack-icons scomp" />
                           <p>Styled C.</p>
                         </a>
                       </Grid>
-                      <Grid item xs="4" className="t-center">
+                      <Grid item xs={4} className="t-center">
                         <a href="/">
                           <FaReact className="stack-icons react" />
                           <p>React JS</p>
                         </a>
                       </Grid>
-                      <Grid item xs="4" className="t-center">
+                      <Grid item xs={4} className="t-center">
                         <a href="/">
                           <FaNodeJs className="stack-icons node" />
                           <p>Node JS</p>
@@ -206,7 +206,7 @@ const BlogIndex = ({ data, location }) => {
 
         <Grid container spacing={3}>
           <Grid item xs={12} sm={6}>
-            <S.ListColumn class="list-column--with-icon">
+            <S.ListColumn className="list-column--with-icon">
               <S.ListItemIcon>
                 <FcWorkflow />
               </S.ListItemIcon>
@@ -221,7 +221,7 @@ const BlogIndex = ({ data, location }) => {
             </S.ListColumn>
           </Grid>
           <Grid item xs={12} sm={6}>
-            <S.ListColumn class="list-column--with-icon">
+            <S.ListColumn className="list-column--with-icon">
               <S.ListItemIcon>
                 <FcMindMap />
               </S.ListItemIcon>

@@ -18,12 +18,12 @@ export const ToggleContainer = styled.div`
   width: 50px;
   height: 50px;
   cursor: pointer;
-  color: ${({ theme }) => theme.gray800};
+  color: ${({ theme }) => theme.textHeadline};
   transition: opacity 0.1s ease-in, color 0.1s ease-in;
   svg {
     transform: ${({ themeStyle }) =>
-      themeStyle === 'light' ? 'rotate(180deg)' : 'rotate()'};
-    transition: transform 0.15s ease-out;
+    themeStyle === 'light' ? 'rotate(180deg)' : 'rotate()'};
+    transition: transform 0.15s ease-out, fill 0.2s ease-out;
   }
   &:after {
     content: '';
@@ -38,10 +38,10 @@ export const ToggleContainer = styled.div`
   }
   &:hover {
     opacity: 1;
-    color: ${({ theme }) => theme.gray800};
+    color: ${({ theme }) => theme.textHeadline};
 
     svg {
-      fill: var(--accent3);
+      fill: ${({ theme }) => theme.accentSecondary};
     }
     &:after {
       transform: scale(1);

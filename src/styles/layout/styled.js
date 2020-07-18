@@ -99,7 +99,7 @@ export const MainNavToggle = styled.div`
     & .hamburger:before,
     & .hamburger:after,
     & .hamburger__center {
-      background-color: magenta;
+      background-color: ${({ theme }) => theme.accentSecondary};
     }
   }
   .squeeze-menu & {
@@ -129,11 +129,11 @@ export const Hamburger = styled.div`
     content: '';
     position: absolute;
     z-index: 1;
-    background-color: ${({ theme }) => theme.gray800};
+    background-color: ${({ theme }) => theme.textHeadline};
     height: 3px;
     border: none;
     /* transform: translateX(-50%); */
-    transition: rotate 0.1s ease-in;
+    transition: rotate 0.1s ease-in, background-color 0.2s ease-out;   
   }
   &:before {
     top: 30%;
@@ -157,6 +157,7 @@ export const Hamburger = styled.div`
       top: 48%;
       transform: rotate(-45deg) translateX(0);
       left: 22%;
+      background-color: ${({ theme }) => theme.accentSecondary};
     }
   }
   &:after {
@@ -171,6 +172,7 @@ export const Hamburger = styled.div`
       top: 48%;
       width: 28px;
       transform: rotate(45deg) translateX(0);
+      background-color: ${({ theme }) => theme.accentSecondary};
     }
   }
 `
@@ -205,7 +207,7 @@ export const SocialNavToggle = styled.div`
     height: 90%;
     border-radius: 100%;
     transform: scale(0);
-    transition: transform 0.1s ease-in;
+    transition: transform 0.1s ease-in, fill 0.2s ease-out;
   }
   &:hover {
     &:after {
@@ -213,9 +215,10 @@ export const SocialNavToggle = styled.div`
     }
     svg {
       stroke: ${({ theme }) => theme.gray800};
-      transition: transform 0.1s ease-in;
+      transition: transform 0.1s ease-inherit;
+
       path {
-        fill: var(--accent2);
+        fill: ${({ theme }) => theme.accentSecondary};
       }
     }
   }
@@ -225,7 +228,7 @@ export const SocialNavToggle = styled.div`
     }
   }
   .squeeze-menu & {
-    background-color: var(--accent2);
+    background-color: ${({ theme }) => theme.accentSecondary};
     transition: opacity 0.2s ease-out, background-color 0.2s ease-out;
     border-radius: 100%;
     svg {
@@ -239,7 +242,7 @@ export const SocialNavToggle = styled.div`
       background-color: transparent;
     }
     &:hover {
-      background-color: var(--accent2);
+      background-color: ${({ theme }) => theme.accentSecondary};
       &:after {
         background-color: transparent;
       }
@@ -263,7 +266,7 @@ export const FooterWrapper = styled.footer`
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: ${({ theme }) => theme.opaqueLight};
+    background-color: ${({ theme }) => theme.textSecondary};
     border-top: 1px solid rgba(0, 0, 0, 0.125);
   }
   ${customMedia.greaterThan('large')`

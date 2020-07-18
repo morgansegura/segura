@@ -258,7 +258,7 @@ const GlobalStyles = createGlobalStyle`
     --yellow: #ffb200;
     
     --accent1: #e602e6;
-    --accent2: #0399dc;
+    --accent2: cyan;
     --accent3: #16c79b;
     --accent4: #ff714a;
 

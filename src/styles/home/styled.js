@@ -17,6 +17,21 @@ export const Section = styled.section`
     padding: 25px 30px 60px;
     margin-left: 0;
   }
+  &.section--offset-light {
+    background-color: ${({ theme }) => theme.panelOffset};
+  }
+  &.section--offset-dark {
+    background-color: ${({ theme }) => theme.hoverNav};
+  }
+  &.bt-1 {
+    border-top: 1px solid ${({ theme }) => theme.panelIcon};
+  }
+  .t-center {
+    text-align: center;
+  }
+  .w-100 {
+    width: 100%;
+  }
   ${customMedia.greaterThan('large')`
     
   `};
@@ -96,7 +111,7 @@ export const Button = styled.button`
   line-height: 1.2;
   border: 0;
   outline: 0;
-  border: 2px solid var(--accent4);
+  border: 2px solid ${({ theme }) => theme.accentSecondary};
   color: ${({ theme }) => theme.textButton};
   text-shadow: none;
   background-color: transparent;
@@ -105,8 +120,8 @@ export const Button = styled.button`
   transition: all 0.3s ease-in-out;
 
   &:hover {
-    background-color: var(--accent4);
-    border-color: var(--accent4);
+    background-color: ${({ theme }) => theme.accentSecondary};
+    border-color: ${({ theme }) => theme.accentSecondary};
     color: #fff;
   }
 `
@@ -166,6 +181,61 @@ export const ListItemIcon = styled.div`
       color: ${({ theme }) => theme.textOffset1};     
     }
 `
+
+export const StackContainer = styled.div`
+  width: 100%;
+`
+export const StackIconContainer = styled.div`    
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;    
+    justify-content: space-between;
+
+    h5 {
+      color: ${({ theme }) => theme.textOffset};
+    }
+  .stack-icons {
+    font-size: 4rem;
+    color: ${({ theme }) => theme.textOffset};
+    transition: color 0.3s ease-out;
+
+    &.scomp {
+      color:  #c69;
+    } 
+    &.sass {
+      color:  #c69;
+    } 
+    &.react {
+      color: #00d8ff;  
+    }
+    &.vue {
+      color: #42b883;
+    }
+    &.node {
+      color: #6cc24a;      
+    }
+    &.laravel {
+      color: #F05340;      
+    }
+  }
+    a {
+      color: ${({ theme }) => theme.textOffset};
+      text-decoration: none;
+      transition: color 0.3s ease-out;
+
+      .react, .python, .vue, .laravel, .node {
+        font-size: 4rem;
+
+      }      
+      &:hover {
+        .react, .python, .vue, .laravel, .node {
+          color: ${({ theme }) => theme.accentPrimary};
+        }
+        color: ${({ theme }) => theme.accentPrimary};
+      }    
+    }
+`
+
 export const Badge = styled.span`
   border-radius: 1rem;
   padding: 0.15rem 0.25rem 0.15rem;
@@ -178,4 +248,87 @@ export const Badge = styled.span`
   color: white;
   position: relative;
   background-color: ${({ theme }) => theme.accentSecondary}; 
+`
+
+// Cards
+export const Card = styled.div`
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
+  background-color: ${({ theme }) => theme.panelCardOffset};
+  border: 1px solid ${({ theme }) => theme.panelIcon};
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.05);
+  margin-bottom: 1rem;
+`
+export const CardHeader = styled.header`
+  padding-top: 1.25rem;
+  padding-left: 1.125rem;
+`
+export const CardBody = styled.div`
+  padding: 1rem;
+`
+export const CardFooter = styled.div`
+  padding: 1rem;
+`
+// Testimonials
+export const TestimonialItem = styled.div`
+  width: 100%;
+  margin: 0 auto;
+`
+export const TestimonialContent = styled.div`
+  padding-left: 50px;
+  width: 100%;
+  height: auto;
+`
+export const TestimonialText = styled.div`
+    padding: 1.4em 1.8em;
+    background-color: ${({ theme }) => theme.panelCardOffset};
+    border-radius: 6px;
+    border: 1px solid ${({ theme }) => theme.borderDefault};
+    width: 100%;
+    position: relative;
+    margin: 0;
+    z-index: -1;
+`
+export const TestimonialCredits = styled.div`
+    margin-top: 10px;
+    display: block;
+    position: relative;
+`
+export const TestimonialPhoto = styled.div`
+    display: inline-block;
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    overflow: hidden;
+    margin: 0;
+    top: -37px;
+    border-radius: 40px;
+    z-index: 1;
+
+    img {
+      width: 100%;
+      border-radius: 100%;
+      border: 2px solid ${({ theme }) => theme.borderDefault};
+    }
+`
+export const TestimonialAuthorInfo = styled.div`
+  display: inline-block;
+  position: relative;
+  padding-left: 92px;
+`
+export const TestimonialAuthor = styled.p`
+    display: inline-block;
+    font-size: 1.07em;
+    color: ${({ theme }) => theme.textHeadline};
+    margin: 0;
+    font-weight: 600;
+    text-align: center;
+`
+export const TestimonialFirm = styled.p`
+    font-size: 11px;
+    line-height: 1.3em;
+    margin: 0;
+    font-weight: 400;
+    color: ${({ theme }) => theme.textOffset};
 `

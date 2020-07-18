@@ -71,6 +71,26 @@ const GlobalStyles = createGlobalStyle`
     text-size-adjust: 100%;
     font-size: 100%;
     font-family: var(--base-font);
+    font-family: ${({ theme }) => theme.textBody};
+    font-size: 14px;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1.85em;    
+  }
+
+  body::-webkit-scrollbar {
+    position: absolute;
+    width: 8px;
+    margin-left: -8px;
+  }
+  
+  body::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 2px rgba(0,0,0,0.2);
+  }
+  
+  body::-webkit-scrollbar-thumb {
+    background-color: ${({ theme }) => theme.scrollBar};
+    outline: 1px solid slategrey;
   }
 
   * {
@@ -100,6 +120,32 @@ const GlobalStyles = createGlobalStyle`
       color: ${({ theme }) => theme.actionDark};
     }
   }
+
+  h1, h2, h3, h4, h5, h6 {
+      font-family: var(--headline-font);
+      font-weight: 600;
+      font-style: normal;
+      color: ${({ theme }) => theme.textHeadline};
+      line-height: 1.5em;
+  }
+  h1 {
+      font-size: 18px;
+  }  
+  h2 {
+      font-size: 18px;
+  }  
+  h3 {
+      font-size: 18px;
+  }  
+  h4 {
+      font-size: 18px;
+  }  
+  h5 {
+      font-size: 18px;
+  }  
+  h6 {
+      font-size: 18px;
+  }  
   .relative {
     position: relative;
   }
@@ -218,11 +264,11 @@ const GlobalStyles = createGlobalStyle`
 
     --width-container: 1400px;
 
-    --headline-font: "usual", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    --headline-font: 'Poppins',"hind", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 
-    --alt-font: 'aglet-slab', cursive;
+    --alt-font: 'Poppins', cursive;
 
-    --base-font: "frank-new", Roboto, "rasmus andersson", "Noto Sans", Noto Sans JP,Noto Sans KR,Noto Naskh Arabic,Noto Sans Thai,Noto Sans Hebrew,Noto Sans Bengali,sans-serif;
+    --base-font: 'Poppins',Roboto, "rasmus andersson", "Noto Sans", Noto Sans JP,Noto Sans KR,Noto Naskh Arabic,Noto Sans Thai,Noto Sans Hebrew,Noto Sans Bengali,sans-serif;
 
   ${customMedia.greaterThan('large')`
     --size: 80px;

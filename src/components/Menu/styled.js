@@ -48,7 +48,7 @@ export const MainNavDrawer = styled.div`
   ${customMedia.greaterThan('large')`
 		top: 0;
 		height: 100vh;
-    z-index: 2;
+    z-index: 1;
     padding: 0;
 	`};
 `
@@ -146,11 +146,11 @@ export const MainNavLink = styled(Link)`
     background-color: ${({ theme }) => theme.hoverNav};
     &:hover {
       &:after {
-        background-color: var(--accent4);
+        background-color: ${({ theme }) => theme.accentPrimary};
       }
     }
     &:after {
-      background-color: var(--accent4);
+      background-color: ${({ theme }) => theme.accentPrimary};
     }
   }
   &:hover {

@@ -15,6 +15,8 @@ export const lightTheme = {
   /* Borders */
   borderNav: '#f5f5f5',
   borderDefault: '#e5e5e5',
+  borderDark: '#f5f5f5',
+  borderHeading: '#eee',
   /* Text */
   textHeadline: '#333',
   textBody: '#666',
@@ -46,6 +48,8 @@ export const darkTheme = {
   /* Borders */
   borderNav: '#333',
   borderDefault: '#444',
+  borderDark: '#353535',
+  borderHeading: '#666',
   /* Text */
   textHeadline: '#f5f5f5',
   textBody: '#d5d5d5',

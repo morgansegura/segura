@@ -99,7 +99,7 @@ export const SectionTitle = styled.h2`
     width: 100%;
     margin-top: 5px;
     height: 2px;
-    background-color: ${({ theme }) => theme.textBody};
+    background-color: ${({ theme }) => theme.borderHeading};
     opacity: 1;
   }
 

@@ -9,110 +9,51 @@ const customMedia = generateMedia({
   huge: '1400px',
 })
 
-export const BlogContainer = styled.article`
-  max-width: 680px;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 24px;
-  padding-right: 24px;
-`
+export const BlogWrapper = styled.article`
 
-export const BlogHeader = styled.header`
-  margin-top: 40px;
-`
+    ${customMedia.greaterThan('large')`
 
-export const BlogTitle = styled.h1`
-  font-size: 3.125rem;
-  font-weight: 400;
-`
-export const BlogParagraph = styled.p`
-  font-size: 1rem;
-  line-height: 1.5;
-  font-weight: 400;
-  font-family: var('base-font');
-  letter-spacing: 0.03125em;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-`
-
-export const BlogDescription = styled.p`
-  font-size: 18px;
-`
-
-export const BlogImageWrapper = styled.div`
-  h3 {
-    color: offset;
-  }
-`
-
-export const BlogImage = styled(Img)``
-
-export const BlogContent = styled.div`
-  h1 {
-    font-size: 40px;
-    line-height: 60px;
-    padding-bottom: 1rem;
-  }
-  h2 {
-    font-size: 21px;
-    font-weight: 600;
-    line-height: 1.18;
-    letter-spacing: -0.022em;
-    margin-top: 1.23em;
-    margin-bottom: -0.31em;
-  }
-  h3 {
-    font-size: 30px;
-    line-height: 45px;
-  }
-  h4 {
-    font-size: 25px;
-    line-height: 40px;
-  }
-  h5 {
-    font-size: 20px;
-    line-height: 35px;
-  }
-  h6 {
-    font-size: 18px;
-    line-height: 27px;
-  }
-  p {
-    font-weight: 300;
-    letter-spacing: -0.003em;
-    font-family: var(--serif-font);
-    margin-bottom: -0.46em;
-    margin-top: 1.23em;
-    font-size: 16px;
-    line-height: 32px;
-
-    ${customMedia.greaterThan('medium')`
-        font-size: 18px;
-        line-height: 36px;
     `}
-  }
-  img,
-  pre {
-    margin-top: 40px;
-  }
-  ul {
-    padding: 1.5rem 0;
-    li {
-      &:before {
-        content: '•';
-        padding-right: 0.5rem;
-        color: blue;
-      }
-    }
-  }
 `
+export const BlogContent = styled.div`
 
-export const BlogDate = styled.div``
+    ${customMedia.greaterThan('large')`
 
-export const BlogAuthor = styled.div``
+    `}
+`
+export const BlogImageWrapper = styled.div`
 
-export const BlogSocialBlock = styled.div``
+    ${customMedia.greaterThan('large')`
 
-export const BlogSocial = styled.div``
+    `}
+`
+export const BlogImage = styled(Img)`
 
-export const BlogFooter = styled.footer``
+    ${customMedia.greaterThan('large')`
+
+    `}
+`
+export const BlogHeader = styled.header`
+
+    ${customMedia.greaterThan('large')`
+
+    `}
+`
+export const BlogBody = styled.div`
+
+    ${customMedia.greaterThan('large')`
+
+    `}
+`
+export const BlogFooter = styled.footer`
+
+    ${customMedia.greaterThan('large')`
+
+    `}
+`
+export const AsideToolbar = styled.aside`
+
+    ${customMedia.greaterThan('large')`
+
+    `}
+`

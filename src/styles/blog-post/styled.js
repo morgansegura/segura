@@ -1,5 +1,4 @@
 import Img from 'gatsby-image'
-import { Link } from 'gatsby'
 import styled from 'styled-components'
 import { generateMedia } from 'styled-media-query'
 
@@ -10,259 +9,148 @@ const customMedia = generateMedia({
   huge: '1400px',
 })
 
-export const BlogContainer = styled.article`
+export const BioImageContainer = styled.div`
+  min-height: 100%;
+  flex: 0 0 100%;
+  max-width: 100%;
+
+  ${customMedia.greaterThan('large')`
+    flex: 0 0 50%;
+    max-width: 50%;
+  `};
+`
+export const BioImage = styled(Img)`
   position: relative;
-  padding: 120px 40px;
-  margin-left: auto;
-  margin-right: auto;
-  display: flex;
-
-  ${customMedia.greaterThan('huge')`
-    max-width: 1240px;
-  `}
+  height: 100%;
+  min-height: 300px;
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  ${customMedia.greaterThan('large')`
+       
+  `};
 `
-
-export const BlogContent = styled.main`
-  ${customMedia.greaterThan('medium')`
-    flex: 1 1 auto;
-    flex-basis: 66.666%;
-    margin-left: 280px;
-  `}
-`
-export const BlogFixedSidebar = styled.div`
-  display: none;
-
-  ${customMedia.greaterThan('medium')`
-    display: block;
-    min-width: 280px;
-    background-color: rgba(0, 0, 0, 0.5);
-    overflow-y: auto;
-    overflow-y: auto;
-    position: fixed;
-    height: 100%;
-    left: 0;
-    top: 60px;    
-  `}
-`
-export const BlogSidebar = styled.aside`
-  h3 {
-    font-size: 1.5rem;
-    line-height: 2rem;
-    font-weight: 400;
-    letter-spacing: normal;
-    text-decoration: inherit;
-    text-transform: inherit;
-    color: #212121;
-    padding-top: 40px;
-    padding-bottom: 12px;
-    padding-left: 24px;
-    font-size: 1.125rem;
-    font-weight: 400;
-    line-height: 1.5;
-  }
-
-  ${customMedia.greaterThan('medium')`
-    width: 280px; 
-  `}
-`
-export const BlogHeader = styled.section`
-  padding-top: 100px;
-  margin-bottom: 48px;
-  max-width: 66.666%;
-  flex-basis: 66.666%;
-`
-export const BlogHeaderMeta = styled.div`
-  padding: 1rem 0;
-  border: 1px solid #ccc;
-`
-export const BlogTitle = styled.h1`
-  font-size: 3.125rem;
-  font-weight: 400;
-`
-export const BlogParagraph = styled.p`
-  font-size: 1rem;
-  line-height: 1.5;
-  font-weight: 400;
-  font-family: $base-font;
-  letter-spacing: 0.03125em;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-`
-
-export const BlogDescription = styled.div`
-  position: relative;
-  background-color: ${({ theme }) => theme.bgCardDate};
-  padding: 1.25rem 1rem 1rem;
-  border: solid ${({ theme }) => theme.accentOnDark};
-  border-width: 1px 1px 1px 3px;
+export const BioContent = styled.div`
+  padding: 30px 30px 50px;
+  flex: 0 0 100%;
+  max-width: 100%;
+  background-color: ${({ theme }) => theme.panelOffset};
+  height: 100%;
+  min-height: 100px;
 
   h2 {
-    position: absolute;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    top: -0.5rem;
-    left: -3px;
-    text-transform: uppercase;
-    font-size: 14px;
-    font-weight: 600;
-    letter-spacing: 0.025rem;
-    background-color: ${({ theme }) => theme.accentOnDark};
-    color: ${({ theme }) => theme.textOnDark} !important;
-    padding: 0.65rem 1rem 0.45rem 1rem;
-    border-radius: 0 0 10px 0;
-  }
-  p {
-    font-weight: 300;
-    letter-spacing: -0.003em;
-    font-family: var(--serif-font);
-    margin-top: 1rem;
-    font-size: 18px;
-    line-height: 36px;
-  }
-`
-
-export const BlogImageWrapper = styled.div`
-  overflow: hidden;
-  margin-top: 2rem;
-
-  h3 {
-    color: offset;
-  }
-`
-
-export const BlogImage = styled(Img)``
-
-export const List = styled.ul``
-export const ListItem = styled.li``
-
-export const BlogPost = styled.div`
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
     font-family: var(--headline-font);
-    color: ${({ theme }) => theme.gray900};
-    font-weight: 700;
-    padding-top: 1.25rem;
-    padding-bottom: 1.125rem;
+    font-size: 36px;
+    line-height: 1;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: ${({ theme }) => theme.textHeadline};
 
-    a {
-      padding-right: 0.5rem;
-    }
+    ${customMedia.greaterThan('large')`
+      font-size: 48px;    
+  `};
   }
-  h1 {
-    font-size: 40px;
+  span {
+    color: ${({ theme }) => theme.textOffset1};
+    font-weight: 300;
   }
-  h2, h3 {
-    font-size: 1.85rem;
-  }
-  h4, h5, h6 {
-    font-size: 1.65rem;
-  }
-
   p {
-    font-size: 1.125rem;
-    font-weight: 400;
-    line-height: 1.5;
-    color: ${({ theme }) => theme.gray800};
-    padding-bottom: 0.75rem;
-
-      a,
-      b,
-      strong {
-        font-family: var(--alt-font);
-        font-size: 1.195rem;
-        padding: 0 0.25rem;
-        color: ${({ theme }) => theme.black};
-        font-weight: 500;
-      }
-    }
-    a {
-      color: var(--accent1-dark);
-      text-decoration: none;
-      font-weight: bold;
-    }
-    code {
-      margin: 0 0.25rem;
-    }
-  }
-  img,
-  pre {
-    margin-top: 40px;
-  }
-  ul {
-    padding: 1.5rem 0;
-    li {
-      &:before {
-        content: '•';
-        padding-right: 0.5rem;
-        color: blue;
-      }
-    }
-  }
-`
-
-export const BlogDate = styled.div`
-  font-size: 12px;
-  line-height: 14px;
-  padding: 3px 6px;
-  border-radius: 4px;
-  color: ${({ theme }) => theme.textCardDate};
-  background-color: ${({ theme }) => theme.gray800};
-`
-
-export const BlogFlex = styled.div`
-  position: relative;
-  display: flex;
-
-  &.flex-end {
-    justify-content: flex-end;
-  }
-`
-export const BlogAuthor = styled(Link)`
-  position: absolute;
-  text-decoration: none;
-  left: 0;
-  height: 30px;
-  display: flex;
-  align-items: center;
-  color: ${({ theme }) => theme.textOnLight};
-  p {
-    position: relative;
-    top: -3px;
-    margin-left: 0.5rem;
     font-size: 14px;
+    margin: 0 0 10px;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1.85em;
+    color: ${({ theme }) => theme.textBody};
   }
-`
-export const BlogAuthorImg = styled(Img)`
-  height: 32px;
-  width: 32px;
-  border-radius: 100px;
-  background-color: white;
-  margin-bottom: 12px;
-  background-size: 30px 30px;
-  background-repeat: no-repeat;
-  background-position: 50% 50%;
-  display: inline-block;
-  line-height: 66px;
-  text-align: center;
+
+  ${customMedia.greaterThan('large')`
+    padding: 70px 8%;
+    flex: 0 0 50%;
+    max-width: 50%;
+     
+  `};
 `
 
-export const BlogSocialBlock = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
+export const BlogHeader = styled.header`
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 1.125rem;
+  }
+  h2 {
+    font-size: 1.25rem;
+  }
+
+
+  ${customMedia.greaterThan('large')`
+
+  `}
+`
+export const BlogBody = styled.div`
+
+ h1, h2, h3, h4, h5, h6 {
+    margin-top: 1.25rem;
+    margin-bottom: 0.75rem;
+  }
+  p {
+    margin-bottom: 0.75rem
+  }
+
+  a {
+    color: ${({ theme }) => theme.accentSecondary};
+
+    svg {
+      fill: ${({ theme }) => theme.accentSecondary};
+    }
+  }
+
+  ${customMedia.greaterThan('large')`
+
+  `}
+`
+export const BlogFooter = styled.footer`
+
+  ${customMedia.greaterThan('large')`
+
+  `}
+`
+export const ToolbarBlock = styled.div`
+  border-left: 1rem solid ${({ theme }) => theme.accentSecondary};
+  border-radius: 30px;
+  padding: 1rem;
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
   display: flex;
-
-  svg {
-    font-size: 25px;
-    margin-right: 0.25rem;
-  }
 `
+export const ToolbarButton = styled.div`
+  cursor: pointer;
+  font-size: 20px;
 
-export const BlogSocial = styled.div``
+`
+export const AsideToolbar = styled.aside`
+  position: fixed;
+  right: -100%;
+  top: 0;
+  padding: 5rem 1rem 1rem;
+  max-width: 30%;
+  height: 100vh;  
+  background-color: ${({ theme }) => theme.panelOffset};
+  border-left: 1rem solid ${({ theme }) => theme.panelBody};
+  transition: right 0.3s ease-out;
 
-export const BlogFooter = styled.footer``
+  .toolbar--open & {
+    right: 0;
+    transition: right 0.3s ease-in;
+  }
+
+  ${customMedia.greaterThan('large')`
+
+  `}
+`
+export const ToolbarSection = styled.aside`
+
+    ${customMedia.greaterThan('large')`
+
+    `}
+`

@@ -1,5 +1,4 @@
 import Img from 'gatsby-image'
-import { Link } from 'gatsby'
 import styled from 'styled-components'
 import { generateMedia } from 'styled-media-query'
 
@@ -14,7 +13,7 @@ export const BlogCard = styled.div`
   display: block;
   position: relative;
   padding: 0;
-  background: #353535;
+  background: ${({ theme }) => theme.panelCard};
 
   a {
     color: #ff714a;
@@ -33,6 +32,7 @@ export const MediaBlock = styled.div`
   overflow: hidden;
   transition: scale .2s ease-in-out; 
   max-height: 300px;
+
   .mask {
     position: absolute;
     background: #4f565e;
@@ -59,11 +59,11 @@ export const Category = styled.div`
     position: absolute;
     top: 10px;
     left: 10px;
-    background: #222;
+    background: ${({ theme }) => theme.panelHeader};
     padding: 2px 7px;
     line-height: 1.2em;
     font-size: 11px;
-    color: #f5f5f5;
+    color: ${({ theme }) => theme.textHeadline};
     z-index: 3;    
   }
 `
@@ -73,14 +73,14 @@ export const PostImage = styled(Img)`
   max-width: 100%;
   height: auto;
   border: 0;
-  
+
   &:hover {
     transform: scale(1.1);
   }    
 `
 export const PostInfo = styled.div`
   padding: 1em 1.4em 1.4em;
-  border: 1px solid #353535;
+  border: 1px solid ${({ theme }) => theme.panelIcon};
   border-top: 0;
 `
 export const PostDate = styled.div`

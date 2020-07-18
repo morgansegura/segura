@@ -61,8 +61,7 @@ export default ({ data, location, pageContext }) => {
 
       <S.BlogContainer>
         <S.BlogHeader>
-          <Headline size="h1" className="" text={title} />
-          Blog
+          <h1>{title}</h1>
           {/* 
           <S.BlogDate>{date}</S.BlogDate>
           <S.BlogFlex>

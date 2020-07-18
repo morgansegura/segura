@@ -6,18 +6,22 @@ import _ from 'lodash'
 
 import Layout from '../../components/Layout'
 import SEO from 'react-seo-component'
+import { ButtonOutline } from '../../components/Button'
 import { useSiteMetadata } from '../../hooks/useSiteMetadata'
+
+// Material UI
+import Grid from '@material-ui/core/Grid';
 
 /* Styled Components */
 import * as S from '../../styles/blog-post/styled'
+import { TitleBlock, Section } from '../../styles/layout/styled'
+import { ButtonBlock } from '../../components/Button/styled'
 import {
-  Heading,
-  Headline,
-  Paragraph,
-  HorizontalRule,
+  HorizontalRule
 } from '../../components/Typography'
 
-import { Content, Container, Section } from '../../styles/layout/styled'
+// Icons
+import { FaListAlt } from "react-icons/fa";
 
 export default ({ data, location, pageContext }) => {
   const {
@@ -62,39 +66,44 @@ export default ({ data, location, pageContext }) => {
       />
       {console.log(data)}
 
-      <Container className="sidebar--right">
 
-        <Content>
-          <Section>
-            <Heading
-              type="supertitle"
-              className="supertitle-outline accent3--border"
-              text="Category"
+      <Section>
+        <S.BioImageContainer>
+          {thumbnail && (
+            <S.BioImage
+              fluid={thumbnail.childImageSharp.fluid}
+              alt={title}
             />
+          )}
 
-            <Headline className="" size="h1" text={title} />
-            <Headline className="accent2--color" size="h2" text={title} />
-            {!!excerpt && <Paragraph>{excerpt}</Paragraph>}
+        </S.BioImageContainer>
 
-            {thumbnail && (
-              <S.BlogImageWrapper>
-                <S.BlogImage
-                  className="kg-image"
-                  fluid={thumbnail.childImageSharp.fluid}
-                  alt={title}
-                />
-              </S.BlogImageWrapper>
-            )}
-          </Section>
-          <HorizontalRule />
-          <Section>
-            <S.BlogPost>
-              <MDXProvider>
-                <MDXRenderer>{body}</MDXRenderer>
-              </MDXProvider>
-            </S.BlogPost>
-          </Section>
-        </Content>
+        <S.BioContent>
+          <span>{category}</span>
+          <h2>{title}</h2>
+          <p>{excerpt}</p>
+          <ButtonBlock>
+            <ButtonOutline>Download CV</ButtonOutline>
+          </ButtonBlock>
+        </S.BioContent>
+      </Section>
+
+      <Section className="section--inner">
+        <S.BlogHeader>
+          <h1>{title}</h1>
+          {!!excerpt && <h2>{excerpt}</h2>}
+
+        </S.BlogHeader>
+        <HorizontalRule />
+        <S.BlogBody>
+          <MDXProvider>
+            <MDXRenderer>{body}</MDXRenderer>
+          </MDXProvider>
+        </S.BlogBody>
+        <S.BlogFooter>
+          Footer Stuff
+        </S.BlogFooter>
+
 
         {previous === false ? null : (
           <div>
@@ -114,7 +123,25 @@ export default ({ data, location, pageContext }) => {
             )}
           </div>
         )}
-      </Container>
+      </Section>
+
+      <S.AsideToolbar>
+        <TitleBlock>
+          <h3>What I Do</h3>
+        </TitleBlock>
+        <S.ToolbarSection>
+          <Link>Article 1</Link>
+          <Link>Article 1</Link>
+          <Link>Article 1</Link>
+          <Link>Article 1</Link>
+          <Link>Article 1</Link>
+        </S.ToolbarSection>
+      </S.AsideToolbar>
+      <S.ToolbarBlock>
+        <S.ToolbarButton>
+          <FaListAlt />
+        </S.ToolbarButton>
+      </S.ToolbarBlock>
     </Layout>
   )
 }

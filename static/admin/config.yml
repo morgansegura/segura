@@ -13,7 +13,7 @@ backend:
 
 publish_mode: editorial_workflow
 media_folder: "static/assets/images/"
-public_folder: "content/assets/"
+public_folder: "/"
 show_preview_links: true
 
 collections:
@@ -22,6 +22,8 @@ collections:
     label: "Posts" # Used in the UI
     folder: "content/blog/"
     path: "{{slug}}/index"
+    media_folder: ""
+    public_folder: "/{{slug}}"
     create: true # Allow users to create new documents in this collection
     slug: "{{slug}}"
     extension: "mdx"

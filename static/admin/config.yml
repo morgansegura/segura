@@ -37,28 +37,23 @@ collections:
           format: "YYYY-MM-DD hh:mm:ss",
         }
       - {
-          label: "AuthorId",
-          name: "authorId",
-          widget: "hidden",
-          default: "Morgan Segura",
+          label: "Author",
+          name: "author",
+          widget: "select",
+          options: ["Morgan Segura", "Mike Mallowe"],
+          required: true,
         }
       - label: "Meta"
         name: "meta"
         widget: "object"
         collapsed: true
         fields:
-          - {
-              label: "Author",
-              name: "author",
-              widget: "select",
-              options: ["Morgan Segura", "Mike Mallowe"],
-            }
           - { label: "Tags", name: "tags", widget: "list", required: false }
           - {
               label: "Category",
               name: "category",
               widget: "select",
-              required: false,
+              required: true,
               options:
                 [
                   "Article",
@@ -69,35 +64,6 @@ collections:
                   "Case Study",
                 ],
             }
-      - label: "Display Card"
-        name: "cards"
-        widget: "list"
-        collapsed: true
-        required: false
-        fields:
-          - { label: "Card Title", name: "title", widget: "text" }
-          - { label: "Card Image", name: "image", widget: "image" }
-          - { label: "Summary", name: "summary", widget: "text" }
-          - label: "Links"
-            name: "link"
-            widget: "list"
-            collapsed: true
-            required: false
-            fields:
-              - { label: "Label", name: "label", widget: "string" }
-              - {
-                  label: "Link type",
-                  name: "link_type",
-                  widget: "select",
-                  options: ["Internal", "External"],
-                }
-              - { label: "Url", name: "image", widget: "string" }
-              - {
-                  label: "Target",
-                  name: "target",
-                  widget: "select",
-                  options: ["This window", "New Tab"],
-                }
       - label: "Content"
         name: "content"
         widget: "object"
@@ -107,13 +73,13 @@ collections:
               label: "Thumbnail",
               name: "thumbnail",
               widget: "image",
-              required: false,
+              required: true,
             }
           - { label: "Subheading", name: "subheading", widget: "string" }
           - {
               label: "Excerpt",
               name: "excerpt",
               widget: "text",
-              required: false,
+              required: true,
             }
-          - { label: "Body", name: "body", widget: "markdown" }
+          - { label: "Body", name: "body", widget: "markdown", required: true }

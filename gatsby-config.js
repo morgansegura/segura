@@ -44,7 +44,7 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/static/assets/images`,
-        name: `uploads`,
+        name: `images`,
       },
     },
     {
@@ -76,7 +76,14 @@ module.exports = {
             resolve: `gatsby-transformer-remark`,
             options: {
               plugins: [
-                'gatsby-remark-relative-images',
+                'gatsby-remark-relative-images', ,
+                {
+                  resolve: `gatsby-plugin-netlify-cms-paths`,
+                  options: {
+                    cmsConfig: `/static/admin/config.yml`
+                  }
+
+                },
                 {
                   resolve: `gatsby-remark-images`,
                   options: {

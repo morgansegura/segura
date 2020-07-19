@@ -37,16 +37,10 @@ export default ({ data, location, pageContext }) => {
   const {
     title,
     date,
-    // body,
-    content: {
-      excerpt,
-      subheading,
-      thumbnail
-    },
-    meta: {
-      category,
-      tags
-    }
+    excerpt,
+    thumbnail,
+    category,
+    tags
   } = frontmatter
   const {
     title: authorTitle,
@@ -178,24 +172,18 @@ export const pageQuery = graphql`
       }
       frontmatter {
         title 
-        body
         date(formatString: "MMMM DD, YYYY")        
-        meta {          
-          category
-          tags
-        }
-        content {
-          excerpt
-          subheading
-          thumbnail
-          # thumbnail {
-          #   childImageSharp {
-          #     fluid(maxWidth: 680) {
-          #       ...GatsbyImageSharpFluid
-          #     }
-          #   }
-          # }          
-        }
+        category
+        tags
+        excerpt
+        thumbnail
+        thumbnail {
+          childImageSharp {
+            fluid(maxWidth: 680) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }        
       }
     }
     authorYaml {

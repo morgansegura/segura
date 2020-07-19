@@ -9,41 +9,41 @@ import Grid from '@material-ui/core/Grid'
 import * as S from '../../styles/author/styled'
 
 export default ({ data }) => {
-	const { bio, bioExcerpt, title: authorTitle, jobTitle, avatar } = data.authorYaml
-	const posts = data.allMdx.edges
+  const { bio, bioExcerpt, title: authorTitle, jobTitle, avatar } = data.authorYaml
+  const posts = data.allMdx.edges
 
-	return (
-		<Layout>
-			<div>
-				<h2>{authorTitle}</h2>
-				<p>{bioExcerpt}</p>
-				<p>{bio}</p>
-				<p>{jobTitle}</p>
-				<p>{authorTitle}
-					<Img
-						fluid={avatar.childImageSharp.fluid}
-						alt=""
-					/>
-				</p>
-				<div>
-					<h1>
-						#Blog <span>({data.allMdx.totalCount})</span>
-					</h1>
-				</div>
+  return (
+    <Layout>
+      <div>
+        <h2>{authorTitle}</h2>
+        <p>{bioExcerpt}</p>
+        <p>{bio}</p>
+        <p>{jobTitle}</p>
+        <p>{authorTitle}
+          <Img
+            fluid={avatar.childImageSharp.fluid}
+            alt=""
+          />
+        </p>
+        <div>
+          <h1>
+            #Blog <span>({data.allMdx.totalCount})</span>
+          </h1>
+        </div>
 
-				<Grid container spacing={3}>
-					{posts.map(({ node: post }) => {
-						return (
-							<Grid key={post.fields.slug} item xs={12} md={6} xl={4}>
-								<PostCard node={post} postClass={`post`} />
-							</Grid>
-						)
-					})}
-				</Grid>
+        <Grid container spacing={3}>
+          {posts.map(({ node: post }) => {
+            return (
+              <Grid key={post.fields.slug} item xs={12} md={6} xl={4}>
+                <PostCard node={post} postClass={`post`} />
+              </Grid>
+            )
+          })}
+        </Grid>
 
-			</div>
-		</Layout>
-	)
+      </div>
+    </Layout>
+  )
 };
 
 export const pageQuery = graphql`
@@ -55,27 +55,22 @@ export const pageQuery = graphql`
           excerpt
           fields {
             slug
-            # authorId
+            authorId
           }
           frontmatter {
             title        
             date(formatString: "MMMM DD, YYYY")        
-            meta {
-              category
-              tags
-            }
-			body
-            content {
-              excerpt
-              subheading
-            #   thumbnail {
-            #     childImageSharp {
-            #       fluid(maxWidth: 680) {
-            #         ...GatsbyImageSharpFluid
-            #       }
-            #     }
-            #   }          
-            }
+            category
+            tags
+            excerpt
+            subheading
+          #   thumbnail {
+          #     childImageSharp {
+          #       fluid(maxWidth: 680) {
+          #         ...GatsbyImageSharpFluid
+          #       }
+          #     }
+          #   }
           }
         }
       }

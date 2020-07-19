@@ -1,6 +1,7 @@
 const path = require("path");
 const _ = require("lodash");
 const moment = require("moment");
+const { fmImagesToRelative } = require('gatsby-remark-relative-images');
 const siteConfig = require("./data/SiteConfig");
 
 const postNodes = [];
@@ -50,6 +51,7 @@ function addSiblingNodes(createNodeField) {
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions;
   let slug;
+  fmImagesToRelative(node)
   if (node.internal.type === "Mdx") {
     const fileNode = getNode(node.parent);
     const parsedFilePath = path.parse(fileNode.relativePath);
@@ -117,14 +119,12 @@ exports.createPages = ({ graphql, actions }) => {
             allMdx {
               edges {
                 node {
-                  frontmatter {                    
-                    body
+                  frontmatter {
                     author
                     tags
                     category
                     excerpt                  
                     subheading
-                    }
                   }
                   fields {
                     slug

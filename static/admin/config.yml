@@ -22,8 +22,6 @@ collections:
     label: "Posts" # Used in the UI
     folder: "content/blog/"
     path: "{{slug}}/index"
-    media_folder: "{{slug}}"
-    public_folder: "{{slug}}"
     create: true # Allow users to create new documents in this collection
     slug: "{{slug}}"
     extension: "mdx"

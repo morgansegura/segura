@@ -73,9 +73,17 @@ module.exports = {
         // https://github.com/gatsbyjs/gatsby/issues/15486
         gatsbyRemarkPlugins: [
           {
-            resolve: `gatsby-remark-images`,
+            resolve: `gatsby-transformer-remark`,
             options: {
-              maxWidth: 680,
+              plugins: [
+                'gatsby-remark-relative-images',
+                {
+                  resolve: `gatsby-remark-images`,
+                  options: {
+                    maxWidth: 680,
+                  },
+                },
+              ],
             },
           },
           {

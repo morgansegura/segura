@@ -117,16 +117,13 @@ exports.createPages = ({ graphql, actions }) => {
             allMdx {
               edges {
                 node {
-                  frontmatter {
-                    meta {
-                      tags
-                      category
-                      author
-                    }
-                    content {
-                      excerpt
-                      body
-                      subheading
+                  frontmatter {                    
+                    body
+                    author
+                    tags
+                    category
+                    excerpt                  
+                    subheading
                     }
                   }
                   fields {

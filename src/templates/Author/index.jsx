@@ -61,12 +61,11 @@ export const pageQuery = graphql`
             title        
             date(formatString: "MMMM DD, YYYY")        
             meta {
-              author
               category
               tags
             }
+			body
             content {
-              body
               excerpt
               subheading
             #   thumbnail {

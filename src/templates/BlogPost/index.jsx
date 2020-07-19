@@ -37,25 +37,24 @@ export default ({ data, location, pageContext }) => {
   const {
     title,
     date,
+    // body,
     content: {
-      body,
       excerpt,
       subheading,
-      // thumbnail
+      thumbnail
     },
-    // meta: {
-    //   // category,
-    //   // author,
-    //   // tags
-    // }
+    meta: {
+      category,
+      tags
+    }
   } = frontmatter
-  // const {
-  //   title: authorTitle,
-  //   avatar,
-  //   bio,
-  //   bioExcerpt,
-  //   jobTitle,
-  // } = data.authorYaml
+  const {
+    title: authorTitle,
+    avatar,
+    bio,
+    bioExcerpt,
+    jobTitle,
+  } = data.authorYaml
 
   const { previous, next } = pageContext
 
@@ -110,9 +109,12 @@ export default ({ data, location, pageContext }) => {
         </S.BlogHeader>
         <HorizontalRule />
         <S.BlogBody>
+          {/*
           <MDXProvider>
             <MDXRenderer>{body}</MDXRenderer>
           </MDXProvider>
+          */}
+
         </S.BlogBody>
         <S.BlogFooter>
           Footer Stuff
@@ -144,15 +146,15 @@ export default ({ data, location, pageContext }) => {
           <h3>What I Do</h3>
         </TitleBlock>
         <S.ToolbarSection>
-          <Link>Article 1</Link>
-          <Link>Article 1</Link>
-          <Link>Article 1</Link>
-          <Link>Article 1</Link>
-          <Link>Article 1</Link>
+          <Link to="/">Article 1</Link>
+          <Link to="/">Article 1</Link>
+          <Link to="/">Article 1</Link>
+          <Link to="/">Article 1</Link>
+          <Link to="/">Article 1</Link>
         </S.ToolbarSection>
       </S.AsideToolbar>
       <S.ToolbarBlock>
-        <S.ToolbarButton>
+        <S.ToolbarButton to="">
           <FaListAlt />
         </S.ToolbarButton>
       </S.ToolbarBlock>
@@ -170,23 +172,22 @@ export const pageQuery = graphql`
     }
     mdx(fields: { slug: { eq: $slug } }) {
       excerpt(pruneLength: 160)
-      body
       fields {
         slug
-        # authorId
+        authorId
       }
       frontmatter {
-        title        
+        title 
+        body
         date(formatString: "MMMM DD, YYYY")        
-        # meta {
-        #   # author
-        #   # category
-        #   # tags
-        # }
+        meta {          
+          category
+          tags
+        }
         content {
-          body
           excerpt
           subheading
+          thumbnail
           # thumbnail {
           #   childImageSharp {
           #     fluid(maxWidth: 680) {
@@ -197,18 +198,18 @@ export const pageQuery = graphql`
         }
       }
     }
-    # authorYaml {
-    #   bio
-    #   bioExcerpt
-    #   title
-    #   jobTitle
-    #   avatar {
-    #     childImageSharp {
-    #       fluid(maxWidth: 200) {
-    #         ...GatsbyImageSharpFluid
-    #       }
-    #     }
-    #   }
-    # }
+    authorYaml {
+      bio
+      bioExcerpt
+      title
+      jobTitle
+      avatar {
+        childImageSharp {
+          fluid(maxWidth: 200) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
   }
 `

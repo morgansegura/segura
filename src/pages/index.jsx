@@ -319,13 +319,13 @@ const indexQuery = graphql`
             content {
               excerpt
               subheading
-              thumbnail {
-                childImageSharp {
-                  fluid(maxWidth: 1360) {
-                    ...GatsbyImageSharpFluid
-                  }
-                }
-              }
+              # thumbnail {
+              #   childImageSharp {
+              #     fluid(maxWidth: 1360) {
+              #       ...GatsbyImageSharpFluid
+              #     }
+              #   }
+              # }
             }
           }
         }

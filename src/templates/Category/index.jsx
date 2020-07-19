@@ -46,8 +46,9 @@ export const pageQuery = graphql`
             #   # category
             #   # tags
             # }
+            body
             content {
-              body
+              
               excerpt
               subheading
               # thumbnail {

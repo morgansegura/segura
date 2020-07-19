@@ -41,13 +41,13 @@ export default ({ data, location, pageContext }) => {
       body,
       excerpt,
       subheading,
-      thumbnail
+      // thumbnail
     },
-    meta: {
-      category,
-      author,
-      tags
-    }
+    // meta: {
+    //   // category,
+    //   // author,
+    //   // tags
+    // }
   } = frontmatter
   // const {
   //   title: authorTitle,
@@ -73,7 +73,7 @@ export default ({ data, location, pageContext }) => {
         siteLanguage={siteLanguage}
         siteLocale={siteLocale}
         twitterUsername={twitter}
-        author={author}
+        // author={author}
         article="true"
         publishedDate={date}
         modifiedDate={new Date(Date.now()).toISOString()}
@@ -83,17 +83,17 @@ export default ({ data, location, pageContext }) => {
 
       <Section>
         <S.BioImageContainer>
-          {thumbnail && (
+          {/*thumbnail && (
             <S.BioImage
               fluid={thumbnail.childImageSharp.fluid}
               alt={title}
             />
-          )}
+          )*/}
 
         </S.BioImageContainer>
 
         <S.BioContent>
-          <span>{category}</span>
+          <span>{/*category*/}</span>
           <h2>{title}</h2>
           <p>{excerpt}</p>
           <ButtonBlock>
@@ -178,22 +178,22 @@ export const pageQuery = graphql`
       frontmatter {
         title        
         date(formatString: "MMMM DD, YYYY")        
-        meta {
-          # author
-          category
-          tags
-        }
+        # meta {
+        #   # author
+        #   # category
+        #   # tags
+        # }
         content {
           body
           excerpt
           subheading
-          thumbnail {
-            childImageSharp {
-              fluid(maxWidth: 680) {
-                ...GatsbyImageSharpFluid
-              }
-            }
-          }          
+          # thumbnail {
+          #   childImageSharp {
+          #     fluid(maxWidth: 680) {
+          #       ...GatsbyImageSharpFluid
+          #     }
+          #   }
+          # }          
         }
       }
     }

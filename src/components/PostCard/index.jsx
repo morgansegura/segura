@@ -16,18 +16,18 @@ const PostCard = props => {
 
     <S.BlogCard>
       <S.MediaBlock>
-        {!!post.frontmatter.category &&
+        {/*!!post.frontmatter.category &&
           <S.Category>
             <Link to="/">{post.frontmatter.category}</Link>
           </S.Category>
-        }
+        */}
         <Link to={post.fields.slug}>
-          {post.frontmatter.thumbnail && (
+          {/*post.frontmatter.thumbnail && (
             <S.PostImage
               fluid={post.frontmatter.thumbnail.childImageSharp.fluid}
               alt={post.frontmatter.title}
             />
-          )}
+          )*/}
           <div className="mask"></div>
         </Link>
       </S.MediaBlock>

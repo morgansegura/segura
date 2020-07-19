@@ -311,11 +311,11 @@ const indexQuery = graphql`
           frontmatter {
             date(formatString: "MMMM D, YYYY")
             title
-            meta {
-              # author
-              tags
-              category
-            }            
+            # meta {
+            #   # author
+            #   # tags
+            #   # category
+            # }            
             content {
               excerpt
               subheading

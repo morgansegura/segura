@@ -67,22 +67,22 @@ export const pageQuery = graphql`
       frontmatter {
         title        
         date(formatString: "MMMM DD, YYYY")        
-        meta {
-          # author
-          category
-          tags
-        }
+        # meta {
+        #   # author
+        #   # category
+        #   # tags
+        # }
         content {
           body
           excerpt
           subheading
-          thumbnail {
-            childImageSharp {
-              fluid(maxWidth: 680) {
-                ...GatsbyImageSharpFluid
-              }
-            }
-          }          
+          # thumbnail {
+          #   childImageSharp {
+          #     fluid(maxWidth: 680) {
+          #       ...GatsbyImageSharpFluid
+          #     }
+          #   }
+          # }          
         }
       }
         }

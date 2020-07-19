@@ -80,13 +80,13 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
           value: date.toISOString()
         });
       }
-      // if (Object.prototype.hasOwnProperty.call(node.frontmatter, "author")) {
-      //   createNodeField({
-      //     node,
-      //     name: "authorId",
-      //     value: node.frontmatter.author
-      //   });
-      // }
+      if (Object.prototype.hasOwnProperty.call(node.frontmatter, "author")) {
+        createNodeField({
+          node,
+          name: "authorId",
+          value: node.frontmatter.author
+        });
+      }
     }
     createNodeField({ node, name: "slug", value: slug });
     postNodes.push(node);
@@ -108,8 +108,8 @@ exports.createPages = ({ graphql, actions }) => {
     const blogPost = path.resolve(`./src/templates/BlogPost/index.jsx`)
     const tagPage = path.resolve("src/templates/Tag/index.jsx");
     const categoryPage = path.resolve("src/templates/Category/index.jsx");
-    // const authorsPage = path.resolve("src/templates/Authors/index.jsx");
-    // const authorPage = path.resolve("src/templates/Author/index.jsx");
+    const authorsPage = path.resolve("src/templates/Authors/index.jsx");
+    const authorPage = path.resolve("src/templates/Author/index.jsx");
     resolve(
       graphql(
         `
@@ -118,11 +118,20 @@ exports.createPages = ({ graphql, actions }) => {
               edges {
                 node {
                   frontmatter {
-                    tags
-                    category
+                    meta {
+                      tags
+                      category
+                      author
+                    }
+                    content {
+                      excerpt
+                      body
+                      subheading
+                    }
                   }
                   fields {
                     slug
+                    authorId
                   }
                 }
               }
@@ -138,7 +147,7 @@ exports.createPages = ({ graphql, actions }) => {
 
         const tagSet = new Set();
         const categorySet = new Set();
-        // const authorSet = new Set();
+        const authorSet = new Set();
 
         result.data.allMdx.edges.forEach(edge => {
           if (edge.node.frontmatter.tags) {
@@ -186,22 +195,22 @@ exports.createPages = ({ graphql, actions }) => {
           });
         });
 
-        // createPage({
-        //   path: `/authors/`,
-        //   component: authorsPage
-        // });
+        createPage({
+          path: `/authors/`,
+          component: authorsPage
+        });
 
-        // const authorList = Array.from(authorSet);
+        const authorList = Array.from(authorSet);
 
-        // authorList.forEach(author => {
-        //   createPage({
-        //     path: `/author/${_.kebabCase(author)}/`,
-        //     component: authorPage,
-        //     context: {
-        //       authorId: author
-        //     }
-        //   });
-        // });
+        authorList.forEach(author => {
+          createPage({
+            path: `/author/${_.kebabCase(author)}/`,
+            component: authorPage,
+            context: {
+              authorId: author
+            }
+          });
+        });
       })
     );
   });

@@ -33,7 +33,7 @@ export default ({ data, location, pageContext }) => {
     image: siteImage,
     twitter,
   } = useSiteMetadata()
-  const { frontmatter, fields } = data.mdx
+  const { frontmatter, fields, body } = data.mdx
   const {
     title,
     date,
@@ -76,17 +76,17 @@ export default ({ data, location, pageContext }) => {
 
       <Section>
         <S.BioImageContainer>
-          {/*thumbnail && (
+          {thumbnail && (
             <S.BioImage
               fluid={thumbnail.childImageSharp.fluid}
               alt={title}
             />
-          )*/}
+          )}
 
         </S.BioImageContainer>
 
         <S.BioContent>
-          <span>{/*category*/}</span>
+          <span>{category}</span>
           <h2>{title}</h2>
           <p>{excerpt}</p>
           <ButtonBlock>
@@ -103,12 +103,9 @@ export default ({ data, location, pageContext }) => {
         </S.BlogHeader>
         <HorizontalRule />
         <S.BlogBody>
-          {/*
           <MDXProvider>
             <MDXRenderer>{body}</MDXRenderer>
           </MDXProvider>
-          */}
-
         </S.BlogBody>
         <S.BlogFooter>
           Footer Stuff
@@ -170,13 +167,13 @@ export const pageQuery = graphql`
         slug
         authorId
       }
+      body
       frontmatter {
         title 
         date(formatString: "MMMM DD, YYYY")        
         category
         tags
         excerpt
-        thumbnail
         thumbnail {
           childImageSharp {
             fluid(maxWidth: 680) {

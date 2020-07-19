@@ -99,7 +99,7 @@ const projectQuery = graphql`
       }
     }
     allMdx {
-      distinct(field: frontmatter___meta___tags)
+      distinct(field: frontmatter___tags)
     }
   }
 `

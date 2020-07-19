@@ -311,22 +311,19 @@ const indexQuery = graphql`
           frontmatter {
             date(formatString: "MMMM D, YYYY")
             title
-            # meta {
-            #   # author
-            #   # tags
-            #   # category
-            # }            
-            content {
-              excerpt
-              subheading
-              # thumbnail {
-              #   childImageSharp {
-              #     fluid(maxWidth: 1360) {
-              #       ...GatsbyImageSharpFluid
-              #     }
-              #   }
-              # }
-            }
+            author
+            tags
+            category
+            excerpt
+            subheading
+            # thumbnail {
+            #   childImageSharp {
+            #     fluid(maxWidth: 1360) {
+            #       ...GatsbyImageSharpFluid
+            #     }
+            #   }
+            # }
+
           }
         }
       }

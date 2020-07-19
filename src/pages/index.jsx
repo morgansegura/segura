@@ -304,20 +304,26 @@ const indexQuery = graphql`
     allMdx(sort: { fields: [frontmatter___date], order: DESC }) {
       edges {
         node {
-          excerpt
           fields {
             slug
+            # author
           }
           frontmatter {
             date(formatString: "MMMM D, YYYY")
             title
-            tags
-            description
-            # thumbnail
-            thumbnail {
-              childImageSharp {
-                fluid(maxWidth: 1360) {
-                  ...GatsbyImageSharpFluid
+            meta {
+              # author
+              tags
+              category
+            }            
+            content {
+              excerpt
+              subheading
+              thumbnail {
+                childImageSharp {
+                  fluid(maxWidth: 1360) {
+                    ...GatsbyImageSharpFluid
+                  }
                 }
               }
             }

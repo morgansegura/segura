@@ -115,7 +115,7 @@ export const BlogFooter = styled.footer`
   `}
 `
 export const ToolbarBlock = styled.div`
-  border-left: 1rem solid ${({ theme }) => theme.accentSecondary};
+  background-color: ${({ theme }) => theme.accentSecondary};
   border-radius: 30px;
   padding: 1rem;
   position: fixed;

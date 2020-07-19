@@ -4,18 +4,24 @@ import { MDXProvider } from '@mdx-js/react'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import _ from 'lodash'
 
-import Bio from '../components/Bio'
-import Layout from '../components/Layout'
+import Layout from '../../components/Layout'
 import SEO from 'react-seo-component'
-import { useSiteMetadata } from '../hooks/useSiteMetadata'
+import { ButtonOutline } from '../../components/Button'
+import { useSiteMetadata } from '../../hooks/useSiteMetadata'
+
+// Material UI
+import Grid from '@material-ui/core/Grid';
 
 /* Styled Components */
-import * as S from '../styles/blog-post/styled'
+import * as S from '../../styles/blog-post/styled'
+import { TitleBlock, Section } from '../../styles/layout/styled'
+import { ButtonBlock } from '../../components/Button/styled'
 import {
-  Heading,
-  Headline,
-  Paragraph,
-} from '../../components/Typography/styled'
+  HorizontalRule
+} from '../../components/Typography'
+
+// Icons
+import { FaListAlt } from "react-icons/fa";
 
 export default ({ data, location, pageContext }) => {
   const {
@@ -27,15 +33,29 @@ export default ({ data, location, pageContext }) => {
     image: siteImage,
     twitter,
   } = useSiteMetadata()
-  const { frontmatter, body, fields, excerpt } = data.mdx
-  const { title, date, author, thumbnail, description } = frontmatter
+  const { frontmatter, fields } = data.mdx
   const {
-    title: authorTitle,
-    avatar,
-    bio,
-    bioExcerpt,
-    jobTitle,
-  } = data.authorYaml
+    title,
+    date,
+    content: {
+      body,
+      excerpt,
+      subheading,
+      thumbnail
+    },
+    meta: {
+      category,
+      author,
+      tags
+    }
+  } = frontmatter
+  // const {
+  //   title: authorTitle,
+  //   avatar,
+  //   bio,
+  //   bioExcerpt,
+  //   jobTitle,
+  // } = data.authorYaml
 
   const { previous, next } = pageContext
 
@@ -58,46 +78,46 @@ export default ({ data, location, pageContext }) => {
         publishedDate={date}
         modifiedDate={new Date(Date.now()).toISOString()}
       />
+      {console.log(frontmatter)}
 
-      <S.BlogContainer>
-        <S.BlogHeader>
-          <h1>{title}</h1>
-          {/* 
-          <S.BlogDate>{date}</S.BlogDate>
-          <S.BlogFlex>
-            <S.BlogAuthor to={`/author/${_.kebabCase(authorTitle)}`} title="">
-              {authorTitle}
-              <BlogAuthorImg fluid={avatar.childImageSharp.fluid} alt="" />
-            </S.BlogAuthor>
-          </S.BlogFlex>
 
-          <S.BlogSocialBlock>
-            <S.BlogSocial>Icon, Icon, Icon</S.BlogSocial>
-          </S.BlogSocialBlock>
-          */}
-        </S.BlogHeader>
-
-        {description && <S.BlogDescription>{description}</S.BlogDescription>}
-
-        {thumbnail && (
-          <S.BlogImageWrapper>
-            <S.BlogImage
-              className="kg-image"
+      <Section>
+        <S.BioImageContainer>
+          {thumbnail && (
+            <S.BioImage
               fluid={thumbnail.childImageSharp.fluid}
               alt={title}
             />
-          </S.BlogImageWrapper>
-        )}
+          )}
 
-        <S.BlogContent>
+        </S.BioImageContainer>
+
+        <S.BioContent>
+          <span>{category}</span>
+          <h2>{title}</h2>
+          <p>{excerpt}</p>
+          <ButtonBlock>
+            <ButtonOutline>Download CV</ButtonOutline>
+          </ButtonBlock>
+        </S.BioContent>
+      </Section>
+
+      <Section className="section--inner">
+        <S.BlogHeader>
+          <h1>{title}</h1>
+          {!!excerpt && <h2>{excerpt}</h2>}
+
+        </S.BlogHeader>
+        <HorizontalRule />
+        <S.BlogBody>
           <MDXProvider>
             <MDXRenderer>{body}</MDXRenderer>
           </MDXProvider>
-        </S.BlogContent>
-
+        </S.BlogBody>
         <S.BlogFooter>
-          <Bio />
+          Footer Stuff
         </S.BlogFooter>
+
 
         {previous === false ? null : (
           <div>
@@ -117,13 +137,31 @@ export default ({ data, location, pageContext }) => {
             )}
           </div>
         )}
-      </S.BlogContainer>
+      </Section>
+
+      <S.AsideToolbar>
+        <TitleBlock>
+          <h3>What I Do</h3>
+        </TitleBlock>
+        <S.ToolbarSection>
+          <Link>Article 1</Link>
+          <Link>Article 1</Link>
+          <Link>Article 1</Link>
+          <Link>Article 1</Link>
+          <Link>Article 1</Link>
+        </S.ToolbarSection>
+      </S.AsideToolbar>
+      <S.ToolbarBlock>
+        <S.ToolbarButton>
+          <FaListAlt />
+        </S.ToolbarButton>
+      </S.ToolbarBlock>
     </Layout>
   )
 }
 
 export const pageQuery = graphql`
-  query BlogPostBySlug($slug: String!, $authorId: String!) {
+  query ProjectPostBySlug($slug: String!) {
     site {
       siteMetadata {
         title
@@ -135,33 +173,42 @@ export const pageQuery = graphql`
       body
       fields {
         slug
+        # authorId
       }
       frontmatter {
-        title
-        description
-        date(formatString: "MMMM DD, YYYY")
-        # thumbnail
-        thumbnail {
-          childImageSharp {
-            fluid(maxWidth: 680) {
-              ...GatsbyImageSharpFluid
+        title        
+        date(formatString: "MMMM DD, YYYY")        
+        meta {
+          # author
+          category
+          tags
+        }
+        content {
+          body
+          excerpt
+          subheading
+          thumbnail {
+            childImageSharp {
+              fluid(maxWidth: 680) {
+                ...GatsbyImageSharpFluid
+              }
             }
-          }
+          }          
         }
       }
     }
-    authorYaml(title: { eq: $authorId }) {
-      bio
-      bioExcerpt
-      title
-      jobTitle
-      avatar {
-        childImageSharp {
-          fluid(maxWidth: 200) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-    }
+    # authorYaml {
+    #   bio
+    #   bioExcerpt
+    #   title
+    #   jobTitle
+    #   avatar {
+    #     childImageSharp {
+    #       fluid(maxWidth: 200) {
+    #         ...GatsbyImageSharpFluid
+    #       }
+    #     }
+    #   }
+    # }
   }
 `

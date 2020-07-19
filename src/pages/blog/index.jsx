@@ -15,7 +15,7 @@ export default ({ data, location, pageContext }) => {
 
   const tag = pageContext
   const posts = data.allMdx.edges
-  const authors = data.allAuthorYaml.edges
+  // const authors = data.allAuthorYaml.edges
 
   console.log(posts)
   return (
@@ -36,7 +36,7 @@ export default ({ data, location, pageContext }) => {
               {!!posts && posts.map(({ node }) => {
                 return (
                   <Grid key={node.fields.slug} item xs={12} md={6} xl={4}>
-                    <PostCard authors={authors} node={node} postClass={`post`} />
+                    <PostCard node={node} postClass={`post`} />
                   </Grid>
                 )
               })}
@@ -57,47 +57,53 @@ export const pageQuery = graphql`
       }
     }
     allMdx(sort: {fields: [frontmatter___date], order: DESC }) {
-                totalCount
+    totalCount
     edges {
         node {
         excerpt
         fields {
           slug
         }
-        frontmatter {
-          date(formatString: "MMM DD, YYYY")
-          title
-          description
-          tags
+      frontmatter {
+        title        
+        date(formatString: "MMMM DD, YYYY")        
+        meta {
+          # author
           category
-          author
+          tags
+        }
+        content {
+          body
+          excerpt
+          subheading
           thumbnail {
             childImageSharp {
-              fluid(maxWidth: 1360) {
-              ...GatsbyImageSharpFluid
-              }
-            }
-          }
-          }
-        }
-      }
-    }
-    allAuthorYaml {
-                edges {
-                node {
-                bio
-          bioExcerpt
-          title
-          jobTitle
-          avatar {
-                childImageSharp {
-                fluid(maxWidth: 48) {
+              fluid(maxWidth: 680) {
                 ...GatsbyImageSharpFluid
               }
             }
-          }
+          }          
         }
-      }    
-    }     
+      }
+        }
+      }
+    }
+    # allAuthorYaml {
+    #             edges {
+    #             node {
+    #             bio
+    #       bioExcerpt
+    #       title
+    #       jobTitle
+    #       avatar {
+    #             childImageSharp {
+    #             fluid(maxWidth: 48) {
+    #             ...GatsbyImageSharpFluid
+    #           }
+    #         }
+    #       }
+    #     }
+    #   }    
+    # }     
   }
 `

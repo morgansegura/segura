@@ -47,7 +47,7 @@ export const pageQuery = graphql`
       }
     }
     allMdx(
-      filter: { frontmatter: { tags: { in: [$tag] } } }
+      filter: { frontmatter: { meta: { tags: { in: [$tag] } } } }
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
       totalCount
@@ -58,17 +58,24 @@ export const pageQuery = graphql`
             slug
           }
           frontmatter {
-            date(formatString: "MMMM DD, YYYY")
-            title
-            description
-            tags
-            # thumbnail
-            thumbnail {
-              childImageSharp {
-                fluid(maxWidth: 1360) {
-                  ...GatsbyImageSharpFluid
+            title        
+            date(formatString: "MMMM DD, YYYY")        
+            meta {
+              # author
+              category
+              tags
+            }
+            content {
+              body
+              excerpt
+              subheading
+              thumbnail {
+                childImageSharp {
+                  fluid(maxWidth: 680) {
+                    ...GatsbyImageSharpFluid
+                  }
                 }
-              }
+              }          
             }
           }
         }

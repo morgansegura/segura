@@ -28,7 +28,7 @@ export const pageQuery = graphql`
     allMdx(
       limit: 1000
       sort: { fields: [fields___slug], order: DESC }
-      filter: { frontmatter: { category: { eq: $category } } }
+      filter: { frontmatter: { meta:{ category: { eq: $category } } } }
     ) {
       totalCount
       edges {
@@ -37,13 +37,27 @@ export const pageQuery = graphql`
             slug
             # date
           }
-          excerpt
           timeToRead
           frontmatter {
-            title
-            tags
-            # cover
-            date
+            title        
+            date(formatString: "MMMM DD, YYYY")        
+            meta {
+              # author
+              category
+              tags
+            }
+            content {
+              body
+              excerpt
+              subheading
+              thumbnail {
+                childImageSharp {
+                  fluid(maxWidth: 680) {
+                    ...GatsbyImageSharpFluid
+                  }
+                }
+              }          
+            }
           }
         }
       }

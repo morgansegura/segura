@@ -3,20 +3,20 @@ import { Link } from 'gatsby'
 /* Images */
 import Logo from '../../../static/assets/icons/segura-square-icon.svg'
 /* React Icons */
-import { DiGithubAlt, DiCodepen } from 'react-icons/di'
-import {
-  TiSocialDribbble,
-  TiSocialTwitter,
-  TiSocialLinkedin,
-} from 'react-icons/ti'
-import {
-  GrConnect,
-  GrTag,
-  GrTest,
-  GrSign,
-  GrSatellite,
-  GrArticle,
-} from 'react-icons/gr'
+// import { DiGithubAlt, DiCodepen } from 'react-icons/di'
+// import {
+//   TiSocialDribbble,
+//   TiSocialTwitter,
+//   TiSocialLinkedin,
+// } from 'react-icons/ti'
+// import {
+//   GrConnect,
+//   GrTag,
+//   GrTest,
+//   GrSign,
+//   GrSatellite,
+//   GrArticle,
+// } from 'react-icons/gr'
 /* Styled Components */
 import * as S from './styled'
 

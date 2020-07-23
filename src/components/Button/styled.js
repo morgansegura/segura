@@ -2,6 +2,9 @@ import styled from 'styled-components'
 
 export const ButtonBlock = styled.div`
   margin-top: 30px;
+  .card--hidden & {
+    margin-top: 0;
+  }   
 `
 export const ButtonOutline = styled.button`
     cursor: pointer;

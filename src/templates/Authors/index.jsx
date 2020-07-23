@@ -1,6 +1,6 @@
 import React from "react";
 import Img from "gatsby-image";
-import { Link } from "gatsby";
+import { Link, graphql } from "gatsby";
 import _ from "lodash";
 import Layout from "../../components/Layout";
 
@@ -13,22 +13,22 @@ export default ({
     allAuthorYaml: { edges: authorNodes },
   }
 }) => (
-  <Layout>
-    <ul>
-      {authorNodes.map(({ node: author }, index) => (
-        <li key={`author-${_.kebabCase(author.title)}`}>
-          <Link to={`/author/${_.kebabCase(author.title)}`}>{author.title}
+    <Layout>
+      <ul>
+        {authorNodes.map(({ node: author }, index) => (
+          <li key={`author-${_.kebabCase(author.title)}`}>
+            <Link to={`/author/${_.kebabCase(author.title)}`}>{author.title}
               <Img
                 fluid={author.avatar.childImageSharp.fluid}
                 alt=""
               />
-          </Link>   
-        </li>
-      ))}
-    </ul>
-    
-  </Layout>
-);
+            </Link>
+          </li>
+        ))}
+      </ul>
+
+    </Layout>
+  );
 
 export const pageQuery = graphql`
   query AuthorsQuery {

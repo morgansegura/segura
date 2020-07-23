@@ -44,6 +44,7 @@ export const Container = styled.div`
   }
 `
 export const Section = styled.section`
+  position: relative;
   display: flex;
   flex-wrap: wrap;
 
@@ -164,6 +165,7 @@ export const Content = styled.section`
 
 export const MainNavToggle = styled.div`
   position: relative;
+  z-index: -1;
   font-size: 11px;
   z-index: 10;
   font-family: var(--headline-font);
@@ -184,7 +186,7 @@ export const MainNavToggle = styled.div`
     border-radius: 100%;
     transform-origin: 50% 50%;
     transform: scale(0);
-    background-color: ${({ theme }) => theme.gray50};
+    background-color: ${({ theme }) => theme.hoverNav};
     transition: transform 0.2s ease-out;
   }
   &:hover {
@@ -285,12 +287,12 @@ export const SocialNavToggle = styled.div`
   height: 50px;
   cursor: pointer;
   font-size: 24px;
-
+  color: ${({ theme }) => theme.textHeadline};
   transition: transform 0.15s ease-out;
 
   svg {
+    fill: ${({ theme }) => theme.textHeadline};
     path {
-      fill: ${({ theme }) => theme.gray800};
       transition: stroke 0.2s ease-in;
     }
   }
@@ -298,7 +300,7 @@ export const SocialNavToggle = styled.div`
     content: '';
     z-index: -1;
     position: absolute;
-    background-color: ${({ theme }) => theme.gray50};
+    background-color: ${({ theme }) => theme.hoverNav};
     width: 90%;
     height: 90%;
     border-radius: 100%;
@@ -310,11 +312,11 @@ export const SocialNavToggle = styled.div`
       transform: scale(1);
     }
     svg {
-      stroke: ${({ theme }) => theme.gray800};
+      fill: ${({ theme }) => theme.accentSecondary};
       transition: transform 0.1s ease-inherit;
 
       path {
-        fill: ${({ theme }) => theme.accentSecondary};
+        
       }
     }
   }
@@ -324,20 +326,25 @@ export const SocialNavToggle = styled.div`
     }
   }
   .squeeze-menu & {
+    opacity: .8;
+    color: ${({ theme }) => theme.textHeadline};
     background-color: ${({ theme }) => theme.accentSecondary};
-    transition: opacity 0.2s ease-out, background-color 0.2s ease-out;
+    transition: opacity 0.2s ease-out, box-shadow 0.2s ease-out, rotate 0.2s ease-out;
     border-radius: 100%;
     svg {
+      stroke: ${({ theme }) => theme.hoverNav};
       transform: rotate(90deg);
       transition: transform 0.1s ease-in;
       path {
-        fill: var(--dark);
+        fill: ${({ theme }) => theme.hoverNav};
       }
     }
     &:after {
       background-color: transparent;
     }
     &:hover {
+      opacity: 1;
+      color: ${({ theme }) => theme.textHeadline};
       background-color: ${({ theme }) => theme.accentSecondary};
       &:after {
         background-color: transparent;

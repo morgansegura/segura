@@ -9,11 +9,23 @@ export const useDarkMode = () => {
         setTheme(mode);
     };
 
-    const toggleTheme = () => {
-        if (theme === 'light') {
-            setMode('dark');
-        } else {
-            setMode('light');
+    const toggleTheme = (theme) => {
+
+        switch (theme) {
+            case 'light':
+                setMode('light');
+                break;
+            case 'dark':
+                setMode('dark');
+                break;
+            case 'alt1':
+                setMode('alt1');
+                break;
+            case 'alt2':
+                setMode('alt2');
+                break;
+            default:
+                setMode('dark');
         }
     };
 

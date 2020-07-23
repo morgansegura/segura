@@ -10,10 +10,18 @@ const customMedia = generateMedia({
 })
 
 export const BioImageContainer = styled.div`
+  opacity: 1;
   min-height: 100%;
   flex: 0 0 100%;
   max-width: 100%;
+  height: 100%;
+  transition: opacity 0.1s ease-out;
 
+  .card--hidden & {
+    opacity: 0;
+    height: 0;
+    z-index: -1;
+  } 
   ${customMedia.greaterThan('large')`
     flex: 0 0 50%;
     max-width: 50%;
@@ -21,31 +29,59 @@ export const BioImageContainer = styled.div`
 `
 export const BioImage = styled(Img)`
   position: relative;
+  z-index: 1;
   height: 100%;
-  min-height: 300px;
+  max-height: 300px;
   width: 100%;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+
   ${customMedia.greaterThan('large')`
-       
+    max-height: 100%;
   `};
 `
 export const BioContent = styled.div`
+  position: relative;
   padding: 30px 30px 50px;
   flex: 0 0 100%;
   max-width: 100%;
   background-color: ${({ theme }) => theme.panelOffset};
   height: 100%;
   min-height: 100px;
+  transition: relative 0.3s ease-out;
 
+  .card--hidden & {
+    height: 145px;
+  } 
+  button {
+    flex: 1 0 auto;
+  }
+  .category {
+    position: relative;
+    opacity: 1;
+    .card--hidden & {
+      opacity: 0;
+      height: 0;
+      z-index: -1;
+    }     
+  }  
   h2 {
+    position: relative;
+    height: 100%;
     font-family: var(--headline-font);
     font-size: 36px;
     line-height: 1;
     font-weight: 600;
     margin-bottom: 15px;
     color: ${({ theme }) => theme.textHeadline};
+    transition: height 0.1s ease-out;
+
+    .card--hidden & {
+      opacity: 0;
+      height: 0;
+      z-index: -1;
+    } 
 
     ${customMedia.greaterThan('large')`
       font-size: 48px;    
@@ -56,12 +92,21 @@ export const BioContent = styled.div`
     font-weight: 300;
   }
   p {
+    position: relative;
+    opacity: 1;
+    height: 100%;
     font-size: 14px;
     margin: 0 0 10px;
     font-weight: 400;
     font-style: normal;
     line-height: 1.85em;
-    color: ${({ theme }) => theme.textBody};
+    transition: height 0.3s ease-out;
+
+    .card--hidden & {
+      opacity: 0;
+      height: 0;
+      z-index: -1;
+    }   
   }
 
   ${customMedia.greaterThan('large')`
@@ -72,7 +117,23 @@ export const BioContent = styled.div`
   `};
 `
 
+export const ContentFooter = styled.div`
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  .card--hidden & {
+    position: absolute;
+    width: calc(100% - 4rem);
+    z-index: 2;
+  } 
+  ${customMedia.greaterThan('large')`
+
+  `}
+`
 export const BlogHeader = styled.header`
+  
+  padding: 2rem;
   h1 {
     font-size: 2rem;
     margin-bottom: 1.125rem;
@@ -86,14 +147,97 @@ export const BlogHeader = styled.header`
 
   `}
 `
-export const BlogBody = styled.div`
+export const BlogMeta = styled.div`
+  padding: 1rem;
+  margin-bottom: 2rem;
+  border-radius: 3px;
 
- h1, h2, h3, h4, h5, h6 {
+  ${customMedia.greaterThan('large')`
+
+  `}
+`
+export const AuthorDisplay = styled.div`
+  ${customMedia.greaterThan('large')`
+
+  `}
+`
+export const AuthorAvatar = styled(Img)`
+  width: 80px;
+  border-radius: 100%;
+  ${customMedia.greaterThan('large')`
+
+  `}
+`
+export const AuthorMeta = styled.div`
+  display: flex;
+  background-color: ${({ theme }) => theme.panelOffset};
+  ${customMedia.greaterThan('large')`
+
+  `}
+`
+export const AuthorBio = styled.div`
+
+  ${customMedia.greaterThan('large')`
+
+  `}
+`
+export const AuthorExcerpt = styled.div`
+
+  ${customMedia.greaterThan('large')`
+
+  `}
+`
+export const TagsList = styled.div`
+  position: relative;
+  height: 100%;
+  transition: height 0.1s ease-out;
+
+  .card--hidden & {
+      opacity: 0;
+      height: 0;
+      z-index: -1;
+  } 
+
+  ${customMedia.greaterThan('large')`
+
+  `}
+`
+export const Social = styled.div`
+
+  ${customMedia.greaterThan('large')`
+
+  `}
+`
+
+export const BlogBody = styled.div`
+  
+  h1, h2, h3, h4, h5, h6 {
     margin-top: 1.25rem;
     margin-bottom: 0.75rem;
   }
+  h1 {
+    font-size: ${({ theme }) => theme.headingOne};
+  }
+  h2 {
+    font-size: ${({ theme }) => theme.headingTwo};
+  }
+  h3 {
+    font-size: ${({ theme }) => theme.headingThree};
+  }
+  h4 {
+    font-size: ${({ theme }) => theme.headingFour};
+  }
+  h5 {
+    font-size: ${({ theme }) => theme.headingFive};
+  }
+  h6 {
+    font-size: ${({ theme }) => theme.headingSix};
+  }
   p {
-    margin-bottom: 0.75rem
+    font-size: ${({ theme }) => theme.paragraph};
+    font-weight: 300;
+    line-height: 1.4;
+    margin-bottom: 1.25rem;
   }
 
   a {
@@ -105,13 +249,13 @@ export const BlogBody = styled.div`
   }
 
   ${customMedia.greaterThan('large')`
-
+    padding: 2rem;
   `}
 `
 export const BlogFooter = styled.footer`
 
-  ${customMedia.greaterThan('large')`
-
+  ${customMedia.greaterThan('medium')`
+    
   `}
 `
 export const ToolbarBlock = styled.div`

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link, graphql } from 'gatsby'
 import { MDXProvider } from '@mdx-js/react'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
@@ -8,7 +8,10 @@ import Layout from '../../components/Layout'
 import SEO from 'react-seo-component'
 import { ButtonOutline } from '../../components/Button'
 import { useSiteMetadata } from '../../hooks/useSiteMetadata'
-
+import { useFontSize } from '../../components/Theme/useFontSize'
+import ToggleFontSize from '../../components/Theme/toggleFontSize'
+import { fontSizeNormal, fontSizeMedium, fontSizeLarge } from '../../components/Theme/themeStyles'
+import { ThemeProvider } from 'styled-components'
 // Material UI
 import Grid from '@material-ui/core/Grid';
 
@@ -21,7 +24,7 @@ import {
 } from '../../components/Typography'
 
 // Icons
-import { FaListAlt } from "react-icons/fa";
+import { FaListAlt, FaTwitter, FaReact, FaGithubAlt, FaDev, FaDribbble } from "react-icons/fa";
 
 export default ({ data, location, pageContext }) => {
   const {
@@ -40,6 +43,7 @@ export default ({ data, location, pageContext }) => {
     excerpt,
     thumbnail,
     category,
+    subheading,
     tags
   } = frontmatter
   const {
@@ -52,104 +56,157 @@ export default ({ data, location, pageContext }) => {
 
   const { previous, next } = pageContext
 
+
+  // useState Hook
+  const [toggleHideCard, setToggleHideCard] = useState(false)
+  const [fontSize, toggleFontSize, componentMounted] = useFontSize()
+  const fontSizeMode = fontSize === 'normal' ? fontSizeNormal : fontSize === 'medium' ? fontSizeMedium : fontSize === 'large' ? fontSizeLarge : fontSizeNormal
+
   return (
-    <Layout location={location.pathname} title={siteTitle}>
-      <SEO
-        title={title}
-        description={excerpt}
-        image={
-          siteImage === null
-            ? `${siteUrl}${image}`
-            : `${siteUrl}${siteImage.publicURL}`
-        }
-        pathname={`${siteUrl}${fields.slug}`}
-        siteLanguage={siteLanguage}
-        siteLocale={siteLocale}
-        twitterUsername={twitter}
-        // author={author}
-        article="true"
-        publishedDate={date}
-        modifiedDate={new Date(Date.now()).toISOString()}
-      />
-      {console.log(frontmatter)}
+    <ThemeProvider theme={fontSizeMode}>
+
+      <Layout location={location.pathname} title={siteTitle}>
+        <SEO
+          title={title}
+          description={excerpt}
+          image={
+            siteImage === null
+              ? `${siteUrl}${image}`
+              : `${siteUrl}${siteImage.publicURL}`
+          }
+          pathname={`${siteUrl}${fields.slug}`}
+          siteLanguage={siteLanguage}
+          siteLocale={siteLocale}
+          twitterUsername={twitter}
+          // author={author}
+          article="true"
+          publishedDate={date}
+          modifiedDate={new Date(Date.now()).toISOString()}
+        />
+        {console.log(data)}
 
 
-      <Section>
-        <S.BioImageContainer>
-          {thumbnail && (
-            <S.BioImage
-              fluid={thumbnail.childImageSharp.fluid}
-              alt={title}
-            />
-          )}
+        <Section className={toggleHideCard ? `card--hidden` : ``}>
+          <S.BioImageContainer>
+            {!!thumbnail && (
+              <S.BioImage
+                fluid={thumbnail.childImageSharp.fluid}
+                alt={title}
+              />
+            )}
+          </S.BioImageContainer>
 
-        </S.BioImageContainer>
+          <S.BioContent>
+            {!!category && <span className="category">{category}</span>}
+            <h2>{title}</h2>
+            {!!excerpt && <p>{excerpt}</p>}
+            <S.TagsList>
+              Tag 1, tag 2
+            </S.TagsList>
+            <S.ContentFooter>
+              <ButtonBlock>
+                <ButtonOutline onClick={() => setToggleHideCard(!toggleHideCard)}>{!toggleHideCard ? `Hide Card` : `Show Card`}</ButtonOutline>
+              </ButtonBlock>
+              <ToggleFontSize fontSize={fontSize} toggleFontSize={toggleFontSize} />
+            </S.ContentFooter>
+          </S.BioContent>
+        </Section>
 
-        <S.BioContent>
-          <span>{category}</span>
-          <h2>{title}</h2>
-          <p>{excerpt}</p>
-          <ButtonBlock>
-            <ButtonOutline>Download CV</ButtonOutline>
-          </ButtonBlock>
-        </S.BioContent>
-      </Section>
+        <Section className="section--inner">
+          <S.BlogHeader>
+            <S.BlogMeta>
+              <Grid container spacing={3}>
+                <Grid item xs={12} sm={6} className="author__section">
 
-      <Section className="section--inner">
-        <S.BlogHeader>
-          <h1>{title}</h1>
-          {!!excerpt && <h2>{excerpt}</h2>}
+                  {/*
+              authorTitle,
+              avatar,
+              bio,
+              bioExcerpt,
+              jobTitle,
+              */}
+                  {/*!!authorTitle && (
+                  <S.AuthorDisplay>
+                    <S.AuthorMeta>
+                      <S.AuthorAvatar
+                        fluid={avatar.childImageSharp.fluid}
+                        alt={authorTitle}
+                      />
+                      <span>{authorTitle}</span>
+                      <span>{jobTitle}</span>
+                      <S.Social>
+                        <FaDribbble />
+                        <FaGithubAlt />
+                        <FaTwitter />
+                      </S.Social>
+                    </S.AuthorMeta>
+                    
+                    <S.AuthorExcerpt>
+                      {bioExcerpt}
+                    </S.AuthorExcerpt>
+                    <S.AuthorBio>
+                      {bio}
+                    </S.AuthorBio>
+                  </S.AuthorDisplay>
+                )*/}
+                </Grid>
+                <Grid item xs={12} sm={6}>
 
-        </S.BlogHeader>
-        <HorizontalRule />
-        <S.BlogBody>
-          <MDXProvider>
-            <MDXRenderer>{body}</MDXRenderer>
-          </MDXProvider>
-        </S.BlogBody>
-        <S.BlogFooter>
-          Footer Stuff
+                </Grid>
+              </Grid>
+            </S.BlogMeta>
+            <h3>{subheading}</h3>
+          </S.BlogHeader>
+          <HorizontalRule />
+          <S.BlogBody>
+            <MDXProvider>
+              <MDXRenderer>{body}</MDXRenderer>
+            </MDXProvider>
+          </S.BlogBody>
+          <S.BlogFooter>
+            Footer Stuff
         </S.BlogFooter>
 
 
-        {previous === false ? null : (
-          <div>
-            {previous && (
-              <Link to={previous.fields.slug}>
-                <p>{previous.frontmatter.title}</p>
-              </Link>
-            )}
-          </div>
-        )}
-        {next === false ? null : (
-          <div>
-            {next && (
-              <Link to={next.fields.slug}>
-                <p>{next.frontmatter.title}</p>
-              </Link>
-            )}
-          </div>
-        )}
-      </Section>
+          {previous === false ? null : (
+            <div>
+              {previous && (
+                <Link to={previous.fields.slug}>
+                  <p>{previous.frontmatter.title}</p>
+                </Link>
+              )}
+            </div>
+          )}
+          {next === false ? null : (
+            <div>
+              {next && (
+                <Link to={next.fields.slug}>
+                  <p>{next.frontmatter.title}</p>
+                </Link>
+              )}
+            </div>
+          )}
+        </Section>
 
-      <S.AsideToolbar>
-        <TitleBlock>
-          <h3>What I Do</h3>
-        </TitleBlock>
-        <S.ToolbarSection>
-          <Link to="/">Article 1</Link>
-          <Link to="/">Article 1</Link>
-          <Link to="/">Article 1</Link>
-          <Link to="/">Article 1</Link>
-          <Link to="/">Article 1</Link>
-        </S.ToolbarSection>
-      </S.AsideToolbar>
-      <S.ToolbarBlock>
-        <S.ToolbarButton to="">
-          <FaListAlt />
-        </S.ToolbarButton>
-      </S.ToolbarBlock>
-    </Layout>
+        <S.AsideToolbar>
+          <TitleBlock>
+            <h3>What I Do</h3>
+          </TitleBlock>
+          <S.ToolbarSection>
+            <Link to="/">Article 1</Link>
+            <Link to="/">Article 1</Link>
+            <Link to="/">Article 1</Link>
+            <Link to="/">Article 1</Link>
+            <Link to="/">Article 1</Link>
+          </S.ToolbarSection>
+        </S.AsideToolbar>
+        <S.ToolbarBlock>
+          <S.ToolbarButton to="">
+            <FaListAlt />
+          </S.ToolbarButton>
+        </S.ToolbarBlock>
+      </Layout>
+    </ThemeProvider>
   )
 }
 
@@ -174,6 +231,7 @@ export const pageQuery = graphql`
         category
         tags
         excerpt
+        subheading
         thumbnail {
           childImageSharp {
             fluid(maxWidth: 680) {

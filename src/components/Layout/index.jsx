@@ -1,15 +1,15 @@
 import React, { useState } from 'react'
 /* Components */
 import { useDarkMode } from '../Theme/useDarkMode'
-import { lightTheme, darkTheme } from '../Theme/themeStyles'
+import { lightTheme, darkTheme, alt1Theme, alt2Theme } from '../Theme/themeStyles'
 import ToggleTheme from '../Theme/toggleTheme'
 import Header from '../Header'
 import { MainNavigation } from '../Menu'
 /* Styled Components */
-import { ThemeProvider } from 'styled-components'
+
 import GlobalStyles from '../../styles/global'
 import * as S from '../../styles/layout/styled'
-
+import { ThemeProvider } from 'styled-components'
 import { GrMoreVertical } from 'react-icons/gr'
 
 const Layout = props => {
@@ -22,7 +22,7 @@ const Layout = props => {
 
   // Toggle Theme Colors Mode
   const [theme, toggleTheme, componentMounted] = useDarkMode()
-  const themeMode = theme === 'light' ? lightTheme : darkTheme
+  const themeMode = theme === 'light' ? lightTheme : theme === 'dark' ? darkTheme : theme === 'alt1' ? alt1Theme : theme === 'alt2' ? alt2Theme : darkTheme
 
   if (!componentMounted) {
     return <div />
@@ -35,7 +35,7 @@ const Layout = props => {
       <S.Wrapper
         className={`${toggleNav ? `drawer-open` : ``} ${
           toggleMenu ? `squeeze-menu` : ``
-        }`}
+          }`}
       >
         {/* Header Content */}
         <Header className="mobile">

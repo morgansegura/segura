@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link, graphql, parsePath } from 'gatsby'
 import { MDXProvider } from '@mdx-js/react'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
@@ -67,16 +67,22 @@ export default ({ data, location, pageContext, pathContext }) => {
   const fontSizeMode = fontSize === 'normal' ? fontSizeNormal : fontSize === 'medium' ? fontSizeMedium : fontSize === 'large' ? fontSizeLarge : fontSizeNormal
   const [showScroll, setShowScroll] = useState(false)
 
-  const checkScrollTop = () => {
-    console.log(window.pageYOffset)
-    console.log(showScroll)
-    if (!showScroll && window.pageYOffset > 400) {
-      setShowScroll(true)
-    } else if (showScroll && window.pageYOffset <= 400) {
-      setShowScroll(false)
-    }
-  };
-  window.addEventListener('scroll', checkScrollTop)
+  useEffect(() => {
+    const checkScrollTop = () => {
+      console.log(window.pageYOffset)
+      console.log(showScroll)
+      if (!showScroll && window.pageYOffset > 400) {
+        setShowScroll(true)
+      } else if (showScroll && window.pageYOffset <= 400) {
+        setShowScroll(false)
+      }
+    };
+    return () => {
+      window.addEventListener('scroll', checkScrollTop)
+    };
+  });
+
+
   const scrollTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };

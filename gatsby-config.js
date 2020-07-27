@@ -224,9 +224,9 @@ module.exports = {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
         fonts: [
-          // `hind\:500,700`,
-          `poppins\:300,400,500,600,700`,
-          // `roboto\:300,400,500,700,900`,
+          `hind\:500,700`,
+          // `poppins\:300,400,500,600,700`,
+          `roboto\:300,400,500,700,900`,
         ],
       },
     },

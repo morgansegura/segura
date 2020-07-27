@@ -9,7 +9,7 @@ const customMedia = generateMedia({
 })
 const GlobalStyles = createGlobalStyle`
 
-  @import url('https://use.typekit.net/oji6pho.css');
+  /* @import url('https://use.typekit.net/oji6pho.css'); */
 
   /* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
@@ -66,7 +66,7 @@ const GlobalStyles = createGlobalStyle`
     background-color: ${({ theme }) => theme.panelBody};
   }
   body {    
-    font-weight: 500;
+    font-weight: 600;
     color: ${({ theme }) => theme.textBody};
     text-size-adjust: 100%;
     font-size: 100%;
@@ -270,7 +270,6 @@ const GlobalStyles = createGlobalStyle`
     --blue-gray-900: #263238;
 
     --yellow: #ffb200;
-    
     --accent1: #e602e6;
     --accent2: cyan;
     --accent3: #16c79b;
@@ -278,11 +277,13 @@ const GlobalStyles = createGlobalStyle`
 
     --width-container: 1400px;
 
-    --headline-font: 'Poppins',"hind", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    --headline-font: "hind", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 
-    --alt-font: 'Poppins', cursive;
+    --base-font: 'roboto', "Noto Sans", Noto Sans JP,Noto Sans KR,Noto Naskh Arabic,Noto Sans Thai,Noto Sans Hebrew,Noto Sans Bengali,sans-serif;
 
-    --base-font: 'Poppins',Roboto, "rasmus andersson", "Noto Sans", Noto Sans JP,Noto Sans KR,Noto Naskh Arabic,Noto Sans Thai,Noto Sans Hebrew,Noto Sans Bengali,sans-serif;
+    --serif-font: 'roboto slab', Georgia, 'Times New Roman' serif;
+
+    --alt-font: 'aglet-slab', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
 
   ${customMedia.greaterThan('large')`
     --size: 80px;

@@ -29,8 +29,21 @@ export const lightTheme = {
   /* Hovers */
   hoverNav: 'rgba(0,0,0, 0.05)',
   /* Accents */
-  accentPrimary: '#9a8ba8',
-  accentSecondary: 'var(--accent4)'
+  accentPrimary: 'var(--accent2)',
+  accentSecondary: 'var(--accent1)',
+
+  /** CODE */
+  codeFontColor: '#f8f8f2',
+  codeFontFamily: 'var(--alt-font)',
+  codeBackground: '#272822',
+  codeTokenCData: '#708090',
+  codeTokenPunctuation: '#f8f8f2',
+  codeTokenConstant: '#f92672',
+  codeTokenBoolean: '#ae81ff',
+  codeTokenLanguage: '#f8f8f2',
+  codeTokenAtRule: '#e6db74',
+  codeTokenKeyword: '#66d9ef',
+  codeTokenRegex: '#fd971f',
 
 }
 
@@ -66,7 +79,20 @@ export const darkTheme = {
   hoverNav: 'rgba(0,0,0, 0.2)',
   /* Accents */
   accentPrimary: 'var(--accent2)',
-  accentSecondary: 'var(--accent2)'
+  accentSecondary: 'var(--accent2)',
+
+  /** CODE */
+  codeFontColor: '#f8f8f2',
+  codeFontFamily: 'var(--alt-font)',
+  codeBackground: '#272822',
+  codeTokenCData: '#708090',
+  codeTokenPunctuation: '#f8f8f2',
+  codeTokenConstant: '#f92672',
+  codeTokenBoolean: '#ae81ff',
+  codeTokenLanguage: '#f8f8f2',
+  codeTokenAtRule: '#e6db74',
+  codeTokenKeyword: '#66d9ef',
+  codeTokenRegex: '#fd971f',
 
 }
 
@@ -102,7 +128,20 @@ export const alt1Theme = {
   hoverNav: 'rgba(0,0,0, 0.1)',
   /* Accents */
   accentPrimary: '#ca8165',
-  accentSecondary: 'var(--accent4)'
+  accentSecondary: 'var(--accent4)',
+
+  /** CODE */
+  codeFontColor: '#f8f8f2',
+  codeFontFamily: 'var(--alt-font)',
+  codeBackground: '#272822',
+  codeTokenCData: '#708090',
+  codeTokenPunctuation: '#f8f8f2',
+  codeTokenConstant: '#f92672',
+  codeTokenBoolean: '#ae81ff',
+  codeTokenLanguage: '#f8f8f2',
+  codeTokenAtRule: '#e6db74',
+  codeTokenKeyword: '#66d9ef',
+  codeTokenRegex: '#fd971f',
 
 }
 
@@ -138,7 +177,20 @@ export const alt2Theme = {
   hoverNav: 'rgba(0,0,0, 0.2)',
   /* Accents */
   accentPrimary: 'var(--accent2)',
-  accentSecondary: '#efbb35'
+  accentSecondary: '#efbb35',
+
+  /** CODE */
+  codeFontColor: '#f8f8f2',
+  codeFontFamily: 'var(--alt-font)',
+  codeBackground: '#272822',
+  codeTokenCData: '#708090',
+  codeTokenPunctuation: '#f8f8f2',
+  codeTokenConstant: '#f92672',
+  codeTokenBoolean: '#ae81ff',
+  codeTokenLanguage: '#f8f8f2',
+  codeTokenAtRule: '#e6db74',
+  codeTokenKeyword: '#66d9ef',
+  codeTokenRegex: '#fd971f',
 
 }
 
@@ -149,7 +201,7 @@ export const fontSizeNormal = {
   headingFour: '20px',
   headingFive: '18px',
   headingSix: '18px',
-  paragraph: '14px',
+  paragraph: '1rem',
 }
 export const fontSizeMedium = {
   headingOne: '36px',

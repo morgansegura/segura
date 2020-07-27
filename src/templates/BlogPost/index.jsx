@@ -69,8 +69,7 @@ export default ({ data, location, pageContext, pathContext }) => {
 
   useEffect(() => {
     const checkScrollTop = () => {
-      console.log(window.pageYOffset)
-      console.log(showScroll)
+
       if (!showScroll && window.pageYOffset > 400) {
         setShowScroll(true)
       } else if (showScroll && window.pageYOffset <= 400) {
@@ -108,7 +107,6 @@ export default ({ data, location, pageContext, pathContext }) => {
           publishedDate={date}
           modifiedDate={new Date(Date.now()).toISOString()}
         />
-        {console.log(relatedArticles)}
 
         <S.BlogWrapper className={toggleToolbar ? `toolbar--open` : ``}>
           <Section>

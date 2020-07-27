@@ -17,7 +17,7 @@ export default ({ data, location, pageContext }) => {
   const posts = data.allMdx.edges
   // const authors = data.allAuthorYaml.edges
 
-  console.log(posts)
+  // console.log(posts)
   return (
     <Layout location={location.pathname} title={siteTitle}>
       <SEO

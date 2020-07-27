@@ -292,7 +292,7 @@ export class Reacteroids extends Component {
     const body = document.body
     if (this.state.inGame) {
       body.classList.add('fixed-layout')
-      console.log(this.state.inGame)
+      // console.log(this.state.inGame)
     }
   }
 
@@ -390,7 +390,7 @@ export class Reacteroids extends Component {
       <S.GameWrapper
         className={`${
           this.state.inGame && !this.state.playStart ? `fixed-layout` : ``
-        }`}
+          }`}
       >
         {gametext}
         <S.ScoreLabel className="current-score">

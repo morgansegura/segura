@@ -217,8 +217,14 @@ module.exports = {
         background_color: `#ffffff`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `content/assets/segura-icon.png`,
-        "purpose": "any maskable"
+        icon: [
+          {
+            src: `content/assets/segura-icon.png`,
+            sizes: '196x196',
+            type: 'image/png',
+            purpose: `any maskable`
+          }
+        ]
       },
     },
     {

@@ -40,7 +40,7 @@ export default ({ data, location, pageContext }) => {
                       <S.ItemPeriod>2008</S.ItemPeriod>
                       <S.ItemCompany>University of Studies</S.ItemCompany>
                     </S.TimelineLeft>
-                    <div class="divider"></div>
+                    <div className="divider"></div>
                     <S.TimelineRight>
                       <S.ItemTitle>Fronted Development</S.ItemTitle>
                       <p>Maecenas finibus nec sem ut imperdiet. Ut tincidunt est ac dolor aliquam sodales. Phasellus sed mauris hendrerit, laoreet sem in, lobortis ante.</p>
@@ -52,7 +52,7 @@ export default ({ data, location, pageContext }) => {
                       <S.ItemPeriod>2007</S.ItemPeriod>
                       <S.ItemCompany>University of Studies</S.ItemCompany>
                     </S.TimelineLeft>
-                    <div class="divider"></div>
+                    <div className="divider"></div>
                     <S.TimelineRight>
                       <S.ItemTitle>Graphic Design</S.ItemTitle>
                       <p>Aliquam tincidunt malesuada tortor vitae iaculis. In eu turpis iaculis, feugiat risus quis, aliquet urna. Quisque fringilla mollis risus, eu pulvinar dolor.</p>
@@ -65,13 +65,13 @@ export default ({ data, location, pageContext }) => {
                 </TitleBlock>
 
 
-                <div class="timeline timeline-second-style clearfix">
+                <div className="timeline timeline-second-style clearfix">
                   <S.TimelineItem>
                     <S.TimelineLeft>
                       <S.ItemPeriod>2016 - Current</S.ItemPeriod>
                       <S.ItemCompany>Google</S.ItemCompany>
                     </S.TimelineLeft>
-                    <div class="divider"></div>
+                    <div className="divider"></div>
                     <S.TimelineRight>
                       <S.ItemTitle>Lead Ui/Ux Designer</S.ItemTitle>
                       <p>Praesent dignissim sollicitudin justo, sed elementum quam lacinia quis. Phasellus eleifend tristique posuere. Sed vitae dui nec magna.</p>
@@ -83,7 +83,7 @@ export default ({ data, location, pageContext }) => {
                       <S.ItemPeriod>2013 - 2016</S.ItemPeriod>
                       <S.ItemCompany>Adobe</S.ItemCompany>
                     </S.TimelineLeft>
-                    <div class="divider"></div>
+                    <div className="divider"></div>
                     <S.TimelineRight>
                       <S.ItemTitle>Senior Ui/Ux Designer</S.ItemTitle>
                       <p>Maecenas tempus faucibus rutrum. Duis eu aliquam urna. Proin vitae nulla tristique, ornare felis id, congue libero. Nam volutpat euismod quam.</p>
@@ -95,7 +95,7 @@ export default ({ data, location, pageContext }) => {
                       <S.ItemPeriod>2011 - 2013</S.ItemPeriod>
                       <S.ItemCompany>Google</S.ItemCompany>
                     </S.TimelineLeft>
-                    <div class="divider"></div>
+                    <div className="divider"></div>
                     <S.TimelineRight>
                       <S.ItemTitle>Junior Ui/Ux Designer</S.ItemTitle>
                       <p>Duis mollis nunc quis quam viverra venenatis. Nulla nulla arcu, congue vitae nunc ac, sodales ultricies diam. Nullam justo leo, tincidunt sit amet.</p>

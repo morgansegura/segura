@@ -71,7 +71,6 @@ const GlobalStyles = createGlobalStyle`
     text-size-adjust: 100%;
     font-size: 100%;
     font-family: var(--base-font);
-    font-family: ${({ theme }) => theme.textBody};
     font-size: 14px;
     font-weight: 400;
     font-style: normal;

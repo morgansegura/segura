@@ -10,35 +10,37 @@ const customMedia = generateMedia({
 })
 
 export const BioImageContainer = styled.div`
-  opacity: 1;
   min-height: 100%;
   flex: 0 0 100%;
   max-width: 100%;
-  height: 100%;
-  transition: opacity 0.1s ease-out;
 
-  .card--hidden & {
-    opacity: 0;
-    height: 0;
-    z-index: -1;
-  } 
   ${customMedia.greaterThan('large')`
     flex: 0 0 50%;
     max-width: 50%;
   `};
 `
-export const BioImage = styled(Img)`
+export const BlogWrapper = styled.div`
+  width: 100%;
+  transition: width 0.2s ease-in;
+
+
+   ${customMedia.greaterThan('large')`
+      &.toolbar--open {
+        width: calc(100% - 300px)
+      }
+  `}; 
+
+`
+export const BioImage = styled.div`
   position: relative;
-  z-index: 1;
   height: 100%;
-  max-height: 300px;
+  min-height: 300px;
   width: 100%;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-
   ${customMedia.greaterThan('large')`
-    max-height: 100%;
+       
   `};
 `
 export const BioContent = styled.div`
@@ -51,20 +53,12 @@ export const BioContent = styled.div`
   min-height: 100px;
   transition: relative 0.3s ease-out;
 
-  .card--hidden & {
-    height: 145px;
-  } 
   button {
     flex: 1 0 auto;
   }
   .category {
     position: relative;
-    opacity: 1;
-    .card--hidden & {
-      opacity: 0;
-      height: 0;
-      z-index: -1;
-    }     
+    opacity: 1;   
   }  
   h2 {
     position: relative;
@@ -76,12 +70,6 @@ export const BioContent = styled.div`
     margin-bottom: 15px;
     color: ${({ theme }) => theme.textHeadline};
     transition: height 0.1s ease-out;
-
-    .card--hidden & {
-      opacity: 0;
-      height: 0;
-      z-index: -1;
-    } 
 
     ${customMedia.greaterThan('large')`
       font-size: 48px;    
@@ -102,11 +90,6 @@ export const BioContent = styled.div`
     line-height: 1.85em;
     transition: height 0.3s ease-out;
 
-    .card--hidden & {
-      opacity: 0;
-      height: 0;
-      z-index: -1;
-    }   
   }
 
   ${customMedia.greaterThan('large')`
@@ -192,12 +175,6 @@ export const TagsList = styled.div`
   height: 100%;
   transition: height 0.1s ease-out;
 
-  .card--hidden & {
-      opacity: 0;
-      height: 0;
-      z-index: -1;
-  } 
-
   ${customMedia.greaterThan('large')`
 
   `}
@@ -259,40 +236,133 @@ export const BlogFooter = styled.footer`
   `}
 `
 export const ToolbarBlock = styled.div`
-  background-color: ${({ theme }) => theme.accentSecondary};
-  border-radius: 30px;
-  padding: 1rem;
+  position: relative;
+  border: solid ${({ theme }) => theme.textHeadline};
+  border-width: 1px;
+  border-radius: 3px;
+  padding: 0.25rem 0.35rem;
   position: fixed;
-  bottom: 1rem;
-  right: 1rem;
+  bottom: 1.25rem;
+  right: 1.25rem;
+
+`
+export const ToTopButton = styled.div`
+  cursor: pointer;
   display: flex;
+  align-items: center;  
+  font-size: 20px;
+  padding-bottom: 10px;
+  display: none;
+  opacity: 0.5;
+  color: ${({ theme }) => theme.textHeadline};
+  transform: opacity 0.3s ease-out;
+  
+  
+  &:hover {
+    opacity: 1;
+  }
+
+  &.show {
+    display: flex;
+  }
 `
 export const ToolbarButton = styled.div`
   cursor: pointer;
+  display: flex;
+  align-items: center;  
   font-size: 20px;
-
+  opacity: 0.5;
+  color: ${({ theme }) => theme.textHeadline};
+  transform: opacity 0.3s ease-out;
+  
+  &:hover {
+    opacity: 1;
+  }  
 `
-export const AsideToolbar = styled.aside`
-  position: fixed;
-  right: -100%;
-  top: 0;
-  padding: 5rem 1rem 1rem;
-  max-width: 30%;
-  height: 100vh;  
-  background-color: ${({ theme }) => theme.panelOffset};
-  border-left: 1rem solid ${({ theme }) => theme.panelBody};
-  transition: right 0.3s ease-out;
+export const CloseToolbar = styled.button`
+  position: absolute;
+  border-radius: 3px;
+  padding: 0.25rem 0.5rem;
+  /* width: 30px;
+  height: 30px; */
+  display: flex;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  bottom: 1.25rem;
+  font-size: 0.75rem;
+  right: 1rem;
+  border: none;
+  opacity: 0.3;
+  color: ${({ theme }) => theme.textHeadline};
+  border: 1px solid ${({ theme }) => theme.textHeadline};
+  transition: opacity 0.3s ease-out, scale 0.3s ease-out;
 
-  .toolbar--open & {
-    right: 0;
-    transition: right 0.3s ease-in;
+  &:hover {
+    opacity: 1;
+    translate: scale(1.1);
   }
 
   ${customMedia.greaterThan('large')`
+    right: 1.25rem;
+  `}  
+`
+export const AsideToolbar = styled.aside`
+  position: fixed;
+  z-index: 1;
+  right: -100%;
+  top: 0;
+  height: 100vh;
+  padding: 6rem 1.5rem;
+  max-width: 300px;
+  background-color: ${({ theme }) => theme.panelBody};
+  box-shadow: 0 0 10px 0 rgba(0,0,0,0.3);
+  transition: right 0.2s ease-out;
 
+  .toolbar--open & {
+    right: 0;
+    /* transition: right 0.3s ease-in; */
+  }
+
+  ${customMedia.greaterThan('large')`
+    box-shadow: 0 0 20px 10px rgba(0,0,0,0);
   `}
 `
-export const ToolbarSection = styled.aside`
+export const ToolbarSection = styled.div`
+    display: flex;
+    flex-direction: column;
+
+    a {
+      font-size: 0.75rem;
+      color: ${({ theme }) => theme.accentSecondary};
+      font-weight: 500;
+      text-decoration: none;
+      padding-left: 0.5rem;
+
+      .anchor-title {
+        font-size: 0.75rem;
+        color: ${({ theme }) => theme.accentSecondary};
+      }
+      .anchor-body {
+        color: ${({ theme }) => theme.textBody};
+      }
+      &:hover {
+        .anchor-title {
+          text-decoration: underline;
+        }        
+      }
+    }
+
+    .title {
+      font-size: 0.875rem;
+      font-weight: normal;
+      font-family: var(--headline-font);
+      color: ${({ theme }) => theme.textBody};
+      padding-bottom: 0.25rem;
+
+    }
+
+    margin-bottom: 1rem;
 
     ${customMedia.greaterThan('large')`
 

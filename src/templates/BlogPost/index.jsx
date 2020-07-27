@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link, graphql } from 'gatsby'
+import { Link, graphql, parsePath } from 'gatsby'
 import { MDXProvider } from '@mdx-js/react'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import _ from 'lodash'
@@ -25,8 +25,9 @@ import {
 
 // Icons
 import { FaListAlt, FaTwitter, FaReact, FaGithubAlt, FaDev, FaDribbble } from "react-icons/fa";
+import { AiOutlineSetting, AiOutlineArrowUp } from "react-icons/ai";
 
-export default ({ data, location, pageContext }) => {
+export default ({ data, location, pageContext, pathContext }) => {
   const {
     image,
     siteUrl,
@@ -53,14 +54,32 @@ export default ({ data, location, pageContext }) => {
     bioExcerpt,
     jobTitle,
   } = data.authorYaml
+  const {
+    relatedArticles
+  } = pathContext
 
   const { previous, next } = pageContext
 
 
   // useState Hook
-  const [toggleHideCard, setToggleHideCard] = useState(false)
-  const [fontSize, toggleFontSize, componentMounted] = useFontSize()
+  const [toggleToolbar, setToggleToolbar] = useState(false)
+  const [fontSize, toggleFontSize] = useFontSize()
   const fontSizeMode = fontSize === 'normal' ? fontSizeNormal : fontSize === 'medium' ? fontSizeMedium : fontSize === 'large' ? fontSizeLarge : fontSizeNormal
+  const [showScroll, setShowScroll] = useState(false)
+
+  const checkScrollTop = () => {
+    console.log(window.pageYOffset)
+    console.log(showScroll)
+    if (!showScroll && window.pageYOffset > 400) {
+      setShowScroll(true)
+    } else if (showScroll && window.pageYOffset <= 400) {
+      setShowScroll(false)
+    }
+  };
+  window.addEventListener('scroll', checkScrollTop)
+  const scrollTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   return (
     <ThemeProvider theme={fontSizeMode}>
@@ -83,49 +102,49 @@ export default ({ data, location, pageContext }) => {
           publishedDate={date}
           modifiedDate={new Date(Date.now()).toISOString()}
         />
-        {console.log(data)}
+        {console.log(relatedArticles)}
 
+        <S.BlogWrapper className={toggleToolbar ? `toolbar--open` : ``}>
+          <Section>
+            <S.BioImageContainer>
+              {!!thumbnail && (
 
-        <Section className={toggleHideCard ? `card--hidden` : ``}>
-          <S.BioImageContainer>
-            {!!thumbnail && (
-              <S.BioImage
-                fluid={thumbnail.childImageSharp.fluid}
-                alt={title}
-              />
-            )}
-          </S.BioImageContainer>
+                <S.BioImage
+                  style={{ backgroundImage: `url(${thumbnail.childImageSharp.fluid.src})` }}
+                />
+              )}
+            </S.BioImageContainer>
 
-          <S.BioContent>
-            {!!category && <span className="category">{category}</span>}
-            <h2>{title}</h2>
-            {!!excerpt && <p>{excerpt}</p>}
-            <S.TagsList>
-              Tag 1, tag 2
-            </S.TagsList>
-            <S.ContentFooter>
-              <ButtonBlock>
-                <ButtonOutline onClick={() => setToggleHideCard(!toggleHideCard)}>{!toggleHideCard ? `Hide Card` : `Show Card`}</ButtonOutline>
-              </ButtonBlock>
-              <ToggleFontSize fontSize={fontSize} toggleFontSize={toggleFontSize} />
-            </S.ContentFooter>
-          </S.BioContent>
-        </Section>
+            <S.BioContent>
+              {!!category && <span className="category">{category}</span>}
+              <h2>{title}</h2>
+              {!!excerpt && <p>{excerpt}</p>}
+              <S.TagsList>
+                Tag 1, tag 2
+              </S.TagsList>
+              <S.ContentFooter>
+                <ButtonBlock>
+                  <ButtonOutline onClick={() => setToggleToolbar(!toggleToolbar)}>{!toggleToolbar ? `Show Post Settings` : `Hide Post Settings`}</ButtonOutline>
+                </ButtonBlock>
 
-        <Section className="section--inner">
-          <S.BlogHeader>
-            <S.BlogMeta>
-              <Grid container spacing={3}>
-                <Grid item xs={12} sm={6} className="author__section">
+              </S.ContentFooter>
+            </S.BioContent>
+          </Section>
 
-                  {/*
+          <Section className="section--inner">
+            <S.BlogHeader>
+              <S.BlogMeta>
+                <Grid container spacing={3}>
+                  <Grid item xs={12} sm={6} className="author__section">
+
+                    {/*
               authorTitle,
               avatar,
               bio,
               bioExcerpt,
               jobTitle,
               */}
-                  {/*!!authorTitle && (
+                    {/*!!authorTitle && (
                   <S.AuthorDisplay>
                     <S.AuthorMeta>
                       <S.AuthorAvatar
@@ -149,62 +168,102 @@ export default ({ data, location, pageContext }) => {
                     </S.AuthorBio>
                   </S.AuthorDisplay>
                 )*/}
-                </Grid>
-                <Grid item xs={12} sm={6}>
+                  </Grid>
+                  <Grid item xs={12} sm={6}>
 
+                  </Grid>
                 </Grid>
-              </Grid>
-            </S.BlogMeta>
-            <h3>{subheading}</h3>
-          </S.BlogHeader>
-          <HorizontalRule />
-          <S.BlogBody>
-            <MDXProvider>
-              <MDXRenderer>{body}</MDXRenderer>
-            </MDXProvider>
-          </S.BlogBody>
-          <S.BlogFooter>
-            Footer Stuff
+              </S.BlogMeta>
+              <h3>{subheading}</h3>
+            </S.BlogHeader>
+            <HorizontalRule />
+            <S.BlogBody>
+              <MDXProvider>
+                <MDXRenderer>{body}</MDXRenderer>
+              </MDXProvider>
+            </S.BlogBody>
+            <S.BlogFooter>
+              Footer Stuff
         </S.BlogFooter>
 
 
-          {previous === false ? null : (
-            <div>
-              {previous && (
-                <Link to={previous.fields.slug}>
-                  <p>{previous.frontmatter.title}</p>
-                </Link>
-              )}
-            </div>
-          )}
-          {next === false ? null : (
-            <div>
-              {next && (
-                <Link to={next.fields.slug}>
-                  <p>{next.frontmatter.title}</p>
-                </Link>
-              )}
-            </div>
-          )}
-        </Section>
+            {previous === false ? null : (
+              <div>
+                {previous && (
+                  <Link to={previous.fields.slug}>
+                    <p>{previous.frontmatter.title}</p>
+                  </Link>
+                )}
+              </div>
+            )}
+            {next === false ? null : (
+              <div>
+                {next && (
+                  <Link to={next.fields.slug}>
+                    <p>{next.frontmatter.title}</p>
+                  </Link>
+                )}
+              </div>
+            )}
+          </Section>
 
-        <S.AsideToolbar>
-          <TitleBlock>
-            <h3>What I Do</h3>
-          </TitleBlock>
-          <S.ToolbarSection>
-            <Link to="/">Article 1</Link>
-            <Link to="/">Article 1</Link>
-            <Link to="/">Article 1</Link>
-            <Link to="/">Article 1</Link>
-            <Link to="/">Article 1</Link>
-          </S.ToolbarSection>
-        </S.AsideToolbar>
-        <S.ToolbarBlock>
-          <S.ToolbarButton to="">
-            <FaListAlt />
-          </S.ToolbarButton>
-        </S.ToolbarBlock>
+          <S.AsideToolbar>
+            <S.CloseToolbar onClick={() => setToggleToolbar(!toggleToolbar)}>
+              CLOSE
+            </S.CloseToolbar>
+
+            <S.ToolbarSection>
+              <span className="title--sm">Font Options</span>
+              <ToggleFontSize fontSize={fontSize} toggleFontSize={toggleFontSize} />
+            </S.ToolbarSection>
+
+            {!!relatedArticles &&
+              <S.ToolbarSection>
+                <h5 className="title">Similar Posts</h5>
+                {relatedArticles.map(({ node: post }) => (
+                  <Link to={post.fields.slug} key={post.id}>
+                    <div className="anchor-title">{post.frontmatter.title}</div>
+                    <div className="anchor-body">{post.frontmatter.subheading}</div>
+                  </Link>
+                ))}
+              </S.ToolbarSection>
+            }
+            {!!category &&
+              <S.ToolbarSection>
+                <h5 className="title">Categories</h5>
+                <Link to={`categories/${_.kebabCase(category.toLowerCase())}`}>{category}</Link>
+              </S.ToolbarSection>
+            }
+            {!!tags &&
+              <S.ToolbarSection>
+                <h5 className="title">Tags</h5>
+                {tags.map(tag => {
+                  return (
+                    <Link
+                      key={tag}
+                      style={{ textDecoration: 'none' }}
+                      to={`/tags/${_.kebabCase(tag)}`}
+                    >
+                      <div className="tag-item">#{tag}</div>
+                    </Link>
+                  )
+                })}
+              </S.ToolbarSection>
+            }
+
+          </S.AsideToolbar>
+          <S.ToolbarBlock>
+            <S.ToTopButton
+              onClick={scrollTop}
+              className={showScroll ? `show` : ``}
+            >
+              <AiOutlineArrowUp />
+            </S.ToTopButton>
+            <S.ToolbarButton onClick={() => setToggleToolbar(!toggleToolbar)}>
+              <AiOutlineSetting />
+            </S.ToolbarButton>
+          </S.ToolbarBlock>
+        </S.BlogWrapper>
       </Layout>
     </ThemeProvider>
   )
@@ -219,12 +278,13 @@ export const pageQuery = graphql`
       }
     }
     mdx(fields: { slug: { eq: $slug } }) {
+      fileAbsolutePath
       excerpt(pruneLength: 160)
       fields {
         slug
         authorId
-      }
-      body
+      }      
+      body   
       frontmatter {
         title 
         date(formatString: "MMMM DD, YYYY")        
@@ -238,7 +298,7 @@ export const pageQuery = graphql`
               ...GatsbyImageSharpFluid
             }
           }
-        }        
+        }
       }
     }
     authorYaml {

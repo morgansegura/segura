@@ -332,11 +332,11 @@ export const SocialNavToggle = styled.div`
     transition: opacity 0.2s ease-out, box-shadow 0.2s ease-out, rotate 0.2s ease-out;
     border-radius: 100%;
     svg {
-      stroke: ${({ theme }) => theme.hoverNav};
+      stroke: ${({ theme }) => theme.panelBody};
       transform: rotate(90deg);
       transition: transform 0.1s ease-in;
       path {
-        fill: ${({ theme }) => theme.hoverNav};
+        fill: ${({ theme }) => theme.panelBody};
       }
     }
     &:after {

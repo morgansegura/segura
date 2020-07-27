@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { useDarkMode } from '../Theme/useDarkMode'
 import { lightTheme, darkTheme, alt1Theme, alt2Theme } from '../Theme/themeStyles'
 import ToggleTheme from '../Theme/toggleTheme'
+import ToggleFontSize from '../Theme/toggleFontSize'
 import Header from '../Header'
 import { MainNavigation } from '../Menu'
 /* Styled Components */

@@ -13,6 +13,36 @@ export const ThemeSelector = styled.div`
 
   `}
 `
+export const FontToolbar = styled.div` 
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  padding-bottom: 1.5rem;
+
+  border-bottom: 1px solid ${({ theme }) => theme.textOffset};
+
+  .normal, .medium, .large {
+    cursor: pointer;
+    font-size: 0.75rem;
+    padding: 0.25rem 1.25rem;
+    border: solid ${({ theme }) => theme.textBody};
+
+  }
+  .normal {
+    border-width: 1px;
+    border-radius: 6px 0 0 6px;
+  }
+  .medium {
+    border-width: 1px 0;
+  }
+  .large {
+    border-width: 1px;
+    border-radius: 0 6px 6px 0;
+  }
+`
 export const Options = styled.div` 
   position: absolute;
   z-index: -1; 

@@ -48,6 +48,7 @@ function addSiblingNodes(createNodeField) {
   }
 }
 
+
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions;
   let slug;
@@ -107,6 +108,7 @@ exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions;
 
   return new Promise((resolve, reject) => {
+
     const blogPost = path.resolve(`./src/templates/BlogPost/index.jsx`)
     const tagPage = path.resolve("src/templates/Tag/index.jsx");
     const categoryPage = path.resolve("src/templates/Category/index.jsx");
@@ -119,17 +121,19 @@ exports.createPages = ({ graphql, actions }) => {
             allMdx {
               edges {
                 node {
+                  id
                   frontmatter {
+                    title
                     author
                     tags
                     category
                     excerpt                  
-                    subheading
+                    subheading                  
                   }
                   fields {
                     slug
                     authorId
-                  }
+                  }                   
                 }
               }
             }
@@ -140,6 +144,39 @@ exports.createPages = ({ graphql, actions }) => {
           /* eslint no-console: "off" */
           console.log(result.errors);
           reject(result.errors);
+        }
+
+
+        const sortByDateDescending = (a, b) => {
+          const aPubDateInMS = (new Date(a.publishedOn)).getTime()
+          const bPubDateInMS = (new Date(a.publishedOn)).getTime()
+
+          if (aPubDateInMS > bPubDateInMS) {
+            return 1
+          }
+
+          if (aPubDateInMS < bPubDateInMS) {
+            return -1
+          }
+          return 0
+        }
+        const getRelatedArticles = (currentArticles, articles) => {
+          const MINIMUM_TAGS_IN_COMMON = 1
+
+          const hasAtLeastOneTagInCommon = ({ node }) => {
+            if (currentArticles.id === node.id) {
+              return false
+            }
+
+            const commonTags = _.intersectionBy(currentArticles.frontmatter.tags, node.frontmatter.tags, (tag) => tag)
+            return commonTags.length >= MINIMUM_TAGS_IN_COMMON
+          }
+
+          const filteredResults = articles.filter(hasAtLeastOneTagInCommon)
+          if (filteredResults.length > 5) {
+            return filteredResults.sort(sortByDateDescending).slice(0, 5)
+          }
+          return filteredResults
         }
 
         const tagSet = new Set();
@@ -165,7 +202,8 @@ exports.createPages = ({ graphql, actions }) => {
             path: edge.node.fields.slug,
             component: blogPost,
             context: {
-              slug: edge.node.fields.slug
+              slug: edge.node.fields.slug,
+              relatedArticles: getRelatedArticles(edge.node, result.data.allMdx.edges)
             }
           });
         });

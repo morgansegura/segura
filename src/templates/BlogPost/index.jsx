@@ -102,7 +102,7 @@ export default ({ data, location, pageContext, pathContext }) => {
           siteLanguage={siteLanguage}
           siteLocale={siteLocale}
           twitterUsername={twitter}
-          // author={author}
+          author={authorTitle}
           article="true"
           publishedDate={date}
           modifiedDate={new Date(Date.now()).toISOString()}
@@ -234,13 +234,13 @@ export default ({ data, location, pageContext, pathContext }) => {
             }
             {!!category &&
               <S.ToolbarSection>
-                <h5 className="title">Categories</h5>
+                <p className="title">Categories</p>
                 <Link to={`categories/${_.kebabCase(category.toLowerCase())}`}>{category}</Link>
               </S.ToolbarSection>
             }
             {!!tags &&
               <S.ToolbarSection>
-                <h5 className="title">Tags</h5>
+                <h6 className="title">Tags</h6>
                 {tags.map(tag => {
                   return (
                     <Link

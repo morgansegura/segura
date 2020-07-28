@@ -3,7 +3,7 @@ module.exports = {
   shortName: 'Segura',
   description: 'Morgan Segura',
   image: '/default-site-image.jpg',
-  url: 'https://www.segura.llc', // Domain of your site without prefix!
+  url: 'https://www.morgansegura.com', // Domain of your site without prefix!
   prefix: '/',
   author: 'Morgan Segura',
   twitter: '@codestandard',

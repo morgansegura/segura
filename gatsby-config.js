@@ -217,11 +217,9 @@ module.exports = {
         background_color: `#ffffff`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: [
+        icon: `content/assets/segura-icon.png`,
+        icon_options: [
           {
-            src: `content/assets/segura-icon.png`,
-            sizes: '196x196',
-            type: 'image/png',
             purpose: `any maskable`
           }
         ]
@@ -237,15 +235,8 @@ module.exports = {
         ],
       },
     },
-    {
-      resolve: `gatsby-plugin-loadable-components-ssr`,
-      options: {
-        // Whether replaceHydrateFunction should call ReactDOM.hydrate or ReactDOM.render
-        // Defaults to ReactDOM.render on develop and ReactDOM.hydrate on build
-        useHydrate: true,
-      },
-    }
-      `gatsby-plugin-offline`,
+    `gatsby-plugin-loadable-components-ssr`,
+    `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
   ],
 }

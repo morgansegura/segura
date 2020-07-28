@@ -240,6 +240,7 @@ module.exports = {
         ]
       }
     },
+    `gatsby-plugin-preact`,
     `gatsby-plugin-loadable-components-ssr`,
     `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,

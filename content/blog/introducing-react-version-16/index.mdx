@@ -1,6 +1,6 @@
 ---
 title: Introducing React Version 16
-date: 2020-07-25 02:47:40
+date: 2020-07-25T02:47:40.000Z
 author: Morgan Segura
 tags:
   - React JS
@@ -14,19 +14,16 @@ excerpt: In the future, we will provide an automated script (a “codemod”) to
   automatically. This release adds a new warning only for those cases in advance
   of the deprecation.
 ---
-
-
 ## New Warnings
 
 ### [](https://reactjs.org/blog/2020/02/26/react-v16.13.0.html#warnings-for-some-updates-during-render)Warnings for some updates during render
 
 A React component should not cause side effects in other components during rendering.
 
-It is supported to call`setState`during render, but[only for*the same component*](https://reactjs.org/docs/hooks-faq.html#how-do-i-implement-getderivedstatefromprops). If you call`setState`during a render on a different component, you will now see a warning:
+It is supported to call `setState `during render, but [only for *the same component*](https://reactjs.org/docs/hooks-faq.html#how-do-i-implement-getderivedstatefromprops). If you call `setState `during a render on a different component, you will now see a warning:
 
-```
+```html
 Warning: Cannot update a component from inside the function body of a different component.
-
 ```
 
 **This warning will help you find application bugs caused by unintentional state changes.**In the rare case that you intentionally want to change the state of another component as a result of rendering, you can wrap the`setState`call into`useEffect`.
@@ -35,7 +32,7 @@ Warning: Cannot update a component from inside the function body of a different 
 
 When dynamically applying a`style`that contains longhand and shorthand versions of CSS properties, particular combinations of updates can cause inconsistent styling. For example:
 
-```
+```javascript
 <div style={toggle ? 
   { background: 'blue', backgroundColor: 'red' } : 
   { backgroundColor: 'red' }
@@ -123,7 +120,6 @@ Replace usages of`React.createFactory`with regular JSX. Alternately, you can cop
 
 ```
 let createFactory = type => React.createElement.bind(null, type);
-
 ```
 
 It does exactly the same thing.
@@ -169,14 +165,12 @@ To install React 16 with Yarn, run:
 
 ```
 yarn add react@^16.13.0 react-dom@^16.13.0
-
 ```
 
 To install React 16 with npm, run:
 
 ```
 npm install --save react@^16.13.0 react-dom@^16.13.0
-
 ```
 
 We also provide UMD builds of React via a CDN:
@@ -184,7 +178,6 @@ We also provide UMD builds of React via a CDN:
 ```
 <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
 <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
-
 ```
 
 Refer to the documentation for[detailed installation instructions](https://reactjs.org/docs/installation.html).

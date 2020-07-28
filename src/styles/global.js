@@ -71,7 +71,7 @@ const GlobalStyles = createGlobalStyle`
     text-size-adjust: 100%;
     font-size: 100%;
     font-family: var(--base-font);
-    font-size: 14px;
+    font-size: 1rem;
     font-weight: 400;
     font-style: normal;
     line-height: 1.85em;    
@@ -126,25 +126,7 @@ const GlobalStyles = createGlobalStyle`
       font-style: normal;
       color: ${({ theme }) => theme.textHeadline};
       line-height: 1.5em;
-  }
-  h1 {
-      font-size: 18px;
-  }  
-  h2 {
-      font-size: 18px;
-  }  
-  h3 {
-      font-size: 18px;
-  }  
-  h4 {
-      font-size: 18px;
-  }  
-  h5 {
-      font-size: 18px;
-  }  
-  h6 {
-      font-size: 18px;
-  }  
+  } 
   .relative {
     position: relative;
   }
@@ -162,84 +144,6 @@ const GlobalStyles = createGlobalStyle`
   }
   .pb-4 {
     padding-bottom: 2rem;
-  }
-  .accent1 {
-    &--bg {
-      background-color: var(--accent1) !important;
-    }
-    &--border {
-      border-color: var(--accent1) !important;
-    }
-    &--border-bottom {
-      border-bottom-color: var(--accent1) !important;
-    }
-    &--border-top {
-      border-top-color: var(--accent1) !important;
-    }
-    &--left {
-      border-left-color: var(--accent1) !important;
-    }
-    &--color {
-      color: var(--accent1) !important;
-    }
-    &--fill {
-      fill: var(--accent1) !important;
-    }
-    &--stroke {
-      stroke: var(--accent1) !important;
-    }
-  }
-  .accent2 {
-    &--bg {
-      background-color: var(--accent2) !important;
-    }
-    &--border {
-      border-color: var(--accent2) !important;
-    }
-    &--border-bottom {
-      border-bottom-color: var(--accent2) !important;
-    }
-    &--border-top {
-      border-top-color: var(--accent2) !important;
-    }
-    &--border-left {
-      border-left-color: var(--accent2) !important;
-    }
-    &--color {
-      color: var(--accent2) !important;
-    }
-    &--stroke {
-      stroke: var(--accent2) !important;
-    }
-    &--fill {
-      fill: var(--accent2) !important;
-    }
-  }
-  .accent3 {
-    &--bg {
-      background-color: var(--accent3) !important;
-    }
-    &--border {
-      border-color: var(--accent3) !important;
-    }
-    &--border-bottom {
-      border-bottom-color: var(--accent3) !important;
-    }
-    &--border-top {
-      border-top-color: var(--accent3) !important;
-    }
-    &--left {
-      border-left-color: var(--accent3) !important;
-    }
-    &--color {
-      color: var(--accent3) !important;
-    }
-    &--fill {
-      fill: var(--accent3) !important;
-    }
-    &--stroke {
-      stroke: var(--accent3) !important;
-    }
   }
   
   :root { 
@@ -277,13 +181,11 @@ const GlobalStyles = createGlobalStyle`
 
     --width-container: 1400px;
 
-    --headline-font: "hind", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    --headline-font: 'Noto Sans', Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 
-    --base-font: 'roboto', "Noto Sans", Noto Sans JP,Noto Sans KR,Noto Naskh Arabic,Noto Sans Thai,Noto Sans Hebrew,Noto Sans Bengali,sans-serif;
+    --base-font: 'Noto Sans', Noto Sans JP,Noto Sans KR,Noto Naskh Arabic,Noto Sans Thai,Noto Sans Hebrew,Noto Sans Bengali,sans-serif;
 
-    --serif-font: 'roboto slab', Georgia, 'Times New Roman' serif;
-
-    --alt-font: 'aglet-slab', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    --serif-font: 'Noto Serif', serif;
 
   ${customMedia.greaterThan('large')`
     --size: 80px;

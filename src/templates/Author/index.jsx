@@ -1,7 +1,6 @@
 import React from "react";
 import { Link, graphql } from "gatsby";
 import Img from "gatsby-image"
-import _ from "lodash";
 import Layout from "../../components/Layout";
 import PostCard from '../../components/PostCard'
 /* Material UI */

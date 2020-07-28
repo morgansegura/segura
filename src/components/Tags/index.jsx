@@ -1,5 +1,4 @@
 import React, { Fragment } from 'react'
-import _ from 'lodash'
 import { Link } from 'gatsby'
 
 import * as S from './styled'
@@ -13,8 +12,8 @@ const Tags = ({ tags, tagLink }) => {
             <Fragment key={tag}>
               <span>
                 <S.Tag
-                  to={`/tags/${_.kebabCase(tag)}`}
-                  className={_.kebabCase(tag).toLowerCase()}
+                  to={`/tags/${tag.replace(/\s+/g, '-').toLowerCase()}`}
+                  className={tag.replace(/\s+/g, '-').toLowerCase()}
                 >
                   #{tag}
                 </S.Tag>
@@ -22,7 +21,7 @@ const Tags = ({ tags, tagLink }) => {
             </Fragment>
           ))}
       </p>
-    </div>
+    </div >
   )
 }
 

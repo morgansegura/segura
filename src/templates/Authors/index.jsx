@@ -1,7 +1,7 @@
 import React from "react";
 import Img from "gatsby-image";
 import { Link, graphql } from "gatsby";
-import _ from "lodash";
+
 import Layout from "../../components/Layout";
 
 /* Material UI */
@@ -16,8 +16,8 @@ export default ({
     <Layout>
       <ul>
         {authorNodes.map(({ node: author }, index) => (
-          <li key={`author-${_.kebabCase(author.title)}`}>
-            <Link to={`/author/${_.kebabCase(author.title)}`}>{author.title}
+          <li key={`author-${author.title.replace(/\s+/g, '-').toLowerCase()}`}>
+            <Link to={`/author/${author.title.replace(/\s+/g, '-').toLowerCase()}`}>{author.title}
               <Img
                 fluid={author.avatar.childImageSharp.fluid}
                 alt=""

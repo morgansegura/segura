@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import { Link, graphql, parsePath } from 'gatsby'
 import { MDXProvider } from '@mdx-js/react'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
-import _ from 'lodash'
 
 import Layout from '../../components/Layout'
 import SEO from 'react-seo-component'
@@ -235,7 +234,7 @@ export default ({ data, location, pageContext, pathContext }) => {
             {!!category &&
               <S.ToolbarSection>
                 <p className="title">Categories</p>
-                <Link to={`categories/${_.kebabCase(category.toLowerCase())}`}>{category}</Link>
+                <Link to={`/categories/${category.replace(/\s+/g, '-').toLowerCase()}`}>{category}</Link>
               </S.ToolbarSection>
             }
             {!!tags &&
@@ -246,7 +245,7 @@ export default ({ data, location, pageContext, pathContext }) => {
                     <Link
                       key={tag}
                       style={{ textDecoration: 'none' }}
-                      to={`/tags/${_.kebabCase(tag)}`}
+                      to={`/tags/${tag.replace(/\s+/g, '-').toLowerCase()}`}
                     >
                       <div className="tag-item">#{tag}</div>
                     </Link>

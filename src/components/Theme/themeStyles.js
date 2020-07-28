@@ -21,8 +21,8 @@ export const lightTheme = {
   /* Text */
   textNav: '#333',
   textHeadline: '#333',
-  textBody: '#666',
-  textOffset: '#aeaeae',
+  textBody: '#555',
+  textOffset: '#757575',
   textOffset1: '#888',
   textOnDark: '#888',
   textButton: '#222',
@@ -34,7 +34,7 @@ export const lightTheme = {
 
   /** CODE */
   codeFontColor: '#f8f8f2',
-  codeFontFamily: 'var(--alt-font)',
+  codeFontFamily: 'var(--serif-font)',
   codeBackground: '#272822',
   codeTokenCData: '#708090',
   codeTokenPunctuation: '#f8f8f2',
@@ -83,7 +83,7 @@ export const darkTheme = {
 
   /** CODE */
   codeFontColor: '#f8f8f2',
-  codeFontFamily: 'var(--alt-font)',
+  codeFontFamily: 'var(--serif-font)',
   codeBackground: '#272822',
   codeTokenCData: '#708090',
   codeTokenPunctuation: '#f8f8f2',
@@ -132,7 +132,7 @@ export const alt1Theme = {
 
   /** CODE */
   codeFontColor: '#f8f8f2',
-  codeFontFamily: 'var(--alt-font)',
+  codeFontFamily: 'var(--serif-font)',
   codeBackground: '#272822',
   codeTokenCData: '#708090',
   codeTokenPunctuation: '#f8f8f2',
@@ -181,7 +181,7 @@ export const alt2Theme = {
 
   /** CODE */
   codeFontColor: '#f8f8f2',
-  codeFontFamily: 'var(--alt-font)',
+  codeFontFamily: 'var(--serif-font)',
   codeBackground: '#272822',
   codeTokenCData: '#708090',
   codeTokenPunctuation: '#f8f8f2',

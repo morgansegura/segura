@@ -226,14 +226,19 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-google-fonts`,
+      resolve: `gatsby-plugin-google-fonts-v2`,
       options: {
         fonts: [
-          `hind\:500,700`,
-          // `poppins\:300,400,500,600,700`,
-          `roboto\:300,400,500,700,900`,
-        ],
-      },
+          {
+            family: 'Noto',
+            weights: ['400', '700']
+          },
+          {
+            family: 'Noto Serif',
+            weights: ['400']
+          },
+        ]
+      }
     },
     `gatsby-plugin-loadable-components-ssr`,
     `gatsby-plugin-offline`,

@@ -83,7 +83,7 @@ export const BioContent = styled.div`
     position: relative;
     opacity: 1;
     height: 100%;
-    font-size: 14px;
+    font-size: 1rem;
     margin: 0 0 10px;
     font-weight: 400;
     font-style: normal;
@@ -193,6 +193,10 @@ export const BlogBody = styled.div`
   h1, h2, h3, h4, h5, h6 {
     margin-top: 1.25rem;
     margin-bottom: 0.75rem;
+    a {
+      font-weight: bold;
+      margin-right: 0.5rem;
+    }
   }
   h1 {
     font-size: ${({ theme }) => theme.headingOne};
@@ -214,13 +218,15 @@ export const BlogBody = styled.div`
   }
   p {
     font-size: ${({ theme }) => theme.paragraph};
-    font-family: var(--serif-font);
-    font-weight: 300;
-    line-height: 1.4;
+    font-family: var(--base-font);
+    font-weight: 400;
+    line-height: 1.8;
+    letter-spacing: 0.0125rem;
     margin-bottom: 1.25rem;
   }
 
   a {
+    font-weight: bold;
     color: ${({ theme }) => theme.accentSecondary};
 
     svg {

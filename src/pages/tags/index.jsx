@@ -1,5 +1,4 @@
 import React from 'react'
-import _ from 'lodash'
 import { Link } from 'gatsby'
 import { graphql, StaticQuery } from 'gatsby'
 
@@ -24,7 +23,7 @@ const TagIndex = ({ data }) => {
             <Link
               key={tag}
               style={{ textDecoration: 'none' }}
-              to={`/tags/${_.kebabCase(tag)}`}
+              to={`/tags/${tag.replace(/\s+/g, '-').toLowerCase()}`}
             >
               <div className="tag-item">#{tag}</div>
             </Link>

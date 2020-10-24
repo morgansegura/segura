@@ -1,35 +1,20 @@
 import React from 'react'
 import { Link } from 'gatsby'
+
 /* Images */
 import Logo from '../../../static/assets/icons/segura-square-icon.svg'
-/* React Icons */
-// import { DiGithubAlt, DiCodepen } from 'react-icons/di'
-// import {
-//   TiSocialDribbble,
-//   TiSocialTwitter,
-//   TiSocialLinkedin,
-// } from 'react-icons/ti'
-// import {
-//   GrConnect,
-//   GrTag,
-//   GrTest,
-//   GrSign,
-//   GrSatellite,
-//   GrArticle,
-// } from 'react-icons/gr'
-/* Styled Components */
-import * as S from './styled'
 
+/* Styled Components */
 const Header = ({ children, ...otherProps }) => {
   return (
-    <S.HeaderWrapper {...otherProps}>
-      <S.HeaderContainer>
-        <S.LogoLink to="/" title="Home" aria-label="Home">
-          <Logo className="logo" />
-        </S.LogoLink>
+    <header className="bg-white p-12">
+      <div className="flex">
+        <Link to="/" title="Home" aria-label="Home">
+          <Logo className="logo w-10 h-10" />
+        </Link>
         {children}
-      </S.HeaderContainer>
-    </S.HeaderWrapper>
+      </div>
+    </header>
   )
 }
 

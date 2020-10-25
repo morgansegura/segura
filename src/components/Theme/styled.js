@@ -14,11 +14,12 @@ export const Options = styled.div`
   position: absolute;
   width: 175px;
   z-index: -1;
-  top: 3rem;
-  right: -10px;
+  top: 25px;
+  right: -40px;
+  border-radius: 4px 0 0 4px;
   box-shadow: -3px 2px 2px 2px rgba(0,0,0,0.1);
   background: ${({ theme }) => theme.panelOffset};
-  transform: translateX(0); 
+  transform: translateX(100%); 
   transition: transform 0.3s ease-in-out;
 
   .color-drawer--open & {
@@ -90,12 +91,12 @@ export const ToggleContainer = styled.div`
   align-items: center;
   justify-content: center;
   font-size: 30px;
-  margin-right: -2.5rem;
+  margin-right: -1rem;
   width: 50px;
   height: 50px;
   cursor: pointer;
-  color: ${({ theme }) => theme.textHeadline};
   transition: opacity 0.1s ease-in, color 0.1s ease-in;
+  
   svg {
     transform: rotate(0);    
     transition: transform 0.15s ease-out, fill 0.2s ease-out;

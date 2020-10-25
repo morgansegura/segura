@@ -172,7 +172,6 @@ export const MainNavToggle = styled.div`
   font-weight: 600;
   text-transform: uppercase;
   cursor: pointer;
-  display: flex;
   align-items: center;
   justify-content: center;
   width: 50px;

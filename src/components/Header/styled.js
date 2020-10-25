@@ -24,7 +24,9 @@ export const HeaderWrapper = styled.header`
   }
 `
 export const Logo = styled(Link)`
-    .cls-1, .cls-2 {
+    width: 3rem; 
+    height: 3rem;
+    .cls-1, .cls-2 {    
         fill: ${({theme}) => theme.accentSecondary};
     }
 `

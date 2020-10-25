@@ -4,12 +4,11 @@
     <list default="true" id="a9aa706a-c12e-4609-a5d6-234635e0e872" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Header/styled.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/styled.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Layout/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Layout/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Menu/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Menu/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Menu/styled.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Menu/styled.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Theme/styled.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Theme/styled.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Theme/themeStyles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Theme/themeStyles.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Theme/toggleFontSize.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Theme/toggleFontSize.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Theme/toggleTheme.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Theme/toggleTheme.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Theme/useDarkMode.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Theme/useDarkMode.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Theme/useFontSize.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Theme/useFontSize.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/layout/styled.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/layout/styled.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,7 +78,7 @@
       <updated>1603143056371</updated>
       <workItem from="1603143058540" duration="327000" />
       <workItem from="1603143416694" duration="52320000" />
-      <workItem from="1603520194599" duration="23893000" />
+      <workItem from="1603520194599" duration="26901000" />
     </task>
     <servers />
   </component>

@@ -25,6 +25,6 @@ export const HeaderWrapper = styled.header`
 `
 export const Logo = styled(Link)`
     .cls-1, .cls-2 {
-        fill: ${({theme}) => theme.accentPrimary};
+        fill: ${({theme}) => theme.accentSecondary};
     }
 `

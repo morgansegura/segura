@@ -6,7 +6,7 @@ export const lightTheme = {
   /* Panels */
   panelBody: 'bg-gray-300',
   panelHeader: '#fff',
-  panelOffset: 'rgba(0,0,0, 0.03)',
+  panelOffset: '#efefef',
   panelDark: '#fcfcfc',
   panelIcon: '#eee',
   panelCard: '#fff',

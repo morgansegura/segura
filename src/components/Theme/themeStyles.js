@@ -4,7 +4,7 @@ export const lightTheme = {
   black: 'var(--black)',
 
   /* Panels */
-  panelBody: '#efefef',
+  panelBody: 'bg-gray-300',
   panelHeader: '#fff',
   panelOffset: 'rgba(0,0,0, 0.03)',
   panelDark: '#fcfcfc',

@@ -79,7 +79,7 @@ const GlobalStyles = createGlobalStyle`
 
   body::-webkit-scrollbar {
     position: absolute;
-    width: 8px;
+    width: 0.5rem;
     margin-left: -8px;
   }
   
@@ -92,60 +92,6 @@ const GlobalStyles = createGlobalStyle`
     outline: 1px solid slategrey;
   }
 
-  * {
-    outline: none !important;
-  }
-  img {
-    display: block;
-  	max-width: 100%;
-  	height: auto;
-  }
-  b {
-    font-weight: 700;
-  }
-  strong {
-    font-weight: 800;
-  }
-  br {
-    height: 20px;
-  }
-  a {
-    color: ${({ theme }) => theme.action};
-    transition: color .2s ease-out;
-    &:hover {
-      color: ${({ theme }) => theme.actionLight};
-    }
-    &:active {
-      color: ${({ theme }) => theme.actionDark};
-    }
-  }
-
-  h1, h2, h3, h4, h5, h6 {
-      font-family: var(--headline-font);
-      font-weight: 600;
-      font-style: normal;
-      color: ${({ theme }) => theme.textHeadline};
-      line-height: 1.5em;
-  } 
-  .relative {
-    position: relative;
-  }
-  .bt-1 {
-    border-top: 1px solid ${({ theme }) => theme.panelIcon};
-  }
-  .t-center {
-    text-align: center;
-  }
-  .w-100 {
-    width: 100%;
-  }  
-  .pt-4 {
-    padding-top: 2rem;
-  }
-  .pb-4 {
-    padding-bottom: 2rem;
-  }
-  
   :root { 
     --size: 45px;
     --white: #fff;

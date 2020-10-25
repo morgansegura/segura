@@ -14,7 +14,6 @@ export const ThemeSelector = styled.div`
   `}
 `
 export const FontToolbar = styled.div` 
-
   display: flex;
   justify-content: center;
   align-items: center;

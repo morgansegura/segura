@@ -1,28 +1,56 @@
 import React from 'react'
+import {Link} from 'gatsby'
 import Logo from '../../../static/assets/icons/segura-square-icon.svg'
-/* Styled Components */
-import * as S from './styled'
-import { LogoLink } from '../Header/styled'
 
-export const MainNavigation = ({ props }) => (
-  <S.MainNavDrawer>
-    <S.MainNav {...props}>
-      <S.MainNavHeader>
-        <LogoLink
-          className="logo-link--lg"
-          to="/"
-          title="Home"
-          aria-label="Home"
-        >
-          <Logo className="logo" />
-        </LogoLink>
-        <h2>Morgan Segura</h2>
-      </S.MainNavHeader>
-      <S.MainNavLink to={`/`}>About</S.MainNavLink>
-      <S.MainNavLink to={`/resume`}>Resume</S.MainNavLink>
-      <S.MainNavLink to={`/portfolio`}>Portfolio</S.MainNavLink>
-      <S.MainNavLink to={`/blog`}>Blog</S.MainNavLink>
-      <S.MainNavLink to={`/Contact`}>Contact</S.MainNavLink>
-    </S.MainNav>
-  </S.MainNavDrawer>
+// Menu
+const menu = [
+    {
+        title: '',
+        label: 'Home',
+        path: '/',
+    },
+    {
+        title: '',
+        label: 'About',
+        path: '/about',
+    },
+    {
+        title: '',
+        label: 'Skills',
+        path: '/skills',
+    },
+    {
+        title: '',
+        label: 'Projects',
+        path: '/projects',
+    },
+    {
+        title: '',
+        label: 'Testimonials',
+        path: '/testimonials',
+    },
+];
+
+export const MainNavigation = (props) => (
+    <div {...props}>
+        <div className="h-24 flex flex-col justify-center text-center">
+            <Link
+                className="mx-auto"
+                to="/"
+                title="Home"
+                aria-label="Home"
+            > <Logo className="logo w-12 h-12"/> </Link>
+        </div>
+        <div className="bg-gray-200 w-full grid grid-cols-1 text-center">
+            {
+                menu.map(item => (
+                    <Link title={item.title}
+                          to={item.path}
+                          className="main-nav-item h-16 text-sm flex justify-center items-center border border-gray-500 hover:bg-color-400 transition ease-out duration-300">
+                        <div>{item.label}</div>
+                    </Link>
+                ))
+            }
+        </div>
+    </div>
 )

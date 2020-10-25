@@ -10,7 +10,6 @@ import { MainNavigation } from '../Menu'
 import GlobalStyles from '../../styles/global'
 import * as S from '../../styles/layout/styled'
 import { ThemeProvider } from 'styled-components'
-import { GrMoreVertical } from 'react-icons/gr'
 
 const Layout = props => {
   // Define props
@@ -30,45 +29,21 @@ const Layout = props => {
 
   return (
     <ThemeProvider theme={themeMode}>
-      {/* BAse Global Styles */}
       <GlobalStyles />
-      <S.Wrapper
-        className={`${toggleNav ? `drawer-open` : ``} ${
-          toggleMenu ? `squeeze-menu` : ``
-          }`}
-      >
-        {/* Header Content */}
-        <Header className="mobile">
-          <S.MainNavToggle onClick={() => setToggleNav(!toggleNav)}>
-            <S.Hamburger className="hamburger">
-              <div className="hamburger__center" />
-            </S.Hamburger>
-            {/*<span>Menu</span>*/}
-          </S.MainNavToggle>
-
+        <Header className="fixed z-10 h-24 w-full px-10 flex items-center justify-between">
+          <div className="cursor-pointer text-sm"
+               onClick={() => setToggleNav(!toggleNav)}>
+              Menu Click
+          </div>
           <ToggleTheme theme={theme} toggleTheme={toggleTheme} />
-
-          <S.SocialNavToggle onClick={() => setToggleMenu(!toggleMenu)}>
-            <GrMoreVertical />
-          </S.SocialNavToggle>
         </Header>
-
-        {/* Main Navigation Drawer */}
-        <MainNavigation />
-
-        {/* Main Content ({children}) */}
-        <S.Main>{children}</S.Main>
-        {/* Main Footer 
-        <S.FooterWrapper>
-          <S.FooterContainer>
-            <span>
-              &copy; Morgan Segura {new Date().getFullYear()} / All Projects are
-              Open Source{' '}
-            </span>
-          </S.FooterContainer>
-        </S.FooterWrapper>
-        */}
-      </S.Wrapper>
+        <MainNavigation className={`
+                fixed z-10 inset-0 flex items-center flex-col w-64 bg-white shadow-lg transform transition-translate ease-out duration-300  
+                ${toggleNav ? `translate-x-0` : `-translate-x-full lg:translate-x-0`} 
+            `} />
+        <div className="pt-24 ml-0 lg:ml-64 transition ease-out duration-300">
+          {children}
+        </div>
     </ThemeProvider>
   )
 }

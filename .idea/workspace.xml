@@ -2,14 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a9aa706a-c12e-4609-a5d6-234635e0e872" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/postcss.config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/css/styles.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gatsby-browser.js" beforeDir="false" afterPath="$PROJECT_DIR$/gatsby-browser.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gatsby-config.js" beforeDir="false" afterPath="$PROJECT_DIR$/gatsby-config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Header/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header/styled.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/styled.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Layout/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Layout/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Menu/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Menu/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Navigation/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navigation/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Theme/styled.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Theme/styled.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Theme/themeStyles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Theme/themeStyles.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/global.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/global.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,13 +34,14 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/pages/projects" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="preferences.editor.code.editing" />
+    <property name="settings.editor.selected.configurable" value="fileTemplates" />
     <property name="vuejs.nuxt.types-notification-shown" value="true" />
   </component>
   <component name="RecentsManager">
@@ -78,7 +81,7 @@
       <updated>1603143056371</updated>
       <workItem from="1603143058540" duration="327000" />
       <workItem from="1603143416694" duration="52320000" />
-      <workItem from="1603520194599" duration="2946000" />
+      <workItem from="1603520194599" duration="19040000" />
     </task>
     <servers />
   </component>
@@ -89,18 +92,35 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="801" y="177" key="#JavaScript" timestamp="1603597415583">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="801" y="177" key="#JavaScript/0.23.1440.877@0.23.1440.877" timestamp="1603597415583" />
     <state x="352" y="540" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1603145151407">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
     <state x="352" y="540" key="#com.intellij.fileTypes.FileTypeChooser/-2560.23.2560.1417/-4000.23.1440.877/0.23.2560.1417@0.23.2560.1417" timestamp="1603145151406" />
-    <state x="388" y="593" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1603224316640">
-      <screen x="0" y="23" width="2560" height="1417" />
+    <state x="218" y="376" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1603596993546">
+      <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="388" y="593" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/-2560.23.2560.1417/-4000.23.1440.877/0.23.2560.1417@0.23.2560.1417" timestamp="1603224316640" />
-    <state x="814" y="147" key="SettingsEditor" timestamp="1603224301170">
-      <screen x="0" y="23" width="2560" height="1417" />
+    <state x="218" y="376" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.23.1440.877@0.23.1440.877" timestamp="1603596993546" />
+    <state x="458" y="100" key="SettingsEditor" timestamp="1603597602375">
+      <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="814" y="147" key="SettingsEditor/-2560.23.2560.1417/-4000.23.1440.877/0.23.2560.1417@0.23.2560.1417" timestamp="1603224301169" />
-    <state x="458" y="100" key="SettingsEditor/0.23.1440.877@0.23.1440.877" timestamp="1603173482255" />
+    <state x="458" y="100" key="SettingsEditor/0.23.1440.877@0.23.1440.877" timestamp="1603597602375" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/components/Theme/themeStyles.js</url>
+          <line>147</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

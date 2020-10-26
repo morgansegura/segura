@@ -18,7 +18,8 @@ export const Options = styled.div`
   right: -40px;
   border-radius: 4px 0 0 4px;
   box-shadow: -3px 2px 2px 2px rgba(0,0,0,0.1);
-  background: ${({ theme }) => theme.panelOffset};
+  color: ${({ theme }) => theme.textDrawerNavItem};
+  background: ${({ theme }) => theme.bgDrawerNavItem};
   transform: translateX(100%); 
   transition: transform 0.3s ease-in-out;
 
@@ -41,10 +42,12 @@ export const Options = styled.div`
       width: 100%;
       padding: 0.5rem 1.5rem;
       background-color: transparent;
-      border-bottom: 1px solid rgba(0,0,0,0.075);
-      transition: background-color .3s ease-out;     
+      border-bottom: 1px solid ${({ theme }) => theme.borderDrawerNavItem};
+      transition: background-color .3s ease-out;  
+         
       &:hover {
-        background-color: rgba(0,0,0,0.1);
+        color: ${({ theme }) => theme.textDrawerNavItemHover};
+        background-color: ${({ theme }) => theme.bgDrawerNavItemHover};
       }
     }
     span {
@@ -55,7 +58,7 @@ export const Options = styled.div`
       width: 20px;
       height: 20px;
       border-radius: 100%;
-      border: 1px solid ${({ theme }) => theme.accentPrimary};
+      border: 1px solid ${({ theme }) => theme.logo};
       box-shadow: 0 0 0 3px rgba(0,0,0,0);
       transition: box-shadow 0.3s ease-out;
 
@@ -98,33 +101,35 @@ export const ToggleContainer = styled.div`
   transition: opacity 0.1s ease-in, color 0.1s ease-in;
   
   svg {
+    fill: ${({ theme }) => theme.logo};
     transform: rotate(0);    
     transition: transform 0.15s ease-out, fill 0.2s ease-out;
-  }
-
+  } 
   &.color-drawer--open {
+    &:after {
+      background-color: ${({ theme }) => theme.transHover};
+      transform: scale(1);
+    }  
     svg {
       transform: rotate(90deg);
     }
   }     
-
   &:after {
     content: '';
     position: absolute;
     z-index: -1;
-    background-color: ${({ theme }) => theme.hoverNav};
-    width: 100%;
-    height: 100%;
+    background-color: ${({ theme }) => theme.transHover};
+    width: 45px;
+    height: 45px;
     border-radius: 100%;
+    transform-origin: 50% 50%;
     transform: scale(0);
     transition: transform 0.2s ease-in;
   }
   &:hover {
     opacity: 1;
-    color: ${({ theme }) => theme.textHeadline};
-
     svg {
-      fill: ${({ theme }) => theme.accentSecondary};
+      fill: ${({ theme }) => theme.textDrawerNavItemHover};
     }
     &:after {
       transform: scale(1);
@@ -133,9 +138,6 @@ export const ToggleContainer = styled.div`
   .squeeze-menu & {
     display: none;
   }
-  ${customMedia.greaterThan('large')`
-
-  `}
 `
 export const FontToolbar = styled.div` 
   display: flex;

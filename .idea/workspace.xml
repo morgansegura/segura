@@ -3,12 +3,17 @@
   <component name="ChangeListManager">
     <list default="true" id="a9aa706a-c12e-4609-a5d6-234635e0e872" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gatsby-config.js" beforeDir="false" afterPath="$PROJECT_DIR$/gatsby-config.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Header/styled.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/styled.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Layout/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Layout/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Menu/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Menu/index.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Menu/styled.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Menu/styled.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Theme/styled.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Theme/styled.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Theme/themeStyles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Theme/themeStyles.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/global.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/global.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/home/styled.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/home/styled.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/styles/layout/styled.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/layout/styled.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,7 +83,7 @@
       <updated>1603143056371</updated>
       <workItem from="1603143058540" duration="327000" />
       <workItem from="1603143416694" duration="52320000" />
-      <workItem from="1603520194599" duration="26901000" />
+      <workItem from="1603520194599" duration="69116000" />
     </task>
     <servers />
   </component>
@@ -111,21 +116,9 @@
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="781" y="216" width="598" height="490" key="find.popup/0.23.1440.877@0.23.1440.877" timestamp="1603609971491" />
-    <state x="745" y="213" width="670" height="676" key="search.everywhere.popup" timestamp="1603606960892">
+    <state x="745" y="213" width="670" height="676" key="search.everywhere.popup" timestamp="1603677858638">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="745" y="213" width="670" height="676" key="search.everywhere.popup/0.23.1440.877@0.23.1440.877" timestamp="1603606960892" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/components/Theme/themeStyles.js</url>
-          <line>147</line>
-          <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <state x="745" y="213" width="670" height="676" key="search.everywhere.popup/0.23.1440.877@0.23.1440.877" timestamp="1603677858638" />
   </component>
 </project>

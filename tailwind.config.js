@@ -15,6 +15,7 @@ module.exports = {
       md: '768px',
       lg: '1024px',
       xl: '1280px',
+      xxl: '1400px',
     },
     colors: {
       transparent: 'transparent',
@@ -252,6 +253,7 @@ module.exports = {
     },
     fontFamily: {
       sans: [
+        'Open Sans',
         'system-ui',
         '-apple-system',
         'BlinkMacSystemFont',
@@ -266,7 +268,8 @@ module.exports = {
         '"Segoe UI Symbol"',
         '"Noto Color Emoji"',
       ],
-      serif: ['Georgia', 'Cambria', '"Times New Roman"', 'Times', 'serif'],
+      headline: ['Roboto', 'sans-serif'],
+      serif: ['Roboto Slab', 'Georgia', 'Cambria', '"Times New Roman"', 'Times', 'serif'],
       mono: ['Menlo', 'Monaco', 'Consolas', '"Liberation Mono"', '"Courier New"', 'monospace'],
     },
     fontSize: {

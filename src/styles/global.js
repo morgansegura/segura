@@ -1,11 +1,11 @@
-import { createGlobalStyle } from 'styled-components'
-import { generateMedia } from 'styled-media-query'
+import {createGlobalStyle} from 'styled-components'
+import {generateMedia} from 'styled-media-query'
 
 const customMedia = generateMedia({
-  small: '480px',
-  medium: '768px',
-  large: '1024px',
-  huge: '1400px',
+    small: '480px',
+    medium: '768px',
+    large: '1024px',
+    huge: '1400px',
 })
 const GlobalStyles = createGlobalStyle`
 
@@ -63,11 +63,11 @@ const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
   }
   html, body {
-    background-color: ${({ theme }) => theme.panelBody};
+    background-color: ${({theme}) => theme.bgBody};
   }
   body {    
     font-weight: 600;
-    color: ${({ theme }) => theme.textBody};
+    color: ${({theme}) => theme.textBody};
     text-size-adjust: 100%;
     font-size: 100%;
     font-family: var(--base-font);
@@ -88,50 +88,79 @@ const GlobalStyles = createGlobalStyle`
   }
   
   body::-webkit-scrollbar-thumb {
-    background-color: ${({ theme }) => theme.scrollBar};
+    background-color: ${({theme}) => theme.scrollBar};
     outline: 1px solid slategrey;
+    cursor: pointer;
+    transition: all 0.3s ease-out;
+    
+    &:hover {
+        background-color: ${({theme}) => theme.scrollBarHover};
+    }    
+    &:active {
+        background-color: ${({theme}) => theme.bgButton};
+    }
   }
 
   :root { 
-    --size: 45px;
-    --white: #fff;
-    --black: #000;
-
-    --gray-50: #FAFAFA;
-    --gray-100: #F5F5F5;
-    --gray-200: #EEEEEE;
-    --gray-300: #E0E0E0;
+    /* Light && Dark Theme */
+    --gray-50: #FAFAFA;    
+    --gray-100: #F5F5F5;    
+    --gray-200: #EEEEEE;    
+    --gray-300: #E0E0E0;    
     --gray-400: #BDBDBD;    
     --gray-500: #9E9E9E;    
     --gray-600: #757575;    
     --gray-700: #616161;    
-    --gray-800: #424242;    
-    --gray-900: #212121;    
+    --gray-800: #212121;    
+    --gray-900: #1a202c;  
+    --steel-gray-100: #f7fafc;    
+    --steel-gray-200: #edf2f7;    
+    --steel-gray-300: #e2e8f0;    
+    --steel-gray-400: #cbd5e0;    
+    --steel-gray-500: #a0aec0;    
+    --steel-gray-600: #718096;    
+    --steel-gray-700: #4a5568;    
+    --steel-gray-800: #2d3748;    
+    --steel-gray-900: #1a202c;  
+    
+    /* Aqua Theme */
+    --aqua-100: #7FC0CF;    
+    --aqua-200: #4AA2B6;    
+    --aqua-300: #288CA4;    
+    --aqua-400: #04819E;    
+    --aqua-500: #03637A;    
+    --aqua-600: #024E60;    
+    --aqua-700: #0A5A6C;    
+    --aqua-800: #02495A;    
+    --aqua-900: #013642;     
+    
+    /* Auburn Theme */
+    --auburn-100: #D30000;    
+    --auburn-200: #9B0000;    
+    --auburn-300: #670000;    
+    --auburn-400: #4F0000;    
+    --auburn-500: #7B2323;    
+    --auburn-600: #581919;    
+    --auburn-700: #3C1010;    
+    --auburn-800: #260909;    
+    --auburn-900: #150404;    
 
-    --blue-gray-50: #ECEFF1;
-    --blue-gray-100: #CFD8DC;
-    --blue-gray-200: #B0BEC5;
-    --blue-gray-300: #90A4AE;
-    --blue-gray-400: #78909C;    
-    --blue-gray-500: #607D8B;    
-    --blue-gray-600: #546E7A;    
-    --blue-gray-700: #455A64;    
-    --blue-gray-800: #37474F;    
-    --blue-gray-900: #263238;
-
+    /* Accents */
+    --orange: #ff714a;
+    --peach: #ca8165;
+    --aqua: ##53c9af;
+    --cyan: cyan;
+    --magenta: magenta;
+    
+    /* Remove Below */
     --yellow: #ffb200;
     --accent1: #e602e6;
     --accent2: cyan;
     --accent3: #16c79b;
     --accent4: #ff714a;
 
-    --width-container: 1400px;
-
-    --headline-font: 'Noto Sans', Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-
-    --base-font: 'Noto Sans', Noto Sans JP,Noto Sans KR,Noto Naskh Arabic,Noto Sans Thai,Noto Sans Hebrew,Noto Sans Bengali,sans-serif;
-
-    --serif-font: 'Noto Serif', serif;
+    --sans-font: 'Open Sans', sans-serif;
+    --serif-font: 'Roboto Slab', serif;
 
   ${customMedia.greaterThan('large')`
     --size: 80px;

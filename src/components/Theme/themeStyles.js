@@ -1,38 +1,121 @@
+/* [Theme Styling]
+* 1. Defaults
+* 2. Header
+* 3. Drawer & Navigation
+* 4. Hero
+* 5. Blocks & Cards
+* 6. Buttons
+* 7. Accent Colors
+* 8. Code Styling
+* */
+
 export const lightTheme = {
-  /* Base */
+  /**
+   * [Defaults]
+   */
   white: 'var(--white)',
   black: 'var(--black)',
+  scrollBar: 'var(--gray-500)',
+  scrollBarHover: 'rgba(128, 90, 213, 0.75)',
+  logo: 'var(--gray-900)',
+  logoHover: 'var(--gray-600)',
+  transHover: 'rgba(128, 90, 213, 0.25)',
+  bgBody: 'var(--gray-200)',
+  textBody: 'var(--gray-900)',
+  /**
+   * [Header]
+   */
+  bgHeader: 'white',
+  borderHeader: 'transparent',
+  borderContent: 'var(--gray-300)',
+  iconHeader: 'var(--gray-800)',
+  iconHeaderHover: 'var(--gray-600)',
+  /**
+   * [Drawer & Navigation]
+   */
+  bgDrawer: 'var(--gray-50)',
+  borderDrawer: 'var(--gray-300)',
+  bgDrawerMenu: 'var(--gray-100)',
+  bgDrawerNavItem: 'var(--gray-50)',
+  bgDrawerNavItemHover: 'var(--gray-100)',
+  textDrawerNavItem: 'var(--gray-800)',
+  textDrawerNavItemHover: 'var(--gray-900)',
+  borderDrawerNavItem: 'var(--gray-200)',
+  borderDrawerNavItemHover: '',
+  /**
+   * [Hero]
+   */
+  bgHero: 'var(--gray-50)',
+  textHero: 'var(--gray-800)',
+  textOffsetHero: 'var(--gray-600)',
+  textHeadlineHero: 'var(--gray-900)',
+  /**
+   * [Blocks & Cards]
+   */
+  bgBlock1: 'white',
+  textBlock1: 'var(--gray-200)',
+  textOffsetBlock1: 'var(--gray-200)',
+  bgHeadlineBlock1: 'var(--gray-50)',
+  textHeadlineBlock1: 'var(--gray-800)',
+  borderHeadlineBlock1: 'var(--accent2)',
+  textHeadlineOffsetBlock1: 'var(--gray-800)',
+  bgCardBlock1: 'white',
+  borderCardBlock1: 'var(--gray-200)',
+  textCardBlock1: 'var(--gray-700)',
+  textHeadlineCardBlock1: 'var(--gray-600)',
 
-  /* Panels */
-  panelBody: 'bg-gray-300',
-  panelHeader: '#fff',
-  panelOffset: '#efefef',
-  panelDark: '#fcfcfc',
-  panelIcon: '#eee',
-  panelCard: '#fff',
-  panelCardOffset: '#fdfdfd',
-  // Misc
-  scrollBar: '#9e9e9e',
-  /* Borders */
-  borderNav: 'rgba(0,0,0, 0.075)',
-  borderDefault: '#e5e5e5',
-  borderDark: '#f5f5f5',
-  borderHeading: '#eee',
-  /* Text */
-  textNav: '#333',
-  textHeadline: '#333',
-  textBody: '#555',
-  textOffset: '#757575',
-  textOffset1: '#888',
-  textOnDark: '#888',
-  textButton: '#222',
-  /* Hovers */
-  hoverNav: 'rgba(0,0,0, 0.05)',
-  /* Accents */
-  accentPrimary: 'var(--accent2)',
-  accentSecondary: 'var(--accent1)',
+  bgBlock2: 'var(--gray-200)',
+  textBlock2: 'var(--gray-200)',
+  textOffsetBlock2: 'var(--gray-200)',
+  bgHeadlineBlock2: 'var(--gray-50)',
+  textHeadlineBlock2: 'var(--gray-800)',
+  borderHeadlineBlock2: 'var(--accent2)',
+  textHeadlineOffsetBlock2: 'var(--gray-200)',
+  bgCardBlock2: 'var(--gray-200)',
+  borderCardBlock2: 'var(--gray-200)',
+  textCardBlock2: 'var(--gray-200)',
+  textHeadlineCardBlock2: 'var(--gray-200)',
 
-  /** CODE */
+  bgBlock3: 'var(--gray-200)',
+  textBlock3: 'var(--gray-200)',
+  textOffsetBlock3: 'var(--gray-200)',
+  bgHeadlineBlock3: 'var(--gray-50)',
+  textHeadlineBlock3: 'var(--gray-800)',
+  borderHeadlineBlock3: 'var(--accent2)',
+  textHeadlineOffsetBlock3: 'var(--gray-200)',
+  bgCardBlock3: 'var(--gray-200)',
+  borderCardBlock3: 'var(--gray-200)',
+  textCardBlock3: 'var(--gray-200)',
+  textHeadlineCardBlock3: 'var(--gray-200)',
+
+  bgBlock4: 'var(--gray-200)',
+  textBlock4: 'var(--gray-200)',
+  textOffsetBlock4: 'var(--gray-200)',
+  bgHeadlineBlock4: 'var(--gray-50)',
+  textHeadlineBlock4: 'var(--gray-800)',
+  borderHeadlineBlock4: 'var(--accent2)',
+  textHeadlineOffsetBlock4: 'var(--gray-200)',
+  bgCardBlock4: 'var(--gray-200)',
+  borderCardBlock4: 'var(--gray-200)',
+  textCardBlock4: 'var(--gray-200)',
+  textHeadlineCardBlock4: 'var(--gray-200)',
+  /**
+   * [Buttons]
+   */
+  bgButton: '#805ad5',
+  textButton: 'var(--gray-100)',
+  bgButtonHover: '#6b46c1',
+  textButtonHover: 'white',
+  /**
+   * [Accent Colors]
+   */
+  accent1: 'var(--cyan)',
+  accent2: '#805ad5',
+  accent1Hover: '',
+  accent2Hover: '',
+  /**
+   * [Code Styling]
+   */
   codeFontColor: '#f8f8f2',
   codeFontFamily: 'var(--serif-font)',
   codeBackground: '#272822',
@@ -80,6 +163,16 @@ export const darkTheme = {
   /* Accents */
   accentPrimary: 'var(--accent2)',
   accentSecondary: 'var(--accent2)',
+  /* New */
+  theme100: 'var(--gray-100)',
+  theme200: 'var(--gray-200)',
+  theme300: 'var(--gray-300)',
+  theme400: 'var(--gray-400)',
+  theme500: 'var(--gray-500)',
+  theme600: 'var(--gray-600)',
+  theme700: 'var(--gray-700)',
+  theme800: 'var(--gray-800)',
+  theme900: 'var(--gray-900)',
 
   /** CODE */
   codeFontColor: '#f8f8f2',
@@ -130,6 +223,17 @@ export const alt1Theme = {
   accentPrimary: '#ca8165',
   accentSecondary: 'var(--accent4)',
 
+  /* New */
+  theme100: 'var(--auburn-100)',
+  theme200: 'var(--auburn-200)',
+  theme300: 'var(--auburn-300)',
+  theme400: 'var(--auburn-400)',
+  theme500: 'var(--auburn-500)',
+  theme600: 'var(--auburn-600)',
+  theme700: 'var(--auburn-700)',
+  theme800: 'var(--auburn-800)',
+  theme900: 'var(--auburn-900)',
+
   /** CODE */
   codeFontColor: '#f8f8f2',
   codeFontFamily: 'var(--serif-font)',
@@ -151,7 +255,7 @@ export const alt2Theme = {
   black: 'var(--white)',
 
   /* Panels */
-  panelBody: '#002b36',
+  panelBody: 'var(--aqua-400)',
   panelHeader: '#073642',
   panelOffset: '#013948',
   panelDark: '#53c9af',
@@ -178,6 +282,17 @@ export const alt2Theme = {
   /* Accents */
   accentPrimary: 'var(--accent2)',
   accentSecondary: '#efbb35',
+
+  /* New */
+  theme100: 'var(--aqua-100)',
+  theme200: 'var(--aqua-200)',
+  theme300: 'var(--aqua-300)',
+  theme400: 'var(--aqua-400)',
+  theme500: 'var(--aqua-500)',
+  theme600: 'var(--aqua-600)',
+  theme700: 'var(--aqua-700)',
+  theme800: 'var(--aqua-800)',
+  theme900: 'var(--aqua-900)',
 
   /** CODE */
   codeFontColor: '#f8f8f2',

@@ -230,13 +230,17 @@ module.exports = {
       options: {
         fonts: [
           {
-            family: 'Noto',
-            weights: ['400', '700']
+            family: 'Open Sans',
+            weights: ['300', '400', '600', '700']
           },
           {
-            family: 'Noto Serif',
-            weights: ['400']
+            family: 'Roboto',
+            weights: ['300', '500', '700']
           },
+          // {
+          //   family: 'Roboto Slab',
+          //   weights: ['400', '700']
+          // },
         ]
       }
     },

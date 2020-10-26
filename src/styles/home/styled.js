@@ -1,4 +1,5 @@
 import Img from 'gatsby-image'
+import {Link} from 'gatsby'
 import styled from 'styled-components'
 import { generateMedia } from 'styled-media-query'
 
@@ -9,6 +10,9 @@ const customMedia = generateMedia({
   huge: '1400px',
 })
 
+export const HeroBlock = styled.section`
+  background-color: ${({ theme }) => theme.bgHero};
+`
 export const BioImageContainer = styled.div`
   min-height: 100%;
   flex: 0 0 100%;
@@ -27,233 +31,153 @@ export const BioImage = styled.div`
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  ${customMedia.greaterThan('large')`
-       
-  `};
 `
 export const BioContent = styled.div`
-  padding: 30px 30px 50px;
-  flex: 0 0 100%;
-  max-width: 100%;
-  background-color: ${({ theme }) => theme.panelOffset};
-  height: 100%;
-  min-height: 100px;
-
   h2 {
-    font-family: var(--headline-font);
-    font-size: 36px;
-    line-height: 1;
-    font-weight: 600;
-    margin-bottom: 15px;
-    color: ${({ theme }) => theme.textHeadline};
-
-    ${customMedia.greaterThan('large')`
-      font-size: 48px;    
-  `};
+    color: ${({ theme }) => theme.textHeadlineHero};
   }
   span {
-    color: ${({ theme }) => theme.textOffset1};
-    font-weight: 300;
+    color: ${({ theme }) => theme.textOffsetHero};
   }
   p {
-    font-size: 14px;
-    margin: 0 0 10px;
-    font-weight: 400;
-    font-style: normal;
-    line-height: 1.85em;
-    color: ${({ theme }) => theme.textBody};
+    color: ${({ theme }) => theme.textHero};
   }
-
-  ${customMedia.greaterThan('large')`
-    padding: 70px 8%;
-    flex: 0 0 50%;
-    max-width: 50%;
-     
-  `};
+  .card {
+    background-color: ${({ theme }) => theme.bgCardHero};
+    border: 1px solid  ${({ theme }) => theme.borderCardHero};
+  }
 `
 
-export const ListColumn = styled.div`
+export const SkillsBlock = styled.section`
+  background-color: ${({ theme }) => theme.bgBlock1};
   
-  .list-column--with-icon {
-    position: relative;
-    text-align: left;
-    width: 100%;
-    display: table;
-    margin: 0;
-    padding: 10px 10px 10px 0;
+  h3 {
+    color: ${({ theme }) => theme.textHeadlineBlock1};
+    border-left: 5px solid ${({ theme }) => theme.borderHeadlineBlock1};
+    background-color: ${({ theme }) => theme.bgHeadlineBlock1};
   }
-`
-export const ListColumnBody = styled.div`
-  position: relative;
-  display: table-cell;
-  padding: 0;
-  vertical-align: middle;
-  h4 {
-    position: relative;
-    font-weight: 600;
-    font-style: normal;
-    line-height: 1.5em;    
-  }
+  h4 {color: ${({ theme }) => theme.textHeadlineOffsetBlock1};}
   p {
-    margin: 0 0 10px;
-    font-weight: 400;
-  }  
-`
-export const ListItemIcon = styled.div`
-    display: table-cell;
-    width: 54px;
-    padding-right: 25px;  
-
-    svg, i {
-      position: relative;
-      font-size: 42px;
-      color: ${({ theme }) => theme.textOffset1};     
-    }
+    color: ${({ theme }) => theme.textCardBlock1};
+  }
+  .card {
+    background-color: ${({ theme }) => theme.bgCardBlock1};
+    border: 1px solid ${({ theme }) => theme.borderCardBlock1};
+  }
 `
 
-export const StackContainer = styled.div`
-  width: 100%;
-`
-export const StackIconContainer = styled.div`    
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;    
-    justify-content: space-between;
-
-    h5 {
-      color: ${({ theme }) => theme.textOffset};
-    }
-  .stack-icons {
-    font-size: 4rem;
-    color: ${({ theme }) => theme.textOffset};
-    transition: color 0.3s ease-out;
-
-    &.scomp {
-      color:  #c69;
-    } 
-    &.sass {
-      color:  #c69;
-    } 
-    &.react {
-      color: #00d8ff;  
-    }
-    &.vue {
-      color: #42b883;
-    }
-    &.node {
-      color: #6cc24a;      
-    }
-    &.laravel {
-      color: #F05340;      
+export const StackBlock = styled.section`
+  background-color: ${({ theme }) => theme.bgPanel7};
+  h3 {
+    color: ${({ theme }) => theme.textOffset3};
+  }
+  h4 {}
+  p {
+    color: ${({ theme }) => theme.textBase2};
+  }
+  .card {
+    background-color: ${({ theme }) => theme.bgPanel1};
+    a {
+      color: var(--gray-600);
     }
   }
+  .sass {
+    color: #c69;
+  }
+  .vue {
+    color: #41B883;
+  }
+  .laravel {
+    color: #F05340;
+  }
+  .tailwind {
+    color: rgb(20, 180, 198);
+  }
+  .react {
+    color: #61DBFB;
+  }
+  .node {
+    color: #3C873A;
+  }
+`
+
+export const StudyBlock = styled.section`
+  background-color: ${({ theme }) => theme.bgPanel7};
+  h3 {
+    color: ${({ theme }) => theme.textOffset3};
+  }
+  h4 {}
+  p {
+    color: ${({ theme }) => theme.textBase2};
+  }
+  .card {
+    background-color: ${({ theme }) => theme.bgPanel1};
     a {
-      color: ${({ theme }) => theme.textOffset};
-      text-decoration: none;
-      transition: color 0.3s ease-out;
-    
-      &:hover {
-        .react, .python, .vue, .laravel, .node, .sass, .scomp {
-          /* color: ${({ theme }) => theme.accentPrimary}; */
-        }
-        color: ${({ theme }) => theme.accentSecondary};
-      }    
+      color: var(--gray-600);
     }
+  }
+  .sass {
+    color: #c69;
+  }
+  .vue {
+    color: #41B883;
+  }
+  .laravel {
+    color: #F05340;
+  }
+  .tailwind {
+    color: rgb(20, 180, 198);
+  }
+  .react {
+    color: #61DBFB;
+  }
+  .node {
+    color: #3C873A;
+  }
 `
 
-export const Badge = styled.span`
-  border-radius: 1rem;
-  padding: 0.15rem 0.25rem 0.15rem;
-  line-height: 1;
-  display: inline-block;
-
-  font-size: 0.65rem;
-  top: -0.5rem;
-  left: -1px;
-  color: white;
-  position: relative;
-  background-color: ${({ theme }) => theme.accentSecondary}; 
-`
-
-// Cards
-export const Card = styled.div`
-  position: relative;
-  overflow: hidden;
-  border-radius: 4px;
-  background-color: ${({ theme }) => theme.panelCardOffset};
-  border: 1px solid ${({ theme }) => theme.panelIcon};
-  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.05);
-  margin-bottom: 1rem;
-`
-export const CardHeader = styled.header`
-  padding-top: 1.25rem;
-  padding-left: 1.125rem;
-`
-export const CardBody = styled.div`
-  padding: 1rem;
-`
-export const CardFooter = styled.div`
-  padding: 1rem;
-`
-// Testimonials
-export const TestimonialItem = styled.div`
-  width: 100%;
-  margin: 0 auto;
-`
-export const TestimonialContent = styled.div`
-  padding-left: 50px;
-  width: 100%;
-  height: auto;
-`
-export const TestimonialText = styled.div`
-    padding: 1.4em 1.8em;
-    background-color: ${({ theme }) => theme.panelCardOffset};
-    border-radius: 6px;
-    border: 1px solid ${({ theme }) => theme.borderDefault};
-    width: 100%;
-    position: relative;
-    margin: 0;
-    z-index: -1;
-`
-export const TestimonialCredits = styled.div`
-    margin-top: 10px;
-    display: block;
-    position: relative;
-`
-export const TestimonialPhoto = styled.div`
-    display: inline-block;
-    position: absolute;
-    width: 80px;
-    height: 80px;
-    overflow: hidden;
-    margin: 0;
-    top: -37px;
-    border-radius: 40px;
-    z-index: 1;
-
-    img {
-      width: 100%;
-      border-radius: 100%;
-      border: 2px solid ${({ theme }) => theme.borderDefault};
+export const TestimonialBlock = styled.section`
+  background-color: ${({ theme }) => theme.bgPanel7};
+  h3 {
+    color: ${({ theme }) => theme.textOffset3};
+  }
+  h4 {}
+  p {
+    color: ${({ theme }) => theme.textBase2};
+  }
+  .card {
+    background-color: ${({ theme }) => theme.bgPanel1};
+    a {
+      color: var(--gray-600);
     }
+  }
+  .sass {
+    color: #c69;
+  }
+  .vue {
+    color: #41B883;
+  }
+  .laravel {
+    color: #F05340;
+  }
+  .tailwind {
+    color: rgb(20, 180, 198);
+  }
+  .react {
+    color: #61DBFB;
+  }
+  .node {
+    color: #3C873A;
+  }
 `
-export const TestimonialAuthorInfo = styled.div`
-  display: inline-block;
-  position: relative;
-  padding-left: 92px;
-`
-export const TestimonialAuthor = styled.p`
-    display: inline-block;
-    font-size: 1.07em;
-    color: ${({ theme }) => theme.textHeadline};
-    margin: 0;
-    font-weight: 600;
-    text-align: center;
-`
-export const TestimonialFirm = styled.p`
-    font-size: 11px;
-    line-height: 1.3em;
-    margin: 0;
-    font-weight: 400;
-    color: ${({ theme }) => theme.textOffset};
+
+export const Button = styled(Link)`
+   background-color: ${({ theme }) => theme.bgButton};
+   color: ${({ theme }) => theme.textButton};
+   transition: all 0.3s ease-out;
+   &:hover {
+     background-color: ${({ theme }) => theme.bgButtonHover};
+     color: ${({ theme }) => theme.textButtonHover};
+     box-shadow: 2px 0 10px 2px ${({ theme }) => theme.transHover}; 
+   }
 `

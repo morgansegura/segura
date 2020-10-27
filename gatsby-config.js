@@ -234,8 +234,8 @@ module.exports = {
             weights: ['300', '400', '600', '700']
           },
           {
-            family: 'Roboto',
-            weights: ['300', '500', '700']
+            family: 'Cairo',
+            weights: ['400', '600', '700']
           },
           // {
           //   family: 'Roboto Slab',

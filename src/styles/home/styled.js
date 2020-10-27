@@ -55,6 +55,7 @@ export const SkillsBlock = styled.section`
     color: ${({ theme }) => theme.textHeadlineBlock1};
     border-left: 5px solid ${({ theme }) => theme.borderHeadlineBlock1};
     background-color: ${({ theme }) => theme.bgHeadlineBlock1};
+    
   }
   h4 {color: ${({ theme }) => theme.textHeadlineOffsetBlock1};}
   p {
@@ -67,18 +68,28 @@ export const SkillsBlock = styled.section`
 `
 
 export const StackBlock = styled.section`
-  background-color: ${({ theme }) => theme.bgPanel7};
+  background-color: ${({ theme }) => theme.bgBlock2};
   h3 {
-    color: ${({ theme }) => theme.textOffset3};
+    color: ${({ theme }) => theme.textHeadlineBlock2};
+    border-left: 5px solid ${({ theme }) => theme.borderHeadlineBlock2};
+    background-color: ${({ theme }) => theme.bgHeadlineBlock2};
   }
   h4 {}
   p {
-    color: ${({ theme }) => theme.textBase2};
+    color: ${({ theme }) => theme.textBlock2};
   }
   .card {
-    background-color: ${({ theme }) => theme.bgPanel1};
+    background-color: ${({ theme }) => theme.bgCardBlock2};
+    border: 1px solid ${({ theme }) => theme.borderCardBlock2};  
+    p {
+      color: ${({ theme }) => theme.textCardBlock2};
+    }
     a {
-      color: var(--gray-600);
+      opacity: 0.9;
+      transition: opacity 0.3s ease-out;      
+      &:hover {
+        opacity: 1;        
+      }
     }
   }
   .sass {
@@ -137,16 +148,16 @@ export const StudyBlock = styled.section`
 `
 
 export const TestimonialBlock = styled.section`
-  background-color: ${({ theme }) => theme.bgPanel7};
+  background-color: ${({ theme }) => theme.bgBlock2};
   h3 {
-    color: ${({ theme }) => theme.textOffset3};
+    color: ${({ theme }) => theme.textOffsetBlock2};
   }
   h4 {}
   p {
-    color: ${({ theme }) => theme.textBase2};
+    color: ${({ theme }) => theme.textBlock2};
   }
   .card {
-    background-color: ${({ theme }) => theme.bgPanel1};
+    background-color: ${({ theme }) => theme.bgBlock2};
     a {
       color: var(--gray-600);
     }

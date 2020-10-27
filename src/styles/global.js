@@ -159,9 +159,6 @@ const GlobalStyles = createGlobalStyle`
     --accent3: #16c79b;
     --accent4: #ff714a;
 
-    --sans-font: 'Open Sans', sans-serif;
-    --serif-font: 'Roboto Slab', serif;
-
   ${customMedia.greaterThan('large')`
     --size: 80px;
   `};    

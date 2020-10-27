@@ -11,9 +11,7 @@ const customMedia = generateMedia({
 export const HeaderWrapper = styled.header`
   transition: height 0.15s ease-in-out;
   width: 100%;
-  &.scrolled-header {
-      height: 4rem;
-  }
+  height: 4rem;
   &:before {
     content: '';
     position: absolute;
@@ -25,12 +23,16 @@ export const HeaderWrapper = styled.header`
     background-color: ${({theme}) => theme.bgHeader};
     border-bottom: 1px solid ${({theme}) => theme.borderHeader};
     transition: opacity 0.4s ease-out;
-  }  
+  }    
   &.scrolled-header:before {
     opacity: 0.85;
   }
+  &.scrolled-header {
+      height: 4rem;
+  }  
   ${customMedia.greaterThan('large')`
     width: calc(100% - 12rem);
+    height: 6rem;
     margin-left: 12rem;
     border-left: 1rem solid transparent;
   `};  

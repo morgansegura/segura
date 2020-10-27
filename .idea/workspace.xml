@@ -6,13 +6,10 @@
       <change beforePath="$PROJECT_DIR$/gatsby-config.js" beforeDir="false" afterPath="$PROJECT_DIR$/gatsby-config.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Header/styled.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/styled.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Layout/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Layout/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Menu/styled.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Menu/styled.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Theme/styled.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Theme/styled.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Theme/themeStyles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Theme/themeStyles.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/styles/global.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/global.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/styles/home/styled.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/home/styled.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/layout/styled.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/layout/styled.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -83,7 +80,7 @@
       <updated>1603143056371</updated>
       <workItem from="1603143058540" duration="327000" />
       <workItem from="1603143416694" duration="52320000" />
-      <workItem from="1603520194599" duration="69116000" />
+      <workItem from="1603520194599" duration="77648000" />
     </task>
     <servers />
   </component>

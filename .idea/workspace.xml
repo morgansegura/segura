@@ -3,14 +3,19 @@
   <component name="ChangeListManager">
     <list default="true" id="a9aa706a-c12e-4609-a5d6-234635e0e872" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gatsby-config.js" beforeDir="false" afterPath="$PROJECT_DIR$/gatsby-config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/index.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Header/styled.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/styled.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Layout/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Layout/index.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Theme/themeStyles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Theme/themeStyles.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/blog/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/blog/index.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/global.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/global.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/resume/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/resume/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/tags/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/tags/index.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/styles/home/styled.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/home/styled.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/layout/styled.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/layout/styled.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/templates/BlogPost/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/BlogPost/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,7 +85,7 @@
       <updated>1603143056371</updated>
       <workItem from="1603143058540" duration="327000" />
       <workItem from="1603143416694" duration="52320000" />
-      <workItem from="1603520194599" duration="77648000" />
+      <workItem from="1603520194599" duration="103859000" />
     </task>
     <servers />
   </component>
@@ -104,15 +109,15 @@
     </state>
     <state x="388" y="593" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/-2560.23.2560.1417/-4000.23.1440.877/0.23.2560.1417@0.23.2560.1417" timestamp="1603224316640" />
     <state x="218" y="376" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.23.1440.877@0.23.1440.877" timestamp="1603596993546" />
-    <state x="458" y="100" key="SettingsEditor" timestamp="1603597602375">
+    <state x="458" y="100" key="SettingsEditor" timestamp="1603871304804">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="814" y="147" key="SettingsEditor/-2560.23.2560.1417/-4000.23.1440.877/0.23.2560.1417@0.23.2560.1417" timestamp="1603224301169" />
-    <state x="458" y="100" key="SettingsEditor/0.23.1440.877@0.23.1440.877" timestamp="1603597602375" />
-    <state x="781" y="216" width="598" height="490" key="find.popup" timestamp="1603609971491">
+    <state x="458" y="100" key="SettingsEditor/0.23.1440.877@0.23.1440.877" timestamp="1603871304804" />
+    <state x="781" y="216" width="598" height="522" key="find.popup" timestamp="1603865170177">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="781" y="216" width="598" height="490" key="find.popup/0.23.1440.877@0.23.1440.877" timestamp="1603609971491" />
+    <state x="781" y="216" width="598" height="522" key="find.popup/0.23.1440.877@0.23.1440.877" timestamp="1603865170177" />
     <state x="745" y="213" width="670" height="676" key="search.everywhere.popup" timestamp="1603677858638">
       <screen x="0" y="23" width="1440" height="877" />
     </state>

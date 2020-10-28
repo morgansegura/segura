@@ -52,10 +52,10 @@ export const SkillsBlock = styled.section`
   background-color: ${({ theme }) => theme.bgBlock1};
   
   h3 {
-    color: ${({ theme }) => theme.textHeadlineBlock1};
+    color: ${({ theme }) => theme.borderHeadlineBlock1};
+    border: 1px solid ${({ theme }) => theme.borderHeadlineBlock1};
     border-left: 5px solid ${({ theme }) => theme.borderHeadlineBlock1};
-    background-color: ${({ theme }) => theme.bgHeadlineBlock1};
-    
+    background-color: ${({ theme }) => theme.bgHeadlineBlock1};  
   }
   h4 {color: ${({ theme }) => theme.textHeadlineOffsetBlock1};}
   p {
@@ -70,9 +70,10 @@ export const SkillsBlock = styled.section`
 export const StackBlock = styled.section`
   background-color: ${({ theme }) => theme.bgBlock2};
   h3 {
-    color: ${({ theme }) => theme.textHeadlineBlock2};
+    color: ${({ theme }) => theme.borderHeadlineBlock2};
+    border: 1px solid ${({ theme }) => theme.borderHeadlineBlock2};
     border-left: 5px solid ${({ theme }) => theme.borderHeadlineBlock2};
-    background-color: ${({ theme }) => theme.bgHeadlineBlock2};
+    background-color: ${({ theme }) => theme.bgHeadlineBlock2}; 
   }
   h4 {}
   p {
@@ -80,9 +81,12 @@ export const StackBlock = styled.section`
   }
   .card {
     background-color: ${({ theme }) => theme.bgCardBlock2};
-    border: 1px solid ${({ theme }) => theme.borderCardBlock2};  
+    .icon-container {
+      background-color: ${({ theme }) => theme.textHeadlineCardBlock2};
+    }
     p {
       color: ${({ theme }) => theme.textCardBlock2};
+      background-color: ${({ theme }) => theme.borderCardBlock2};
     }
     a {
       opacity: 0.9;
@@ -110,75 +114,98 @@ export const StackBlock = styled.section`
   .node {
     color: #3C873A;
   }
+  .graphql {
+    color: #de33a6;
+  }
+  .git {
+    color: #eb4d27;
+  }
+  .vscode {
+    fill: #0166b8;
+  }
+  .nuxt {
+    color: #0f8775;
+  }
+  .gatsby {
+    fill: #663399;
+  }
+  .netlify {
+    fill: #4c9bbe;
+  }
 `
 
 export const StudyBlock = styled.section`
-  background-color: ${({ theme }) => theme.bgPanel7};
+  background-color: ${({ theme }) => theme.bgBlock3};
   h3 {
-    color: ${({ theme }) => theme.textOffset3};
+    color: ${({ theme }) => theme.borderHeadlineBlock3};
+    border: 1px solid ${({ theme }) => theme.borderHeadlineBlock3};
+    border-left: 5px solid ${({ theme }) => theme.borderHeadlineBlock3};
+    background-color: ${({ theme }) => theme.bgHeadlineBlock3}; 
   }
   h4 {}
   p {
-    color: ${({ theme }) => theme.textBase2};
+    color: ${({ theme }) => theme.textBlock3};
   }
   .card {
-    background-color: ${({ theme }) => theme.bgPanel1};
+    background-color: ${({ theme }) => theme.bgCardBlock3};
+    border: 1px solid ${({ theme }) => theme.borderCardBlock3};
+    p {
+      color: ${({ theme }) => theme.textCardBlock3};
+    }    
     a {
       color: var(--gray-600);
     }
   }
-  .sass {
-    color: #c69;
-  }
-  .vue {
-    color: #41B883;
-  }
-  .laravel {
-    color: #F05340;
-  }
-  .tailwind {
-    color: rgb(20, 180, 198);
-  }
-  .react {
-    color: #61DBFB;
-  }
-  .node {
-    color: #3C873A;
-  }
+
 `
 
 export const TestimonialBlock = styled.section`
-  background-color: ${({ theme }) => theme.bgBlock2};
+  background-color: ${({ theme }) => theme.bgBlock4};
   h3 {
-    color: ${({ theme }) => theme.textOffsetBlock2};
+    color: ${({ theme }) => theme.borderHeadlineBlock4};
+    border: 1px solid ${({ theme }) => theme.borderHeadlineBlock4};
+    border-left: 5px solid ${({ theme }) => theme.borderHeadlineBlock4};
+    background-color: ${({ theme }) => theme.bgHeadlineBlock4}; 
   }
   h4 {}
   p {
-    color: ${({ theme }) => theme.textBlock2};
+    color: ${({ theme }) => theme.textBlock4};
+  }
+  .avatar {
+    border: 2px solid ${({ theme }) => theme.borderCardBlock4};
   }
   .card {
-    background-color: ${({ theme }) => theme.bgBlock2};
+    border: 1px solid ${({ theme }) => theme.borderCardBlock4};
+    background-color: ${({ theme }) => theme.bgCardBlock4};
+    p {
+      color: ${({ theme }) => theme.textCardBlock4};
+    }
     a {
       color: var(--gray-600);
     }
   }
-  .sass {
-    color: #c69;
+  .label {
+    background-color: ${({ theme }) => theme.borderCardBlock4};
   }
-  .vue {
-    color: #41B883;
+  .social {
+    border: 1px solid ${({ theme }) => theme.borderCardBlock4};
+    a {
+      color: ${({ theme }) => theme.borderCardBlock4};
+      transition: all 0.3s ease-out;
+      &:hover {
+        color: ${({ theme }) => theme.textCardBlock4};
+      }
+    }
   }
-  .laravel {
-    color: #F05340;
-  }
-  .tailwind {
-    color: rgb(20, 180, 198);
-  }
-  .react {
-    color: #61DBFB;
-  }
-  .node {
-    color: #3C873A;
+  .email {
+   background-color: ${({ theme }) => theme.bgButton};
+   color: ${({ theme }) => theme.textButton};
+   transition: all 0.3s ease-out;
+   &:hover {
+     background-color: ${({ theme }) => theme.bgButtonHover};
+     color: ${({ theme }) => theme.textButtonHover};
+     box-shadow: 2px 0 10px 2px ${({ theme }) => theme.transHover}; 
+   }
   }
 `
 
@@ -189,6 +216,6 @@ export const Button = styled(Link)`
    &:hover {
      background-color: ${({ theme }) => theme.bgButtonHover};
      color: ${({ theme }) => theme.textButtonHover};
-     box-shadow: 2px 0 10px 2px ${({ theme }) => theme.transHover}; 
+     // box-shadow: 2px 0 10px 2px ${({ theme }) => theme.bgButton}; 
    }
 `

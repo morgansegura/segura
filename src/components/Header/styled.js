@@ -6,7 +6,7 @@ const customMedia = generateMedia({
     small: '480px',
     medium: '768px',
     large: '1024px',
-    huge: '1400px',
+    huge: '1600px',
 })
 export const HeaderWrapper = styled.header`
   transition: height 0.15s ease-in-out;
@@ -21,11 +21,9 @@ export const HeaderWrapper = styled.header`
     width: 100%;
     height: 100%;
     background-color: ${({theme}) => theme.bgHeader};
+    opacity: 0.85;
     border-bottom: 1px solid ${({theme}) => theme.borderHeader};
     transition: opacity 0.4s ease-out;
-  }    
-  &.scrolled-header:before {
-    opacity: 0.85;
   }
   &.scrolled-header {
       height: 4rem;
@@ -34,22 +32,28 @@ export const HeaderWrapper = styled.header`
     width: calc(100% - 12rem);
     height: 6rem;
     margin-left: 12rem;
-    border-left: 1rem solid transparent;
+    border-left: 15px solid transparent;     
+      &.scrolled-header:before {
+        opacity: 0.85;
+      }    
   `};  
   ${customMedia.greaterThan('huge')`
+    margin-left: 0;
+    border-left: 0 solid transparent;   
     border-bottom: 1px solid ${({theme}) => theme.borderContent};
     width: 100%;
-    margin-left: auto
   `};   
 `
 export const Logo = styled(Link)`
     width: 3rem; 
     height: 3rem;
-    transition: box-shadow 0.3s eas-out;
     .cls-1, .cls-2 {    
         fill: ${({theme}) => theme.logo};
+        transition: fill 0.3s ease-out;
     }
     &:hover {
-        box-shadow: 0 0 3px 3px ${({theme}) => theme.transHover};
+        .cls-1, .cls-2 {    
+            fill: ${({theme}) => theme.logoHover};
+        }
     }
 `

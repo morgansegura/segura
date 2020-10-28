@@ -29,11 +29,11 @@ class Header extends Component {
         return (
             <S.HeaderWrapper className={`header ${this.props.className}`} onScroll={this.handleScroll}>
                 <div className="flex w-full items-center">
-                    <S.Logo className="w-48 lg:hidden transition ease-out duration-150"
+                    <S.Logo className="flex items-center w-48 lg:hidden transition ease-out duration-150"
                             to="/"
                             title="Home"
                             aria-label="Home">
-                        <Logo className="logo w-12 h-12 lg:mx-auto"/>
+                        <Logo className="logo w-10 h-10 lg:mx-auto"/>
                     </S.Logo>
                     <div className="flex-1 flex justify-end items-center">
                         {this.props.children}

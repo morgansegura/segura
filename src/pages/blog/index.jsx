@@ -8,7 +8,7 @@ import PostCard from '../../components/PostCard'
 /* Material UI */
 import Grid from '@material-ui/core/Grid'
 import * as S from '../../styles/blog/styled'
-import { Section, SectionInner, SectionTitleBlock, SectionTitle, SectionDescription, SectionContent, TitleBlock } from '../../styles/layout/styled'
+// import { Section, SectionInner, SectionTitleBlock, SectionTitle, SectionDescription, SectionContent, TitleBlock } from '../../styles/layout/styled'
 
 export default ({ data, location, pageContext }) => {
   const { title: siteTitle } = useSiteMetadata()
@@ -24,26 +24,27 @@ export default ({ data, location, pageContext }) => {
         title={`Blog`}
         keywords={[`${tag}`, `blog`, `gatsby`, `javascript`, `react`]}
       />
-      <Section>
-        <SectionInner>
-          <SectionTitleBlock>
-            <SectionTitle>Blog</SectionTitle>
-            <SectionDescription>({data.allMdx.totalCount}) Post and Counting</SectionDescription>
-          </SectionTitleBlock>
 
-          <SectionContent>
-            <Grid container spacing={3}>
+      <section>
+        <div>
+          <div>
+            <h1>Blog</h1>
+            <div>({data.allMdx.totalCount}) Post and Counting</div>
+          </div>
+
+          <div>
+            <div>
               {!!posts && posts.map(({ node }) => {
                 return (
-                  <Grid key={node.fields.slug} item xs={12} md={6} xl={4}>
+                  <div>
                     <PostCard node={node} postClass={`post`} />
-                  </Grid>
+                  </div>
                 )
               })}
-            </Grid>
-          </SectionContent>
-        </SectionInner>
-      </Section>
+            </div>
+          </div>
+        </div>
+      </section>
     </Layout>
   )
 }

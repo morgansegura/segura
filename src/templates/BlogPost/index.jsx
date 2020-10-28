@@ -16,7 +16,7 @@ import Grid from '@material-ui/core/Grid';
 
 /* Styled Components */
 import * as S from '../../styles/blog-post/styled'
-import { TitleBlock, Section } from '../../styles/layout/styled'
+// import { TitleBlock, Section } from '../../styles/layout/styled'
 import { ButtonBlock } from '../../components/Button/styled'
 import {
   HorizontalRule
@@ -108,7 +108,7 @@ export default ({ data, location, pageContext, pathContext }) => {
         />
 
         <S.BlogWrapper className={toggleToolbar ? `toolbar--open` : ``}>
-          <Section>
+          <section>
             <S.BioImageContainer>
               {!!thumbnail && (
 
@@ -132,9 +132,9 @@ export default ({ data, location, pageContext, pathContext }) => {
 
               </S.ContentFooter>
             </S.BioContent>
-          </Section>
+          </section>
 
-          <Section className="section--inner">
+          <section className="section--inner">
             <S.BlogHeader>
               <S.BlogMeta>
                 <Grid container spacing={3}>
@@ -162,7 +162,7 @@ export default ({ data, location, pageContext, pathContext }) => {
                         <FaTwitter />
                       </S.Social>
                     </S.AuthorMeta>
-                    
+
                     <S.AuthorExcerpt>
                       {bioExcerpt}
                     </S.AuthorExcerpt>
@@ -208,7 +208,7 @@ export default ({ data, location, pageContext, pathContext }) => {
                 )}
               </div>
             )}
-          </Section>
+          </section>
 
           <S.AsideToolbar>
             <S.CloseToolbar onClick={() => setToggleToolbar(!toggleToolbar)}>

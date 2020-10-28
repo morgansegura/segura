@@ -42,7 +42,7 @@ const Layout = props => {
                 fixed font-sans font-semibold z-10 inset-0 flex items-center flex-col w-64 lg:w-48 shadow-lg lg:shadow-none transform transition-translate ease-out duration-300
                 ${toggleNav ? `translate-x-0` : `-translate-x-full lg:translate-x-0`}
             `} />
-        <S.Content className="content pt-16 lg:pt-24 ml-0 lg:ml-48 xl:max-w-screen-xxl transition ease-out duration-300">
+        <S.Content className="content lg:pt-24 ml-0 lg:ml-48">
           {children}
         </S.Content>
     </ThemeProvider>

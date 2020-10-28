@@ -5,7 +5,7 @@ const customMedia = generateMedia({
   small: '480px',
   medium: '768px',
   large: '1024px',
-  huge: '1400px',
+  huge: '1600px',
 })
 
 // Layout Components
@@ -14,8 +14,13 @@ export const Content = styled.div`
     border-left: 1rem solid transparent;
   `};
   ${customMedia.greaterThan('huge')`
+    position: absolute;  
+    left: calc(50% + 6rem);
     margin-left: auto;
     margin-right: auto;
+    transform: translateX(-50%);
+    min-width: 1280px;
+    max-width: 1600px;
     border-left: 1px solid ${({ theme }) => theme.borderContent};
     border-right: 1px solid ${({ theme }) => theme.borderContent};
   `};
@@ -62,7 +67,7 @@ export const MainNavToggle = styled.div`
     & .hamburger:before,
     & .hamburger:after,
     & .hamburger__center {
-      background-color: ${({ theme }) => theme.logoHover};
+      background-color: ${({ theme }) => theme.logo};
     }
   }
   .squeeze-menu & {
@@ -120,7 +125,7 @@ export const Hamburger = styled.div`
       top: 48%;
       transform: rotate(-45deg) translateX(0);
       left: 22%;
-      background-color: ${({ theme }) => theme.logoHover};
+      background-color: ${({ theme }) => theme.logo};
     }
   }
   &:after {
@@ -135,7 +140,7 @@ export const Hamburger = styled.div`
       top: 48%;
       width: 28px;
       transform: rotate(45deg) translateX(0);
-      background-color: ${({ theme }) => theme.logoHover};
+      background-color: ${({ theme }) => theme.logo};
     }
   }
 `

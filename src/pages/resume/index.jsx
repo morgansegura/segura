@@ -9,7 +9,7 @@ import { ButtonOutline } from '../../components/Button'
 import Grid from '@material-ui/core/Grid';
 
 // Styled components
-import { Section, SectionInner, SectionTitleBlock, SectionTitle, SectionDescription, SectionContent, TitleBlock } from '../../styles/layout/styled'
+// import { Section, SectionInner, Sectiondiv, SectionTitle, SectionDescription, SectionContent, div } from '../../styles/layout/styled'
 import * as S from '../../styles/resume/styled'
 import { ButtonBlock } from '../../components/Button/styled'
 
@@ -19,20 +19,20 @@ export default ({ data, location, pageContext }) => {
   return (
     <Layout title={siteTitle}>
       <SEO title="Resume" />
-      <Section>
-        <SectionInner>
-          <SectionTitleBlock>
-            <SectionTitle>Resume</SectionTitle>
-            <SectionDescription>10 Years of Experience</SectionDescription>
-          </SectionTitleBlock>
+      <section>
+        <div>
+          <div>
+            <h1>Resume</h1>
+            <p>10 Years of Experience</p>
+          </div>
 
-          <SectionContent>
+          <div>
             <Grid container spacing={3}>
               <Grid item xs={12} sm={8} className="pb-4">
 
-                <TitleBlock>
+                <div>
                   <h3>Education</h3>
-                </TitleBlock>
+                </div>
 
                 <div className="pb-4">
                   <S.TimelineItem>
@@ -60,9 +60,9 @@ export default ({ data, location, pageContext }) => {
                   </S.TimelineItem>
                 </div>
 
-                <TitleBlock>
+                <div>
                   <h3>Experience<span></span></h3>
-                </TitleBlock>
+                </div>
 
 
                 <div className="timeline timeline-second-style clearfix">
@@ -106,9 +106,9 @@ export default ({ data, location, pageContext }) => {
               </Grid>
 
               <Grid item xs={12} sm={4} className="pb-4">
-                <TitleBlock>
+                <div>
                   <h3>Design Skills<span></span></h3>
-                </TitleBlock>
+                </div>
 
                 <S.SkillsInfo>
 
@@ -146,9 +146,9 @@ export default ({ data, location, pageContext }) => {
 
                 </S.SkillsInfo>
 
-                <TitleBlock className="pt-4">
+                <div className="pt-4">
                   <h3>Coding Skills<span></span></h3>
-                </TitleBlock>
+                </div>
 
 
                 <S.SkillsInfo>
@@ -214,9 +214,9 @@ export default ({ data, location, pageContext }) => {
                 </ButtonBlock>
               </Grid>
             </Grid>
-          </SectionContent>
-        </SectionInner>
-      </Section>
+          </div>
+        </div>
+      </section>
     </Layout>
   )
 }

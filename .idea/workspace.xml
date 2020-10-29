@@ -2,20 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a9aa706a-c12e-4609-a5d6-234635e0e872" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/mosegura.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/data/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Header/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Header/styled.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/styled.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Layout/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Layout/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Theme/themeStyles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Theme/themeStyles.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/blog/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/blog/index.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/resume/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/resume/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/tags/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/tags/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/home/styled.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/home/styled.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/layout/styled.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/layout/styled.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/templates/BlogPost/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/BlogPost/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,36 +34,39 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/pages/projects" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/pages" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="fileTemplates" />
     <property name="vuejs.nuxt.types-notification-shown" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/pages/projects" />
-      <recent name="$PROJECT_DIR$/content/projects" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/components" />
       <recent name="$PROJECT_DIR$/assets/images/avatars" />
       <recent name="$PROJECT_DIR$/pages/article/author" />
       <recent name="$PROJECT_DIR$/pages/article" />
     </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/pages" />
+      <recent name="$PROJECT_DIR$/pages/projects" />
+      <recent name="$PROJECT_DIR$/content/projects" />
+    </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -85,7 +82,8 @@
       <updated>1603143056371</updated>
       <workItem from="1603143058540" duration="327000" />
       <workItem from="1603143416694" duration="52320000" />
-      <workItem from="1603520194599" duration="103859000" />
+      <workItem from="1603520194599" duration="119796000" />
+      <workItem from="1603997704167" duration="1143000" />
     </task>
     <servers />
   </component>
@@ -109,14 +107,19 @@
     </state>
     <state x="388" y="593" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/-2560.23.2560.1417/-4000.23.1440.877/0.23.2560.1417@0.23.2560.1417" timestamp="1603224316640" />
     <state x="218" y="376" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.23.1440.877@0.23.1440.877" timestamp="1603596993546" />
+    <state x="461" y="662" key="NewPhpFileDialog" timestamp="1603997942635">
+      <screen x="0" y="23" width="2560" height="1417" />
+    </state>
+    <state x="461" y="662" key="NewPhpFileDialog/-2560.23.2560.1417/-4000.23.1440.877/0.23.2560.1417@0.23.2560.1417" timestamp="1603997942635" />
     <state x="458" y="100" key="SettingsEditor" timestamp="1603871304804">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="814" y="147" key="SettingsEditor/-2560.23.2560.1417/-4000.23.1440.877/0.23.2560.1417@0.23.2560.1417" timestamp="1603224301169" />
     <state x="458" y="100" key="SettingsEditor/0.23.1440.877@0.23.1440.877" timestamp="1603871304804" />
-    <state x="781" y="216" width="598" height="522" key="find.popup" timestamp="1603865170177">
-      <screen x="0" y="23" width="1440" height="877" />
+    <state x="1388" y="335" width="1064" height="844" key="find.popup" timestamp="1603915644841">
+      <screen x="0" y="23" width="2560" height="1417" />
     </state>
+    <state x="1388" y="335" width="1064" height="844" key="find.popup/-2560.23.2560.1417/-4000.23.1440.877/0.23.2560.1417@0.23.2560.1417" timestamp="1603915644841" />
     <state x="781" y="216" width="598" height="522" key="find.popup/0.23.1440.877@0.23.1440.877" timestamp="1603865170177" />
     <state x="745" y="213" width="670" height="676" key="search.everywhere.popup" timestamp="1603677858638">
       <screen x="0" y="23" width="1440" height="877" />

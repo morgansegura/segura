@@ -45,6 +45,9 @@ const Layout = props => {
         <S.Content className="content lg:pt-24 ml-0 lg:ml-48">
           {children}
         </S.Content>
+      <S.Footer className="font-semibold text-sm font-headline py-4 flex items-center justify-center">
+        <span>Morgan Segura | {new Date().getFullYear()}</span>
+      </S.Footer>
     </ThemeProvider>
   )
 }

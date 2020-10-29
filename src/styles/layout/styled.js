@@ -144,3 +144,6 @@ export const Hamburger = styled.div`
     }
   }
 `
+export const Footer = styled.footer`
+ background-color: ${({ theme }) => theme.bgCardBlock2};
+`

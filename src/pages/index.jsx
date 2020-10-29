@@ -6,117 +6,20 @@ import Layout from '../components/Layout'
 import SEO from '../components/SEO'
 
 // import WrapGameElement from '../components/Games/Reacteroids'
-
 // Styled components
 import * as S from '../styles/home/styled'
 // Images
 import quoteImage from '../../static/assets/images/quote.jpg'
 
 // Icons
-import {FcMultipleDevices, FcCommandLine, FcComboChart, FcStatistics, FcWorkflow, FcMindMap} from "react-icons/fc";
-import {FaGithubAlt, FaLaravel, FaVuejs, FaReact, FaSass, FaNodeJs} from "react-icons/fa";
-import {SiIndeed, SiGlassdoor, SiLinkedin, SiTailwindcss, SiGatsby, SiNuxtDotJs, SiGraphql, SiGit, SiVisualstudio, SiNetlify} from "react-icons/si";
+
+import {FaGithubAlt} from "react-icons/fa";
+import {SiIndeed, SiGlassdoor, SiLinkedin} from "react-icons/si";
 import {HiOutlineMail} from "react-icons/hi";
 
-/**
- * [Static Data] TODO: Pull this in from the admin
- */
-const skills = [
-    {
-        title: 'UX/UI Theory and Design',
-        icon: <FcMultipleDevices className="mr-3 w-8 h-8" />,
-        body: 'Pellentesque pellentesque, ipsum sit amet auctor accumsan, odio tortor bibendum massa, sit amet ultricies ex lectus scelerisque nibh. Ut non sodales odio.'
-    },
-    {
-        title: 'Full Stack Development',
-        icon: <FcCommandLine className="mr-3 w-8 h-8" />,
-        body: 'Pellentesque pellentesque, ipsum sit amet auctor accumsan, odio tortor bibendum massa, sit amet ultricies ex lectus scelerisque nibh. Ut non sodales odio.'
-    },
-    {
-        title: 'Experience Testing & Analytics',
-        icon: <FcComboChart className="mr-3 w-8 h-8" />,
-        body: 'Pellentesque pellentesque, ipsum sit amet auctor accumsan, odio tortor bibendum massa, sit amet ultricies ex lectus scelerisque nibh. Ut non sodales odio.'
-    },
-    {
-        title: 'SEO & Marketing',
-        icon: <FcStatistics className="mr-3 w-8 h-8" />,
-        body: 'Pellentesque pellentesque, ipsum sit amet auctor accumsan, odio tortor bibendum massa, sit amet ultricies ex lectus scelerisque nibh. Ut non sodales odio.'
-    },
-]
-const studies = [
-    {
-        title: 'Automation/Testing',
-        icon: <FcWorkflow className="mr-3 w-8 h-8" />,
-        body: 'Pellentesque pellentesque, ipsum sit amet auctor accumsan, odio tortor bibendum massa, sit amet ultricies ex lectus scelerisque nibh. Ut non sodales odio.'
-    },
-    {
-        title: 'Machine Learning + Data Science',
-        icon: <FcMindMap className="mr-3 w-8 h-8" />,
-        body: 'Pellentesque pellentesque, ipsum sit amet auctor accumsan, odio tortor bibendum massa, sit amet ultricies ex lectus scelerisque nibh. Ut non sodales odio.'
-    },
-]
-const technology = [
-    {
-        url: '#',
-        icon: <FaSass className="sass w-20 h-20"/>,
-        caption: 'Sass'
-    },
-    {
-        url: '#',
-        icon: <SiTailwindcss className="tailwind w-20 h-20"/>,
-        caption: 'Tailwind'
-    },
-    {
-        url: '#',
-        icon: <FaReact className="react w-20 h-20"/>,
-        caption: 'React'
-    },
-    {
-        url: '#',
-        icon: <SiGatsby className="gatsby w-20 h-20"/>,
-        caption: 'Gatsby'
-    },
-    {
-        url: '#',
-        icon: <FaVuejs className="vue w-20 h-20"/>,
-        caption: 'Vue'
-    },
-    {
-        url: '#',
-        icon: <SiNuxtDotJs className="nuxt w-20 h-20"/>,
-        caption: 'Nuxt'
-    },
-    {
-        url: '#',
-        icon: <FaLaravel className="laravel w-20 h-20"/>,
-        caption: 'Laravel'
-    },
-    {
-        url: '#',
-        icon: <FaNodeJs className="node w-20 h-20"/>,
-        caption: 'Node'
-    },
-    {
-        url: '#',
-        icon: <SiGraphql className="graphql w-20 h-20"/>,
-        caption: 'GraphQl'
-    },
-    {
-        url: '#',
-        icon: <SiGit className="git w-20 h-20"/>,
-        caption: 'Git'
-    },
-    {
-        url: '#',
-        icon: <SiVisualstudio className="vscode w-20 h-20"/>,
-        caption: 'vscode'
-    },
-    {
-        url: '#',
-        icon: <SiNetlify className="netlify w-20 h-20"/>,
-        caption: 'netlify'
-    },
-]
+/* Imported Data TODO: add this to NetlifyCMS as modules and pull in via GraphQL */
+import {skills, studies, technology} from '../data'
+
 const BlogIndex = ({data, location}) => {
     const siteTitle = data.site.siteMetadata.title
     return (
@@ -221,45 +124,45 @@ const BlogIndex = ({data, location}) => {
                     <h3 className="inline-flex items-center uppercase tracking-wide rounded-md shadow-lg px-4 py-2 font-headline font-semibold text-lg">My Network</h3>
                 </header>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-6">
-                    <div className="relative mr-24 lg:mr-0">
-                        <img className="avatar ml-6 bottom-0 mb-4 absolute w-20 h-20 rounded-full" src="https://uifaces.co/our-content/donated/s9W6Vk2d.jpg"
+                    <div className="relative md:mr-24 lg:mr-0">
+                        <img className="avatar -mb-2 ml-6 bottom-0 md:mt-0 md:mb-4 w-20 h-20 rounded-full absolute" src="https://uifaces.co/our-content/donated/s9W6Vk2d.jpg"
                              alt="Jose Jimenez"/>
-                        <div className="ml-20 card p-4 font-sans text-sm flex rounded-md shadow-lg">
+                        <div className="md:ml-20 card p-4 font-sans text-sm flex rounded-md shadow-lg">
                             <p>
                                 Dallas cowboys roseanne barr keds game boy color. Once you pop you can’t stop pearl jam flip flops tommy hilfiger chillax renting movies at a store, acid wash the simpsons push pencils nirvana. Pop punk dawg destiny’s child dial-up minesweeper cut-off jean shorts. Visor blockbuster video skidz and zubas your mom.
                             </p>
                         </div>
-                        <div className="label mt-2 ml-32 mr-32 flex flex-col font-sans rounded-tr-full rounded-br-full rounded-bl-full py-2 pl-6">
+                        <div className="label mt-2 ml-32 md:mr-32 flex flex-col font-sans rounded-tr-full rounded-br-full rounded-bl-full py-2 pl-6">
                             <span className="text-base font-semibold -mb-2">Jose Jimenez</span>
                             <span className="text-sm">Locost Accessories</span>
                         </div>
                     </div>
-                    <div className="relative ml-24 lg:ml-0">
-                        <img className="avatar ml-6 bottom-0 mb-4 w-20 h-20 rounded-full absolute"
+                    <div className="relative md:ml-24 lg:ml-0">
+                        <img className="avatar -mb-2 ml-6 bottom-0 md:mt-0 md:mb-4 w-20 h-20 rounded-full absolute"
                              src="https://images.generated.photos/qmdENySIv23bkva-PxTHsoxVbZQdB1Wka0ZPcH5shHY/rs:fit:512:512/Z3M6Ly9nZW5lcmF0/ZWQtcGhvdG9zL3Yy/XzAzMDE4MzAuanBn.jpg"
                              alt="Jose Jimenez"/>
-                        <div className="ml-20 card font-sans p-4 text-sm flex rounded-md shadow-lg">
+                        <div className="md:ml-20 card font-sans p-4 text-sm flex rounded-md shadow-lg">
                             <p>
                                 Fargo gatorade courtney love flat tops scrunchies, toy story dennis rodman big lebowski kicks. Generation Y skifree push pencils alternative rock, goosebumps baywatch madonna desert storm magic johnson. Tupac shakur warheads sup gak, kazaa velcro sneakers berry lips steve urkel. Hush puppies pizza bagels apollo 13 julia roberts g-shocks keepin’ it real.
                             </p>
                         </div>
-                        <div className="label mt-2 ml-32 mr-32 flex flex-col font-sans rounded-tr-full rounded-br-full rounded-bl-full py-2 pl-6">
+                        <div className="label mt-2 ml-32 md:mr-32 flex flex-col font-sans rounded-tr-full rounded-br-full rounded-bl-full py-2 pl-6">
                             <span className="text-base font-semibold -mb-2">Mia Johnson</span>
                             <span className="text-sm">Locost Accessories</span>
                         </div>
                     </div>
                 </div>
                 <div>
-                    <div className="relative mt-6 mr-24 lg:mr-56 lg:ml-56">
-                        <img className="avatar ml-6 bottom-0 mb-4 w-20 h-20 rounded-full absolute"
+                    <div className="relative mt-6 md:mr-24 lg:mr-56 lg:ml-56">
+                        <img className="avatar -mb-2 ml-6 bottom-0 md:mt-0 md:mb-4 w-20 h-20 rounded-full absolute"
                              src="https://images.generated.photos/qmdENySIv23bkva-PxTHsoxVbZQdB1Wka0ZPcH5shHY/rs:fit:512:512/Z3M6Ly9nZW5lcmF0/ZWQtcGhvdG9zL3Yy/XzAzMDE4MzAuanBn.jpg"
                              alt="Jose Jimenez"/>
-                        <div className="ml-20 card font-sans p-4 text-sm flex rounded-md shadow-lg">
+                        <div className="md:ml-20 card font-sans p-4 text-sm flex rounded-md shadow-lg">
                             <p>
                                 Ghost pottery scene alternative rock wesley snipes push pencils, beavis and butthead the macarena I don’t want no scrubs forrest gump. Playstation tommy hilfiger my heart will go on acid wash fly bomber jacket. Sitcoms trl roseanne barr leggings, overalls quiet storm bop it west wing tae bo. Geo metro ring pops internet cable modem dotcom bubble, members only jackets i'm king of the world millenials daria desert storm.
                             </p>
                         </div>
-                        <div className="label mt-2 ml-32 mr-32 flex flex-col font-sans rounded-tr-full rounded-br-full rounded-bl-full py-2 pl-6">
+                        <div className="label mt-2 ml-32 md:mr-32 flex flex-col font-sans rounded-tr-full rounded-br-full rounded-bl-full py-2 pl-6">
                             <span className="text-base font-semibold -mb-2">Mia Johnson</span>
                             <span className="text-sm">Locost Accessories</span>
                         </div>

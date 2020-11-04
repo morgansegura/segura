@@ -58,7 +58,7 @@ export const Options = styled.div`
       width: 20px;
       height: 20px;
       border-radius: 100%;
-      border: 1px solid ${({ theme }) => theme.logo};
+      border: 1px solid ${({ theme }) => theme.iconHeader};
       box-shadow: 0 0 0 3px rgba(0,0,0,0);
       transition: box-shadow 0.3s ease-out;
 
@@ -70,16 +70,16 @@ export const Options = styled.div`
       /* background-color: ${({ theme }) => theme.panelBody}; */
     }
     .light-theme {
-      background-color: white;      
+      background-color: white;    
     }
     .dark-theme {
-      background-color: #222;
+      background-color: var(--gray-700);
     }
     .alt1-theme {
-      background-color: var(--accent4);
+      background-color: var(--orange-500);
     }
     .alt2-theme {
-      background-color: #073642;
+      background-color: var(--aqua-500);
     }
   }
 
@@ -101,13 +101,13 @@ export const ToggleContainer = styled.div`
   transition: opacity 0.1s ease-in, color 0.1s ease-in;
   
   svg {
-    fill: ${({ theme }) => theme.logo};
+    fill: ${({ theme }) => theme.iconHeader};
     transform: rotate(0);    
     transition: transform 0.15s ease-out, fill 0.2s ease-out;
   } 
   &.color-drawer--open {
     &:after {
-      background-color: ${({ theme }) => theme.transHover};
+      background-color: ${({ theme }) => theme.iconHeaderHover};
       transform: scale(1);
     }  
     svg {
@@ -118,7 +118,7 @@ export const ToggleContainer = styled.div`
     content: '';
     position: absolute;
     z-index: -1;
-    background-color: ${({ theme }) => theme.transHover};
+    background-color: ${({ theme }) => theme.iconHeaderHover};
     width: 45px;
     height: 45px;
     border-radius: 100%;
@@ -129,7 +129,7 @@ export const ToggleContainer = styled.div`
   &:hover {
     opacity: 1;
     svg {
-      fill: ${({ theme }) => theme.textDrawerNavItemHover};
+      fill: ${({ theme }) => theme.iconHeader};
     }
     &:after {
       transform: scale(1);

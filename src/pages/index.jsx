@@ -11,21 +11,15 @@ import * as S from '../styles/home/styled'
 // Images
 import quoteImage from '../../static/assets/images/quote.jpg'
 
-// Icons
-
-import {FaGithubAlt} from "react-icons/fa";
-import {SiIndeed, SiGlassdoor, SiLinkedin} from "react-icons/si";
-import {HiOutlineMail} from "react-icons/hi";
-
 /* Imported Data TODO: add this to NetlifyCMS as modules and pull in via GraphQL */
 import {skills, studies, technology} from '../data'
 
-const BlogIndex = ({data, location}) => {
+const HomeIndex = ({data, location}) => {
     const siteTitle = data.site.siteMetadata.title
     return (
         <Layout title={siteTitle}
                 location={location}> <SEO
-            title="Blog"
+            title="The struggle is real"
             keywords={[`devlog`, `blog`, `gatsby`, `javascript`, `react`]}
         />
 
@@ -89,7 +83,7 @@ const BlogIndex = ({data, location}) => {
                         technology.map(tech => (
                             <a className="card relative col-span-1 flex justify-center py-8 px-8" href={tech.url}>
                                 <div className="icon-container rounded-full p-2">{tech.icon}</div>
-                                <p className="absolute right-0 mr-8 flex h-6 pl-2 pr-3 items-center text-sm font-headline pl-2 bg-gray-200 rounded-tl-full rounded-tr-full rounded-br-full">
+                                <p className="absolute z-10 right-0 -mr-4 xl:mr-8 flex h-6 pl-2 pr-3 items-center text-sm font-headline pl-2 bg-gray-200 rounded-tl-full rounded-tr-full rounded-br-full">
                                     {tech.caption}
                                 </p>
                             </a>
@@ -123,68 +117,49 @@ const BlogIndex = ({data, location}) => {
                 <header className="mb-6">
                     <h3 className="inline-flex items-center uppercase tracking-wide rounded-md shadow-lg px-4 py-2 font-headline font-semibold text-lg">My Network</h3>
                 </header>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-6">
-                    <div className="relative md:mr-24 lg:mr-0">
-                        <img className="avatar -mb-2 ml-6 bottom-0 md:mt-0 md:mb-4 w-20 h-20 rounded-full absolute" src="https://uifaces.co/our-content/donated/s9W6Vk2d.jpg"
-                             alt="Jose Jimenez"/>
-                        <div className="md:ml-20 card p-4 font-sans text-sm flex rounded-md shadow-lg">
+                <div className="grid grid-cols-1 xl:grid-cols-2 gap-x-4 gap-y-6">
+                    <div className="relative mb-20 max-w-lg mr-auto">
+                        <div className="card p-4 font-sans text-sm flex rounded-md shadow-lg">
                             <p>
                                 Dallas cowboys roseanne barr keds game boy color. Once you pop you can’t stop pearl jam flip flops tommy hilfiger chillax renting movies at a store, acid wash the simpsons push pencils nirvana. Pop punk dawg destiny’s child dial-up minesweeper cut-off jean shorts. Visor blockbuster video skidz and zubas your mom.
                             </p>
                         </div>
-                        <div className="label mt-2 ml-32 md:mr-32 flex flex-col font-sans rounded-tr-full rounded-br-full rounded-bl-full py-2 pl-6">
+                        <img className="avatar -mt-2 lg:-ml-8 w-20 h-20 rounded-full absolute" src="https://uifaces.co/our-content/donated/s9W6Vk2d.jpg"
+                             alt="Jose Jimenez"/>
+                        <div className="absolute label mt-2 ml-24 xl:ml-16 flex flex-col font-sans rounded-tr-full rounded-br-full rounded-bl-full py-2 px-10">
                             <span className="text-base font-semibold -mb-2">Jose Jimenez</span>
                             <span className="text-sm">Locost Accessories</span>
                         </div>
                     </div>
-                    <div className="relative md:ml-24 lg:ml-0">
-                        <img className="avatar -mb-2 ml-6 bottom-0 md:mt-0 md:mb-4 w-20 h-20 rounded-full absolute"
-                             src="https://images.generated.photos/qmdENySIv23bkva-PxTHsoxVbZQdB1Wka0ZPcH5shHY/rs:fit:512:512/Z3M6Ly9nZW5lcmF0/ZWQtcGhvdG9zL3Yy/XzAzMDE4MzAuanBn.jpg"
-                             alt="Jose Jimenez"/>
-                        <div className="md:ml-20 card font-sans p-4 text-sm flex rounded-md shadow-lg">
+                    <div className="relative mb-20 max-w-lg ml-auto">
+                        <div className="card font-sans p-4 text-sm flex rounded-md shadow-lg">
                             <p>
                                 Fargo gatorade courtney love flat tops scrunchies, toy story dennis rodman big lebowski kicks. Generation Y skifree push pencils alternative rock, goosebumps baywatch madonna desert storm magic johnson. Tupac shakur warheads sup gak, kazaa velcro sneakers berry lips steve urkel. Hush puppies pizza bagels apollo 13 julia roberts g-shocks keepin’ it real.
                             </p>
                         </div>
-                        <div className="label mt-2 ml-32 md:mr-32 flex flex-col font-sans rounded-tr-full rounded-br-full rounded-bl-full py-2 pl-6">
+                        <img className="avatar -mt-2 lg:-ml-8 w-20 h-20 rounded-full absolute"
+                             src="https://images.generated.photos/qmdENySIv23bkva-PxTHsoxVbZQdB1Wka0ZPcH5shHY/rs:fit:512:512/Z3M6Ly9nZW5lcmF0/ZWQtcGhvdG9zL3Yy/XzAzMDE4MzAuanBn.jpg"
+                             alt="Jose Jimenez"/>
+                        <div className="absolute label mt-2 ml-24 xl:ml-16 flex flex-col font-sans rounded-tr-full rounded-br-full rounded-bl-full py-2 px-10">
                             <span className="text-base font-semibold -mb-2">Mia Johnson</span>
                             <span className="text-sm">Locost Accessories</span>
                         </div>
                     </div>
                 </div>
                 <div>
-                    <div className="relative mt-6 md:mr-24 lg:mr-56 lg:ml-56">
-                        <img className="avatar -mb-2 ml-6 bottom-0 md:mt-0 md:mb-4 w-20 h-20 rounded-full absolute"
-                             src="https://images.generated.photos/qmdENySIv23bkva-PxTHsoxVbZQdB1Wka0ZPcH5shHY/rs:fit:512:512/Z3M6Ly9nZW5lcmF0/ZWQtcGhvdG9zL3Yy/XzAzMDE4MzAuanBn.jpg"
-                             alt="Jose Jimenez"/>
-                        <div className="md:ml-20 card font-sans p-4 text-sm flex rounded-md shadow-lg">
+                    <div className="relative mb-32 md:mb-20 mt-6 max-w-lg mr-auto xl:mx-auto">
+                        <div className="xl:ml-20 card font-sans p-4 text-sm flex rounded-md shadow-lg">
                             <p>
                                 Ghost pottery scene alternative rock wesley snipes push pencils, beavis and butthead the macarena I don’t want no scrubs forrest gump. Playstation tommy hilfiger my heart will go on acid wash fly bomber jacket. Sitcoms trl roseanne barr leggings, overalls quiet storm bop it west wing tae bo. Geo metro ring pops internet cable modem dotcom bubble, members only jackets i'm king of the world millenials daria desert storm.
                             </p>
                         </div>
-                        <div className="label mt-2 ml-32 md:mr-32 flex flex-col font-sans rounded-tr-full rounded-br-full rounded-bl-full py-2 pl-6">
+                        <img className="avatar -mt-2 lg:-ml-8 w-20 h-20 xl:ml-6 rounded-full absolute"
+                             src="https://images.generated.photos/qmdENySIv23bkva-PxTHsoxVbZQdB1Wka0ZPcH5shHY/rs:fit:512:512/Z3M6Ly9nZW5lcmF0/ZWQtcGhvdG9zL3Yy/XzAzMDE4MzAuanBn.jpg"
+                             alt="Jose Jimenez"/>
+                        <div className="absolute label mt-2 ml-24 xl:ml-32 flex flex-col font-sans rounded-tr-full rounded-br-full rounded-bl-full py-2 px-10">
                             <span className="text-base font-semibold -mb-2">Mia Johnson</span>
                             <span className="text-sm">Locost Accessories</span>
                         </div>
-                    </div>
-                </div>
-                <div className="relative mt-6 flex items-center justify-end">
-                    <div className="z-0 social absolute flex justify-evenly items-center px-3 py-2 rounded-md pr-10 mr-3">
-                        <a className="mr-2" href="" title="">
-                            <FaGithubAlt className="w-6 h-6" />
-                        </a>
-                        <a className="mr-2" href="" title="">
-                            <SiLinkedin className="w-6 h-6" />
-                        </a>
-                        <a className="mr-2" href="" title="">
-                            <SiIndeed className="w-6 h-6" />
-                        </a>
-                        <a className="mr-2" href="" title="">
-                            <SiGlassdoor className="w-6 h-6" />
-                        </a>
-                    </div>
-                    <div className="relative z-10 cursor-pointer email p-3 rounded-full shadow-lg">
-                        <HiOutlineMail className="w-6 h-6" />
                     </div>
                 </div>
             </S.TestimonialBlock>
@@ -233,7 +208,7 @@ export default props => (
     <StaticQuery
         query={indexQuery}
         render={data => (
-            <BlogIndex location={props.location}
+            <HomeIndex location={props.location}
                        props
                        data={data} {...props} />
         )}

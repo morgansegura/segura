@@ -41,7 +41,7 @@ collections:
           label: "Author",
           name: "author",
           widget: "select",
-          options: ["Morgan Segura", "Mike Mallowe"],
+          options: ["Morgan Segura"],
           required: false,
         }
       - { label: "Tags", name: "tags", widget: "list", required: false }
@@ -61,10 +61,67 @@ collections:
             ],
         }
       - {
-          label: "Thumbnail",
+          label: "Featured Image",
           name: "thumbnail",
           widget: "image",
           default: "/content/blog/{{slug}}",
+          required: false,
+        }
+      - {
+          label: "Subheading",
+          name: "subheading",
+          widget: "string",
+          required: false,
+        }
+      - { label: "Excerpt", name: "excerpt", widget: "text", required: false }
+      - { label: "Body", name: "body", widget: "markdown", required: false }
+  # Tutorials
+  - name: "tutorials" # Used in routes, e.g., /admin/collections/blog
+    label: "Tutorials" # Used in the UI
+    folder: "content/tutorials/"
+    path: "{{slug}}/index"
+    # media_folder: ""
+    # public_folder: ""
+    create: true # Allow users to create new documents in this collection
+    slug: "{{slug}}"
+    extension: "mdx"
+    format: frontmatter
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - {
+          label: "Date",
+          name: "date",
+          widget: "datetime",
+          format: "YYYY-MM-DD hh:mm:ss",
+        }
+      - {
+          label: "Author",
+          name: "author",
+          widget: "select",
+          options: ["Morgan Segura"],
+          required: false,
+        }
+      - { label: "Tags", name: "tags", widget: "list", required: false }
+      - {
+          label: "Category",
+          name: "category",
+          widget: "select",
+          required: false,
+          options:
+            [
+              "Article",
+              "Project",
+              "Tutorial",
+              "Quick Tip",
+              "Review",
+              "Case Study",
+            ],
+        }
+      - {
+          label: "Featured Image",
+          name: "thumbnail",
+          widget: "image",
+          default: "/content/tutorials/{{slug}}",
           required: false,
         }
       - {

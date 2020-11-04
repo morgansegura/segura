@@ -2,14 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a9aa706a-c12e-4609-a5d6-234635e0e872" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/mosegura.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/data/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/content/tutorials/create-this-web-app-from-scratch-step-by-step/banner_css-1280x680.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/content/tutorials/create-this-web-app-from-scratch-step-by-step/index.mdx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/templates/TutorialPost/index.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gatsby-node.js" beforeDir="false" afterPath="$PROJECT_DIR$/gatsby-node.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Layout/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Layout/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Menu/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Menu/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Theme/styled.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Theme/styled.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Theme/themeStyles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Theme/themeStyles.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Theme/toggleTheme.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Theme/toggleTheme.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/blog/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/blog/index.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/projects/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/tutorials/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/global.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/global.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/home/styled.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/home/styled.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/layout/styled.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/layout/styled.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/templates/BlogPost/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/BlogPost/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/admin/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin/config.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,7 +47,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/pages" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/content/tutorials" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -47,16 +57,18 @@
     <property name="vuejs.nuxt.types-notification-shown" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/content/tutorials" />
+      <recent name="$PROJECT_DIR$/src/templates" />
+      <recent name="$PROJECT_DIR$/src/pages" />
+      <recent name="$PROJECT_DIR$/pages/projects" />
+      <recent name="$PROJECT_DIR$/content/projects" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/components" />
       <recent name="$PROJECT_DIR$/assets/images/avatars" />
       <recent name="$PROJECT_DIR$/pages/article/author" />
       <recent name="$PROJECT_DIR$/pages/article" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/pages" />
-      <recent name="$PROJECT_DIR$/pages/projects" />
-      <recent name="$PROJECT_DIR$/content/projects" />
     </key>
   </component>
   <component name="RunManager">
@@ -83,7 +95,7 @@
       <workItem from="1603143058540" duration="327000" />
       <workItem from="1603143416694" duration="52320000" />
       <workItem from="1603520194599" duration="119796000" />
-      <workItem from="1603997704167" duration="1143000" />
+      <workItem from="1603997704167" duration="32061000" />
     </task>
     <servers />
   </component>
@@ -121,9 +133,9 @@
     </state>
     <state x="1388" y="335" width="1064" height="844" key="find.popup/-2560.23.2560.1417/-4000.23.1440.877/0.23.2560.1417@0.23.2560.1417" timestamp="1603915644841" />
     <state x="781" y="216" width="598" height="522" key="find.popup/0.23.1440.877@0.23.1440.877" timestamp="1603865170177" />
-    <state x="745" y="213" width="670" height="676" key="search.everywhere.popup" timestamp="1603677858638">
+    <state x="745" y="213" width="670" height="676" key="search.everywhere.popup" timestamp="1604202388138">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="745" y="213" width="670" height="676" key="search.everywhere.popup/0.23.1440.877@0.23.1440.877" timestamp="1603677858638" />
+    <state x="745" y="213" width="670" height="676" key="search.everywhere.popup/0.23.1440.877@0.23.1440.877" timestamp="1604202388138" />
   </component>
 </project>

@@ -1,6 +1,6 @@
 /* [Theme Styling]
 * 1. Defaults
-* 2. Header
+* 2. Header & Footer
 * 3. Drawer & Navigation
 * 4. Hero
 * 5. Blocks & Cards
@@ -18,18 +18,23 @@ export const lightTheme = {
   scrollBar: 'var(--gray-500)',
   scrollBarHover: 'rgba(128, 90, 213, 0.75)',
   logo: 'var(--gray-900)',
-  logoHover: '#805ad5',
+  logoHover: 'var(--purple)',
   transHover: 'var(--gray-100)',
   bgBody: 'var(--gray-200)',
   textBody: 'var(--gray-900)',
   /**
-   * [Header]
+   * [Header & Footer]
    */
   bgHeader: 'white',
   borderHeader: 'transparent',
   borderContent: 'var(--gray-300)',
   iconHeader: 'var(--gray-800)',
-  iconHeaderHover: 'var(--gray-600)',
+  iconHeaderHover: 'rgba(0,0,0,0.075)',
+  bgFooter: 'var(--gray-800)',
+  textFooter: 'var(--gray-400)',
+  iconFooter: 'var(--gray-800)',
+  iconFooterHover: 'rgba(0,0,0,0.25)',
+
   /**
    * [Drawer & Navigation]
    */
@@ -37,7 +42,7 @@ export const lightTheme = {
   borderDrawer: 'var(--gray-300)',
   bgDrawerMenu: 'var(--gray-100)',
   bgDrawerNavItem: 'var(--gray-50)',
-  bgDrawerNavItemHover: 'var(--gray-100)',
+  bgDrawerNavItemHover: 'rgba(0,0,0,0.05)',
   textDrawerNavItem: 'var(--gray-800)',
   textDrawerNavItemHover: 'var(--gray-900)',
   borderDrawerNavItem: 'var(--gray-200)',
@@ -57,7 +62,7 @@ export const lightTheme = {
   textOffsetBlock1: 'var(--gray-200)',
   bgHeadlineBlock1: 'var(--gray-100)',
   textHeadlineBlock1: 'var(--gray-800)',
-  borderHeadlineBlock1: '#805ad5',
+  borderHeadlineBlock1: 'var(--purple)',
   textHeadlineOffsetBlock1: 'var(--gray-800)',
   bgCardBlock1: 'white',
   borderCardBlock1: 'var(--gray-100)',
@@ -69,7 +74,7 @@ export const lightTheme = {
   textOffsetBlock2: 'var(--gray-200)',
   bgHeadlineBlock2: 'var(--gray-100)',
   textHeadlineBlock2: 'var(--gray-800)',
-  borderHeadlineBlock2: '#805ad5',
+  borderHeadlineBlock2: 'var(--purple)',
   textHeadlineOffsetBlock2: 'var(--gray-200)',
   bgCardBlock2: 'var(--gray-300)',
   borderCardBlock2: 'var(--gray-500)',
@@ -81,7 +86,7 @@ export const lightTheme = {
   textOffsetBlock3: 'var(--gray-200)',
   bgHeadlineBlock3: 'var(--gray-100)',
   textHeadlineBlock3: 'var(--gray-800)',
-  borderHeadlineBlock3: '#805ad5',
+  borderHeadlineBlock3: 'var(--purple)',
   textHeadlineOffsetBlock3: 'var(--gray-200)',
   bgCardBlock3: 'var(--gray-50)',
   borderCardBlock3: 'var(--gray-200)',
@@ -93,7 +98,7 @@ export const lightTheme = {
   textOffsetBlock4: 'var(--gray-200)',
   bgHeadlineBlock4: 'var(--gray-200)',
   textHeadlineBlock4: 'var(--gray-800)',
-  borderHeadlineBlock4: '#805ad5',
+  borderHeadlineBlock4: 'var(--purple)',
   textHeadlineOffsetBlock4: 'var(--gray-200)',
   bgCardBlock4: 'var(--gray-100)',
   borderCardBlock4: 'var(--gray-400)',
@@ -102,7 +107,7 @@ export const lightTheme = {
   /**
    * [Buttons]
    */
-  bgButton: '#805ad5',
+  bgButton: 'var(--purple)',
   textButton: 'var(--gray-100)',
   bgButtonHover: '#6b46c1',
   textButtonHover: 'white',
@@ -110,7 +115,7 @@ export const lightTheme = {
    * [Accent Colors]
    */
   accent1: 'var(--cyan)',
-  accent2: '#805ad5',
+  accent2: 'var(--purple)',
   accent1Hover: '',
   accent2Hover: '',
   /**
@@ -131,50 +136,116 @@ export const lightTheme = {
 }
 
 export const darkTheme = {
-  /* Base */
-  white: 'var(--black)',
-  black: 'var(--white)',
+  /**
+   * [Defaults]
+   */
+  white: 'var(--white)',
+  black: 'var(--black)',
+  scrollBar: 'var(--aqua-200)',
+  scrollBarHover: 'var(--aqua-100)',
+  logo: 'var(--gray-400)',
+  logoHover: 'white',
+  transHover: 'var(--gray-800)',
+  bgBody: 'var(--gray-900)',
+  textBody: 'var(--gray-900)',
+  /**
+   * [Header & Footer]
+   */
+  bgHeader: 'var(--gray-800)',
+  borderHeader: 'transparent',
+  borderContent: 'var(--gray-700)',
+  iconHeader: 'var(--gray-800)',
+  iconHeaderHover: 'rgba(0,0,0,0.25)',
+  bgFooter: 'var(--gray-800)',
+  textFooter: 'var(--gray-400)',
+  iconFooter: 'var(--gray-400)',
+  iconFooterHover: 'var(--gray-200)',
+  /**
+   * [Drawer & Navigation]
+   */
+  bgDrawer: 'var(--gray-800)',
+  borderDrawer: 'var(--gray-700)',
+  bgDrawerMenu: 'var(--gray-700)',
+  bgDrawerNavItem: 'var(--gray-700)',
+  bgDrawerNavItemHover: 'var(--gray-600)',
+  textDrawerNavItem: 'var(--gray-400)',
+  textDrawerNavItemHover: 'var(--gray-100)',
+  borderDrawerNavItem: 'var(--gray-800)',
+  borderDrawerNavItemHover: '',
+  /**
+   * [Hero]
+   */
+  bgHero: 'var(--gray-700)',
+  textHero: 'var(--gray-300)',
+  textOffsetHero: 'var(--aqua-100)',
+  textHeadlineHero: 'var(--gray-100)',
+  /**
+   * [Blocks & Cards]
+   */
+  bgBlock1: 'var(--gray-800)',
+  textBlock1: 'var(--gray-800)',
+  textOffsetBlock1: 'var(--gray-800)',
+  bgHeadlineBlock1: 'var(--gray-800)',
+  textHeadlineBlock1: 'var(--gray-800)',
+  borderHeadlineBlock1: 'var(--aqua-100)',
+  textHeadlineOffsetBlock1: 'var(--gray-400)',
+  bgCardBlock1: 'var(--gray-700)',
+  borderCardBlock1: 'var(--gray-600)',
+  textCardBlock1: 'var(--gray-400)',
+  textHeadlineCardBlock1: 'var(--gray-200)',
 
-  /* Panels */
-  panelBody: '#111',
-  panelHeader: '#222',
-  panelOffset: '#333',
-  panelDark: '#333',
-  panelIcon: '#333',
-  panelCard: '#444',
-  panelCardOffset: '#282828',
-  // Misc
-  scrollBar: '#9e9e9e',
-  /* Borders */
-  borderNav: '#333',
-  borderDefault: '#444',
-  borderDark: '#353535',
-  borderHeading: '#666',
-  /* Text */
-  textNav: '#f5f5f5',
-  textHeadline: '#efbb35',
-  textBody: '#d5d5d5',
-  textOffset: '#aaa',
-  textOffset1: '#a5a5a5',
-  textOnDark: '#a5a5a5',
-  textButton: '#fff',
-  /* Hovers */
-  hoverNav: 'rgba(0,0,0, 0.2)',
-  /* Accents */
-  accentPrimary: 'var(--accent2)',
-  accentSecondary: 'var(--accent2)',
-  /* New */
-  theme100: 'var(--gray-100)',
-  theme200: 'var(--gray-200)',
-  theme300: 'var(--gray-300)',
-  theme400: 'var(--gray-400)',
-  theme500: 'var(--gray-500)',
-  theme600: 'var(--gray-600)',
-  theme700: 'var(--gray-700)',
-  theme800: 'var(--gray-800)',
-  theme900: 'var(--gray-900)',
+  bgBlock2: 'var(--gray-600)',
+  textBlock2: 'var(--gray-200)',
+  textOffsetBlock2: 'var(--gray-200)',
+  bgHeadlineBlock2: 'var(--gray-600)',
+  textHeadlineBlock2: 'var(--gray-800)',
+  borderHeadlineBlock2: 'var(--aqua-100)',
+  textHeadlineOffsetBlock2: 'var(--gray-200)',
+  bgCardBlock2: 'var(--gray-700)',
+  borderCardBlock2: 'var(--gray-300)',
+  textCardBlock2: 'var(--gray-600)',
+  textHeadlineCardBlock2: 'var(--gray-300)',
 
-  /** CODE */
+  bgBlock3: 'var(--gray-500)',
+  textBlock3: 'var(--gray-200)',
+  textOffsetBlock3: 'var(--gray-200)',
+  bgHeadlineBlock3: 'var(--gray-500)',
+  textHeadlineBlock3: 'var(--gray-800)',
+  borderHeadlineBlock3: 'var(--aqua-700)',
+  textHeadlineOffsetBlock3: 'var(--gray-500)',
+  bgCardBlock3: 'var(--gray-400)',
+  borderCardBlock3: 'rgba(0,0,0,0.25)',
+  textCardBlock3: 'var(--gray-800)',
+  textHeadlineCardBlock3: 'var(--gray-200)',
+
+  bgBlock4: 'var(--gray-700)',
+  textBlock4: 'var(--gray-200)',
+  textOffsetBlock4: 'var(--gray-200)',
+  bgHeadlineBlock4: 'var(--gray-700)',
+  textHeadlineBlock4: 'var(--gray-800)',
+  borderHeadlineBlock4: 'var(--aqua-100)',
+  textHeadlineOffsetBlock4: 'var(--gray-200)',
+  bgCardBlock4: 'var(--gray-500)',
+  borderCardBlock4: '#777',
+  textCardBlock4: 'var(--gray-700)',
+  textHeadlineCardBlock4: 'var(--gray-300)',
+  /**
+   * [Buttons]
+   */
+  bgButton: 'var(--aqua-300)',
+  textButton: 'var(--gray-100)',
+  bgButtonHover: 'var(--aqua-200)',
+  textButtonHover: 'white',
+  /**
+   * [Accent Colors]
+   */
+  accent1: 'var(--cyan)',
+  accent2: 'var(--purple)',
+  accent1Hover: '',
+  accent2Hover: '',
+  /**
+   * [Code Styling]
+   */
   codeFontColor: '#f8f8f2',
   codeFontFamily: 'var(--serif-font)',
   codeBackground: '#272822',
@@ -186,55 +257,121 @@ export const darkTheme = {
   codeTokenAtRule: '#e6db74',
   codeTokenKeyword: '#66d9ef',
   codeTokenRegex: '#fd971f',
-
 }
 
 export const alt1Theme = {
-  /* Base */
-  white: 'var(--black)',
-  black: 'var(--white)',
+  /**
+   * [Defaults]
+   */
+  white: 'var(--white)',
+  black: 'var(--black)',
+  scrollBar: 'var(--orange-500)',
+  scrollBarHover: 'var(--orange-400)',
+  scrollBarActive: 'rgba(128, 90, 213, 0.75)',
+  logo: 'var(--orange-200)',
+  logoHover: 'var(--purple)',
+  transHover: 'var(--gray-100)',
+  bgBody: 'var(--orange-900)',
+  textBody: 'var(--orange-100)',
+  /**
+   * [Header & Footer]
+   */
+  bgHeader: 'var(--orange-800)',
+  borderHeader: 'transparent',
+  borderContent: 'var(--orange-700)',
+  iconHeader: 'var(--orange-100)',
+  iconHeaderHover: 'rgba(0,0,0,0.075)',
+  bgFooter: 'var(--orange-800)',
+  textFooter: 'var(--orange-400)',
+  iconFooter: 'var(--orange-200)',
+  iconFooterHover: 'rgba(0,0,0,0.25)',
 
-  /* Panels */
-  panelBody: '#330e0e',
-  panelHeader: '#3c1010',
-  panelOffset: '#5f1a18',
-  panelDark: '#f0f2f3',
-  panelIcon: '#7b2222',
-  panelCard: '#5f1a18',
-  panelCardOffset: '#5f1a18',
-  // Misc
-  scrollBar: '#7b2222',
-  /* Borders */
-  borderNav: '#521717',
-  borderDefault: '#7b2222',
-  borderDark: '#7b2222',
-  borderHeading: '#7b2222',
-  /* Text */
-  textHeadline: 'var(--accent4)',
-  textNav: '#f0f2f3',
-  textBody: '#ca8165',
-  textOffset: '#f0f2f3',
-  textOffset1: '#f0f2f3',
-  textOnDark: '#f0f2f3',
-  textButton: 'var(--accent4)',
-  /* Hovers */
-  hoverNav: 'rgba(0,0,0, 0.1)',
-  /* Accents */
-  accentPrimary: '#ca8165',
-  accentSecondary: 'var(--accent4)',
+  /**
+   * [Drawer & Navigation]
+   */
+  bgDrawer: 'var(--orange-800)',
+  borderDrawer: 'var(--orange-700)',
+  bgDrawerMenu: 'var(--gray-100)',
+  bgDrawerNavItem: 'var(--orange-700)',
+  bgDrawerNavItemHover: 'var(--orange-600)',
+  textDrawerNavItem: 'var(--orange-200)',
+  textDrawerNavItemHover: 'var(--orange-100)',
+  borderDrawerNavItem: 'var(--orange-800)',
+  borderDrawerNavItemHover: '',
+  /**
+   * [Hero]
+   */
+  bgHero: 'var(--orange-700)',
+  textHero: 'var(--orange-200)',
+  textOffsetHero: 'var(--orange-300)',
+  textHeadlineHero: 'var(--orange-100)',
+  /**
+   * [Blocks & Cards]
+   */
+  bgBlock1: 'var(--orange-600)',
+  textBlock1: 'var(--gray-200)',
+  textOffsetBlock1: 'var(--gray-200)',
+  bgHeadlineBlock1: 'transparent',
+  textHeadlineBlock1: 'var(--gray-800)',
+  borderHeadlineBlock1: 'var(--yellow)',
+  textHeadlineOffsetBlock1: 'var(--gray-800)',
+  bgCardBlock1: 'var(--orange-500)',
+  borderCardBlock1: 'var(--orange-400)',
+  textCardBlock1: 'var(--orange-200)',
+  textHeadlineCardBlock1: 'var(--orange-100)',
 
-  /* New */
-  theme100: 'var(--auburn-100)',
-  theme200: 'var(--auburn-200)',
-  theme300: 'var(--auburn-300)',
-  theme400: 'var(--auburn-400)',
-  theme500: 'var(--auburn-500)',
-  theme600: 'var(--auburn-600)',
-  theme700: 'var(--auburn-700)',
-  theme800: 'var(--auburn-800)',
-  theme900: 'var(--auburn-900)',
+  bgBlock2: 'var(--orange-300)',
+  textBlock2: 'var(--gray-200)',
+  textOffsetBlock2: 'var(--gray-200)',
+  bgHeadlineBlock2: 'var(--gray-100)',
+  textHeadlineBlock2: 'var(--gray-800)',
+  borderHeadlineBlock2: 'var(--purple)',
+  textHeadlineOffsetBlock2: 'var(--gray-200)',
+  bgCardBlock2: 'rgba(0,0,0,0.05)',
+  borderCardBlock2: 'var(--orange-400)',
+  textCardBlock2: 'var(--orange-100)',
+  textHeadlineCardBlock2: 'var(--gray-200)',
 
-  /** CODE */
+  bgBlock3: 'var(--orange-200)',
+  textBlock3: 'var(--orange-200)',
+  textOffsetBlock3: 'var(--orange-200)',
+  bgHeadlineBlock3: 'transparent',
+  textHeadlineBlock3: 'var(--gray-800)',
+  borderHeadlineBlock3: 'var(--orange-600)',
+  textHeadlineOffsetBlock3: 'var(--gray-300)',
+  bgCardBlock3: 'var(--orange-100)',
+  borderCardBlock3: 'var(--orange-200)',
+  textCardBlock3: 'var(--gray-800)',
+  textHeadlineCardBlock3: 'var(--gray-200)',
+
+  bgBlock4: 'var(--orange-300)',
+  textBlock4: 'var(--gray-200)',
+  textOffsetBlock4: 'var(--gray-200)',
+  bgHeadlineBlock4: 'transparent',
+  textHeadlineBlock4: 'var(--gray-800)',
+  borderHeadlineBlock4: 'var(--orange-600)',
+  textHeadlineOffsetBlock4: 'var(--gray-200)',
+  bgCardBlock4: 'var(--gray-200)',
+  borderCardBlock4: 'var(--orange-400)',
+  textCardBlock4: 'var(--gray-700)',
+  textHeadlineCardBlock4: 'var(--orange-800)',
+  /**
+   * [Buttons]
+   */
+  bgButton: 'var(--yellow)',
+  textButton: 'var(--orange-800)',
+  bgButtonHover: 'var(--orange-400)',
+  textButtonHover: 'var(--orange-900)',
+  /**
+   * [Accent Colors]
+   */
+  accent1: 'var(--cyan)',
+  accent2: 'var(--purple)',
+  accent1Hover: '',
+  accent2Hover: '',
+  /**
+   * [Code Styling]
+   */
   codeFontColor: '#f8f8f2',
   codeFontFamily: 'var(--serif-font)',
   codeBackground: '#272822',
@@ -246,55 +383,119 @@ export const alt1Theme = {
   codeTokenAtRule: '#e6db74',
   codeTokenKeyword: '#66d9ef',
   codeTokenRegex: '#fd971f',
-
 }
 
 export const alt2Theme = {
-  /* Base */
-  white: 'var(--black)',
-  black: 'var(--white)',
+  /**
+   * [Defaults]
+   */
+  white: 'var(--white)',
+  black: 'var(--black)',
+  scrollBar: 'var(--gray-500)',
+  scrollBarHover: 'rgba(128, 90, 213, 0.75)',
+  logo: 'var(--aqua-100)',
+  logoHover: 'var(--gray-100)',
+  transHover: 'var(--gray-100)',
+  bgBody: 'var(--aqua-900)',
+  textBody: 'var(--aqua-100)',
+  /**
+   * [Header & Footer]
+   */
+  bgHeader: 'var(--aqua-800)',
+  borderHeader: 'transparent',
+  borderContent: 'var(--aqua-700)',
+  iconHeader: 'var(--aqua-100)',
+  iconHeaderHover: 'rgba(0,0,0,0.125)',
+  bgFooter: 'var(--gray-800)',
+  textFooter: 'var(--gray-400)',
+  iconFooter: 'var(--gray-800)',
+  iconFooterHover: 'rgba(0,0,0,0.25)',
+  /**
+   * [Drawer & Navigation]
+   */
+  bgDrawer: 'var(--aqua-800)',
+  borderDrawer: 'var(--aqua-700)',
+  bgDrawerMenu: 'var(--gray-100)',
+  bgDrawerNavItem: 'var(--aqua-600)',
+  bgDrawerNavItemHover: 'var(--aqua-500)',
+  textDrawerNavItem: 'var(--aqua-100)',
+  textDrawerNavItemHover: 'var(--gray-100)',
+  borderDrawerNavItem: 'var(--aqua-800)',
+  borderDrawerNavItemHover: '',
+  /**
+   * [Hero]
+   */
+  bgHero: 'var(--aqua-700)',
+  textHero: 'var(--aqua-100)',
+  textOffsetHero: 'var(--gray-600)',
+  textHeadlineHero: 'var(--gray-100)',
+  /**
+   * [Blocks & Cards]
+   */
+  bgBlock1: 'var(--aqua-800)',
+  textBlock1: 'var(--gray-200)',
+  textOffsetBlock1: 'var(--gray-200)',
+  bgHeadlineBlock1: 'var(--aqua-800)',
+  textHeadlineBlock1: 'var(--gray-300)',
+  borderHeadlineBlock1: 'var(--aqua-100)',
+  textHeadlineOffsetBlock1: 'var(--gray-300)',
+  bgCardBlock1: 'var(--aqua-600)',
+  borderCardBlock1: 'var(--aqua-700)',
+  textCardBlock1: 'var(--gray-400)',
+  textHeadlineCardBlock1: 'var(--gray-300)',
 
-  /* Panels */
-  panelBody: 'var(--aqua-400)',
-  panelHeader: '#073642',
-  panelOffset: '#013948',
-  panelDark: '#53c9af',
-  panelIcon: 'rgba(0,0,0, 0.3)',
-  panelCard: '#002b36',
-  panelCardOffset: 'rgba(255,255,255,.03)',
-  // Misc
-  scrollBar: '#53c9af',
-  /* Borders */
-  borderNav: 'rgba(0,0,0, 0.3)',
-  borderDefault: '#efbb35',
-  borderDark: 'rgba(0,0,0, 0.3)',
-  borderHeading: 'var(--accent2)',
-  /* Text */
-  textNav: '#f5f5f5',
-  textHeadline: '#53c9af',
-  textBody: '#2aa198',
-  textOffset: '#efbb35',
-  textOffset1: '#efbb35',
-  textOnDark: '#efbb35',
-  textButton: '#fff',
-  /* Hovers */
-  hoverNav: 'rgba(0,0,0, 0.2)',
-  /* Accents */
-  accentPrimary: 'var(--accent2)',
-  accentSecondary: '#efbb35',
+  bgBlock2: 'var(--aqua-600)',
+  textBlock2: 'var(--gray-200)',
+  textOffsetBlock2: 'var(--gray-200)',
+  bgHeadlineBlock2: 'var(--aqua-600)',
+  textHeadlineBlock2: 'var(--gray-800)',
+  borderHeadlineBlock2: 'var(--aqua-100)',
+  textHeadlineOffsetBlock2: 'var(--gray-200)',
+  bgCardBlock2: 'var(--aqua-700)',
+  borderCardBlock2: 'var(--aqua-300)',
+  textCardBlock2: 'var(--gray-100)',
+  textHeadlineCardBlock2: 'var(--gray-200)',
 
-  /* New */
-  theme100: 'var(--aqua-100)',
-  theme200: 'var(--aqua-200)',
-  theme300: 'var(--aqua-300)',
-  theme400: 'var(--aqua-400)',
-  theme500: 'var(--aqua-500)',
-  theme600: 'var(--aqua-600)',
-  theme700: 'var(--aqua-700)',
-  theme800: 'var(--aqua-800)',
-  theme900: 'var(--aqua-900)',
+  bgBlock3: 'var(--aqua-700)',
+  textBlock3: 'var(--gray-200)',
+  textOffsetBlock3: 'var(--gray-200)',
+  bgHeadlineBlock3: 'var(--aqua-700)',
+  textHeadlineBlock3: 'var(--aqua-100)',
+  borderHeadlineBlock3: 'var(--aqua-100)',
+  textHeadlineOffsetBlock3: 'var(--gray-200)',
+  bgCardBlock3: 'var(--aqua-400)',
+  borderCardBlock3: 'var(--aqua-500)',
+  textCardBlock3: 'var(--gray-800)',
+  textHeadlineCardBlock3: 'var(--gray-200)',
 
-  /** CODE */
+  bgBlock4: 'var(--aqua-600)',
+  textBlock4: 'var(--gray-200)',
+  textOffsetBlock4: 'var(--gray-200)',
+  bgHeadlineBlock4: 'var(--gray-200)',
+  textHeadlineBlock4: 'var(--gray-800)',
+  borderHeadlineBlock4: 'var(--purple)',
+  textHeadlineOffsetBlock4: 'var(--gray-200)',
+  bgCardBlock4: 'var(--gray-100)',
+  borderCardBlock4: 'var(--gray-400)',
+  textCardBlock4: 'var(--gray-700)',
+  textHeadlineCardBlock4: 'var(--gray-300)',
+  /**
+   * [Buttons]
+   */
+  bgButton: 'var(--cyan)',
+  textButton: 'var(--gray-600)',
+  bgButtonHover: '#6b46c1',
+  textButtonHover: 'white',
+  /**
+   * [Accent Colors]
+   */
+  accent1: 'var(--cyan)',
+  accent2: 'var(--purple)',
+  accent1Hover: '',
+  accent2Hover: '',
+  /**
+   * [Code Styling]
+   */
   codeFontColor: '#f8f8f2',
   codeFontFamily: 'var(--serif-font)',
   codeBackground: '#272822',
@@ -306,7 +507,6 @@ export const alt2Theme = {
   codeTokenAtRule: '#e6db74',
   codeTokenKeyword: '#66d9ef',
   codeTokenRegex: '#fd971f',
-
 }
 
 export const fontSizeNormal = {

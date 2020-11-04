@@ -57,13 +57,15 @@ export const SkillsBlock = styled.section`
     border-left: 5px solid ${({ theme }) => theme.borderHeadlineBlock1};
     background-color: ${({ theme }) => theme.bgHeadlineBlock1};  
   }
-  h4 {color: ${({ theme }) => theme.textHeadlineOffsetBlock1};}
-  p {
-    color: ${({ theme }) => theme.textCardBlock1};
-  }
   .card {
     background-color: ${({ theme }) => theme.bgCardBlock1};
     border: 1px solid ${({ theme }) => theme.borderCardBlock1};
+      h4 {
+        color: ${({ theme }) => theme.textHeadlineCardBlock1};
+      }
+      p {
+        color: ${({ theme }) => theme.textCardBlock1};
+      }      
   }
 `
 
@@ -172,7 +174,7 @@ export const TestimonialBlock = styled.section`
     color: ${({ theme }) => theme.textBlock4};
   }
   .avatar {
-    border: 2px solid ${({ theme }) => theme.borderCardBlock4};
+    border: 4px solid ${({ theme }) => theme.borderCardBlock4};
   }
   .card {
     border: 1px solid ${({ theme }) => theme.borderCardBlock4};

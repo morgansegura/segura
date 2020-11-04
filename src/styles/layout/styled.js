@@ -10,8 +10,19 @@ const customMedia = generateMedia({
 
 // Layout Components
 export const Content = styled.div`
+  position: relative; 
+
   ${customMedia.greaterThan('large')`
     border-left: 1rem solid transparent;
+    &:before {
+      content: '';
+      position: absolute;
+      width: 1px;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      border-right: 1px solid ${({ theme }) => theme.borderContent};
+    }  
   `};
   ${customMedia.greaterThan('huge')`
     position: absolute;  
@@ -21,7 +32,6 @@ export const Content = styled.div`
     transform: translateX(-50%);
     min-width: 1280px;
     max-width: 1600px;
-    border-left: 1px solid ${({ theme }) => theme.borderContent};
     border-right: 1px solid ${({ theme }) => theme.borderContent};
   `};
 `
@@ -45,7 +55,7 @@ export const MainNavToggle = styled.div`
     content: '';
     position: absolute;
     z-index: -1;
-    background-color: ${({ theme }) => theme.transHover};
+    background-color: ${({ theme }) => theme.iconHeaderHover};
     width: 45px;
     height: 45px;
     border-radius: 100%;
@@ -55,7 +65,7 @@ export const MainNavToggle = styled.div`
   }
   .drawer-open & {
     &:after {
-      background-color: ${({ theme }) => theme.transHover};
+      background-color: ${({ theme }) => theme.iconHeaderHover};
       transform: scale(1);
     }
   }  
@@ -67,7 +77,7 @@ export const MainNavToggle = styled.div`
     & .hamburger:before,
     & .hamburger:after,
     & .hamburger__center {
-      background-color: ${({ theme }) => theme.logo};
+      background-color: ${({ theme }) => theme.iconHeader};
     }
   }
   .squeeze-menu & {
@@ -97,7 +107,7 @@ export const Hamburger = styled.div`
     content: '';
     position: absolute;
     z-index: 1;
-    background-color: ${({ theme }) => theme.logo};
+    background-color: ${({ theme }) => theme.iconHeader};
     height: 3px;
     border-radius: 10px;
     border: none;
@@ -125,7 +135,7 @@ export const Hamburger = styled.div`
       top: 48%;
       transform: rotate(-45deg) translateX(0);
       left: 22%;
-      background-color: ${({ theme }) => theme.logo};
+      background-color: ${({ theme }) => theme.iconHeader};
     }
   }
   &:after {
@@ -140,10 +150,19 @@ export const Hamburger = styled.div`
       top: 48%;
       width: 28px;
       transform: rotate(45deg) translateX(0);
-      background-color: ${({ theme }) => theme.logo};
+      background-color: ${({ theme }) => theme.iconHeader};
     }
   }
 `
 export const Footer = styled.footer`
- background-color: ${({ theme }) => theme.bgCardBlock2};
+ background-color: ${({ theme }) => theme.bgFooter};
+ color: ${({ theme }) => theme.textFooter};
+ 
+  a, .social-icon {
+    color: ${({ theme }) => theme.iconFooter};
+    transition: all 0.3s ease-out;
+    &:hover {
+      color: ${({ theme }) => theme.iconFooterHover};
+    }
+  }
 `

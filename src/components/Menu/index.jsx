@@ -11,23 +11,18 @@ const menu = [
     },
     {
         title: '',
+        label: 'Posts',
+        path: '/blog',
+    },
+    {
+        title: '',
+        label: 'Tutorials',
+        path: '/tutorials',
+    },
+    {
+        title: '',
         label: 'About',
         path: '/about',
-    },
-    {
-        title: '',
-        label: 'Skills',
-        path: '/skills',
-    },
-    {
-        title: '',
-        label: 'Projects',
-        path: '/projects',
-    },
-    {
-        title: '',
-        label: 'Testimonials',
-        path: '/testimonials',
     },
 ];
 

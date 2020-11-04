@@ -16,7 +16,7 @@ const themeOptions = [
     },
     {
         title: 'alt1',
-        niceName: 'Auburn Theme',
+        niceName: 'Copper Theme',
     },
     {
         title: 'alt2',
@@ -33,7 +33,7 @@ const ToggleTheme = ({theme, toggleTheme}) => {
             <WiMoonAltFirstQuarter onClick={() => setToggleColors(!toggleColors)}/>
             <S.ThemeSelector>
                 <S.Options>
-                    <div className="options-item theme-color">
+                    <div className="options-item theme-color font-sans">
                         {
                             themeOptions.map(item => (
                                 <div className="relative z-10"

@@ -109,10 +109,10 @@ const GlobalStyles = createGlobalStyle`
     --gray-300: #E0E0E0;    
     --gray-400: #BDBDBD;    
     --gray-500: #9E9E9E;    
-    --gray-600: #757575;    
-    --gray-700: #616161;    
+    --gray-600: #444;    
+    --gray-700: #333;    
     --gray-800: #212121;    
-    --gray-900: #1a202c;  
+    --gray-900: #111;  
     --steel-gray-100: #f7fafc;    
     --steel-gray-200: #edf2f7;    
     --steel-gray-300: #e2e8f0;    
@@ -135,15 +135,15 @@ const GlobalStyles = createGlobalStyle`
     --aqua-900: #013642;     
     
     /* Auburn Theme */
-    --auburn-100: #D30000;    
-    --auburn-200: #9B0000;    
-    --auburn-300: #670000;    
-    --auburn-400: #4F0000;    
-    --auburn-500: #7B2323;    
-    --auburn-600: #581919;    
-    --auburn-700: #3C1010;    
-    --auburn-800: #260909;    
-    --auburn-900: #150404;    
+    --orange-100: #fffaf0;    
+    --orange-200: #feebc8;    
+    --orange-300: #fbd38d;    
+    --orange-400: #f6ad55;    
+    --orange-500: #ed8936;    
+    --orange-600: #dd6b20;    
+    --orange-700: #c05621;    
+    --orange-800: #9c4221;    
+    --orange-900: #7b341e;    
 
     /* Accents */
     --orange: #ff714a;
@@ -151,6 +151,7 @@ const GlobalStyles = createGlobalStyle`
     --aqua: ##53c9af;
     --cyan: cyan;
     --magenta: magenta;
+    --purple: #805ad5;
     
     /* Remove Below */
     --yellow: #ffb200;

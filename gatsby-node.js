@@ -110,6 +110,7 @@ exports.createPages = ({ graphql, actions }) => {
   return new Promise((resolve, reject) => {
 
     const blogPost = path.resolve(`./src/templates/BlogPost/index.jsx`)
+    const tutorialPost = path.resolve(`./src/templates/tutorialPost/index.jsx`)
     const tagPage = path.resolve("src/templates/Tag/index.jsx");
     const categoryPage = path.resolve("src/templates/Category/index.jsx");
     const authorsPage = path.resolve("src/templates/Authors/index.jsx");

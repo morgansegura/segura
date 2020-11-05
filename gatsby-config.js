@@ -194,7 +194,7 @@ module.exports = {
                       title
                       date
                     }
-                    html
+                    body
                   }
                 }
               }

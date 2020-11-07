@@ -12,7 +12,7 @@ backend:
     openAuthoring: "{{message}}"
 
 publish_mode: editorial_workflow
-media_folder: "static/assets/images/"
+media_folder: "/static/assets/images"
 public_folder: "content/assets/"
 show_preview_links: true
 public_folder_relative: true

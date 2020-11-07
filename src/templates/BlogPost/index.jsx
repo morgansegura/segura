@@ -104,7 +104,7 @@ export default ({data, location, pageContext, pathContext}) => {
                     </BioImageContainer>
                     <BioContent className="p-10 lg:p-16">
                         <span className="block font-thin text-base font-sans tracking-normal">{category}</span>
-                        <h2 className="font-sans font-headline text-5xl leading-10 font-semibold mb-5">{title}</h2>
+                        <h2 className="font-sans text-5xl leading-10 font-semibold mb-5">{title}</h2>
                         <div className="font-sans text-sm leading-loose">
                             <p className="mb-3 pt-2">
                                 {excerpt}

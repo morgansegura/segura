@@ -18,14 +18,12 @@ class Header extends Component {
         const header = element.querySelector('.header')
 
         if (window.scrollY > header.clientHeight ) {
-            console.log('Yes')
             header.classList.add('scrolled-header')
         } else {
             header.classList.remove('scrolled-header')
         }
     }
     render() {
-        console.log(this.props)
         return (
             <S.HeaderWrapper className={`header ${this.props.className}`} onScroll={this.handleScroll}>
                 <div className="flex w-full items-center">

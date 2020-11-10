@@ -70,7 +70,7 @@ const GlobalStyles = createGlobalStyle`
     color: ${({theme}) => theme.textBody};
     text-size-adjust: 100%;
     font-size: 100%;
-    font-family: var(--base-font);
+    font-family: var(--sans-font);
     font-size: 1rem;
     font-weight: 400;
     font-style: normal;
@@ -160,9 +160,8 @@ const GlobalStyles = createGlobalStyle`
     --accent3: #16c79b;
     --accent4: #ff714a;
 
-  ${customMedia.greaterThan('large')`
-    --size: 80px;
-  `};    
+    --headline-font: 'Cairo', sans-serif;
+    --sans-font: 'Open Sans', sans-serif;
   }
 `
 // Magenta https://www.color-hex.com/color-palette/31535

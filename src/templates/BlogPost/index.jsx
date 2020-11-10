@@ -6,7 +6,7 @@ import Layout from '../../components/Layout'
 import SEO from 'react-seo-component'
 import {useSiteMetadata} from '../../hooks/useSiteMetadata'
 import {useFontSize} from '../../components/Theme/useFontSize'
-// import ToggleFontSize from '../../components/Theme/toggleFontSize'
+import ToggleFontSize from '../../components/Theme/toggleFontSize'
 import {fontSizeNormal, fontSizeMedium, fontSizeLarge} from '../../components/Theme/themeStyles'
 import {ThemeProvider} from 'styled-components'
 /* Styled Components */
@@ -98,8 +98,8 @@ export default ({data, location, pageContext, pathContext}) => {
                     <BioImageContainer>
                         <BioImage
                             className="w-full h-full"
-                            style={{backgroundImage: `url(${thumbnail.childImageSharp.fluid.src})`}}
-                            alt=""
+                            fluid={thumbnail.childImageSharp.fluid}
+                            alt={title}
                         />
                     </BioImageContainer>
                     <BioContent className="p-10 lg:p-16">
@@ -110,19 +110,25 @@ export default ({data, location, pageContext, pathContext}) => {
                                 {excerpt}
                             </p>
                         </div>
-                        <Button className="mt-6 ml-auto text-center inline-flex lg:block py-3 px-6 rounded-md shadow-md font-semibold text-lg font-sans"
-                                to={'/'}>
-                            Read Full {category}
-                        </Button>
                     </BioContent>
                 </HeroBlock>
 
-                <section className="p-10 lg:p-16">
-                    <S.Body>
-                        <MDXProvider>
-                            <MDXRenderer>{body}</MDXRenderer>
-                        </MDXProvider>
-                    </S.Body>
+                <S.ContentBody className="p-10 lg:p-16">
+                    <div className="flex items-center justify-end p-4 space-x-4 mb-10">
+                        <div className="text-xs">Font Size: </div>
+                        <div className="cursor-pointer" onClick={() => toggleFontSize('normal')}>
+                            Normal
+                        </div>
+                        <div className="cursor-pointer" onClick={() => toggleFontSize('medium')}>
+                            Medium
+                        </div>
+                        <div className="cursor-pointer" onClick={() => toggleFontSize('large')}>
+                            Large
+                        </div>
+                    </div>
+                    <MDXProvider>
+                        <MDXRenderer>{body}</MDXRenderer>
+                    </MDXProvider>
                     {previous === false ? null : (
                     <div>
                         {previous && (
@@ -141,9 +147,9 @@ export default ({data, location, pageContext, pathContext}) => {
                             )}
                         </div>
                     )}
-                </section>
+                </S.ContentBody>
 
-                <div>
+                <S.ToTop className="fixed z-20 bottom-0 right-0 mr-8 -mb-8">
                     <button
                         onClick={scrollTop}
                         className={showScroll ? `show` : ``}
@@ -153,7 +159,7 @@ export default ({data, location, pageContext, pathContext}) => {
                     <button onClick={() => setToggleToolbar(!toggleToolbar)}>
                         <AiOutlineSetting/>
                     </button>
-                </div>
+                </S.ToTop>
             </Layout>
         </ThemeProvider>
     )

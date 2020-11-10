@@ -11,6 +11,7 @@ const customMedia = generateMedia({
 // Layout Components
 export const Content = styled.div`
   position: relative; 
+  height: 100%;
 
   ${customMedia.greaterThan('large')`
     border-left: 1rem solid transparent;
@@ -25,7 +26,7 @@ export const Content = styled.div`
     }  
   `};
   ${customMedia.greaterThan('huge')`
-    position: absolute;  
+    position: absolute;
     left: calc(50% + 6rem);
     margin-left: auto;
     margin-right: auto;
@@ -35,7 +36,6 @@ export const Content = styled.div`
     border-right: 1px solid ${({ theme }) => theme.borderContent};
   `};
 `
-
 export const MainNavToggle = styled.div`
   position: relative;
   z-index: -1;
@@ -84,9 +84,7 @@ export const MainNavToggle = styled.div`
     display: none;
   }
   ${customMedia.greaterThan('large')`
-      .mobile & {
         display: none;
-      }
   `};
 `
 export const Hamburger = styled.div`
@@ -155,9 +153,11 @@ export const Hamburger = styled.div`
   }
 `
 export const Footer = styled.footer`
- background-color: ${({ theme }) => theme.bgFooter};
- color: ${({ theme }) => theme.textFooter};
- 
+  background-color: ${({ theme }) => theme.bgFooter};
+  color: ${({ theme }) => theme.textFooter};
+  transition: height 0.15s ease-in-out;
+  width: 100%;  
+
   a, .social-icon {
     color: ${({ theme }) => theme.iconFooter};
     transition: all 0.3s ease-out;

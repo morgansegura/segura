@@ -23,7 +23,7 @@ export const BioImageContainer = styled.div`
     max-width: 50%;
   `};
 `
-export const BioImage = styled.div`
+export const BioImage = styled(Img)`
   position: relative;
   height: 100%;
   min-height: 300px;

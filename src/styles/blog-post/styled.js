@@ -9,47 +9,62 @@ const customMedia = generateMedia({
   huge: '1400px',
 })
 
-
-    // ${customMedia.greaterThan('large')`
-    //
-    // `};
-// ${({ theme }) => theme.panelOffset};
-
-
-export const Body = styled.div`
+export const ContentBody = styled.section`
   max-width: 100%;
   overflow: hidden;
-  
-  h1, h2, h3, h4, h5, h6 {    
+  background-color: ${({ theme }) => theme.bgBlock2};
+
+  /* ${customMedia.greaterThan('large')`
+    padding: 2rem;
+  `}
+   */
+  h1, h2, h3, h4, h5, h6 { 
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    color: ${({ theme }) => theme.textHeadlineHero};
+
     a {
-      color: ${({ theme }) => theme.headingOne};
+      display: none;
     }
   }
-  h1 {
-    font-size: ${({ theme }) => theme.text3XL};
+  h1, h2 {
+    line-height: 1.1;
+  }
+  h1, h2 {
+    font-family: var(--headline-font);
+  }
+  h3, h4, h5, h6 {
+    line-height: 1.2;
+  }
+  p, li, caption {
+    line-height: 1.8;
+  }
+  h2, h3, h4, h5, h6, p, li, caption {
+    font-family: var(--sans-font);
+  }
+  h2, h3, h4, h5, h6 {
+    margin-bottom: 0.75rem;
+  }
+  ul, ol, p {
+    margin-bottom: 1.25rem;
+    color: ${({ theme }) => theme.textHero};
+    font-size: ${({ theme }) => theme.textBase};
   }
   h2 {
-    font-size: ${({ theme }) => theme.headingTwo};
+    font-size: ${({ theme }) => theme.text4XL};
   }
   h3 {
-    font-size: ${({ theme }) => theme.headingThree};
+    font-size: ${({ theme }) => theme.text3XL};
   }
   h4 {
-    font-size: ${({ theme }) => theme.headingFour};
+    font-size: ${({ theme }) => theme.text2XL};
   }
   h5 {
-    font-size: ${({ theme }) => theme.headingFive};
+    font-size: ${({ theme }) => theme.textXL};
   }
   h6 {
-    font-size: ${({ theme }) => theme.headingSix};
-  }
-  p {
-    font-size: ${({ theme }) => theme.paragraph};
-    font-family: var(--base-font);
-    font-weight: 400;
-    line-height: 1.8;
-    letter-spacing: 0.0125rem;
-    margin-bottom: 1.25rem;
+    font-size: ${({ theme }) => theme.textXL};
   }
 
   a {
@@ -60,11 +75,20 @@ export const Body = styled.div`
       fill: ${({ theme }) => theme.accentSecondary};
     }
   }
-
+  ul, ol {
+    margin-left: 2rem;
+  }
+  ul {
+    list-style-type: disc;
+  }
+  ol {
+    list-style-type: decimal;
+  }
   /* Code */
   .gatsby-highlight {
     display: flex;
     max-width: 100%;
+    margin-bottom: 1.25rem;
   }
   code[class*=language-],
   pre[class*=language-] {
@@ -98,6 +122,7 @@ export const Body = styled.div`
   :not(pre)>code[class*=language-],
   code[class*=language-],
   pre[class*=language-] {
+      width: 100%;
       background:  ${({ theme }) => theme.codeBackground};
   }
 
@@ -184,8 +209,11 @@ export const Body = styled.div`
   }
   /* Code */
 
-  ${customMedia.greaterThan('large')`
-    padding: 2rem;
+`
+export const ToTop = styled.div`
+    
+  ${customMedia.greaterThan('medium')`
+    
   `}
 `
 export const Footer = styled.footer`

@@ -93,99 +93,40 @@ export default ({data, location, pageContext, pathContext}) => {
                     article="true"
                     publishedDate={date}
                     modifiedDate={new Date(Date.now()).toISOString()}
-                /> Anything?
-                <HeroBlock className="flex flex-col xl:flex-row">
+                />
+                <HeroBlock className="flex flex-col lg:flex-row">
                     <BioImageContainer>
                         <BioImage
                             className="w-full h-full"
-                            style={{backgroundImage: `url(${thumbnail.childImageSharp.fluid.src})`}}
-                            alt=""
+                            fluid={thumbnail.childImageSharp.fluid}
+                            alt={title}
                         />
                     </BioImageContainer>
                     <BioContent className="p-10 lg:p-16">
-                        <span className="block font-thin text-base font-sans tracking-normal">Creative Technologist</span>
-                        <h2 className="font-sans font-headline text-5xl leading-10 font-semibold mb-5">Morgan Segura</h2>
+                        <span className="block font-thin text-base font-sans tracking-normal">{category}</span>
+                        <h2 className="font-sans text-5xl leading-10 font-semibold mb-5">{title}</h2>
                         <div className="font-sans text-sm leading-loose">
                             <p className="mb-3 pt-2">
-                                Hook leggings snapple dj jazzy jeff david duchovny end of the road gatorade, cornrows pulp
-                                fiction alta vista skate tees roseanne barr wesley snipes. Eminem bandanas fanny packs hot pink
-                                boy bands when you’re lost out there and you’re all alone.
-                            </p>
-                            <p className="pt-2">
-                                Flip flops wearing your cap backwards encarta I've fallen and I can't get up wayne gretzky
-                                tamagotchi. Nintendo 64 sup hip hop playa puff daddy, courtney love end of the road warheads
-                                push pencils.
+                                {excerpt}
                             </p>
                         </div>
-                        <Button className="mt-6 ml-auto text-center inline-flex lg:block py-3 px-6 rounded-md shadow-md font-semibold text-lg font-sans"
-                                to={'/'}>
-                            Download CV
-                        </Button>
                     </BioContent>
                 </HeroBlock>
-                <div className={toggleToolbar ? `toolbar--open` : ``}>
-                    <section>
-                        <div>
-                            {!!thumbnail && (
-                                <BioImage
-                                    style={{backgroundImage: `url(${thumbnail.childImageSharp.fluid.src})`}}
-                                />
-                            )}
-                        </div>
 
-                        <S.BioContent>
-                            {!!category && <span className="category">{category}</span>}
-                            <h2>{title}</h2>
-                            {!!excerpt && <p>{excerpt}</p>} <S.TagsList> Tag 1, tag 2 </S.TagsList>
-
-                        </S.BioContent>
-                    </section>
-                    <section className="section--inner">
-                        <S.BlogHeader>
-                            <S.BlogMeta>
-                                {!!authorTitle && (
-                                    <S.AuthorDisplay>
-                                        <S.AuthorMeta>
-                                            <S.AuthorAvatar
-                                                fluid={avatar.childImageSharp.fluid}
-                                                alt={authorTitle}
-                                            />
-                                            <span>{authorTitle}</span>
-                                            <span>{jobTitle}</span>
-                                            <S.Social>
-                                                <FaDribbble/>
-                                                <FaGithubAlt/>
-                                                <FaTwitter/>
-                                            </S.Social>
-                                        </S.AuthorMeta>
-                                        <S.AuthorExcerpt>
-                                            {bioExcerpt}
-                                        </S.AuthorExcerpt>
-                                        <S.AuthorBio>
-                                            {bio}
-                                        </S.AuthorBio>
-                                    </S.AuthorDisplay>
-                                )}
-                            </S.BlogMeta>
-                            <h3>{subheading}</h3>
-                        </S.BlogHeader>
-
-                        <S.BlogBody>
-                            <MDXProvider>
-                                <MDXRenderer>{body}</MDXRenderer>
-                            </MDXProvider>
-                        </S.BlogBody>
-                        <S.BlogFooter> Footer Stuff </S.BlogFooter>
-
-                        {previous === false ? null : (
-                            <div>
-                                {previous && (
-                                    <Link to={previous.fields.slug}>
-                                        <p>{previous.frontmatter.title}</p>
-                                    </Link>
-                                )}
-                            </div>
-                        )} {next === false ? null : (
+                <S.ContentBody className="p-10 lg:p-16">
+                    <MDXProvider>
+                        <MDXRenderer>{body}</MDXRenderer>
+                    </MDXProvider>
+                    {previous === false ? null : (
+                    <div>
+                        {previous && (
+                            <Link to={previous.fields.slug}>
+                                <p>{previous.frontmatter.title}</p>
+                            </Link>
+                        )}
+                    </div>
+                    )}
+                    {next === false ? null : (
                         <div>
                             {next && (
                                 <Link to={next.fields.slug}>
@@ -194,13 +135,18 @@ export default ({data, location, pageContext, pathContext}) => {
                             )}
                         </div>
                     )}
-                    </section>
-                    <S.ToolbarBlock> <S.ToTopButton
+                </S.ContentBody>
+
+                <div>
+                    <button
                         onClick={scrollTop}
                         className={showScroll ? `show` : ``}
-                    > <AiOutlineArrowUp/> </S.ToTopButton>
-                        <S.ToolbarButton onClick={() => setToggleToolbar(!toggleToolbar)}> <AiOutlineSetting/>
-                        </S.ToolbarButton> </S.ToolbarBlock>
+                    >
+                        <AiOutlineArrowUp/>
+                    </button>
+                    <button onClick={() => setToggleToolbar(!toggleToolbar)}>
+                        <AiOutlineSetting/>
+                    </button>
                 </div>
             </Layout>
         </ThemeProvider>

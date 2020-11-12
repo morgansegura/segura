@@ -34,15 +34,15 @@ collections:
             fields:          
               - { label: "Hero Title", name: "heroTitle", widget: "string" }
               - { label: "Hero Alt Text", name: "heroAltText", widget: "string" }
-              - { label: "Hero Image", name: "heroIMage", widget: "image" }
+              - { label: "Hero Image", name: "heroImage", widget: "image" }
               - { label: "Hero Body", name: "heroBody", widget: "string" }
               - label: "Hero Button"
                 name: "heroButton"
                 widget: "object"
                 fields: 
-                  - { label: "Label", name: "label", widget: "string" }
-                  - { label: "Internal Link", name: "innerLink", widget: "string" }
-                  - { label: "External Link", name: "outerLink", widget: "string" }
+                  - { label: "Label", name: "buttonLabel", widget: "string" }
+                  - { label: "Internal Link", name: "buttonInnerLink", widget: "string" }
+                  - { label: "External Link", name: "buttonOuterLink", widget: "string" }
 
   # Posts
   - name: "posts" # Used in routes, e.g., /admin/collections/blog

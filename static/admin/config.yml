@@ -1,7 +1,7 @@
 backend:
   name: github
   repo: morgansegura/segura
-  branch: master
+  branch: develop
   site_domain: https://segura.llc/
   commit_messages:
     create: Create {{collection}} “{{slug}}”

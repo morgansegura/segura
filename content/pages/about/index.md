@@ -1,5 +1,5 @@
 ---
-title: about Page
+title: About Page
 hero:
   heroTitle: A title
   heroAltText: A test alt Text

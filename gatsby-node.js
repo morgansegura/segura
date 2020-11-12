@@ -112,7 +112,9 @@ exports.createPages = ({ graphql, actions }) => {
     const blogPost = path.resolve(`./src/templates/BlogPost/index.jsx`)
     // const tutorialPost = path.resolve(`./src/templates/tutorialPost/index.jsx`)
     const tagPage = path.resolve("src/templates/Tag/index.jsx");
+    const tagsPage = path.resolve("src/templates/Tags/index.jsx");
     const categoryPage = path.resolve("src/templates/Category/index.jsx");
+    const categoriesPage = path.resolve("src/templates/Categories/index.jsx");
     const authorsPage = path.resolve("src/templates/Authors/index.jsx");
     const authorPage = path.resolve("src/templates/Author/index.jsx");
     resolve(
@@ -209,10 +211,10 @@ exports.createPages = ({ graphql, actions }) => {
           });
         });
 
-        const tagList = Array.from(tagSet);
-        tagList.forEach(tag => {
+        const tagListPosts = Array.from(tagSet);
+        tagListPosts.forEach(tag => {
           createPage({
-            path: `/tags/${_.kebabCase(tag)}/`,
+            path: `/tag/${_.kebabCase(tag)}/`,
             component: tagPage,
             context: {
               tag
@@ -220,10 +222,10 @@ exports.createPages = ({ graphql, actions }) => {
           });
         });
 
-        const categoryList = Array.from(categorySet);
-        categoryList.forEach(category => {
+        const categoryListPosts = Array.from(categorySet);
+        categoryListPosts.forEach(category => {
           createPage({
-            path: `/categories/${_.kebabCase(category)}/`,
+            path: `/category/${_.kebabCase(category)}/`,
             component: categoryPage,
             context: {
               category

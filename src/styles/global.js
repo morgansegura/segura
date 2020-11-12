@@ -97,7 +97,7 @@ const GlobalStyles = createGlobalStyle`
         background-color: ${({theme}) => theme.scrollBarHover};
     }    
     &:active {
-        background-color: ${({theme}) => theme.bgButton};
+        background-color: ${({theme}) => theme.scrollBarActive};
     }
   }
 

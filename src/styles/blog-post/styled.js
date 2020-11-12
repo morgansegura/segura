@@ -12,7 +12,7 @@ const customMedia = generateMedia({
 export const ContentBody = styled.section`
   max-width: 100%;
   overflow: hidden;
-  background-color: ${({ theme }) => theme.bgBlock2};
+  background-color: ${({ theme }) => theme.bgBlock1};
 
   /* ${customMedia.greaterThan('large')`
     padding: 2rem;
@@ -40,7 +40,7 @@ export const ContentBody = styled.section`
   p, li, caption {
     line-height: 1.8;
   }
-  h2, h3, h4, h5, h6, p, li, caption {
+  h3, h4, h5, h6, p, li, caption {
     font-family: var(--sans-font);
   }
   h2, h3, h4, h5, h6 {
@@ -69,10 +69,10 @@ export const ContentBody = styled.section`
 
   a {
     font-weight: bold;
-    color: ${({ theme }) => theme.accentSecondary};
+    color: ${({ theme }) => theme.bgButton};
 
     svg {
-      fill: ${({ theme }) => theme.accentSecondary};
+      fill: ${({ theme }) => theme.bgButtonHover};
     }
   }
   ul, ol {
@@ -210,8 +210,41 @@ export const ContentBody = styled.section`
   /* Code */
 
 `
+export const Toolkit = styled.div`
+  background-color: ${({ theme }) => theme.bgBlock2};
+  color: ${({ theme }) => theme.textBlock2};
+
+  .link {
+    color: ${({ theme }) => theme.bgButton};
+
+    &:hover {
+      color: ${({ theme }) => theme.bgButtonHOver};
+      text-decoration: underline;
+    }
+  }
+
+  .font-sizes .button {
+    cursor: pointer;
+    background-color: ${({ theme }) => theme.bgButton};
+    color: ${({ theme }) => theme.textButton};
+    transition: all 0.3s ease-out;
+
+    &:hover {
+      background-color: ${({ theme }) => theme.bgButtonHover};
+      color: ${({ theme }) => theme.textButtonHOver};
+    }
+
+    &.active {
+      cursor: text;
+      background-color: ${({ theme }) => theme.bgButtonDisabled};
+      &:hover {
+        background-color: ${({ theme }) => theme.bgButtonDisabled};
+      }
+    }
+  }
+`
 export const ToTop = styled.div`
-    
+
   ${customMedia.greaterThan('medium')`
     
   `}

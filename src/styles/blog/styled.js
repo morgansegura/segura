@@ -1,40 +1,40 @@
 import styled from 'styled-components'
-import { generateMedia } from 'styled-media-query'
 
-const customMedia = generateMedia({
-  medium: '768px',
-})
-
-export const BlogContainer = styled.section`
-  max-width: var(--width-container);
-  padding: 6rem 20px;
-  margin-right: auto;
-  margin-left: auto;
-
-  ${customMedia.greaterThan('medium')`
-    padding: 6rem 40px;
-  `}
+export const Body = styled.section`
+  background-color: ${({ theme }) => theme.bgBlock1};
 `
-
-export const BlogHeader = styled.header`
-  h1 {
-    font-size: 40px;
-    line-height: 67px;
-    color: ${({ theme }) => theme.headline};
-
-    span {
-      font-size: 1rem;
-      position: relative;
-      top: -15px;
-      color: ${({ theme }) => theme.headline};
-    }
+export const Header = styled.header`
+  h3 {
+    border: 1px solid ${({ theme }) => theme.borderHeadlineBlock1};
+    color: ${({ theme }) => theme.borderHeadlineBlock1};
   }
 `
+export const PostCard = styled.div`
+  background-color: ${({ theme }) => theme.bgCardBlock1};
+  border: 1px solid ${({ theme }) => theme.borderCardBlock1};
+  color: ${({ theme }) => theme.textCardBlock1};
 
-export const BlogPostFeed = styled.div`
-    /* p {
-        font-size: 14px;
-        line-height: 30px;
-        color: ${({ theme }) => theme.text};
-    } */
+  .title {
+    color: ${({ theme }) => theme.textHeadlineCardBlock1};
+  }
+  .author {
+    color: ${({ theme }) => theme.textOffsetBlock1};
+  }
+  .date, .category {
+    color: ${({ theme }) => theme.textOffsetBlock1};
+  }
+  .excerpt {
+
+  }
+  .tags {
+    .link {
+      background-color: ${({ theme }) => theme.bgButton};
+      color: ${({ theme }) => theme.textButton};
+      transition: all 0.3s ease-out;
+      &:hover {
+        background-color: ${({ theme }) => theme.bgButtonHover};
+        color: ${({ theme }) => theme.textButtonHover};
+      }
+    }
+  }
 `

@@ -55,7 +55,7 @@ export const MainNavToggle = styled.div`
     content: '';
     position: absolute;
     z-index: -1;
-    background-color: ${({ theme }) => theme.iconHeaderHover};
+    background-color: ${({ theme }) => theme.iconHeaderBGHover};
     width: 45px;
     height: 45px;
     border-radius: 100%;
@@ -65,7 +65,7 @@ export const MainNavToggle = styled.div`
   }
   .drawer-open & {
     &:after {
-      background-color: ${({ theme }) => theme.iconHeaderHover};
+      background-color: ${({ theme }) => theme.iconHeaderBGHover};
       transform: scale(1);
     }
   }  
@@ -109,13 +109,14 @@ export const Hamburger = styled.div`
     height: 3px;
     border-radius: 10px;
     border: none;
-    transition: rotate 0.3s ease-in, background-color 0.2s ease-out;   
+    transition: rotate 0.3s ease-in, background-color 0.2s ease-out;     
   }
   &:before {
     top: 30%;
     width: 25px;
     transform-origin: 50% 50%;
     transform: translateX(0) rotate(180deg);
+    transition: background-color 0.3s ease-out;
 
     .drawer-open & {
       opacity: 0;
@@ -126,14 +127,14 @@ export const Hamburger = styled.div`
     width: 25px;
     transform-origin: 50% 50%;
     transform: translateX(0) rotate(180deg);
-    transition: width 0.3s ease-in, transform 0.1s ease-in;
+    transition: width 0.3s ease-in, transform 0.1s ease-in, background-color 0.3s ease-out;
 
     .drawer-open & {
       width: 28px;
       top: 48%;
       transform: rotate(-45deg) translateX(0);
       left: 22%;
-      background-color: ${({ theme }) => theme.iconHeader};
+      background-color: ${({ theme }) => theme.iconHeaderHover};
     }
   }
   &:after {
@@ -142,15 +143,22 @@ export const Hamburger = styled.div`
     width: 25px;
     transform-origin: 50% 50%;
     transform: translateX(0) rotate(-180deg);
-    transition: width 0.2s ease-in;
+    transition: width 0.2s ease-in, background-color 0.3s ease-out;
 
     .drawer-open & {
       top: 48%;
       width: 28px;
       transform: rotate(45deg) translateX(0);
-      background-color: ${({ theme }) => theme.iconHeader};
+      background-color: ${({ theme }) => theme.iconHeaderHover};
     }
   }
+  &:hover {
+    &.hamburger:before,
+    &.hamburger:after,
+    & .hamburger__center {
+      background-color: ${({ theme }) => theme.iconHeaderHover};
+    }
+  }  
 `
 export const Footer = styled.footer`
   background-color: ${({ theme }) => theme.bgFooter};

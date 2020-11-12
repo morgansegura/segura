@@ -32,7 +32,7 @@ export const HeaderWrapper = styled.header`
     width: calc(100% - 12rem);
     height: 6rem;
     margin-left: 12rem;
-    border-left: 15px solid transparent;     
+    border-left: 17px solid transparent;     
       &.scrolled-header:before {
         opacity: 0.85;
       }    

@@ -1,5 +1,6 @@
-import React from 'react'
-import {graphql} from 'gatsby'
+import React, {Fragment} from 'react'
+import {graphql, Link} from 'gatsby'
+import Img from 'gatsby-image'
 /* Components */
 import Layout from '../../components/Layout'
 import SEO from '../../components/SEO'
@@ -19,30 +20,51 @@ export default ({data, location, pageContext}) => {
 
     // console.log(posts)
     return (
-        <Layout location={location.pathname}
-                title={siteTitle}> <SEO
-            title={`Blog`}
-            keywords={[`${tag}`, `blog`, `gatsby`, `javascript`, `react`]}
-        />
-            <section className="pt-24">
+        <Layout location={location.pathname} title={siteTitle}>
+            <SEO
+                title={`Blog`}
+                keywords={[`${tag}`, `blog`, `gatsby`, `javascript`, `react`]}
+            />
+            <S.Body className="pt-24 md:pt-0">
                 <div className="p-10 lg:p-16">
-                    <header className="mb-6">
+                    <S.Header className="mb-6">
                         <h3 className="inline-flex items-center uppercase tracking-wide rounded-md shadow-lg px-4 py-2 font-headline font-semibold text-lg">
                             Areas of expertise
                         </h3>
-                    </header>
-                    <div className="font-sans grid grid-cols-1 md:grid-cols-2 gap-4">
-                        {!!posts && posts.map(({node}) => {
-                            return (
-                                <div>
-                                    <PostCard node={node}
-                                              postClass={`post`}/>
-                                </div>
-                            )
-                        })}
+                    </S.Header>
+                    {console.log(posts)}
+                    <div className="font-sans grid grid-cols-1 gap-4">
+                        {!!posts && posts.map(({ node: { fields: { slug }, frontmatter: { author, category, date, excerpt, title, tags, thumbnail } } }, i) => (
+                            <S.PostCard className="card shadow-lg relative rounded-md w-full p-4">
+                                <div  className="relative flex flex-col md:flex-row">
+                                    <Link to={slug} className="w-full mb-2 md:w-1/3 relative overflow-hidden md:mr-4 md:mb-0">
+                                        <Img className="h-32 min-h-full md:h-40 absolute rounded-sm" fluid={thumbnail.childImageSharp.fluid} alt={title} />
+                                    </Link>             
+                                    <div className="flex-1">
+                                        <Link to={slug} className="flex justify-between">
+                                            <div className="category uppercase text-xs">{category}</div>
+                                            <div className="date uppercase text-xs">{date}</div>                                        
+                                        </Link>
+                                        <Link to={slug} className="title block font-headline text-2xl mb-1 font-semibold">{title}</Link>
+                                        <Link to={slug} className="excerpt block text-xs">{excerpt}</Link>
+                                        <div className="tags text-xs font-semibold mt-4 flex justify-end space-x-2">
+                                            {
+                                                tags.map((tag, i) => (
+                                                    <Fragment>
+                                                        <Link className="link rounded-md px-2" to={`/tags/${_.kebabCase(tag.toLowerCase())}`}>
+                                                            #{tag}
+                                                        </Link>
+                                                    </Fragment>
+                                                ))
+                                            }
+                                        </div>   
+                                    </div>
+                                </div>                             
+                            </S.PostCard>
+                        ))}
                     </div>
                 </div>
-            </section>
+            </S.Body>
         </Layout>
     )
 }
@@ -70,13 +92,13 @@ export const pageQuery = graphql`
                         category
                         tags
                         excerpt
-                        # thumbnail {
-                        #   childImageSharp {
-                        #     fluid(maxWidth: 680) {
-                        #       ...GatsbyImageSharpFluid
-                        #     }
-                        #   }
-                        # }          
+                        thumbnail {
+                          childImageSharp {
+                            fluid(maxWidth: 800) {
+                              ...GatsbyImageSharpFluid
+                            }
+                          }
+                        }          
                     }
 
                 }

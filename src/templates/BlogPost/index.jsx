@@ -1,4 +1,5 @@
-import React, {useState, useEffect} from 'react'
+import React, { useState, useEffect, Fragment } from 'react'
+import _ from 'lodash'
 import {graphql, Link} from 'gatsby'
 import {MDXProvider} from '@mdx-js/react'
 import {MDXRenderer} from 'gatsby-plugin-mdx'
@@ -104,7 +105,7 @@ export default ({data, location, pageContext, pathContext}) => {
                     </BioImageContainer>
                     <BioContent className="p-10 lg:p-16">
                         <span className="block font-thin text-base font-sans tracking-normal">{category}</span>
-                        <h2 className="font-sans text-5xl leading-10 font-semibold mb-5">{title}</h2>
+                        <h1 className="font-headline text-5xl leading-10 font-semibold mb-5">{title}</h1>
                         <div className="font-sans text-sm leading-loose">
                             <p className="mb-3 pt-2">
                                 {excerpt}
@@ -112,20 +113,39 @@ export default ({data, location, pageContext, pathContext}) => {
                         </div>
                     </BioContent>
                 </HeroBlock>
-
-                <S.ContentBody className="p-10 lg:p-16">
-                    <div className="flex items-center justify-end p-4 space-x-4 mb-10">
+                <S.Toolkit className="toolkit flex items-center justify-between p-8">
+                    <div>
+                        <div className="category flex items-center text-sm">
+                            <span className="mr-1 text-xs">Posted in:</span> <Link className="link font-semibold" to={`${_.kebabCase(category.toLowerCase())}s`}>{category}s</Link>
+                        </div>
+                        <div className="tags text-sm font-semibold">
+                            {
+                                tags.map((tag, i) => (
+                                    <Fragment>
+                                        <Link className="link" to={`tags/${_.kebabCase(tag.toLowerCase())}`}>
+                                                #{tag}                                            
+                                        </Link>
+                                        {i === tags.length - 1 ? '' : ', '}
+                                    </Fragment>
+                                ))
+                            }
+                        </div>                        
+                    </div>
+                    <div className="font-sizes flex items-center justify-end space-x-4">
                         <div className="text-xs">Font Size: </div>
-                        <div className="cursor-pointer" onClick={() => toggleFontSize('normal')}>
+                        {console.log(fontSize)}
+                        <div className={`text-xs uppercase cursor-pointer button rounded-md shadow-lg px-3 ${fontSize === 'normal' ? 'active' : ''}`} onClick={() => toggleFontSize('normal')}>
                             Normal
                         </div>
-                        <div className="cursor-pointer" onClick={() => toggleFontSize('medium')}>
+                        <div className={`text-xs uppercase cursor-pointer button rounded-md shadow-lg px-3 ${fontSize === 'medium' ? 'active' : ''}`} onClick={() => toggleFontSize('medium')}>
                             Medium
                         </div>
-                        <div className="cursor-pointer" onClick={() => toggleFontSize('large')}>
+                        <div className={`text-xs uppercase cursor-pointer button rounded-md shadow-lg px-3 ${fontSize === 'large' ? 'active' : ''}`} onClick={() => toggleFontSize('large')}>
                             Large
                         </div>
                     </div>
+                </S.Toolkit>
+                <S.ContentBody className="p-10 lg:p-16">
                     <MDXProvider>
                         <MDXRenderer>{body}</MDXRenderer>
                     </MDXProvider>

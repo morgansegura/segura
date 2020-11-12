@@ -23,7 +23,7 @@ export const BioImageContainer = styled.div`
     max-width: 50%;
   `};
 `
-export const BioImage = styled(Img)`
+export const BioImage = styled.div`
   position: relative;
   height: 100%;
   min-height: 300px;
@@ -33,7 +33,7 @@ export const BioImage = styled(Img)`
   background-size: cover;
 `
 export const BioContent = styled.div`
-  h2 {
+  h1, h2 {
     color: ${({ theme }) => theme.textHeadlineHero};
   }
   span {

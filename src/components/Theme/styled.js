@@ -107,7 +107,7 @@ export const ToggleContainer = styled.div`
   } 
   &.color-drawer--open {
     &:after {
-      background-color: ${({ theme }) => theme.iconHeaderHover};
+      background-color: ${({ theme }) => theme.iconHeaderBGHover};
       transform: scale(1);
     }  
     svg {
@@ -118,7 +118,7 @@ export const ToggleContainer = styled.div`
     content: '';
     position: absolute;
     z-index: -1;
-    background-color: ${({ theme }) => theme.iconHeaderHover};
+    background-color: ${({ theme }) => theme.iconHeaderBGHover};
     width: 45px;
     height: 45px;
     border-radius: 100%;
@@ -129,7 +129,7 @@ export const ToggleContainer = styled.div`
   &:hover {
     opacity: 1;
     svg {
-      fill: ${({ theme }) => theme.iconHeader};
+      fill: ${({ theme }) => theme.iconHeaderHover};
     }
     &:after {
       transform: scale(1);

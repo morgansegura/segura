@@ -17,14 +17,12 @@ import {skills, studies, technology} from '../data'
 const HomeIndex = ({data, location}) => {
     const siteTitle = data.site.siteMetadata.title
     return (
-        <Layout title={siteTitle}
-                location={location}> <SEO
-            title="The struggle is real"
-            keywords={[`devlog`, `blog`, `gatsby`, `javascript`, `react`]}
-        />
-
+        <Layout title={siteTitle} location={location}>
+            <SEO
+                title="The struggle is real"
+                keywords={[`devlog`, `blog`, `gatsby`, `javascript`, `react`]}
+            />
             {/* <WrapGameElement /> */}
-
             <S.HeroBlock className="flex flex-col xl:flex-row">
                 <S.BioImageContainer>
                     <S.BioImage
@@ -51,7 +49,6 @@ const HomeIndex = ({data, location}) => {
                     <S.Button className="mt-6 ml-auto text-center inline-flex lg:block py-3 px-6 rounded-md shadow-md font-semibold text-lg font-sans" to={'/'}>Download CV</S.Button>
                 </S.BioContent>
             </S.HeroBlock>
-
             <S.SkillsBlock className="p-10 lg:p-16">
                 <header className="mb-6">
                     <h3 className="inline-flex items-center uppercase tracking-wide rounded-md shadow-lg px-4 py-2 font-headline font-semibold text-lg">Areas of expertise</h3>
@@ -72,7 +69,6 @@ const HomeIndex = ({data, location}) => {
                     }
                 </div>
             </S.SkillsBlock>
-
             <S.StackBlock className="p-10 lg:p-16">
                 <header className="mb-6">
                     <h3 className="inline-flex items-center uppercase tracking-wide rounded-md shadow-lg px-4 py-2 font-headline font-semibold text-lg">Preferred Tech</h3>
@@ -91,7 +87,6 @@ const HomeIndex = ({data, location}) => {
                     }
                 </div>
             </S.StackBlock>
-
             <S.StudyBlock className="p-10 lg:p-16">
                 <header className="mb-6">
                     <h3 className="inline-flex items-center uppercase tracking-wide rounded-md shadow-lg px-4 py-2 font-headline font-semibold text-lg">Currently Learning</h3>
@@ -112,7 +107,6 @@ const HomeIndex = ({data, location}) => {
                     }
                 </div>
             </S.StudyBlock>
-
             <S.TestimonialBlock className="p-10 lg:p-16">
                 <header className="mb-6">
                     <h3 className="inline-flex items-center uppercase tracking-wide rounded-md shadow-lg px-4 py-2 font-headline font-semibold text-lg">My Network</h3>

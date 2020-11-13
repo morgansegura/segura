@@ -22,13 +22,13 @@ collections:
   - name: "pages"
     label: "Pages"
     extension: "mdx"
-    format: frontmatter    
+    format: frontmatter 
     files: 
       - file: "content/pages/about/index.mdx"
         label: "About"
         name: "about"
         fields:
-          - { label: "Template Key", name: "templateKey", widget: "hidden", default: "about" }
+          - { label: "Template Key", name: "templateKey", widget: "hidden", default: "about-page" }
           - { label: "Title", name: "title", widget: "string", default: "About Page" }
           - label: "Hero"
             name: "hero"
@@ -50,115 +50,172 @@ collections:
   # Posts
   - name: "posts" # Used in routes, e.g., /admin/collections/blog
     label: "Posts" # Used in the UI
-    folder: "content/blog/"
+    folder: "/content/blog/"
     path: "{{slug}}/index"
-    # media_folder: ""
-    # public_folder: ""
     create: true
     slug: "{{slug}}"
     extension: "mdx"
     format: frontmatter
     fields:
-      - { label: "Template Key", name: "templateKey", widget: "hidden", default: "blog-post" }
-      - { label: "Title", name: "title", widget: "string" }
-      - {
-          label: "Date",
-          name: "date",
-          widget: "datetime",
-          format: "YYYY-MM-DD hh:mm:ss",
-        }
-      - {
-          label: "Author",
-          name: "author",
-          widget: "select",
-          options: ["Morgan Segura"],
-          required: false,
-        }
-      - { label: "Tags", name: "tags", widget: "list", required: false }
-      - {
-          label: "Category",
-          name: "category",
-          widget: "select",
-          required: false,
-          options:
-            [
-              "Article",
-              "Project",
-              "Tutorial",
-              "Quick Tip",
-              "Review",
-              "Case Study",
-            ],
-        }
-      - {
-          label: "Featured Image",
-          name: "thumbnail",
-          widget: "image",
-          default: "/content/blog/{{slug}}",
-          required: false,
-        }
-      - {
-          label: "Subheading",
-          name: "subheading",
-          widget: "string",
-          required: false,
-        }
-      - { label: "Excerpt", name: "excerpt", widget: "text", required: false }
-      - { label: "Body", name: "body", widget: "markdown", required: false }
-  # Tutorials
-  - name: "tutorials" # Used in routes, e.g., /admin/collections/blog
-    label: "Tutorials" # Used in the UI
-    folder: "content/tutorials/"
-    path: "{{slug}}/index"
-    # media_folder: ""
-    # public_folder: ""
-    create: true # Allow users to create new documents in this collection
+      # Template Key
+      - label: "Template Key"
+        name: "templateKey"
+        widget: "hidden"
+        default: "blog-post"
+      # Title
+      - widget: string
+        name: title
+        label: Title
+        required: true
+        hint: >-
+          The title of the blog post
+      # Alternate Title
+      - widget: string
+        name: subheading
+        label: Alternate Title
+        required: true
+        hint: >-
+          An alternatetitle of the blog post
+      # Date
+      - widget: date
+        name: date
+        label: Date
+        format: "YYYY-MM-DD hh:mm:ss"
+        required: true
+        hint: >-
+          The date the post is published
+      # Slug
+      - widget: string
+        name: slug
+        label: Slug
+        required: true
+        hint: >-
+          The post URL (do not include folder or file extension)
+      # Author
+      - widget: relation
+        name: author
+        label: Author
+        required: true
+        hint: >-
+          The author of the post
+        collection: author
+        valueField: slug
+        searchFields: ["title"]
+        displayFields: ["title"]
+      # Category
+      - label: "Category"
+        name: "category"
+        widget: "relation"
+        required: true
+        hint: >-
+          Upload an image to be displayed with the post        
+      # Related Posts
+      - widget: relation
+        name: related_posts
+        label: Related Posts
+        required: false
+        multiple: true
+        hint: >-
+          Other related posts
+        collection: post
+        valueField: slug
+        searchFields: ["title"]
+        displayFields: ["title"]
+      # Body
+      - widget: markdown
+        name: body
+        label: Content
+        required: true
+        hint: Page content
+      # Tags
+      - label: "Tags"
+        name: "Tags"
+        widget: "list"
+        required: false
+        hint: >-
+          Create tags for this post (Comma separated)       
+      # Featured Image
+      - label: "Featured Image"
+        name: "thumbnail"
+        widget: "image"
+        default: "/content/blog/{{slug}}"
+        required: false
+        hint: >-
+          Upload an image to be displayed with the post        
+      # Excerpt
+      - label: "Excerpt"
+        name: "excerpt"
+        widget: "text"
+        required: false
+        hint: >-
+          A "cliff's Notes" version of this post
+  # Authors
+  - name: author
+    label: Authors
+    folder: content/authors
+    create: true
     slug: "{{slug}}"
-    extension: "mdx"
-    format: frontmatter
     fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - {
-          label: "Date",
-          name: "date",
-          widget: "datetime",
-          format: "YYYY-MM-DD hh:mm:ss",
-        }
-      - {
-          label: "Author",
-          name: "author",
-          widget: "select",
-          options: ["Morgan Segura"],
-          required: false,
-        }
-      - { label: "Tags", name: "tags", widget: "list", required: false }
-      - {
-          label: "Category",
-          name: "category",
-          widget: "select",
-          required: false,
-          options:
-            [
-              "Article",
-              "Project",
-              "Tutorial",
-              "Quick Tip",
-              "Review",
-              "Case Study",
-            ],
-        }
-      - {
-          label: "Featured Image",
-          name: "thumbnail",
-          widget: "image",
-          default: "/content/tutorials/{{slug}}",
-          required: false,
-        }
-      - {
-          label: "Subheading",
-          name: "subheading",
-          widget: "string",
-          required: false,
-        }
-      - { label: "Excerpt", name: "excerpt", widget: "text", required: false }
-      - { label: "Body", name: "body", widget: "markdown", required: false }
+    # Author Name
+      - widget: string
+        name: title
+        label: Name
+        required: true
+        hint: >-
+          The name of the author
+      # Slug
+      - widget: string
+        name: slug
+        label: Slug
+        required: true
+        hint: >-
+          The post URL (do not include folder or file extension)
+      # Featured Image
+      - label: "Featured Image"
+        name: "thumbnail"
+        widget: "image"
+        default: "/content/blog/{{slug}}"
+        required: false
+        hint: >-
+          Upload an image to be displayed with the post
+      # Featured Image          
+      - widget: markdown
+        name: body
+        label: Content
+        required: true
+        hint: Author bio
+  # Categories
+  - name: category
+    label: Categories
+    folder: content/category
+    create: true
+    slug: "/content/category/{{slug}}"
+    fields:
+      # Category Name
+      - widget: string
+        name: title
+        label: Name
+        required: true
+        hint: >-
+          The name of the category
+      # Category slug
+      - widget: string
+        name: slug
+        label: Slug
+        required: true
+        hint: >-
+          The category URL (do not include folder or file extension)
+      # Featured Image
+      - label: "Category Image"
+        name: "thumbnail"
+        widget: "image"
+        default: "/content/category/{{slug}}"
+        required: false
+        hint: >-
+          Upload an image to be displayed with the post          
+      # Category Description
+      - widget: markdown
+        name: body
+        label: Content
+        required: true
+        hint: Category Description

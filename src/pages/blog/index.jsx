@@ -1,15 +1,12 @@
-import React, {Fragment} from 'react'
+import React, { Fragment } from 'react'
+import _ from 'lodash'
 import {graphql, Link} from 'gatsby'
 import Img from 'gatsby-image'
 /* Components */
 import Layout from '../../components/Layout'
 import SEO from '../../components/SEO'
 import {useSiteMetadata} from '../../hooks/useSiteMetadata'
-import PostCard from '../../components/PostCard'
-/* Material UI */
-import Grid from '@material-ui/core/Grid'
 import * as S from '../../styles/blog/styled'
-// import { Section, SectionInner, SectionTitleBlock, SectionTitle, SectionDescription, SectionContent, TitleBlock } from '../../styles/layout/styled'
 
 export default ({data, location, pageContext}) => {
     const {title: siteTitle} = useSiteMetadata()
@@ -38,7 +35,7 @@ export default ({data, location, pageContext}) => {
                             <S.PostCard className="card shadow-lg relative rounded-md w-full p-4">
                                 <div  className="relative flex flex-col md:flex-row">
                                     <Link to={slug} className="w-full mb-2 md:w-1/3 relative overflow-hidden md:mr-4 md:mb-0">
-                                        <Img className="h-32 min-h-full md:h-40 absolute rounded-sm" fluid={thumbnail.childImageSharp.fluid} alt={title} />
+                                        {!!thumbnail && <Img className="h-32 min-h-full md:h-40 absolute rounded-sm" fluid={thumbnail.childImageSharp.fluid} alt={title} />}
                                     </Link>             
                                     <div className="flex-1">
                                         <Link to={slug} className="flex justify-between">
@@ -49,7 +46,7 @@ export default ({data, location, pageContext}) => {
                                         <Link to={slug} className="excerpt block text-xs">{excerpt}</Link>
                                         <div className="tags text-xs font-semibold mt-4 flex justify-end space-x-2">
                                             {
-                                                tags.map((tag, i) => (
+                                                !!tags && tags.map((tag, i) => (
                                                     <Fragment>
                                                         <Link className="link rounded-md px-2" to={`/tags/${_.kebabCase(tag.toLowerCase())}`}>
                                                             #{tag}

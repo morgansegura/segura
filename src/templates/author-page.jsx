@@ -2,11 +2,11 @@ import React from "react";
 import Img from "gatsby-image";
 import { Link, graphql } from "gatsby";
 
-import Layout from "../../components/Layout";
+import Layout from "../components/Layout";
 
 /* Material UI */
 import Grid from '@material-ui/core/Grid'
-import * as S from '../../styles/author/styled'
+import * as S from '../styles/author/styled'
 
 export default ({
   data: {

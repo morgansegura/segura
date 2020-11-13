@@ -109,29 +109,37 @@ exports.createPages = ({ graphql, actions }) => {
 
   return new Promise((resolve, reject) => {
 
-    const blogPost = path.resolve(`./src/templates/BlogPost/index.jsx`)
-    // const tutorialPost = path.resolve(`./src/templates/tutorialPost/index.jsx`)
-    const tagPage = path.resolve("src/templates/Tag/index.jsx");
-    const tagsPage = path.resolve("src/templates/Tags/index.jsx");
-    const categoryPage = path.resolve("src/templates/Category/index.jsx");
-    const categoriesPage = path.resolve("src/templates/Categories/index.jsx");
-    const authorsPage = path.resolve("src/templates/Authors/index.jsx");
-    const authorPage = path.resolve("src/templates/Author/index.jsx");
+    const blogPost = path.resolve(`./src/templates/blog-post.jsx`)
+    // const tutorialPost = path.resolve(`./src/templates/tutorial-post.jsx`)
+    const tagPage = path.resolve("src/templates/tag-page.jsx");
+    const categoryPage = path.resolve("src/templates/category-page.jsx");
+    const authorPage = path.resolve("src/templates/author-page.jsx");
     resolve(
       graphql(
         `
           {
-            allMdx {
+            blogs: allMdx(limit: 1000, filter: {frontmatter: {templateKey: {eq: "blog-post"}}}, sort: {fields: [frontmatter___date], order: [DESC]}) {
               edges {
                 node {
                   id
                   frontmatter {
-                    title
-                    author
-                    tags
-                    category
-                    excerpt                  
-                    subheading                  
+                    templateKey
+                    title               
+                  }
+                  fields {
+                    slug
+                    authorId
+                  }                   
+                }
+              }
+            }
+            pages: allMdx(limit: 1000, filter: {frontmatter: {templateKey: {ne: "blog-post"}}}) {
+              edges {
+                node {
+                  id
+                  frontmatter {
+                    templateKey
+                    title               
                   }
                   fields {
                     slug
@@ -148,7 +156,6 @@ exports.createPages = ({ graphql, actions }) => {
           console.log(result.errors);
           reject(result.errors);
         }
-
 
         const sortByDateDescending = (a, b) => {
           const aPubDateInMS = (new Date(a.publishedOn)).getTime()
@@ -186,7 +193,9 @@ exports.createPages = ({ graphql, actions }) => {
         const categorySet = new Set();
         const authorSet = new Set();
 
-        result.data.allMdx.edges.forEach(edge => {
+        const {blogs, pages} = result.data
+
+        blogs.edges.forEach(edge => {
           if (edge.node.frontmatter.tags) {
             edge.node.frontmatter.tags.forEach(tag => {
               tagSet.add(tag);
@@ -203,13 +212,29 @@ exports.createPages = ({ graphql, actions }) => {
 
           createPage({
             path: edge.node.fields.slug,
-            component: blogPost,
+            tags: edge.node.frontmatter.tags,
+            component: path.resolve(
+              `src/templates/blog-post.jsx`
+            ),
             context: {
               slug: edge.node.fields.slug,
-              relatedArticles: getRelatedArticles(edge.node, result.data.allMdx.edges)
+              relatedArticles: getRelatedArticles(edge.node, blogs.edges)
             }
           });
         });
+
+        pages.edges.forEach(edge => {
+          createPage({
+            path: edge.node.fields.slug,
+            tags: edge.node.frontmatter.tags,
+            component: path.resolve(
+              `src/templates/${String(edge.node.frontmatter.templateKey)}.jsx`
+            ),
+            context: {
+              slug: edge.node.fields.slug,
+            }
+          });
+        })
 
         const tagListPosts = Array.from(tagSet);
         tagListPosts.forEach(tag => {
@@ -231,11 +256,6 @@ exports.createPages = ({ graphql, actions }) => {
               category
             }
           });
-        });
-
-        createPage({
-          path: `/authors/`,
-          component: authorsPage
         });
 
         const authorList = Array.from(authorSet);

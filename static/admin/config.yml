@@ -19,30 +19,33 @@ public_folder_relative: true
 
 collections:
   # Home Page
-  - name: "pages" # Used in routes, e.g., /admin/collections/blog
-    label: "Pages" # Used in the UI
+  - name: "pages"
+    label: "Pages"
+    extension: "mdx"
+    format: frontmatter    
     files: 
-      - file: "content/pages/about/index.md"
+      - file: "content/pages/about/index.mdx"
         label: "About"
         name: "about"
         fields:
+          - { label: "Template Key", name: "templateKey", widget: "hidden", default: "about-page" }
           - { label: "Title", name: "title", widget: "string" }
           - label: "Hero"
             name: "hero"
             widget: "object"
             collapsed: true
             fields:          
-              - { label: "Hero Title", name: "heroTitle", widget: "string" }
-              - { label: "Hero Alt Text", name: "heroAltText", widget: "string" }
-              - { label: "Hero Image", name: "heroImage", widget: "image" }
-              - { label: "Hero Body", name: "heroBody", widget: "string" }
+              - { label: "Hero Title", name: "heroTitle", widget: "string", required: false  }
+              - { label: "Hero Alt Text", name: "heroAltText", widget: "string", required: false  }
+              - { label: "Hero Image", name: "heroImage", widget: "image", required: false  }
+              - { label: "Hero Body", name: "heroBody", widget: "string", required: false  }
               - label: "Hero Button"
                 name: "heroButton"
                 widget: "object"
                 fields: 
-                  - { label: "Label", name: "buttonLabel", widget: "string" }
-                  - { label: "Internal Link", name: "buttonInnerLink", widget: "string" }
-                  - { label: "External Link", name: "buttonOuterLink", widget: "string" }
+                  - { label: "Label", name: "buttonLabel", widget: "string", required: false  }
+                  - { label: "Internal Link", name: "buttonInnerLink", widget: "string", required: false  }
+                  - { label: "External Link", name: "buttonOuterLink", widget: "string", required: false  }
 
   # Posts
   - name: "posts" # Used in routes, e.g., /admin/collections/blog
@@ -51,11 +54,12 @@ collections:
     path: "{{slug}}/index"
     # media_folder: ""
     # public_folder: ""
-    create: true # Allow users to create new documents in this collection
+    create: true
     slug: "{{slug}}"
     extension: "mdx"
     format: frontmatter
-    fields: # The fields for each document, usually in front matter
+    fields:
+      - { label: "Template Key", name: "templateKey", widget: "hidden", default: "blog-post" }
       - { label: "Title", name: "title", widget: "string" }
       - {
           label: "Date",

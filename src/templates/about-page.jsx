@@ -2,17 +2,17 @@ import React from 'react'
 import {graphql, StaticQuery} from 'gatsby'
 
 // Components
-import Layout from '../../components/Layout'
-import SEO from '../../components/SEO'
+import Layout from '../components/Layout'
+import SEO from '../components/SEO'
 
 // import WrapGameElement from '../components/Games/Reacteroids'
 // Styled components
-import * as S from '../../styles/home/styled'
+import * as S from '../styles/home/styled'
 // Images
-import quoteImage from '../../../static/assets/images/quote.jpg'
+import quoteImage from '../../static/assets/images/quote.jpg'
 
 /* Imported Data TODO: add this to NetlifyCMS as modules and pull in via GraphQL */
-import {skills, studies, technology} from '../../data'
+import {skills, studies, technology} from '../data'
 
 const AboutIndex = ({data, location}) => {
     const siteTitle = data.site.siteMetadata.title

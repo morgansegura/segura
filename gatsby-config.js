@@ -36,15 +36,8 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/content/authors`,
-        name: `authors`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: `${__dirname}/static/assets/images`,
-        name: `images`,
+        path: `${__dirname}/content/pages`,
+        name: `pagesmdx`,
       },
     },
     {
@@ -72,8 +65,8 @@ module.exports = {
       options: {
         extensions: ['.mdx', '.md'],
         defaultLayouts: {
-          posts: require.resolve('./src/templates/BlogPost/index.jsx'),
-          default: require.resolve('./src/templates/BlogPost/index.jsx'),
+          posts: require.resolve('./src/templates/blog-post.jsx'),
+          default: require.resolve('./src/templates/blog-post.jsx'),
         },
         // a workaround to solve mdx-remark plugin compat issue
         // https://github.com/gatsbyjs/gatsby/issues/15486

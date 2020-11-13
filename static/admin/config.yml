@@ -28,8 +28,8 @@ collections:
         label: "About"
         name: "about"
         fields:
-          - { label: "Template Key", name: "templateKey", widget: "hidden", default: "about-page" }
-          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Template Key", name: "templateKey", widget: "hidden", default: "about" }
+          - { label: "Title", name: "title", widget: "string", default: "About Page" }
           - label: "Hero"
             name: "hero"
             widget: "object"

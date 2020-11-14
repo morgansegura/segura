@@ -3,13 +3,13 @@ backend:
   repo: morgansegura/segura
   branch: develop
   site_domain: https://segura.llc/
-  commit_messages:
-    create: Create {{collection}} “{{slug}}”
-    update: Update {{collection}} “{{slug}}”
-    delete: Delete {{collection}} “{{slug}}”
-    uploadMedia: Upload “{{path}}”
-    deleteMedia: Delete “{{path}}”
-    openAuthoring: "{{message}}"
+  # commit_messages:
+  #   create: Create {{collection}} “{{slug}}”
+  #   update: Update {{collection}} “{{slug}}”
+  #   delete: Delete {{collection}} “{{slug}}”
+  #   uploadMedia: Upload “{{path}}”
+  #   deleteMedia: Delete “{{path}}”
+  #   openAuthoring: "{{message}}"
 
 publish_mode: editorial_workflow
 media_folder: "/static/assets/images"

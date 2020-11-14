@@ -72,7 +72,7 @@ module.exports = {
                 {
                   resolve: "gatsby-remark-related-posts",
                   options: {
-                    posts_dir: `${__dirname}/blog`,
+                    posts_dir: `${__dirname}/posts`,
                   },
                 },
                 {

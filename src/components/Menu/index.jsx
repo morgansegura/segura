@@ -12,7 +12,7 @@ const menu = [
     {
         title: '',
         label: 'Posts',
-        path: '/blog',
+        path: '/articles',
     },
     {
         title: '',

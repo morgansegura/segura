@@ -1,4 +1,5 @@
 ---
+templateKey: category-page
 title: Articles
 slug: articles
 thumbnail: content/assets/brick-wall.jpg

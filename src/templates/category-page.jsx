@@ -28,7 +28,7 @@ export const pageQuery = graphql`
     allMdx(
       limit: 1000
       sort: { fields: [fields___slug], order: DESC }
-      filter: { frontmatter: { category: { eq: $category } } }
+      filter: { frontmatter: { category: { eq: $category }, templateKey: {eq: "category-page"}}}
     ) {
       totalCount
       edges {

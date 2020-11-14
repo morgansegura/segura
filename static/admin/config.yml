@@ -50,7 +50,7 @@ collections:
   # Posts
   - name: "posts" # Used in routes, e.g., /admin/collections/blog
     label: "Posts" # Used in the UI
-    folder: "/content/blog/"
+    folder: "/content/posts/"
     path: "{{slug}}/index"
     create: true
     slug: "{{slug}}"
@@ -106,9 +106,14 @@ collections:
       - label: "Category"
         name: "category"
         widget: "relation"
-        required: true
+        required: false
+        multiple: true
         hint: >-
-          Upload an image to be displayed with the post        
+          Upload an image to be displayed with the post
+        collection: categories
+        valueField: slug
+        searchFields: ["title"]
+        displayFields: ["title"]              
       # Related Posts
       - widget: relation
         name: related_posts
@@ -117,7 +122,7 @@ collections:
         multiple: true
         hint: >-
           Other related posts
-        collection: post
+        collection: posts
         valueField: slug
         searchFields: ["title"]
         displayFields: ["title"]
@@ -138,7 +143,7 @@ collections:
       - label: "Featured Image"
         name: "thumbnail"
         widget: "image"
-        default: "/content/blog/{{slug}}"
+        default: "/content/posts/{{slug}}"
         required: false
         hint: >-
           Upload an image to be displayed with the post        
@@ -154,9 +159,14 @@ collections:
     label: Authors
     folder: content/authors
     create: true
-    slug: "{{slug}}"
+    slug: "/content/authors/{{slug}}"
     fields:
-    # Author Name
+      # Template Key
+      - label: "Template Key"
+        name: "templateKey"
+        widget: "hidden"
+        default: "author-page"    
+      # Author Name
       - widget: string
         name: title
         label: Name
@@ -171,26 +181,32 @@ collections:
         hint: >-
           The post URL (do not include folder or file extension)
       # Featured Image
-      - label: "Featured Image"
+      - label: "Author Image"
         name: "thumbnail"
         widget: "image"
-        default: "/content/blog/{{slug}}"
+        default: "/content/authors/{{slug}}"
         required: false
         hint: >-
-          Upload an image to be displayed with the post
+          Upload an image to be displayed as the author image
       # Featured Image          
       - widget: markdown
         name: body
         label: Content
         required: true
-        hint: Author bio
+        hint: >- 
+          Author bio
   # Categories
-  - name: category
+  - name: categories
     label: Categories
     folder: content/category
     create: true
-    slug: "/content/category/{{slug}}"
+    slug: "/content/categories/{{slug}}"
     fields:
+      # Template Key
+      - label: "Template Key"
+        name: "templateKey"
+        widget: "hidden"
+        default: "category-page"    
       # Category Name
       - widget: string
         name: title
@@ -209,7 +225,7 @@ collections:
       - label: "Category Image"
         name: "thumbnail"
         widget: "image"
-        default: "/content/category/{{slug}}"
+        default: "/content/categories/{{slug}}"
         required: false
         hint: >-
           Upload an image to be displayed with the post          

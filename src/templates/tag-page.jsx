@@ -47,7 +47,7 @@ export const pageQuery = graphql`
       }
     }
     allMdx(
-      filter: { frontmatter: { tags: { in: [$tag] } } }
+      filter: { frontmatter: { tags: { in: [$tag] }, templateKey: {eq: "category-page"} } }
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
       totalCount

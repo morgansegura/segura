@@ -15,7 +15,7 @@ export default ({data, location, pageContext}) => {
     const posts = data.allMdx.edges
     // const authors = data.allAuthorYaml.edges
 
-    // console.log(posts)
+    console.log(data)
     return (
         <Layout location={location.pathname} title={siteTitle}>
             <SEO
@@ -29,7 +29,6 @@ export default ({data, location, pageContext}) => {
                             Areas of expertise
                         </h3>
                     </S.Header>
-                    {console.log(posts)}
                     <div className="font-sans grid grid-cols-1 gap-4">
                         {!!posts && posts.map(({ node: { fields: { slug }, frontmatter: { author, category, date, excerpt, title, tags, thumbnail } } }, i) => (
                             <S.PostCard className="card shadow-lg relative rounded-md w-full p-4">
@@ -74,7 +73,7 @@ export const pageQuery = graphql`
                 author
             }
         }
-        allMdx(sort: {fields: [frontmatter___date], order: DESC }) {
+        allMdx(sort: {fields: [frontmatter___date], order: DESC }, filter: {frontmatter: {templateKey: {eq: "blog-post"}}}) {
             totalCount
             edges {
                 node {

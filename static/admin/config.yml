@@ -158,7 +158,7 @@ collections:
     label: Authors
     folder: content/authors
     create: true
-    slug: "content/authors/{{slug}}"
+    slug: "/{{slug}}/index.mdx"
     fields:
       # Template Key
       - label: "Template Key"
@@ -196,9 +196,9 @@ collections:
   # Categories
   - name: categories
     label: Categories
-    folder: content/category
+    folder: content/categories
     create: true
-    slug: "content/categories/{{slug}}"
+    slug: "/{{slug}}/index.mdx"
     fields:
       # Template Key
       - label: "Template Key"

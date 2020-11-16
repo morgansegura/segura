@@ -13,7 +13,6 @@ export default ({data, location, pageContext}) => {
 
     const tag = pageContext
     const posts = data.allMdx.edges
-    // const authors = data.allAuthorYaml.edges
 
     console.log(data)
     return (
@@ -99,23 +98,6 @@ export const pageQuery = graphql`
 
                 }
             }
-        }
-        # allAuthorYaml {
-        #             edges {
-        #             node {
-        #             bio
-        #       bioExcerpt
-        #       title
-        #       jobTitle
-        #       avatar {
-        #             childImageSharp {
-        #             fluid(maxWidth: 48) {
-        #             ...GatsbyImageSharpFluid
-        #           }
-        #         }
-        #       }
-        #     }
-        #   }    
-        # }     
+        }   
     }
 `

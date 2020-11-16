@@ -11,7 +11,7 @@ const menu = [
     },
     {
         title: '',
-        label: 'Posts',
+        label: 'Articles',
         path: '/articles',
     },
     {

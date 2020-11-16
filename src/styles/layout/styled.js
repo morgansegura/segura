@@ -12,7 +12,6 @@ const customMedia = generateMedia({
 export const Content = styled.div`
   position: relative; 
   height: 100%;
-
   ${customMedia.greaterThan('large')`
     border-left: 1rem solid transparent;
     &:before {

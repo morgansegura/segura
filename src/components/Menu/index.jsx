@@ -21,6 +21,16 @@ const menu = [
     },
     {
         title: '',
+        label: 'Case Studies',
+        path: '/case-studies',
+    },
+    {
+        title: '',
+        label: 'Build With Me',
+        path: '/build-with-me',
+    },
+    {
+        title: '',
         label: 'About',
         path: '/about',
     },

@@ -21,7 +21,6 @@ const Layout = props => {
 
     // useState Hook
     const [toggleNav, setToggleNav] = useState(false)
-    const [toggleMenu, setToggleMenu] = useState(false)
 
     // Toggle Theme Colors Mode
     const [theme, toggleTheme, componentMounted] = useDarkMode()
@@ -50,7 +49,7 @@ const Layout = props => {
                         ${toggleNav ? `translate-x-0` : `-translate-x-full lg:translate-x-0`}
                     `}/>
                 </div>
-                <S.Content className="content flex-1 h-full lg:pt-24 ml-0 lg:ml-48">
+                <S.Content className="content flex-1 lg:pt-24 ml-0 lg:ml-48">
                     {children}    
                     <S.Footer className="font-semibold text-sm font-headline py-4 flex items-center justify-end">
                         <div className="flex-1 flex justify-end mr-4">Morgan Segura | {new Date().getFullYear()}</div>            

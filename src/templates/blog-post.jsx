@@ -210,26 +210,13 @@ export const pageQuery = graphql`
                 tags
                 excerpt
                 subheading
-                thumbnail {
-                    childImageSharp {
-                        fluid(maxWidth: 680) {
-                            ...GatsbyImageSharpFluid
-                        }
-                    }
-                }
-            }
-        }
-        authorYaml {
-            bio
-            bioExcerpt
-            title
-            jobTitle
-            avatar {
-                childImageSharp {
-                    fluid(maxWidth: 200) {
-                        ...GatsbyImageSharpFluid
-                    }
-                }
+                # thumbnail {
+                #     childImageSharp {
+                #         fluid(maxWidth: 680) {
+                #             ...GatsbyImageSharpFluid
+                #         }
+                #     }
+                # }
             }
         }
     }

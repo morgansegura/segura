@@ -3,7 +3,7 @@ import { graphql } from 'gatsby'
 
 import Layout from '../../components/Layout'
 import SEO from '../../components/SEO'
-import { ButtonOutline } from '../../components/Button'
+import Button from '../../components/Button'
 
 // Material UI
 import Grid from '@material-ui/core/Grid';
@@ -11,7 +11,6 @@ import Grid from '@material-ui/core/Grid';
 // Styled components
 // import { Section, SectionInner, Sectiondiv, SectionTitle, SectionDescription, SectionContent, div } from '../../styles/layout/styled'
 import * as S from '../../styles/resume/styled'
-import { ButtonBlock } from '../../components/Button/styled'
 
 export default ({ data, location, pageContext }) => {
   const siteTitle = data.site.siteMetadata.title
@@ -209,9 +208,7 @@ export default ({ data, location, pageContext }) => {
 
             <Grid container spacing={3}>
               <Grid item xs={12}>
-                <ButtonBlock>
-                  <ButtonOutline>Download CV</ButtonOutline>
-                </ButtonBlock>
+                <Button>Download CV</Button>
               </Grid>
             </Grid>
           </div>

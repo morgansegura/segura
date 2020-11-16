@@ -364,6 +364,7 @@ module.exports = {
       '0': '0',
       full: '100%',
       screen: '100vh',
+      content: 'calc(100vh - 100px)',
     },
     minWidth: {
       '0': '0',

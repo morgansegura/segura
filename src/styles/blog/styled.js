@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 export const Body = styled.section`
+  height: 100%;
   background-color: ${({ theme }) => theme.bgBlock1};
 `
 export const Header = styled.header`

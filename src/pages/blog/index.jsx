@@ -87,13 +87,13 @@ export const pageQuery = graphql`
                         category
                         tags
                         excerpt
-                        thumbnail {
-                          childImageSharp {
-                            fluid(maxWidth: 800) {
-                              ...GatsbyImageSharpFluid
-                            }
-                          }
-                        }          
+                        # thumbnail {
+                        #   childImageSharp {
+                        #     fluid(maxWidth: 800) {
+                        #       ...GatsbyImageSharpFluid
+                        #     }
+                        #   }
+                        # }          
                     }
 
                 }

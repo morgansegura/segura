@@ -29,8 +29,15 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/content`,
-        name: `content`,
+        path: `${__dirname}/content/posts`,
+        name: `posts`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/content/categories`,
+        name: `categories`,
       },
     },
     {
@@ -72,7 +79,7 @@ module.exports = {
                 {
                   resolve: "gatsby-remark-related-posts",
                   options: {
-                    posts_dir: `${__dirname}/posts`,
+                    posts_dir: `${__dirname}/content/posts`,
                   },
                 },
                 {

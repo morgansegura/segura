@@ -50,7 +50,7 @@ collections:
   # Posts
   - name: "posts" # Used in routes, e.g., /admin/collections/blog
     label: "Posts" # Used in the UI
-    folder: "/content/posts/"
+    folder: "content/posts/"
     path: "{{slug}}/index"
     create: true
     slug: "{{slug}}"
@@ -143,7 +143,6 @@ collections:
       - label: "Featured Image"
         name: "thumbnail"
         widget: "image"
-        default: "/content/posts/{{slug}}"
         required: false
         hint: >-
           Upload an image to be displayed with the post        
@@ -159,7 +158,7 @@ collections:
     label: Authors
     folder: content/authors
     create: true
-    slug: "/content/authors/{{slug}}"
+    slug: "content/authors/{{slug}}"
     fields:
       # Template Key
       - label: "Template Key"
@@ -184,7 +183,6 @@ collections:
       - label: "Author Image"
         name: "thumbnail"
         widget: "image"
-        default: "/content/authors/{{slug}}"
         required: false
         hint: >-
           Upload an image to be displayed as the author image
@@ -200,7 +198,7 @@ collections:
     label: Categories
     folder: content/category
     create: true
-    slug: "/content/categories/{{slug}}"
+    slug: "content/categories/{{slug}}"
     fields:
       # Template Key
       - label: "Template Key"
@@ -225,7 +223,6 @@ collections:
       - label: "Category Image"
         name: "thumbnail"
         widget: "image"
-        default: "/content/categories/{{slug}}"
         required: false
         hint: >-
           Upload an image to be displayed with the post          

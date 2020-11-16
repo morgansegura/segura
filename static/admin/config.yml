@@ -21,7 +21,7 @@ collections:
   # Home Page
   - name: "pages"
     label: "Pages"
-    extension: "mdx"
+    extension: "md"
     format: frontmatter 
     files: 
       - file: "content/pages/about/index.mdx"

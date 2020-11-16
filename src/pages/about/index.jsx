@@ -30,8 +30,7 @@ const HomeIndex = ({data, location}) => {
                 altTitle={'altText'} 
                 body={'paragraph'}
                 buttonLabel={'Button Text'}
-                buttonURL={'Button URL'}
-            
+                buttonURL={'Button URL'}            
             />
             {/*
             <S.SkillsBlock className="p-10 lg:p-16">

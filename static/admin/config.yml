@@ -27,25 +27,62 @@ collections:
       - file: "content/pages/about/index.md"
         label: "About"
         name: "about"
+        # thumbnail, title, altTitle, body, buttonLabel, buttonURL
         fields:
-          - { label: "Template Key", name: "templateKey", widget: "hidden", default: "about-page" }
-          - { label: "Title", name: "title", widget: "string", default: "About Page" }
-          - label: "Hero"
-            name: "hero"
-            widget: "object"
+          - label: Template Key 
+            name: templateKey,
+            widget: hidden 
+            default: about-page
+          - label: Page Title 
+            name: title 
+            widget: string
+            hint: >-
+              The page title will be displayed in the browser title          
+          - label: Hero
+            name: hero
+            widget: object
             collapsed: true
             fields:          
-              - { label: "Hero Title", name: "heroTitle", widget: "string", required: false  }
-              - { label: "Hero Alt Text", name: "heroAltText", widget: "string", required: false  }
-              - { label: "Hero Image", name: "heroImage", widget: "image", required: false  }
-              - { label: "Hero Body", name: "heroBody", widget: "string", required: false  }
-              - label: "Hero Button"
-                name: "heroButton"
-                widget: "object"
+              - label: Hero Title
+                name: heroTitle
+                widget: string
+                required: false
+                hint: >-
+                  The title of the hero block section               
+              - label: Hero Alt Text
+                name: altText
+                widget: string
+                required: false
+                hint: >-
+                  This text will go above the title               
+              - label: Hero Image
+                name: image
+                widget: image
+                required: false
+                hint: >-
+                  Image to be displayed in the hero block               
+              - label: Hero Body
+                name: body
+                widget: markdown
+                required: false
+                hint: >-
+                  The body of the hero block section                
+              - label: Hero Button
+                name: heroButton
+                widget: object
                 fields: 
-                  - { label: "Label", name: "buttonLabel", widget: "string", required: false  }
-                  - { label: "Internal Link", name: "buttonInnerLink", widget: "string", required: false  }
-                  - { label: "External Link", name: "buttonOuterLink", widget: "string", required: false  }
+                  - label: Button Text
+                    name: buttonLabel
+                    widget: string
+                    required: false
+                    hint: >-
+                      *If the button does not have a label button will not be shown                   
+                  - label: Button URL
+                    name: buttonURL
+                    widget: string
+                    required: false
+                    hint: >-
+                      The link can be internal or external                    
 
   # Posts
   - name: "posts" # Used in routes, e.g., /admin/collections/blog

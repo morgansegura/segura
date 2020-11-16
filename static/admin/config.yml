@@ -24,7 +24,7 @@ collections:
     extension: "md"
     format: frontmatter 
     files: 
-      - file: "content/pages/about/index.mdx"
+      - file: "content/pages/about/index.md"
         label: "About"
         name: "about"
         fields:
@@ -54,7 +54,7 @@ collections:
     path: "{{slug}}/index"
     create: true
     slug: "{{slug}}"
-    extension: "mdx"
+    extension: "md"
     format: frontmatter
     fields:
       # Template Key

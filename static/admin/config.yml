@@ -12,93 +12,92 @@ backend:
   #   openAuthoring: "{{message}}"
 
 publish_mode: editorial_workflow
-media_folder: "/static/assets/images"
-public_folder: "content/assets/"
+media_folder: '/static/assets/images'
+public_folder: 'content/assets/'
 show_preview_links: true
 public_folder_relative: true
 
 collections:
   # Home Page
-  - name: "pages"
-    label: "Pages"
-    extension: "md"
-    format: frontmatter 
-    files: 
-      - file: "content/pages/about/index.md"
-        label: "About"
-        name: "about"
+  - name: 'pages'
+    label: 'Pages'
+    extension: 'md'
+    format: frontmatter
+    files:
+      - file: 'content/pages/about/index.md'
+        label: 'About'
+        name: 'about'
         # thumbnail, title, altTitle, body, buttonLabel, buttonURL
         fields:
-          - label: Template Key 
+          - label: Template Key
             name: templateKey,
-            widget: hidden 
+            widget: hidden
             default: about-page
-          - label: Page Title 
-            name: title 
+          - label: Page Title
+            name: title
             widget: string
             hint: >-
-              The page title will be displayed in the browser title          
+              The page title will be displayed in the browser title
           - label: Hero
             name: hero
             widget: object
             collapsed: true
-            fields:          
+            fields:
               - label: Hero Title
                 name: heroTitle
                 widget: string
                 required: false
                 hint: >-
-                  The title of the hero block section               
+                  The title of the hero block section
               - label: Hero Alt Text
                 name: altText
                 widget: string
                 required: false
                 hint: >-
-                  This text will go above the title               
+                  This text will go above the title
               - label: Hero Image
                 name: image
                 widget: image
                 required: false
                 hint: >-
-                  Image to be displayed in the hero block               
+                  Image to be displayed in the hero block
               - label: Hero Body
                 name: body
                 widget: markdown
                 required: false
                 hint: >-
-                  The body of the hero block section                
+                  The body of the hero block section
               - label: Hero Button
                 name: heroButton
                 widget: object
-                fields: 
+                fields:
                   - label: Button Text
                     name: buttonLabel
                     widget: string
                     required: false
                     hint: >-
-                      *If the button does not have a label button will not be shown                   
+                      *If the button does not have a label button will not be shown
                   - label: Button URL
                     name: buttonURL
                     widget: string
                     required: false
                     hint: >-
-                      The link can be internal or external                    
-
+                      The link can be internal or external
   # Posts
-  - name: "posts" # Used in routes, e.g., /admin/collections/blog
-    label: "Posts" # Used in the UI
-    folder: "content/posts/"
-    path: "{{slug}}/index"
+  - name: 'posts'
+    label: 'Posts' # Used in the UI
+    folder: 'content/posts/'
+    path: '{{slug}}/index'
     create: true
-    slug: "{{slug}}"
-    extension: "md"
+    slug: '{{slug}}'
+    extension: 'md'
     format: frontmatter
     fields:
       # Template Key
-      - label: "Template Key"
-        name: "templateKey"
-        widget: "hidden"
-        default: "blog-post"
+      - label: 'Template Key'
+        name: 'templateKey'
+        widget: 'hidden'
+        default: 'blog-post'
       # Title
       - widget: string
         name: title
@@ -117,7 +116,7 @@ collections:
       - widget: date
         name: date
         label: Date
-        format: "YYYY-MM-DD hh:mm:ss"
+        format: 'YYYY-MM-DD hh:mm:ss'
         required: true
         hint: >-
           The date the post is published
@@ -137,20 +136,20 @@ collections:
           The author of the post
         collection: author
         valueField: slug
-        searchFields: ["title"]
-        displayFields: ["title"]
+        searchFields: ['title']
+        displayFields: ['title']
       # Category
-      - label: "Category"
-        name: "category"
-        widget: "relation"
+      - label: 'Category'
+        name: 'category'
+        widget: 'relation'
         required: false
         multiple: true
         hint: >-
           Upload an image to be displayed with the post
         collection: categories
         valueField: slug
-        searchFields: ["title"]
-        displayFields: ["title"]              
+        searchFields: ['title']
+        displayFields: ['title']
       # Related Posts
       - widget: relation
         name: related_posts
@@ -161,8 +160,8 @@ collections:
           Other related posts
         collection: posts
         valueField: slug
-        searchFields: ["title"]
-        displayFields: ["title"]
+        searchFields: ['title']
+        displayFields: ['title']
       # Body
       - widget: markdown
         name: body
@@ -170,23 +169,23 @@ collections:
         required: true
         hint: Page content
       # Tags
-      - label: "Tags"
-        name: "Tags"
-        widget: "list"
+      - label: 'Tags'
+        name: 'Tags'
+        widget: 'list'
         required: false
         hint: >-
-          Create tags for this post (Comma separated)       
+          Create tags for this post (Comma separated)
       # Featured Image
-      - label: "Featured Image"
-        name: "thumbnail"
-        widget: "image"
+      - label: 'Featured Image'
+        name: 'thumbnail'
+        widget: 'image'
         required: false
         hint: >-
-          Upload an image to be displayed with the post        
+          Upload an image to be displayed with the post
       # Excerpt
-      - label: "Excerpt"
-        name: "excerpt"
-        widget: "text"
+      - label: 'Excerpt'
+        name: 'excerpt'
+        widget: 'text'
         required: false
         hint: >-
           A "cliff's Notes" version of this post
@@ -195,13 +194,13 @@ collections:
     label: Authors
     folder: content/authors
     create: true
-    slug: "{{slug}}"
+    slug: '{{slug}}'
     fields:
       # Template Key
-      - label: "Template Key"
-        name: "templateKey"
-        widget: "hidden"
-        default: "author-page"    
+      - label: 'Template Key'
+        name: 'templateKey'
+        widget: 'hidden'
+        default: 'author-page'
       # Author Name
       - widget: string
         name: title
@@ -217,31 +216,31 @@ collections:
         hint: >-
           The post URL (do not include folder or file extension)
       # Featured Image
-      - label: "Author Image"
-        name: "thumbnail"
-        widget: "image"
+      - label: 'Author Image'
+        name: 'thumbnail'
+        widget: 'image'
         required: false
         hint: >-
           Upload an image to be displayed as the author image
-      # Featured Image          
+      # Featured Image
       - widget: markdown
         name: body
         label: Content
         required: true
-        hint: >- 
+        hint: >-
           Author bio
   # Categories
   - name: categories
     label: Categories
     folder: content/categories
     create: true
-    slug: "{{slug}}"
+    slug: '{{slug}}'
     fields:
       # Template Key
-      - label: "Template Key"
-        name: "templateKey"
-        widget: "hidden"
-        default: "category-page"    
+      - label: 'Template Key'
+        name: 'templateKey'
+        widget: 'hidden'
+        default: 'category-page'
       # Category Name
       - widget: string
         name: title
@@ -257,12 +256,12 @@ collections:
         hint: >-
           The category URL (do not include folder or file extension)
       # Featured Image
-      - label: "Category Image"
-        name: "thumbnail"
-        widget: "image"
+      - label: 'Category Image'
+        name: 'thumbnail'
+        widget: 'image'
         required: false
         hint: >-
-          Upload an image to be displayed with the post          
+          Upload an image to be displayed with the post
       # Category Description
       - widget: markdown
         name: body
